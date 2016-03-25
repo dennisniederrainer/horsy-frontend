@@ -1,0 +1,88 @@
+<div class="layered-navigation-wrapper">
+  <?php if ($this->getLayer()->getState()->getFilters()): ?>
+    <div class="selected-filter-wrapper clearfix" style="">
+      <?php echo $this->getStateHtml() ?>
+      <div class="button-wrapper" style="float:right;">
+        <a class="btn btn-transparent gray-light no-radius" href="<?php echo $this->getClearUrl() ?>">Alle Filter l&ouml;schen<?php //echo $this->__('Clear All') ?></a>
+      </div>
+    </div>
+  <?php endif; ?>
+
+  <?php if($this->canShowOptions()): ?>
+  <div class="available-filter-wrapper">
+    <!-- for schleife, 3 spalten -->
+    <?php $_filters = $this->getFilters() ?>
+
+    <?php $gridSize = 3; ?>
+    <?php $_collectionSize = count($_filters) - count($this->getLayer()->getState()->getFilters()); ?>
+
+    <?php $i=1; foreach ($_filters as $_filter): ?>
+    <?php if($_filter->getItemsCount()): ?>
+      <?php $firstInRow = ($i%$gridSize==1); ?>
+      <?php $lastInRow = ($i%$gridSize==0); ?>
+      <?php $lastInCollection = ($i==$_collectionSize); $i++ ?>
+      <?php // new row? ?>
+      <?php if($firstInRow): ?>
+        <div class="row full-width smaller-margins products-row">
+      <?php endif ?>
+          <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
+            <div class="btn filter-dropdown expand no-radius" href="#">
+              <?php echo $this->__($_filter->getName()) ?> <i class="fa fa-angle-down"></i>
+              <div class="filter-dropdown-content"><?php echo $_filter->getHtml() ?></div>
+            </div>
+          </div>
+      <?php // close row? ?>
+      <?php if ($lastInRow || $lastInCollection): ?>
+        </div>
+      <?php endif ?>
+
+    <?php endif; ?>
+    <?php endforeach; ?>
+
+  </div>
+  <?php endif; ?>
+
+</div>
+
+<script>
+  $j(window).load(function() {
+    $j("div.btn.filter-dropdown").click(function(e) {
+      $j(this).children('div.filter-dropdown-content').toggle();
+    });
+  });
+</script>
+
+
+<?php
+/*
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+
+<?php if($this->canShowBlock()): ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shop By') ?></span></strong>
+    </div>
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if ($this->getLayer()->getState()->getFilters()): ?>
+            <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+        <?php endif; ?>
+        <?php if($this->canShowOptions()): ?>
+            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+            <dl id="narrow-by-list">
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if($_filter->getItemsCount()): ?>
+                    <dt><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd><?php echo $_filter->getHtml() ?></dd>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>
+*/ ?>

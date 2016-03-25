@@ -1,0 +1,172 @@
+<div class="account-login">
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
+  <?php echo $this->getChildHtml('customer.form.login.extra')?>
+
+  <div class="row full-width small-margins">
+    <div class="columns small-12 medium-6">
+      <div class="box">
+        <h2 class="title">Ich bin bereits Horsebrands-Kunde <i class="fa fa-lock"></i></h2>
+        <div class="content clearfix">
+          <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+              <?php echo $this->getBlockHtml('formkey'); ?>
+          <table class="unstyled">
+            <colgroup>
+              <col width="15%"/>
+              <col width="85%"/>
+            </colgroup>
+            <tbody>
+              <tr>
+                <td class="text-left">
+                  <label>E-Mail</label>
+                </td>
+                <td>
+                  <input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label>Passwort</label>
+                </td>
+                <td>
+                  <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Password')) ?>" />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <a href="#login" class="btn large orange right" onclick="$j('#login-form').submit();return false;">Einloggen ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <?php echo $this->getChildHtml('form.additional.info'); ?>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="columns small-12 medium-6">
+      <div class="box">
+        <h2 class="title">Ich bin Neukunde <i class="fa fa-lock"></i></h2>
+        <div class="content clearfix">
+          <table class="unstyled">
+            <colgroup>
+              <col width="15%"/>
+              <col width="85%"/>
+            </colgroup>
+            <tbody>
+              <tr>
+                <td class="text-left">
+                  <label>E-Mail<em>*</em></label>
+                </td>
+                <td>
+                  <input type="text" class="full-width" />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label>Passwort<em>*</em></label>
+                </td>
+                <td>
+                  <input type="text" class="full-width" />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label class="note">Passwort<em>*</em><span>(Wiederholen)</span></label>
+                </td>
+                <td class="align-base">
+                  <input type="text" class="full-width" />
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left small-spacing">
+                  &nbsp;
+                </td>
+                <td class="text-left small-spacing">
+                  <label class="checkbox full-width">
+                    <input type="checkbox" />
+                    Ja, ich stimme den AGB und den Datenschutzbestimmungen von Horsebrands sowie einer Bonitätsprüfung zu.<em>*</em>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  &nbsp;
+                </td>
+                <td class="text-left">
+                  <label class="checkbox full-width">
+                    <input type="checkbox" />
+                    Ja, ich m&ouml;chte &uuml;ber Trends, Aktionen, & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit m&ouml;glich.
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-bottom">
+                  <p class="note left">
+                    <em>*</em>Pflichtangaben
+                  </p>
+                </td>
+                <td>
+                  <a href="#signup" class="btn large orange right">Kostenlos registrieren ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+        <!-- <div class="col2-set">
+            <div class="col-1 new-users">
+                <div class="content">
+                    <h2><?php echo $this->__('New Customers') ?></h2>
+                    <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
+                </div>
+            </div> -->
+
+            <!-- <div class="col-2 registered-users">
+                <div class="content">
+                    <h2><?php echo $this->__('Registered Customers') ?></h2>
+                    <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
+                    <ul class="form-list">
+                        <li>
+                            <label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+                            <div class="input-box">
+                                <input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" />
+                            </div>
+                        </li> -->
+                        <!-- <li>
+                            <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Password')) ?>" />
+                            </div>
+                        </li> -->
+                        <!-- <?php echo $this->getChildHtml('form.additional.info'); ?>
+                    </ul>
+                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="col2-set">
+            <div class="col-1 new-users">
+                <div class="buttons-set">
+                    <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Create an Account')) ?>" class="button" onclick="window.location='<?php echo $this->getCreateAccountUrl() ?>';"><span><span><?php echo $this->__('Create an Account') ?></span></span></button>
+                </div>
+            </div>
+            <div class="col-2 registered-users">
+                <div class="buttons-set">
+                    <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left"><?php echo $this->__('Forgot Your Password?') ?></a>
+                    <button type="submit" class="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Login')) ?>" name="send" id="send2"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                </div>
+            </div>
+        </div> -->
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('login-form', true);
+    //]]>
+    </script>
+</div>

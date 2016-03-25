@@ -1,0 +1,8 @@
+<?php
+  try {
+    echo $this->getCssJsHtml();
+  } catch (Exception $e) {
+      // good catch.
+      // getCssJsHtml throws exception, when there are no elements attached to layout
+  }
+ ?>

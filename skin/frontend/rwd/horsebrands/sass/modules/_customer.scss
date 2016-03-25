@@ -1,0 +1,128 @@
+
+.login-container {
+  table{
+    tbody {
+      td {
+        @extend .text-left;
+        label {
+          margin: 0;
+        }
+        input {
+          width: 100%;
+          min-width: 170px;
+        }
+      }
+    }
+    tfoot {
+
+      td {
+        height: auto;
+
+        &.no-padding-bottom {
+          padding-bottom: 0;
+        }
+
+        a.signup {
+          white-space: nowrap;
+          padding-top: 10px;
+          font-size: rem-calc(10);
+          font-weight: $font-weight-light;
+        }
+      }
+    }
+  }
+}
+
+.my-account {
+  margin-top: 15px;
+
+  .page-title {
+    margin-bottom: 10px;
+
+    h1 {
+      font-size: rem-calc(12);
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: rem-calc(10);
+    font-weight: $font-weight-light;
+    line-height: 17px;
+
+    .hello {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .box {
+    color: $font-color-default;
+
+    h2.title {
+      font-size: rem-calc(12);
+
+      span.edit {
+        float: right;
+        font-size: rem-calc(10);
+        font-weight: $font-weight-light;
+        a, a:visited, a:hover, a:active {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .box-account .row {
+    margin-bottom: 0;
+  }
+
+  table {
+    td {
+      input {
+        @extend .full-width;
+      }
+    }
+  }
+}
+
+/* ## Customer Account Navigation ## */
+.block.block-account {
+  margin-top: 15px;
+  color: $font-color-default;
+
+  .block-title h1 {
+    font-size: rem-calc(12);
+    font-weight: $font-weight-bold;
+  }
+
+  .block-content {
+    ul {
+      @extend .unstyled;
+
+      width: 80%;
+      list-style: none;
+      border-top: 1px solid $font-color-default;
+
+      li {
+        padding-top: 10px;
+        padding-left: 10px;
+        font-size: rem-calc(10);
+        font-weight: $font-weight-light;
+
+        a, a:visited, a:hover, a:active {
+          text-decoration: none;
+          color: inherit;
+          strong {
+            font-weight: $font-weight-bold;
+          }
+        }
+
+        &:first-child {
+          padding-top: 15px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<div class="row smaller-margins">
+  <div class="columns small-12 medium-6 <?php echo ($this->isNewsletterEnabled() ? '' : 'end') ?>">
+    <div class="box">
+        <h2 class="title">
+          <?php echo $this->__('Benutzerdaten') ?>
+          <span class="edit"><a href="<?php echo $this->getUrl('customer/account/edit') ?>"><?php echo $this->__('Bearbeiten') ?></a></span>
+        </h2>
+      <div class="content">
+        <p>
+          <?php echo $this->escapeHtml($this->getCustomer()->getName()) ?><br />
+          <?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>
+          <!-- <a href="<?php //echo $this->getChangePasswordUrl() ?>"><?php //echo $this->__('Change Password') ?></a> -->
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <?php if( $this->isNewsletterEnabled() ): ?>
+  <div class="columns small-12 medium-6 <?php echo ($this->isNewsletterEnabled() ? '' : 'end') ?>">
+    <div class="box">
+        <h2 class="title">
+          <?php echo $this->__('Newsletter Einstellungen') ?>
+          <span class="edit"><a href="<?php echo $this->getUrl('newsletter/manage') ?>"><?php echo $this->__('Bearbeiten') ?></a></span>
+        </h2>
+      <div class="content">
+        <p>
+          <?php if( $this->getIsSubscribed() ): ?>
+              <?php echo $this->__("Anzeige der Newslettergruppe") ?>
+          <?php else: ?>
+              <?php echo $this->__('Momentan liegt uns keine Newsletter Anmeldung vor.') ?>
+          <?php endif; ?>
+        </p>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
+
+  <?php echo $this->getChildHtml('customer.account.dashboard.info.extra')?>
+</div>

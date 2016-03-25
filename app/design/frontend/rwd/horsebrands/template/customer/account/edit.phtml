@@ -1,0 +1,68 @@
+<div class="account-info">
+  <div class="row">
+    <div class="page-title columns small-12">
+        <h1><?php echo $this->__('Meine Benutzerdaten View') ?></h1>
+    </div>
+  </div>
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
+  <?php echo $this->getChildHtml('address') ?>
+
+  <div class="row">
+    <div class="columns small-12 medium-6">
+      <div class="box">
+        <h2 class="title">
+          <?php echo $this->__('E-Mail-Adresse') ?>
+          <span class="edit"><a href="<?php echo $this->getUrl('customer/account/edit') ?>"><?php echo $this->__('Bearbeiten') ?></a></span>
+        </h2>
+        <div class="content">
+          <p>
+            <?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns small-12 medium-6">
+      <div class="box">
+        <h2 class="title">
+          <?php echo $this->__('Password') ?>
+          <span class="edit"><a href="<?php echo $this->getChangePasswordUrl() ?>"><?php echo $this->__('Bearbeiten') ?></a></span>
+        </h2>
+        <div class="content">
+          <p>
+            Password.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $j(document).ready(function() {
+      $j('.edit a').click(function (e) {
+        e.preventDefault();
+        var id = $j(this).attr('id');
+        var href = $j(this).attr('href');
+
+        if(!id || !href) {
+          console.log('id: ' + id);
+          console.log('href: ' + href);
+          return;
+        }
+
+        id = $j(this).attr('id').replace('toggle-', '');
+        var boxElement = '.box.' + id;
+
+        $j.ajax(href, {
+          success: function(html) {
+            // console.log(html);
+            $j(boxElement + ' .content .edit').html(html);
+            $j(boxElement + ' .content .view').toggle();
+            $j(boxElement + ' .content .edit').toggle();
+          },
+          error: function() {
+            console.log('error');
+          }
+        });
+      });
+    });
+</script>

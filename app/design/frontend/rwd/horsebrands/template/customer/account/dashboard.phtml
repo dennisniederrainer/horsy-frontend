@@ -1,0 +1,37 @@
+<div class="dashboard">
+  <div class="row">
+    <div class="page-title columns small-12">
+        <h1><?php echo $this->__('Meine &Uuml;bersicht') ?></h1>
+    </div>
+  </div>
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <?php echo $this->getChildHtml('hello') ?>
+    <?php echo $this->getChildHtml('top') ?>
+    <div class="box-account box-info">
+      <?php echo $this->getChildHtml('sales.history') ?>
+      <?php /* Extensions placeholder */ ?>
+      <?php echo $this->getChildHtml('customer.account.dashboard.extra') ?>
+      <?php echo $this->getChildHtml('info') ?>
+    </div>
+    <?php echo $this->getChildHtml('address') ?>
+    <?php echo $this->getChildHtml('info1') ?>
+    <?php echo $this->getChildHtml('info2') ?>
+</div>
+<script type="text/javascript">
+    $j(document).ready(function() {
+      $j('.edit a').click(function (e) {
+        e.preventDefault();
+        var id = $j(this).attr('id');
+
+        if(!id) {
+          console.log('no id set.')
+          return;
+        }
+
+        id = $j(this).attr('id').replace('toggle-', '');
+        var boxElement = '.box.' + id;
+        $j(boxElement + ' .content .view').toggle();
+        $j(boxElement + ' .content .edit').toggle();
+      });
+    });
+</script>

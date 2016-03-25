@@ -1,0 +1,148 @@
+/**
+ * Theme Name: Pop Slide
+ * Version: 1.0.0
+ * Theme URL: http://sequencejs.com/themes/pop-slide/
+ *
+ * A colorful sliding theme for feature images, with highlighted pagination
+ * and drop-in titles.
+ *
+ * This theme is powered by Sequence.js - The
+ * responsive CSS animation framework for creating unique sliders,
+ * presentations, banners, and other step-based applications.
+ *
+ * Author: Ian Lunn
+ * Author URL: http://ianlunn.co.uk/
+ *
+ * Theme License: http://sequencejs.com/licenses/#free-theme
+ * Sequence.js Licenses: http://sequencejs.com/licenses/
+ *
+ * Copyright © 2015 Ian Lunn Design Limited unless otherwise stated.
+ */
+
+@import "compass/css3/transform";
+@import "partials/mixins";
+
+$sequenceWidth: 1280px;
+$canvasHeight: 417px;
+
+.seq {
+    // position: relative;
+    // height: $sequenceHeight;
+    width: 100%;
+    max-width: $sequenceWidth;
+    /* Hide anything that goes beyond the boundaries of the Sequence container */
+    overflow: hidden;
+    margin: 1em auto;
+    padding: 0;
+
+    // Reset
+    .seq-canvas, .seq-canvas > *,
+    .seq-pagination, .seq-pagination > * {
+      @extend .unstyled
+    }
+
+    .seq-canvas {
+      // position: absolute;
+      z-index: 1;
+      height: $canvasHeight;
+      width: 100%;
+      white-space: nowrap;
+      font-size: 0;
+    }
+
+    .seq-canvas > * {
+      overflow: hidden;
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      height: 100%;
+      white-space: normal;
+      font-size: 1rem;
+
+      // global image settings
+      background-size: cover;
+      background-position: 50% 50%;
+      @include translateZ(0);
+    }
+
+    .step1 {
+      // background-color: #279fe5;
+      background-image: url('../images/teaser/header1.jpg');
+      // background-repeat: no-repeat;
+    }
+    .step2 {
+      background-image: url('../images/teaser/header2.jpg');
+    }
+    .step3 {
+      background-image: url('../images/teaser/header3.jpg');
+    }
+
+    .content-position {
+      position: absolute;
+      z-index: 3;
+      width: 50%;
+      height: 50%;
+      display: flex;
+      align-items: center;
+      &.top-right {
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .content {
+      display: inline-block;
+      margin: 0 auto;
+      color: $white;
+
+      h1,
+      p,
+      .btn-container {
+        margin: 0;
+        display: block;
+        font-size: 1.6em;
+        line-height: 1.4;
+        letter-spacing: 1.5px;
+      }
+
+      h1 {
+        font-weight: 400;
+      }
+
+      .btn-container {
+        text-align: right;
+        width: 100%;
+      }
+    }
+
+    .seq-pagination {
+      @include clearfix;
+      width: 100%;
+      li {
+        float: left;
+        background-color: $gray-lighter-3;
+        font-size: rem-calc(12);
+        font-weight: $font-weight-light;
+        padding: $padding-height-medium;
+        text-align: center;
+
+        border-right: 1px solid $white;
+        &:nth-last-child {
+          border-right: none;
+        }
+
+        @for $i from 1 through 6 {
+          &:first-child:nth-last-child(#{$i}),
+          &:first-child:nth-last-child(#{$i}) ~ li {
+            width: calc(100% / #{$i});
+          }
+        }
+
+        a {
+          color: $gray-base;
+          text-decoration: none;
+        }
+      }
+    }
+}

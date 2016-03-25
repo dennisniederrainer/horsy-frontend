@@ -1,0 +1,88 @@
+$spacing-bottom: 20px;
+
+.product-view {
+  div.row {
+    margin-bottom: $spacing-bottom;
+
+    &.no-margin {
+      margin-bottom: 0;
+    }
+    &.double-margin {
+      margin-bottom: calc(#{$spacing-bottom} * 2);
+    }
+
+    h1 {
+      font-size: rem-calc(22);
+      margin: 0;
+
+      span {
+        color: $gray-lighter-2;
+
+        &.note {
+          font-size: .5em;
+        }
+      }
+    }
+  }
+
+  .product-essential-left {
+    margin-top: 30px; // brandbar (on the right) + bottom margin
+  }
+
+  label {
+    em {
+      color: $orange-base;
+    }
+  }
+  p.required {
+    font-size: $font-size-small;
+    color: $orange-base;
+    margin-top: 0;
+  }
+
+  .btn {
+    margin-bottom: .3rem;
+  }
+
+  .review-stars {
+    color: $orange-base;
+  }
+
+  .delivery-time-wrapper {
+    font-size: rem-calc(12);
+    // straussberg philipp
+  }
+
+  li.promotion-element {
+    font-size: rem-calc(12);
+    background-color: $gray-lighter-3;
+    padding: .75rem 2rem;
+    margin-bottom: 2px;
+    text-align: center;
+  }
+
+  section {
+    @extend section;
+    h5.section-title {
+      margin-top: 0;
+      font-weight: $font-weight-light;
+      font-size: $font-size-smaller;
+    }
+    p {
+      font-size: $font-size-smaller;
+      font-weight: $font-weight-light;
+      line-height: 1.4;
+
+      strong {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+.thin-weight {
+  font-weight: $font-weight-light;
+}
+.normal-weight {
+  font-weight: $font-weight-base;
+}

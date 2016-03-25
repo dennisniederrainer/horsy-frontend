@@ -1,0 +1,79 @@
+.container-fluid {
+	width: 96%;
+	margin-left: auto;
+	margin-right: auto;
+
+  @include clearfix;
+}
+
+.container {
+	width: $grid-width;
+	max-width: $grid-width;
+	margin-left: auto;
+	margin-right: auto;
+
+  @include clearfix;
+}
+
+// get rid of the outter padding
+.row {
+	@extend .smaller-margins;
+
+	margin-bottom: 1rem;
+
+	.row.full-width {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	&.full-width {
+		// .columns:first-child {
+		// 	padding-left: 0;
+		// }
+		// .columns:last-child {
+		// 	padding-right: 0;
+		// }
+		.columns.medium-start,
+		.columns.small-start,
+		.columns.large-start {
+			// padding-left: 0;
+		}
+		.columns.medium-end,
+		.columns.small-end,
+		.columns.large-end {
+			// padding-right: 0;
+		}
+	}
+
+	// &.smaller-margins {
+	// 	.columns {
+	// 			padding-left: calc(#{$grid-padding-columns-horizontal} / 2);
+	// 			padding-right: calc(#{$grid-padding-columns-horizontal} / 2);
+	// 	}
+	// }
+}
+
+.smaller-margins {
+	.columns {
+			padding-left: calc(#{$grid-padding-columns-horizontal} / 2);
+			padding-right: calc(#{$grid-padding-columns-horizontal} / 2);
+	}
+}
+
+#main {
+  .col2-left-layout {
+    .col-left {
+      float: left;
+      &.medium {
+        width: 20%;
+      }
+    }
+    .col-main {
+      float: left;
+			padding: 0;
+
+			&.medium{
+				width: 80%;
+			}
+    }
+  }
+}

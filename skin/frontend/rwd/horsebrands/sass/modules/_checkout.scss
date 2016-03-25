@@ -1,0 +1,98 @@
+
+// ## Progress Bar ##
+.opc-block-progress {
+  margin-bottom: 48px;
+
+  ul {
+    font-size: $font-size-smaller;
+    font-weight: $font-weight-light;
+    text-align: center;
+
+    li {
+      background-color: $gray-lighter-3;
+      padding: .5em 0;
+
+      &.active {
+        background-color: $gray-lighter-2;
+      }
+      &.step-login {
+        color: #00823c;
+      }
+    }
+  }
+}
+
+// ## Login ##
+#checkoutSteps {
+  .box {
+    h2.title { color: $font-color-default; }
+  }
+  table {
+    margin-top: 20px;
+    tr {
+      td {
+        padding-top: 0;
+        padding-bottom: 15px;
+
+        &.small-spacing {
+          padding-bottom: 5px;
+        }
+      }
+      &.input-block {
+        td {
+          padding-top: 10px
+        }
+      }
+    }
+  }
+
+  label {
+    font-size: rem-calc(16);
+    font-weight: $font-weight-light;
+
+    &.note {
+      line-height: 1.2;
+      span {
+        display: block;
+        font-size: $font-size-small;
+      }
+    }
+
+    &.checkbox {
+      @include clearfix;
+      font-size: $font-size-small;
+      display: block;
+      position: relative;
+      padding-left: 15px;
+      line-height: 1.2;
+
+      input {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  input[type="text"], input[type="password"] {
+    @extend .full-width;
+  }
+
+  p.note {
+    margin: 0;
+  }
+}
+
+#checkout-step-billing {
+  .row {
+    position: relative;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 1rem;
+  }
+}

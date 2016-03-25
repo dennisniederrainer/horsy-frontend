@@ -1,0 +1,58 @@
+
+.clearfix {
+	@include clearfix;
+}
+
+.img-responsive {
+	max-width: 100%;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.unstyled {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+table.unstyled {
+	border: none;
+}
+
+.new-inner-row {
+	padding-left: 0 !important;
+}
+
+
+ul.check-items {
+	li:before {
+		content: "\2713"; // checkmark code
+		margin-right: .4em;
+		color: $orange-base;
+	}
+}
+
+img.scale {
+	display: block;
+	max-width: 100%;
+	height: auto !important;
+}
+
+.hide {
+		display: none;
+}
+
+td.align-middle {
+	vertical-align: middle !important;
+}
+td.align-base {
+	vertical-align: baseline !important;
+}
+td.align-bottom {
+	vertical-align: bottom !important;
+}

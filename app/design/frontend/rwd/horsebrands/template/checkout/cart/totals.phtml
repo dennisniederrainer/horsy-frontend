@@ -1,0 +1,44 @@
+<?php
+  $_totals = $this->getTotals();
+
+  $label = array(
+              'discount'=>'Rabatt',
+              'shipping'=>'Versand',
+              'subtotal'=>'Zwischensumme',
+              'grand_total'=>'Gesamtsumme',
+            );
+
+?>
+
+<?php foreach ($_totals as $total): ?>
+  <!-- <?php echo $total->getValue() ?> -->
+  <div class="<?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
+    <?php echo $label[$total->getCode()] ?>:
+    <span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?></span>
+    <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
+      <p class="note">inkl. MwSt.</p>
+    <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
+      <p class="note">exkl. MwSt.</p>
+    <?php endif; ?>
+  </div>
+<?php endforeach; ?>
+<!-- <div>Versand:<span class="totals-price"><?php //echo $this->helper('checkout')->formatPrice( $_totals['shipping']->getValue() ); ?></span></div>
+<div class="totals-strong clearfix">
+  Gesamtsumme:<span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $_totals['grand_total']->getValue() ); ?></span>
+  <?php if($this->helper('tax')->displayCartPriceInclTax()): ?>
+    <p class="note">inkl. MwSt.</p>
+  <?php elseif($this->helper('tax')->displayCartPriceExclTax()): ?>
+    <p class="note">exkl. MwSt.</p>
+  <?php endif; ?>
+</div> -->
+
+<!-- <table id="shopping-cart-totals-table">
+  <col />
+  <col width="1" />
+  <tfoot>
+      <?php //echo $this->renderTotals('footer'); ?>
+  </tfoot>
+  <tbody>
+      <?php //echo $this->renderTotals(); ?>
+  </tbody>
+</table> -->

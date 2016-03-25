@@ -1,0 +1,40 @@
+
+<div class="login-container">
+  <form id="minilogin" action="<?php echo $this->getPostActionUrl() ?>" method="post">
+    <?php echo $this->getBlockHtml('formkey'); ?>
+    <table class="unstyled">
+      <tbody>
+        <tr>
+          <td class="align-middle">
+            <label class="email"><?php echo $this->__('E-Mail'); ?></label>
+          </td>
+          <td>
+            <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="login[username]" class="input-text" />
+          </td>
+        </tr>
+        <tr>
+          <td class="align-middle">
+            <label class="email"><?php echo $this->__('Passwort'); ?></label>
+          </td>
+          <td>
+            <input type="password" name="login[password]" class="input-text" />
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td class="align-bottom no-padding-bottom">
+            <a class="btn orange small-height expand" href="#" onclick="$j('#minilogin').submit(); return false;"><?php echo $this->__('Einloggen'); ?></a>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="align-base">
+            <a href="#neuerkunde" class="signup"><?php echo $this->__('Neuer Kunde? Jetzt registrieren.'); ?></a>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>

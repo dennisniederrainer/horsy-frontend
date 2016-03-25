@@ -1,0 +1,23 @@
+
+label {
+  display: block;
+  margin: 0 0 rem-calc(6px);
+  font-weight: 400;
+
+  > * {
+    font-weight: 300;
+  }
+
+  select {
+    @include appearance(none);
+    border: 1px solid $gray-lighter-2;
+    border-radius: 0px;
+    height: 2.5rem;
+    background-color: $white;
+    text-indent: 1rem;
+
+    &:hover {
+      border: 1px solid $gray-base;
+    }
+  }
+}

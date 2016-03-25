@@ -1,0 +1,208 @@
+
+@import "../vendor/foundation/functions";
+
+$padding-store-select	: rem-calc(10);
+
+@mixin button-size($padding, $width-factor: 2) {
+	padding: $padding ($padding * $width-factor) ($padding + rem-calc(1)) ($padding * $width-factor);
+}
+
+$white	: #fff;
+$button-border-radius: 5px;
+
+// display: inline-block;
+// text-align: center;
+// line-height: 1;
+// cursor: pointer;
+// -webkit-appearance: none;
+// transition: background-color 0.25s ease-out, color 0.25s ease-out;
+// vertical-align: middle;
+// border: 1px solid transparent;
+// border-radius: 0;
+// padding: 0.85em 1em;
+// margin: 0 0 1rem 0;
+// font-size: 0.9rem;
+// background-color: #2199e8;
+// color: #fff;
+
+.btn {
+	display: inline-block;
+	text-align: center;
+	line-height: normal;
+	cursor: pointer;
+	vertical-align: middle;
+	border: 1px solid transparent;
+	border-radius: $button-border-radius;
+	text-decoration: inherit;
+	letter-spacing: normal;
+	word-spacing: normal;
+	font-size: $font-size-normal;
+	padding: $btn-padding-height-basic 1em;
+	color: $white;
+
+	&.small {
+		font-size: $font-size-smaller;
+		padding: $padding-height-small 2rem;
+	}
+
+	&.small-height {
+		padding-top: $padding-height-small;
+		padding-bottom: $padding-height-small;
+	}
+	&.small-font-size {
+		font-size: rem-calc(12);
+	}
+
+	&.large {
+		font-size: rem-calc(18);
+		font-weight: $font-weight-base;
+		padding: .65rem 2rem;
+	}
+
+	&.wide {
+		padding-left: 3em;
+		padding-right: 3em;
+	}
+
+	&.btn-transparent {
+		border: 1px solid;
+
+		&.white {
+			border-color: $white;
+		}
+		&.gray {
+			border-color: $teaser-title-color;
+			color: $teaser-title-color;
+
+			&:hover {
+				border-color: $black-base;
+				color: $black-base;
+			}
+		}
+
+		&.gray-light {
+			border-color: $gray-lighter-3;
+			color: $gray-lighter-3;
+
+			&:hover {
+				border-color: $gray-base;
+				color: $gray-base;
+			}
+		}
+	}
+
+	&.orange {
+		@include background-image(linear-gradient($orange-grad 0%, $orange-grad 50%, $orange-base 50%, $orange-base 100%));
+	}
+	&.gray-light {
+		@include background-image(linear-gradient(tint($gray-lighter-2, 20%) 0%, tint($gray-lighter-2, 20%) 50%, $gray-lighter-2 50%, $gray-lighter-2 100%));
+	}
+
+	&.filter-dropdown {
+		position: relative;
+		z-index: 5;
+		color: $font-color-default;
+		background: $gray-lighter-3;
+
+		.filter-dropdown-content {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			border-top: 1px solid $gray-lighter-2;
+			@include box-shadow(inset 0 0 10px $gray-lighter-2);
+
+			ul li {
+				background: $gray-lighter-3;
+				padding: $padding-height-small 0;
+
+				a, a:visited, a:focus, a:link {
+					color: $font-color-default;
+					text-decoration: none;
+
+					&:hover {
+						color: $orange-base;
+					}
+				}
+			}
+		}
+	}
+
+	&.continue-reading.vertical {
+		@extend .expand;
+
+		padding-bottom: 4px;
+		font-size: $font-size-smaller;
+		text-align: center;
+		color: $gray-lighter-2;
+		@include box-shadow(inset 0 -10px 30px -15px $gray-lighter-2);
+	}
+}
+
+.selected-filter-wrapper {
+	margin-bottom: .75rem;
+
+	a.btn.btn-transparent.gray-light {
+		position: relative;
+		border-width: 1px;
+		padding: 2px 2rem;
+		color: $gray-lighter-2;
+		font-size: $font-size-small;
+
+		i {
+			position: absolute;
+			right: 5%;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&:hover {
+			border-color: $gray-base;
+			color: $gray-base;
+		}
+	}
+}
+
+.expand {
+	display: block;
+	width: 100%;
+}
+
+.no-radius {
+	border-radius: 0;
+}
+
+.button {
+	display: inline-block;
+
+	color: $white;
+	text-align: center;
+}
+
+.store-select-button {
+	@extend .button;
+	// @include button-size($padding-store-select, 4);
+	height: 46px;
+	width: 151px;
+	line-height: 46px;
+	text-align: center;
+	font-size: rem-calc(18);
+	font-weight: $font-weight-light;
+	text-transform: uppercase;
+
+	&.shop-button{
+		background-color: $orange-base;
+		margin-right: .5rem;
+	}
+	&.deals-button{
+		background-color: $gray-lighter-3;
+		color: $black-base;
+		position: relative;
+
+		span.label {
+			position: absolute;
+			right: -25%;
+		}
+	}
+}

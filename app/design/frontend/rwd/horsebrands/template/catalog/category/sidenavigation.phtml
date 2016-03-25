@@ -1,0 +1,18 @@
+<div class="category sidenav">
+  <div class="nav">
+    <h2>Kategorien</h2>
+    <ul class="unstyled">
+      <?php foreach ($this->getCurrentChildCategories() as $subcat): ?>
+        <li class="level-1">
+          <a href=""><?php echo $subcat->getName(); ?></a>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+  <div class="seo-text">
+    <!-- <h2>Seo Text</h2>
+    <p> -->
+      <?php echo $this->getCurrentCategory()->getDescription(); ?>
+    <!-- </p> -->
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<?php
+/**
+ * Shopping cart template
+ *
+ * @var $this Mage_Checkout_Block_Cart
+ */
+?>
+
+<div id="shopping-cart-container">
+  <section class="cart-shop-wrapper">
+    <div class="title-container">
+      <h2>Dein Warenkorb <span class="cart-id">Shop</span></h2>
+      <p class="note">Artikel im Warenkorb werden nicht reserviert</p>
+      <!-- <i class="helper right fa fa-question-circle"></i> -->
+    </div>
+    <!-- Table Shop -->
+    <?php echo $this->getChildHtml('items'); ?>
+  </section>
+  <section class="cart-deals-wrapper">
+    <div class="title-container">
+      <h2>Dein Warenkorb <span class="cart-id">Deals</span></h2>
+      <p class="note">Artikel im Warenkorb werden nicht reserviert</p>
+      <!-- <i class="helper right fa fa-question-circle"></i> -->
+    </div>
+    <!-- Table Deals -->
+    <div>
+      Todo
+    </div>
+  </section>
+  <section class="cart-summary-wrapper">
+    <hr class="double-line" />
+    <!-- cart summary -->
+    <table class="cart-table unstyled">
+      <colgroup>
+        <col width="120px" />
+        <col width="500px" />
+        <col width="220px" />
+        <col width="120px" />
+      </colgroup>
+      <tfoot>
+        <tr>
+          <td class="footer-icon delivery-icon-double">
+            &nbsp;
+          </td>
+          <td class="text-left align-middle">
+            <span><strong>Voraussichtliche Lieferung:</strong></span>
+            <span><strong>1. Lieferung:</strong> Mittwoch, 02.09.2015 - Donerstag, 03.09.2015</span>
+            <span><strong>2. Lieferung:</strong> Mittwoch, 12.09.2015 - Donerstag, 17.09.2015</span>
+          </td>
+          <td class="text-right totals" colspan="2" rowspan="2">
+            <div class="totals-strong">
+              Endsumme:
+              <span class="totals-price">204,96 €</span>
+              <?php if($this->helper('tax')->displayCartPriceInclTax()): ?>
+                <p class="note">inkl. MwSt.</p>
+              <?php elseif($this->helper('tax')->displayCartPriceExclTax()): ?>
+                <p class="note">exkl. MwSt.</p>
+              <?php endif; ?>
+            </div>
+            <div style="margin-top: 16px">
+              <a class="btn orange wide" href="<?php echo $this->getCheckoutUrl() ?>">Zur Kasse ></a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="footer-icon coupon-icon">
+            &nbsp;
+          </td>
+          <td class="text-left align-middle">
+            <span><strong>Gutscheincodes k&ouml;nnen im Bestellschritt "Best&auml;tigen" eingel&ouml;st werden.</strong></span>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+</div>

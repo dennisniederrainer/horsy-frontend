@@ -1,0 +1,49 @@
+$grid-width: 960px;
+$grid-padding-columns-horizontal: .9375rem;
+
+$font-color-default: #6e6e6e;
+
+$orange-base:	#f7aa4e;
+$orange-grad:	#f6b45e;
+
+$gray-base: 		#706f6f;
+$gray-lighter-1: 	#797979;
+$gray-lighter-2: 	#c5c6c6;
+$gray-lighter-3:	#f5f5f5;
+
+$teaser-btn-background: $gray-lighter-3;
+$teaser-btn-background-hover: #e2e3e3;
+$teaser-title-color: #6e6e6e;
+
+$navbar-border-color: $gray-lighter-2;
+$footer-bg-color: $gray-lighter-3;
+
+$black-base: 	#1d1d1d;
+
+$white: #fff;
+
+$btn-default-color: #fff;
+$btn-padding-height-basic: .85em;
+$btn-font-size-large: 1.5rem;
+
+// $font-size-normal: 1rem;
+// $font-size-smaller: .9rem;
+// $font-size-small: .8rem;
+$font-size-normal: rem-calc(14);
+$font-size-smaller: rem-calc(12);
+$font-size-small: rem-calc(10);
+$padding-height-medium: .85rem;
+$padding-height-small: .3rem;
+
+$menu-padding-height: .7rem;
+$title-padding-bottom: .35rem;
+
+$section-margin-bottom: rem-calc(36);
+
+// BOXES
+$box-title-color: #9c9c9c;
+$box-padding: rem-calc(8px);
+$box-content-font-size: rem-calc(13);
+
+// TABLES
+$table-border-color-default: $gray-lighter-3;

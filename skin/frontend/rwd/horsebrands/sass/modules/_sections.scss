@@ -1,0 +1,13 @@
+
+section {
+  margin-bottom: $section-margin-bottom;
+  h5.section-title {
+    width: 100%;
+    font-size: $font-size-normal;
+    font-weight: normal;
+
+    border-bottom: 1px solid $gray-lighter-2;
+    margin-bottom: 1rem;
+    padding-bottom: $title-padding-bottom;
+  }
+}

@@ -1,0 +1,37 @@
+<table class="cart-table">
+  <colgroup>
+    <col width="120px" />
+    <col width="400px" />
+    <col width="200px" />
+    <col width="120px" />
+    <col width="120px" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2" class="text-left-indent">Artikel</th>
+      <th>&nbsp;</th>
+      <th>Menge</th>
+      <th>Preis</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td class="footer-icon delivery-icon">
+        &nbsp;
+      </td>
+      <td class="text-left">
+        <span><strong>Voraussichtliche Lieferung:</strong></span>
+        <span>Mittwoch, 02.09.2015 - Donerstag, 03.09.2015</span>
+        <span>Bei Vorkasse 2-4 Werktage nach Zahlungseingang.</span>
+      </td>
+      <td class="text-right totals" colspan="3">
+        <?php echo $this->getChildHtml('totals'); ?>
+      </td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <?php foreach($this->getItems() as $_item): ?>
+        <?php echo $this->getItemHtml($_item) ?>
+    <?php endforeach ?>
+  </tbody>
+</table>

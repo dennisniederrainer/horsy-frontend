@@ -1,0 +1,127 @@
+$customer-nav-list-p-margin-top: 5px;
+$customer-icons-font-size: 1.5rem;
+
+.top-header {
+	height: 110px;
+	display: flex;
+	.top-header-element {
+		width: 40%;
+
+		&.brand {
+			width: 20%;
+			align-self: center;
+			text-align: center;
+
+			& > img {
+				max-width: 180px;
+				width: 145px;
+				height: 58px;
+			}
+		}
+		&.customer-nav {
+			align-self: flex-start;
+
+			.customer-nav-container {
+				float: right;
+
+				ul.customer-nav-list {
+					list-style-type: none;
+					padding: 0;
+					margin: 15px 0 0 0;
+					// overflow: hidden;
+
+					li {
+						display: inline-block;
+						position: relative;
+						text-align: center;
+						padding: 5px 20px;
+						// transition: border, box-shadow;
+
+						i {
+							font-size: $customer-icons-font-size;
+						}
+						p {
+							font-size: rem-calc(13);
+							margin: 0;
+						}
+
+						.dropdown-content {
+							display: none;
+							position: absolute;
+							top: 100%;
+							right: 0;
+							z-index: 5;
+							padding: 10px 20px;
+							background-color: rgba($white, .8);
+							border: 1px solid $gray-lighter-2;
+							@include box-shadow(2px 0 1px -2px $gray-lighter-1);
+						}
+
+						&:hover {
+							padding: 4px 19px 0;
+							border: 1px solid $gray-lighter-2;
+							border-bottom: none;
+							@include box-shadow(2px 0 1px -2px $gray-lighter-1);
+
+							.dropdown-content {
+								display: block;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.navbar {
+	border: 1px $navbar-border-color solid;
+	border-left: 0;
+	border-right: 0;
+	position: relative;
+	font-size: $font-size-normal;
+
+	.menu {
+		width: 70%;
+		float: left;
+	}
+	.global-search {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 30%;
+
+		.input-group {
+			height: 100%;
+
+			& > * {
+				height: 100%;
+			}
+
+			.input-group-field, .input-group-button input {
+				// padding: 0;
+				border: 0;
+				background-color: $gray-lighter-3;
+			}
+			.input-group-field{
+
+			}
+			.input-group-button {
+				// font-size: $font-size-normal;
+				background-color: $gray-lighter-2;
+				color: $gray-base;
+				text-align: center;
+				min-width: 45px;
+			}
+		}
+
+		.global-search-field {
+			display: inline-block;
+
+		}
+		.global-search-button {
+			display: inline-block;
+		}
+	}
+}

@@ -1,0 +1,132 @@
+<div class="row full-width small-margins">
+  <div class="columns small-12 medium-6">
+    <div class="box">
+      <h2 class="title">Ich bin bereits Horsebrands-Kunde <i class="fa fa-lock"></i></h2>
+      <div class="content clearfix">
+        <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post">
+          <?php echo $this->getBlockHtml('formkey'); ?>
+        <table class="unstyled">
+          <colgroup>
+            <col width="15%"/>
+            <col width="85%"/>
+          </colgroup>
+          <tbody>
+            <tr>
+              <td class="text-left">
+                <label>E-Mail</label>
+              </td>
+              <td>
+                <input type="text" class="full-width input-text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" />
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <label>Passwort</label>
+              </td>
+              <td>
+                <input type="password" class="full-width input-text required-entry" id="login-password" name="login[password]" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <a href="#login" class="btn large orange right" onclick="onepageLogin(this);return false;">Einloggen ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <?php echo $this->getChildHtml('form.additional.info'); ?>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="columns small-12 medium-6">
+    <div class="box">
+      <h2 class="title">Ich bin Neukunde <i class="fa fa-lock"></i></h2>
+      <div class="content clearfix">
+        <table class="unstyled">
+          <colgroup>
+            <col width="15%"/>
+            <col width="85%"/>
+          </colgroup>
+          <tbody>
+            <tr>
+              <td class="text-left">
+                <label>E-Mail<em>*</em></label>
+              </td>
+              <td>
+                <input type="text" class="full-width" />
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <label>Passwort<em>*</em></label>
+              </td>
+              <td>
+                <input type="text" class="full-width" />
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <label class="note">Passwort<em>*</em><span>(Wiederholen)</span></label>
+              </td>
+              <td class="align-base">
+                <input type="text" class="full-width" />
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left small-spacing">
+                &nbsp;
+              </td>
+              <td class="text-left small-spacing">
+                <label class="checkbox full-width">
+                  <input type="checkbox" />
+                  Ja, ich stimme den AGB und den Datenschutzbestimmungen von Horsebrands sowie einer Bonitätsprüfung zu.<em>*</em>
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                &nbsp;
+              </td>
+              <td class="text-left">
+                <label class="checkbox full-width">
+                  <input type="checkbox" />
+                  Ja, ich m&ouml;chte &uuml;ber Trends, Aktionen, & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit m&ouml;glich.
+                </label>
+              </td>
+            </tr>
+            <tr>
+              <td class="align-bottom">
+                <p class="note left">
+                  <em>*</em>Pflichtangaben
+                </p>
+              </td>
+              <td>
+                <a href="#signup" class="btn large orange right">Kostenlos registrieren ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var loginForm = new VarienForm('login-form', true);
+    $('login-email').observe('keypress', bindLoginPost);
+    $('login-password').observe('keypress', bindLoginPost);
+    function bindLoginPost(evt){
+        if (evt.keyCode == Event.KEY_RETURN) {
+            loginForm.submit();
+        }
+    }
+    function onepageLogin(element)
+    {
+      if(loginForm.validator && loginForm.validator.validate()){
+          // button.disabled = true;
+          loginForm.submit();
+      }
+    }
+//]]>
+</script>

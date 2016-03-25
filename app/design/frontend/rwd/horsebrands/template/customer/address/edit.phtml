@@ -1,0 +1,77 @@
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
+    <?php echo $this->getBlockHtml('formkey')?>
+    <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
+    <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
+
+    <table class="unstyled">
+      <colgroup>
+        <col width="20%"/>
+        <col width="80%"/>
+      </colgroup>
+      <tbody>
+        <?php echo $this->getNameBlockHtml() ?>
+        <tr class="input-block">
+          <td class="text-left">
+            <label>Straße<em>*</em></label>
+          </td>
+          <td>
+            <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
+            <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address')) ?>" id="street_1" class="input-text <?php echo $_streetValidationClass ?>" />
+            <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+              <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Street Address %s', $_i)) ?>" id="street_<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?>" />
+            <?php endfor; ?>
+          </td>
+        </tr>
+        <tr class="input-block">
+          <td class="text-left">
+            <label>Postleitzahl<em>*</em></label>
+          </td>
+          <td>
+            <input type="text" name="postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Zip/Postal Code')) ?>" id="zip" class="input-text validate-zip-international <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">
+            <label>Ort<em>*</em></label>
+          </td>
+          <td>
+            <input type="text" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"  title="<?php echo Mage::helper('core')->quoteEscape($this->__('City')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left">
+            <label>Land<em>*</em></label>
+          </td>
+          <td>
+            <?php echo $this->getCountryHtmlSelect() ?>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left" colspan="2">
+            <!-- <input id="default_shipping_cb" type="checkbox" name="default_shipping_cb" onclick="$j('#default_shipping').val(this.checked)" style="float:left;">
+            <label for="default_shipping_cb"><?php echo $this->__('Als Lieferadresse &uuml;bernehmen'); ?></label> -->
+            <input type="checkbox" id="primary_billing" name="default_billing" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Billing Address')) ?>" class="checkbox" /><label for="primary_billing"><?php echo $this->__('Use as my default billing address') ?></label>
+            <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Use as My Default Shipping Address')) ?>" class="checkbox" /><label for="primary_shipping"><?php echo $this->__('Use as my default shipping address') ?></label>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left align-base note" colspan="2"><?php echo $this->__('* Pflichtangaben') ?></td>
+        </tr>
+        <tr class="input-block">
+          <td></td>
+          <td class="text-left align-base"><a class="btn orange wide small-height" onclick="$j('#form-validate').submit(); return false;">Speichern</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="hidden" name="telephone" value="<?php echo ($this->escapeHtml($this->getAddress()->getTelephone()) == '' ? '-' : $this->escapeHtml($this->getAddress()->getTelephone())) ?>" id="telephone" />
+    <!-- <input type="hidden" name="default_billing" value="1" />
+    <input type="hidden" id="default_shipping" name="default_shipping" value="0" /> -->
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    // new RegionUpdater('country', 'region', 'region_id', <?php //echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+//]]>
+</script>
