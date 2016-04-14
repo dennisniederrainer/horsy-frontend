@@ -1,0 +1,187 @@
+
+.welcome-msg {
+  margin-bottom: 15px;
+}
+
+.login-container {
+  table{
+    tbody {
+      td {
+        @extend .text-left;
+        label {
+          margin: 0;
+        }
+        input {
+          width: 100%;
+          min-width: 170px;
+        }
+      }
+    }
+    tfoot {
+
+      td {
+        height: auto;
+
+        &.no-padding-bottom {
+          padding-bottom: 0;
+        }
+
+        a.signup {
+          white-space: nowrap;
+          padding-top: 10px;
+          font-size: rem-calc(10);
+          font-weight: $font-weight-light;
+        }
+      }
+    }
+  }
+}
+
+.my-account {
+  .page-title {
+    margin-bottom: 25px;
+
+    h1 {
+      @include fs-medium;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  p {
+    margin: 0;
+    @include fs-normal;
+    font-weight: $font-weight-light;
+
+    .hello {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .box-account {
+    .box-head {
+      display: none;
+    }
+  }
+
+  form {
+    h2.legend {
+      display: none;
+    }
+  }
+
+  .box {
+    color: $font-color-default;
+
+    h2.title {
+      font-size: rem-calc(12);
+
+      span.edit {
+        float: right;
+        font-size: rem-calc(10);
+        font-weight: $font-weight-light;
+        a, a:visited, a:hover, a:active {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .box-account .row {
+    margin-bottom: 0;
+  }
+
+  table {
+    td {
+      input {
+        @extend .full-width;
+      }
+    }
+  }
+}
+
+/* ## Customer Account Navigation ## */
+.block.block-account {
+  color: $font-color-default;
+  margin-top: 13px;
+  padding-right: 30px;
+
+  .block-title {
+    font-size: $font-size-medium;
+    font-weight: $font-weight-bold;
+  }
+
+  .block-content {
+    ul {
+      @extend .unstyled;
+      list-style: none;
+      border-top: 1px solid $font-color-default;
+
+      li {
+        padding-top: 10px;
+        padding-left: 10px;
+        font-size: $font-size-smaller;
+        font-weight: $font-weight-light;
+
+        a {
+          @include same-link-style($font-color-default, $orange-base);
+          // strong {
+          //   font-weight: $font-weight-bold;
+          // }
+        }
+
+        &:first-child {
+          padding-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+.account-login {
+  .btn.medium {
+    min-width: 220px;
+  }
+}
+
+i.fa {
+  margin-left: 5px;
+}
+
+.orders-table {
+  margin-bottom: 15px;
+
+  a.view-order-link {
+    @include same-link-style($font-color-default, $orange-base);
+  }
+}
+
+.order-items.order-details {
+  margin-bottom: 20px;
+}
+
+#my-orders-table {
+  div.product-name {
+    margin-top: 10px;
+  }
+
+  td.totals-line {
+    text-align: right;
+    padding-right: 25px;
+  }
+
+  .totals-line {
+    text-align: right;
+
+    span.totals-price {
+      display: inline-block;
+      width: 120px;
+      padding-right: 25px;
+    }
+
+    p.note {
+      padding-right: 25px;
+      font-size: rem-calc(12);
+    }
+  }
+}

@@ -29,7 +29,6 @@
 @import 'modules/menu';
 @import 'modules/products';
 @import 'modules/checkout';
-@import 'modules/customer';
 
 /* LAYOUTS */
 
@@ -39,6 +38,11 @@
 @import 'layouts/footer';
 // @import 'layouts/sidebar'
 
+/* COMPONENTS */
+
+@import 'components/customer';
+@import 'components/homepage';
+
 /* VENDOR */
 
 @import 'vendor/sequencejs/sequence-theme.showcase';
@@ -46,5 +50,5 @@
 body {
 	font-family: $font-family-base;
 	font-weight: $font-weight-base;
-	color: $font-color-default;
+	color: #1d1d1d; //$font-color-default;
 }

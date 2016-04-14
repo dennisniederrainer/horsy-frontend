@@ -1,12 +1,21 @@
 <header>
+  <div class="fixed-top">
+    <div class="container">
+      <span>Kostenlose Hotline</span>
+      <span>service@horsebrands.de</span>
+      <span>14 Tage Rückgaberecht</span>
+      <span>Versandkostenfrei ab einem Bestellwert von 30€</span>
+    </div>
+  </div>
   <div class="top-header container clearfix">
     <div class="top-header-element top-header-left store-select">
-      <div class="store-select-button shop-button">Shop</div>
-      <div class="store-select-button deals-button">Deals<span class="label">&nbsp;</span></div>
+      <a href="<?php echo $this->getBaseUrl() ?>" class="store-button active">Shop</a>
+      <a href="<?php echo $this->getBaseUrl() ?>" class="store-button">Deals</a>
     </div>
     <div class="top-header-element top-header-center brand">
-      <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" class="img-responsive">
-      <?php //echo $this->getChildHtml('customer.login') ?>
+      <a href="<?php $this->getBaseUrl() ?>" class="logo-link">
+        <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" class="img-responsive">
+      </a>
     </div>
     <div class="top-header-element top-header-right customer-nav">
       <div class="customer-nav-container">
@@ -48,7 +57,7 @@
   </div>
   <div class="navbar container  clearfix">
     <ul class="menu">
-      <?php echo $this->getChildHtml('topMenu'); ?>
+      <?php //echo $this->getChildHtml('topMenu'); ?>
       <!-- <li><a href="#">Reiter</a></li>
       <li><a href="#">Pferd</a></li> -->
       <li><a href="#">Marken</a></li>

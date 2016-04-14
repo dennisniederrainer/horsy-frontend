@@ -1,18 +1,48 @@
 $customer-nav-list-p-margin-top: 5px;
 $customer-icons-font-size: 1.5rem;
 
+.fixed-top {
+	height: 50px;
+	line-height: 50px;
+	background-color: #1d1d1d;
+	color: #fff;
+	margin-bottom: 10px;
+
+	div.container {
+		span {
+			width: 24%;
+			display: inline-block;
+			font-weight: 100;
+			font-size: rem-calc(12);
+		}
+	}
+}
+
 .top-header {
-	height: 110px;
-	display: flex;
+	height: 100px;
+	position: relative;
+
 	.top-header-element {
-		width: 40%;
+		position: absolute;
+		bottom: 18px;
+
+		&.top-header-left {
+			left: 0;
+		}
+		&.top-header-center {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&.top-header-right {
+			right: 0;
+		}
 
 		&.brand {
-			width: 20%;
 			align-self: center;
 			text-align: center;
+			padding-bottom: 8px;
 
-			& > img {
+			a.logo-link img {
 				max-width: 180px;
 				width: 145px;
 				height: 58px;
@@ -34,7 +64,7 @@ $customer-icons-font-size: 1.5rem;
 						display: inline-block;
 						position: relative;
 						text-align: center;
-						padding: 5px 20px;
+						padding: 5px 20px 0;
 						// transition: border, box-shadow;
 
 						i {
@@ -101,6 +131,7 @@ $customer-icons-font-size: 1.5rem;
 
 			.input-group-field, .input-group-button input {
 				// padding: 0;
+				height: 36px;
 				border: 0;
 				background-color: $gray-lighter-3;
 			}

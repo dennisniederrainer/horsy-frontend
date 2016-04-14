@@ -1,11 +1,55 @@
 
+div.kv {
+  @include clearfix;
+  @include fs-normal;
+  font-weight: $font-weight-base;
+  margin-bottom: 10px;
+
+  div.key {
+    float: left;
+    width: 30%;
+  }
+  div.value {
+    float: left;
+    width: 70%;
+    padding-left: 3%;
+  }
+}
+
+p.required {
+  font-size: $font-size-small !important;
+}
+
+.buttons-set {
+  margin-top: 25px;
+  p.back-link {
+    float: left;
+    a {
+      @include same-link-style($font-color-default, $orange-base);
+    }
+  }
+  button {
+    float: right;
+    min-width: 220px;
+    @extend .btn;
+    @extend .btn.black;
+    @extend .btn.medium;
+  }
+}
+
 label {
   display: block;
   margin: 0 0 rem-calc(6px);
   font-weight: 400;
+  @include fs-normal;
 
   > * {
     font-weight: 300;
+  }
+
+  span {
+    display: block;
+    font-size: $font-size-smaller;
   }
 
   select {
@@ -20,4 +64,12 @@ label {
       border: 1px solid $gray-base;
     }
   }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
 }

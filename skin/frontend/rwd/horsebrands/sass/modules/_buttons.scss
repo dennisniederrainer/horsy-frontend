@@ -10,21 +10,6 @@ $padding-store-select	: rem-calc(10);
 $white	: #fff;
 $button-border-radius: 5px;
 
-// display: inline-block;
-// text-align: center;
-// line-height: 1;
-// cursor: pointer;
-// -webkit-appearance: none;
-// transition: background-color 0.25s ease-out, color 0.25s ease-out;
-// vertical-align: middle;
-// border: 1px solid transparent;
-// border-radius: 0;
-// padding: 0.85em 1em;
-// margin: 0 0 1rem 0;
-// font-size: 0.9rem;
-// background-color: #2199e8;
-// color: #fff;
-
 .btn {
 	display: inline-block;
 	text-align: center;
@@ -37,7 +22,8 @@ $button-border-radius: 5px;
 	letter-spacing: normal;
 	word-spacing: normal;
 	font-size: $font-size-normal;
-	padding: $btn-padding-height-basic 1em;
+	padding-left: 1em;
+	padding-right: 1em;
 	color: $white;
 
 	&.small {
@@ -51,6 +37,13 @@ $button-border-radius: 5px;
 	}
 	&.small-font-size {
 		font-size: rem-calc(12);
+	}
+
+
+	&.medium {
+		@include fs-normal;
+		line-height: 2.5em;
+		font-weight: $font-weight-base;
 	}
 
 	&.large {
@@ -96,6 +89,9 @@ $button-border-radius: 5px;
 	}
 	&.gray-light {
 		@include background-image(linear-gradient(tint($gray-lighter-2, 20%) 0%, tint($gray-lighter-2, 20%) 50%, $gray-lighter-2 50%, $gray-lighter-2 100%));
+	}
+	&.black {
+		@include background-image(linear-gradient($black-base 0%, $black-base 100%)); //, $orange-base 50%, $orange-base 100%
 	}
 
 	&.filter-dropdown {
@@ -178,6 +174,23 @@ $button-border-radius: 5px;
 
 	color: $white;
 	text-align: center;
+}
+
+a.store-button {
+	font-size: rem-calc(20);
+	margin-right: 25px;
+	font-weight: 100;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover, &:visited, &:focus {
+		color: #1d1d1d;
+		text-decoration: none;
+	}
+
+	&.active {
+		font-weight: 700;
+	}
 }
 
 .store-select-button {

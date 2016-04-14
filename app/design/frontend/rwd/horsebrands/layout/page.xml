@@ -160,10 +160,10 @@
             </block>
 
             <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
-               <!-- <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
+               <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
                <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
                <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
-               <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action> -->
+               <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
             </block>
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
