@@ -26,8 +26,6 @@ $sequenceWidth: 1280px;
 $canvasHeight: 417px;
 
 .seq {
-    // position: relative;
-    // height: $sequenceHeight;
     width: 100%;
     max-width: $sequenceWidth;
     /* Hide anything that goes beyond the boundaries of the Sequence container */
@@ -109,10 +107,14 @@ $canvasHeight: 417px;
       h1 {
         font-weight: 400;
       }
+      p {
+        font-weight: 100;
+      }
 
-      .btn-container {
+      .button-container {
         text-align: right;
         width: 100%;
+        margin: 5px 0;
       }
     }
 

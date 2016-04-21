@@ -108,7 +108,7 @@ Default layout, loads most of the pages
                     <block type="checkout/multishipping_link" name="checkout.cart.methods.multishipping" template="checkout/multishipping/link.phtml"/>
                 </block>
 
-                <block type="horsebrands_checkout/cart_items" name="checkout.cart.items" as="items" template="checkout/cart/items.phtml">
+                <block type="checkout/cart_items" name="checkout.cart.items" as="items" template="checkout/cart/items.phtml">
                   <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/item/default.phtml</template></action>
                   <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/item/default.phtml</template></action>
                   <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/item/default.phtml</template></action>

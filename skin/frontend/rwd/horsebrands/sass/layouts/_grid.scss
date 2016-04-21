@@ -18,8 +18,8 @@
 // get rid of the outter padding
 .row {
 	@extend .smaller-margins;
-
 	margin-bottom: 1rem;
+	max-width: 100%;
 
 	.row.full-width {
 		margin-left: 0;
@@ -76,4 +76,9 @@
 			}
     }
   }
+}
+
+.col-left,
+.col-main {
+	margin-top: 20px;
 }

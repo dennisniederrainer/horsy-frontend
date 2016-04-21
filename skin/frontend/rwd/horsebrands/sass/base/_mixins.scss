@@ -3,3 +3,38 @@
   &:before, &:after { content: " "; display: table; }
   &:after { clear: both; }
 }
+
+@mixin fs-normal {
+  font-size: $font-size-normal;
+  line-height: rem-calc(22px);
+}
+
+@mixin fs-medium {
+  font-size: $font-size-medium;
+  line-height: rem-calc(28px);
+}
+
+@mixin same-link-style($color, $hover-color: $color) {
+
+  &:hover, &:active, &:link, &:visited {
+    color: $color;
+    text-decoration: none;
+  }
+  &:hover {
+      cursor: pointer;
+      color: $hover-color;
+  }
+}
+
+@mixin button-states-color($base, $lighter) {
+
+  @include background-image(linear-gradient($lighter 0%, $lighter 50%, $base 50%, $base 100%));
+  &:hover {
+    @include background-image(linear-gradient($base 0%, $base 50%, $lighter 50%, $lighter 100%));
+  }
+  &:active {
+    background: none;
+    background-color: $base;
+  }
+
+}

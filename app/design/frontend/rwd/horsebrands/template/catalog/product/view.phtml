@@ -8,7 +8,9 @@
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
+<?php $storeId = Mage::app()->getStore()->getStoreId(); ?>
 <?php $manufacturerSwatchesBaseUrl = mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/swatches/manufacturer/'; ?>
+
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
@@ -85,10 +87,12 @@
             <div class="columns medium-12">
               <?php $deliveryAttributes = array('delivery_time') ?>
               <ul class="unstyled check-items delivery-time-wrapper">
-                <?php foreach ($deliveryAttributes as $att): ?>
+                <?php foreach ($deliveryAttributes as $att_code): ?>
+                  <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), $att_code, $storeId)): ?>
                   <li>
-                    <?php echo $_product->getAttributeText($att); ?>
+                    <?php echo $_product->getAttributeText($att_code); ?>
                   </li>
+                  <?php endif; ?>
                 <?php endforeach; ?>
               </ul>
             </div>

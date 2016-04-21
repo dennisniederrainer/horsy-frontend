@@ -1,25 +1,57 @@
 $customer-nav-list-p-margin-top: 5px;
 $customer-icons-font-size: 1.5rem;
 
-.top-header {
-	height: 110px;
-	display: flex;
-	.top-header-element {
-		width: 40%;
+.fixed-top {
+	height: 30px;
+	line-height: 30px;
+	background-color: #1d1d1d;
+	color: #fff;
+	margin-bottom: 10px;
 
+	div.container {
+		span {
+			width: 24%;
+			display: inline-block;
+			font-weight: 100;
+			font-size: rem-calc(12);
+		}
+	}
+}
+
+.top-header {
+	height: 100px;
+	position: relative;
+
+	.top-header-element {
+		position: absolute;
+
+		&.top-header-left {
+			left: 0;
+		}
+		&.top-header-center {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&.top-header-right {
+			right: 0;
+		}
+		&.store-select {
+			bottom: 12px;
+		}
 		&.brand {
-			width: 20%;
 			align-self: center;
 			text-align: center;
+			bottom: 5px;
 
-			& > img {
-				max-width: 180px;
-				width: 145px;
-				height: 58px;
+			a.logo-link img {
+				max-width: 170px;
+				// width: 145px;
+				// height: 58px;
 			}
 		}
 		&.customer-nav {
 			align-self: flex-start;
+			bottom: 0;
 
 			.customer-nav-container {
 				float: right;
@@ -34,22 +66,39 @@ $customer-icons-font-size: 1.5rem;
 						display: inline-block;
 						position: relative;
 						text-align: center;
-						padding: 5px 20px;
+						padding: 0;
+						height: 62px;
+						width: 90px;
 						// transition: border, box-shadow;
 
-						i {
-							font-size: $customer-icons-font-size;
-						}
-						p {
-							font-size: rem-calc(13);
-							margin: 0;
+						.dropdown-tab {
+							position: absolute;
+							z-index: 10;
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							background-color: $white;
+							padding-top: 10px;
+
+							i {
+								font-size: $customer-icons-font-size;
+								&.fa {
+									margin: 0;
+								}
+							}
+							p {
+								font-size: rem-calc(13);
+								margin: 0;
+							}
 						}
 
 						.dropdown-content {
 							display: none;
+							margin-top: 10px;
 							position: absolute;
-							top: 100%;
-							right: 0;
+							top: 50px;
+							right: -1px;
 							z-index: 5;
 							padding: 10px 20px;
 							background-color: rgba($white, .8);
@@ -84,6 +133,10 @@ $customer-icons-font-size: 1.5rem;
 	.menu {
 		width: 70%;
 		float: left;
+
+		ul.level0 {
+			display: none;
+		}
 	}
 	.global-search {
 		position: absolute;
@@ -101,6 +154,7 @@ $customer-icons-font-size: 1.5rem;
 
 			.input-group-field, .input-group-button input {
 				// padding: 0;
+				height: 36px;
 				border: 0;
 				background-color: $gray-lighter-3;
 			}

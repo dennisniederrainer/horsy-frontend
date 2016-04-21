@@ -20,39 +20,37 @@
  *
  * @category    design
  * @package     rwd_default
- * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="address-container">
-  <div class="row smaller-margins full-width">
-    <div class="columns small-12 medium-6">
-      <div class="box billing-address">
-        <h2 class="title">
-          <?php echo $this->__('Rechnungsadresse') ?>
-          <span class="edit"><a id="toggle-billing-address" href="<?php echo $this->getPrimaryBillingAddressEditUrl() ?>"><?php echo $this->__('Bearbeiten') ?></a></span>
-        </h2>
-        <div class="content">
-          <address class="view"><?php echo $this->getPrimaryBillingAddressHtml() ?></address>
-          <div class="edit" style="display: none">
-            <?php //echo $this->getChildHtml('customer_address_edit'); ?>
-          </div>
-        </div>
-      </div>
+<div class="box-account box-info">
+    <div class="box-head">
+        <h2><?php echo $this->__('Address Book') ?></h2>
+        <a href="<?php echo $this->getAddressBookUrl() ?>"><?php echo $this->__('Manage Addresses') ?></a>
     </div>
-    <div class="columns small-12 medium-6">
-      <div class="box shipping-address">
-        <h2 class="title">
-          <?php echo $this->__('Lieferadresse') ?>
-          <span class="edit"><a id="toggle-shipping-address" href="<?php echo $this->getPrimaryShippingAddressEditUrl() ?>"><?php echo $this->__('Bearbeiten') ?></a></span>
-        </h2>
-        <div class="content">
-          <address class="view"><?php echo $this->getPrimaryShippingAddressHtml() ?></address>
-          <div class="edit" style="display: none">
-            <?php //echo $this->getChildHtml('customer_address_edit'); ?>
-          </div>
+    <div class="row">
+        <div class="columns small-12 medium-6">
+            <div class="box">
+                <div class="box-title">
+                    <h3><?php echo $this->__('Default Billing Address') ?></h3>
+                    <a href="<?php echo $this->getPrimaryBillingAddressEditUrl() ?>"><?php echo $this->__('Edit Address') ?></a>
+                </div>
+                <div class="box-content">
+                    <address><?php echo $this->getPrimaryBillingAddressHtml() ?></address>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="columns small-12 medium-6">
+            <div class="box">
+                <div class="box-title">
+                    <h3><?php echo $this->__('Default Shipping Address') ?></h3>
+                    <a href="<?php echo $this->getPrimaryShippingAddressEditUrl() ?>"><?php echo $this->__('Edit Address') ?></a>
+                </div>
+                <div class="box-content">
+                    <address><?php echo $this->getPrimaryShippingAddressHtml() ?></address>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
