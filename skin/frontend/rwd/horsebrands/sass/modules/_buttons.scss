@@ -202,7 +202,6 @@ a.store-button {
 	font-weight: 100;
 	text-decoration: none;
 	text-transform: uppercase;
-
 	@include same-link-style($black, $orange-base);
 
 	&.active {
