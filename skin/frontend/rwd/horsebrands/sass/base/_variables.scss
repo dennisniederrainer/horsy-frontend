@@ -13,6 +13,7 @@ $gray-lighter-3: 	#d9d9d9;
 $gray-lighter-4:	#e3e3e3;
 $gray-lighter-5:	#ececec;
 $gray-lighter-6:	#f6f6f6;
+$gray-lightest:	$gray-lighter-6;
 
 $black-base: 	#1d1d1d;
 $black-lighter: #313030;
@@ -21,8 +22,8 @@ $gold-base: #cca64b;
 $gold-lighter: #cba54b;
 
 
-$teaser-btn-background: $gray-lighter-3;
-$teaser-btn-background-hover: #e2e3e3;
+$teaser-btn-background: $gray-lighter-4;
+$teaser-btn-background-hover: $gray-lighter-5; //#e2e3e3;
 $teaser-title-color: #6e6e6e;
 
 $navbar-border-color: $gray-lighter-2;

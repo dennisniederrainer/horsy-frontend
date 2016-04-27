@@ -14,12 +14,6 @@
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
 ?>
-<!-- <div class="page-title category-title">
-    <?php if($this->IsRssCatalogEnable() && $this->IsTopCategory()): ?>
-        <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
-    <?php endif; ?>
-    <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-</div> -->
 
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 
@@ -54,7 +48,7 @@
           <div class="canvas">
             <div class="crop-height">
               <!-- <?php echo $imgHtml ?>  -->
-              <?php echo ($subcat->getImageUrl() != '' ? $imgHtml : '<img src="http://placehold.it/233x220" class="img-responsive" />'); ?>
+              <?php echo ($subcat->getImageUrl() != '' ? $imgHtml : '<img src="http://placehold.it/280x220" class="img-responsive" />'); ?>
             </div>
           </div>
           <div class="btn-container">

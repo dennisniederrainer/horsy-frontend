@@ -1,2 +1,4 @@
+/app/code/local/Horsebrands/Rewrites    /app/code/local/Horsebrands/Rewrites
+/app/etc/modules/Horsebrands_Rewrites.xml   /app/etc/modules/Horsebrands_Rewrites.xml
 /app/design/frontend/rwd/horsebrands/   /app/design/frontend/rwd/horsebrands/
 /skin/frontend/rwd/horsebrands/         /skin/frontend/rwd/horsebrands/

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Horsebrands_Rewrites>
+            <version>0.0.0.7</version>
+        </Horsebrands_Rewrites>
+    </modules>
+    <global>
+      <blocks>
+        <horsebrands_rewrites>
+          <class>Horsebrands_Rewrites_Block</class>
+        </horsebrands_rewrites>
+      </blocks>
+
+      <models>
+        <horsebrands_rewrites>
+          <class>Horsebrands_Rewrites_Model</class>
+        </horsebrands_rewrites>
+      </models>
+
+      <!-- get access to manufacturer and delivery information -->
+      <sales>
+        <quote>
+          <item>
+            <product_attributes>
+              <manufacturer />
+              <delivery_time />
+            </product_attributes>
+          </item>
+        </quote>
+      </sales>
+
+      <events>
+        <sales_quote_collect_totals_before>
+          <observers>
+            <!-- Set default shipping method and rate when necessary -->
+            <horsebrands_rewrites_checkout_observer>
+              <type>singleton</type>
+              <class>horsebrands_rewrites/checkout_observer</class>
+              <method>setQuoteShippingMethod</method>
+            </horsebrands_rewrites_checkout_observer>
+          </observers>
+        </sales_quote_collect_totals_before>
+      </events>
+    </global>
+</config>

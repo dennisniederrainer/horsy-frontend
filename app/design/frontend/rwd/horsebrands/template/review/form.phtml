@@ -1,0 +1,100 @@
+<div class="form-add">
+    <h2 style="display: none;"><?php echo $this->__('Write Your Own Review') ?></h2>
+    <?php if ($this->getAllowWriteReviewFlag()): ?>
+    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form" class="review-form-box clearfix">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <fieldset>
+            <?php echo $this->getChildHtml('form_fields_before')?>
+            <h3><?php echo $this->__("Write a Review for "); ?><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?>:</h3>
+
+            <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
+              <div class="rating-stars width-25">
+                <span class="star-1"><i class="fa fa-star-o"></i></span>
+                <span class="star-2"><i class="fa fa-star-o"></i></span>
+                <span class="star-3"><i class="fa fa-star-o"></i></span>
+                <span class="star-4"><i class="fa fa-star-o"></i></span>
+                <span class="star-5"><i class="fa fa-star-o"></i></span>
+              </div>
+                <table class="data-table" id="product-review-table" style="display: none;">
+                    <tbody>
+                    <?php foreach ($this->getRatings() as $_rating): ?>
+                      <?php if($_rating->getRatingCode() <> 'overall') ?>
+                        <tr>
+                        <?php foreach ($_rating->getOptions() as $_option): ?>
+                            <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></td>
+                        <?php endforeach; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+                <script type="text/javascript">decorateTable('product-review-table')</script>
+            <?php endif; ?>
+
+                <ul class="form-list unstyled">
+                    <li class="width-75">
+                        <!-- <label for="nickname_field" class="required"><em>*</em><?php echo $this->__('Nickname') ?></label> -->
+                        <div class="input-box">
+                            <input type="text" name="nickname" id="nickname_field" class="input-text required-entry" value="<?php echo $this->escapeHtml($data->getNickname()) ?>"
+                              placeholder="<?php echo $this->__('Your name...') ?>"/>
+                        </div>
+                    </li>
+                    <li class="width-75">
+                        <!-- <label for="summary_field" class="required"><em>*</em><?php echo $this->__('Summary of Your Review') ?></label> -->
+                        <div class="input-box">
+                            <input type="text" name="title" id="summary_field" class="input-text required-entry" value="<?php echo $this->escapeHtml($data->getTitle()) ?>"
+                              placeholder="<?php echo $this->__('Title...') ?>"/>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- <label for="review_field" class="required"><em>*</em><?php echo $this->__('Review') ?></label> -->
+                        <div class="input-box">
+                            <textarea name="detail" id="review_field" cols="5" rows="3" class="required-entry" placeholder="<?php echo $this->__('Please give us your opinion on that product...') ?>"><?php echo $this->escapeHtml($data->getDetail()) ?></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </fieldset>
+            <div class="buttons-set">
+                <button type="submit" title="<?php echo $this->__('Submit Review') ?>" class="button right"><span><span><?php echo $this->__('Submit Review') ?></span></span></button>
+            </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('review-form');
+        Validation.addAllThese(
+        [
+               ['validate-rating', '<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Please select one of each of the ratings above')) ?>', function(v) {
+                    var trs = $('product-review-table').select('tr');
+                    var inputs;
+                    var error = 1;
+
+                    for( var j=0; j < trs.length; j++ ) {
+                        var tr = trs[j];
+                        if( j > 0 ) {
+                            inputs = tr.select('input');
+
+                            for( i in inputs ) {
+                                if( inputs[i].checked == true ) {
+                                    error = 0;
+                                }
+                            }
+
+                            if( error == 1 ) {
+                                return false;
+                            } else {
+                                error = 1;
+                            }
+                        }
+                    }
+                    return true;
+                }]
+        ]
+        );
+    //]]>
+    </script>
+    <?php else: ?>
+    <p class="review-nologged" id="review-form">
+        <?php echo $this->__('Only registered users can write reviews. Please, <a href="%s">log in</a> or <a href="%s">register</a>', $this->getLoginLink(), Mage::helper('customer')->getRegisterUrl()) ?>
+    </p>
+    <?php endif ?>
+</div>

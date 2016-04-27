@@ -118,7 +118,7 @@ button {
 		position: relative;
 		z-index: 5;
 		color: $font-color-default;
-		background: $gray-lighter-3;
+		background: $gray-lighter-4;
 
 		.filter-dropdown-content {
 			display: none;
@@ -126,11 +126,11 @@ button {
 			top: 100%;
 			left: 0;
 			right: 0;
-			border-top: 1px solid $gray-lighter-2;
+			border-top: 1px solid $gray-lighter-3;
 			@include box-shadow(inset 0 0 10px $gray-lighter-2);
 
 			ul li {
-				background: $gray-lighter-3;
+				background: $gray-lighter-4;
 				padding: $padding-height-small 0;
 
 				a, a:visited, a:focus, a:link {
@@ -151,19 +151,21 @@ button {
 		padding-bottom: 4px;
 		font-size: $font-size-smaller;
 		text-align: center;
-		color: $gray-lighter-2;
+		color: $gray-lighter-3;
 		@include box-shadow(inset 0 -10px 30px -15px $gray-lighter-2);
 	}
 }
 
 .selected-filter-wrapper {
 	margin-bottom: .75rem;
+	padding-left: calc(0.9375rem / 2);
+  padding-right: calc(0.9375rem / 2);
 
 	a.btn.btn-transparent.gray-light {
 		position: relative;
 		border-width: 1px;
 		padding: 2px 2rem;
-		color: $gray-lighter-2;
+		color: $gray-base;
 		font-size: $font-size-small;
 
 		i {
@@ -225,7 +227,7 @@ a.store-button {
 		margin-right: .5rem;
 	}
 	&.deals-button{
-		background-color: $gray-lighter-3;
+		background-color: $gray-lighter-4;
 		color: $black-base;
 		position: relative;
 

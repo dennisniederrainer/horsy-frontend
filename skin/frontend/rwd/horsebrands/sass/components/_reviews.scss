@@ -1,0 +1,59 @@
+#customer-reviews {
+  h2 {
+    margin: 0;
+    color: $gray-base;
+  }
+}
+
+.review-form-box {
+  background-color: $gray-lightest;
+  position: relative;
+
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 0;
+
+    h3 {
+      font-size: rem-calc(14);
+      color: $gray-base;
+      margin: 10px 0;
+    }
+
+    .rating-stars {
+      position: absolute;
+      color: $gold-base;
+      right: 10px;
+      top: 10px;
+      font-size: rem-calc(22);
+      text-align: center;
+
+      span {
+        width: 20%;
+      }
+    }
+
+    ul li {
+      margin-bottom: 10px;
+
+      input, textarea {
+        border: none;
+      }
+    }
+
+    .width-75 {
+      width: 75%;
+    }
+    .width-25 {
+      width: 25%;
+    }
+  }
+
+  .buttons-set {
+    @include clearfix;
+    margin-top: 0;
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+}

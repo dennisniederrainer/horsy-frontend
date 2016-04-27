@@ -55,10 +55,22 @@ $spacing-bottom: 20px;
 
   li.promotion-element {
     font-size: rem-calc(12);
-    background-color: $gray-lighter-3;
+    background-color: $gray-lighter-4;
+    background-repeat: no-repeat;
+    background-position: 20px 16px;
     padding: .75rem 2rem;
     margin-bottom: 2px;
     text-align: center;
+
+    &.return-icon {
+      background-image: url('../images/icons/i-return.png');
+    }
+    &.delivery-icon {
+      background-image: url('../images/icons/i-delivery-productview.png');
+    }
+    &.phone-icon {
+      background-image: url('../images/icons/i-phone.png');
+    }
   }
 
   section {
