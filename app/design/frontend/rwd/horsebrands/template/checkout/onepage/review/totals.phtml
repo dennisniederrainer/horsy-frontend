@@ -1,0 +1,28 @@
+<?php if ($this->getTotals()): ?>
+<?php $_totals = $this->getTotals(); ?>
+<tfoot>
+  <tr>
+    <td class="footer-icon delivery-icon">
+      &nbsp;
+    </td>
+    <td class="text-left">
+      <span><strong>Voraussichtliche Lieferung:</strong></span>
+      <span>heute - übermorgen</span>
+      <span>Bei Vorkasse 2-4 Werktage nach Zahlungseingang.</span>
+    </td>
+    <td class="text-right totals" colspan="3">
+      <?php foreach ($_totals as $total): ?>
+        <div class="<?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
+          <?php echo $total->getTitle() ?>:
+          <span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?></span>
+          <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
+            <p class="note">inkl. MwSt.</p>
+          <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
+            <p class="note">exkl. MwSt.</p>
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </td>
+  </tr>
+</tfoot>
+<?php endif; ?>

@@ -28,6 +28,7 @@
 </div>
 
 <?php if ($this->showMiddlename()): ?>
+<?php $isMiddlenameRequired = $this->isMiddlenameRequired(); ?>
   <div class="kv">
     <div class="key">
       <?php echo $this->getStoreLabel('middlename') ?><?php echo $isMiddlenameRequired ? '<em>*</em>' : '' ?>

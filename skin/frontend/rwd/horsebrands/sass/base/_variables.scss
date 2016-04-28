@@ -19,8 +19,8 @@ $black-base: 	#1d1d1d;
 $black-lighter: #313030;
 
 $gold-base: #cca64b;
-$gold-lighter: #cba54b;
-
+$gold-lighter: tint($gold-base, 15);
+// $gold-lighter: #cba54b;
 
 $teaser-btn-background: $gray-lighter-4;
 $teaser-btn-background-hover: $gray-lighter-5; //#e2e3e3;

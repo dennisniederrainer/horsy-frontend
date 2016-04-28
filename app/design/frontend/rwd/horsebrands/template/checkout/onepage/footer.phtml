@@ -4,34 +4,23 @@
     <div class="columns medium-8">
       <div class="row full-width smaller-margins">
         <div class="columns medium-12 no-padding">
-          <div class="box newsletter-box">
-            <h2 class="title">Horsebrands Newsletter</h2>
+          <div class="box customer-service-box">
+            <h2 class="title"><?php echo $this->__('Free Customer Service'); ?></h2>
             <div class="content" style="padding: 0;">
-              <div class="newsletter-discount">
-                <div class="circle" style="display: table;">
-                  <div>
-                    <span>5 €</span><br/>Gutschein
-                  </div>
-                </div>
+              <div class="customer-service-text">
+                <p>
+                  <?php echo $this->__('Do you have questions to your order?'); ?>
+                </p>
+                <p>
+                  <?php echo $this->__('We are available free of charge from Monday to Friday (9.00 a.m. - 17.00 p.m.)'); ?>
+                </p>
+                <p>
+                  <?php echo $this->__('Phone') . ' <strong>' . Mage::getStoreConfig('general/store_information/phone') .'</strong>'; ?>
+                  <?php echo $this->__('E-Mail'); ?> <a href="mailto:service@horsebrands.de" class="customer-service-link">service@horsebrands.de</a>
+                </p>
               </div>
-              <div class="newsletter-text">
-                <table class="unstyled">
-                  <tbody>
-                    <tr>
-                      <td class="title">
-                        Newsletter |
-                      </td>
-                      <td class="desc">
-                        Abonniere unseren Newsletter<br/>
-                        & du erh&auml;lst von uns einen 5€ Gutschein
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <form id="newsletter-subscribe">
-                  <input name="email" type="text" placeholder="Deine E-Mail-Adresse..." />
-                  <a class="btn small orange">Abonnieren</a>
-                </form>
+              <div class="customer-service-icon">
+
               </div>
             </div>
           </div>

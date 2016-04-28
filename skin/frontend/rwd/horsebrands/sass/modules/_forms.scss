@@ -7,11 +7,11 @@ div.kv {
 
   div.key {
     float: left;
-    width: 30%;
+    width: 20%;
   }
   div.value {
     float: left;
-    width: 70%;
+    width: 80%;
     padding-left: 3%;
   }
 }
@@ -20,22 +20,22 @@ p.required {
   font-size: $font-size-small !important;
 }
 
-.buttons-set {
-  margin-top: 25px;
-  p.back-link {
-    float: left;
-    a {
-      @include same-link-style($font-color-default, $orange-base);
-    }
-  }
-  button {
-    float: right;
-    min-width: 220px;
-    @extend .btn;
-    @extend .btn.black;
-    @extend .btn.medium;
-  }
-}
+// .buttons-set {
+//   margin-top: 25px;
+//   p.back-link {
+//     float: left;
+//     a {
+//       @include same-link-style($font-color-default, $orange-base);
+//     }
+//   }
+//   button {
+//     float: right;
+//     min-width: 220px;
+//     @extend .btn;
+//     @extend .btn.black;
+//     @extend .btn.medium;
+//   }
+// }
 
 label {
   display: block;

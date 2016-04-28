@@ -2,13 +2,20 @@
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout_rwd.js') ?>"></script>
 <ul class="unstyled opc opc-firststep-<?php echo $this->getActiveStep() ?>" id="checkoutSteps">
+  <li id="opc-login" class="section allow <?php echo (!$this->isCustomerLoggedIn() ? 'active' : '') ?>">
+      <div class="step-title">
+          <span class="number"><?php echo '0' ?></span>
+          <h2 class="color-success"><i class="fa fa-lock"></i> <?php echo $this->__('Secure Connection') ?></h2>
+          <a href="#">&nbsp;</a>
+      </div>
+  </li>
 <?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
 <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
     <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
-        <div class="step-title" style="display:none">
+        <div class="step-title">
             <span class="number"><?php echo $i ?></span>
             <h2><?php echo $_stepInfo['label'] ?></h2>
-            <a href="#"><?php echo $this->__('Edit') ?></a>
+            <a href="#">&nbsp;</a>
         </div>
         <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
             <?php echo $this->getChildHtml($_stepId) ?>

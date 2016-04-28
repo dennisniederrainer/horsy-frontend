@@ -19,7 +19,7 @@ if($_item->getProduct()->getData('delivery_time')) { $deliveryInfo = $_item->get
   <td class="text-left product-details">
     <?php if($manufacturer && $manufacturer != ''): ?><span><strong><?php echo $manufacturer ?></strong></span><?php endif; ?>
     <span><?php echo $this->escapeHtml($this->getProductName()) ?></span>
-    <span>Artikelnummer: <?php echo $this->escapeHtml($_item->getSku()); ?></span>
+    <span><?php echo $this->__('SKU'); ?>: <?php echo $this->escapeHtml($_item->getSku()); ?></span>
     <?php if($deliveryInfo && $deliveryInfo != ''): ?><span><?php echo $deliveryInfo ?></span><?php endif; ?>
     <a href="<?php echo $this->getDeleteUrl() ?>" class="btn shopping-cart remove"><i class="fa fa-times-circle-o"></i> Artikel entfernen</a>
   </td>

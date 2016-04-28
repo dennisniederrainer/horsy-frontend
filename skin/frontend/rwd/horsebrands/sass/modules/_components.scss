@@ -271,7 +271,6 @@ article.productlist-element {
 	}
 
 	&.newsletter-box {
-
 		.content {
 			padding: 0;
 			position: relative;
@@ -341,6 +340,28 @@ article.productlist-element {
 			}
 		}
 	}
+
+	&.customer-service-box {
+		@include clearfix;
+
+		.customer-service-text {
+			width: 75%;
+			padding: $box-padding;
+			float: left;
+
+			p {
+				margin: 0;
+				font-size: $font-size-normal;
+			}
+		}
+		.customer-service-icon {
+			float: right;
+			width: 25%;
+			height: 76px;
+			background: url('../images/icons/free_service.png') no-repeat;
+			background-size: 100%;
+		}
+	}
 }
 
 table {
@@ -355,6 +376,7 @@ table {
 			font-weight: $font-weight-bold;
 			padding: .2em 0;
 			border-left: 2px solid $white;
+			text-align: center;
 
 			&.text-left-indent {
 				text-align: left;

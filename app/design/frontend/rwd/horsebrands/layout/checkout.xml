@@ -356,11 +356,17 @@ One page checkout main layout
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/checkout.phtml</template></action>
+            <!-- <action method="setTemplate"><template>page/checkout.phtml</template></action> -->
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="header">
+            <action method="setTemplate"><template>checkout/onepage/header.phtml</template></action>
         </reference>
         <reference name="right">
+          <!-- Removing Order Progess Block from the checkout sidebar -->
+            <action method="unsetChild"><name>checkout.progress.wrapper</name></action>
             <action method="unsetChildren"></action>
-            <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
+            <!-- <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
                 <label>Checkout Progress Wrapper</label>
                 <action method="setElementId"><value>checkout-progress-wrapper</value></action>
                 <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
@@ -369,7 +375,7 @@ One page checkout main layout
                     <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
                     <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
                 </block>
-            </block>
+            </block> -->
         </reference>
         <reference name="content">
             <block type="checkout/onepage" name="checkout.onepage" template="checkout/onepage.phtml">
@@ -379,7 +385,9 @@ One page checkout main layout
                         <action method="setMayBeInvisible"><value>1</value></action>
                     </block>
                 </block>
-                <block type="checkout/onepage_billing" name="checkout.onepage.billing" as="billing" template="checkout/onepage/billing.phtml"/>
+                <block type="checkout/onepage_billing" name="checkout.onepage.billing" as="billing" template="checkout/onepage/billing.phtml">
+                    <!-- <block type="checkout/onepage_shipping" name="checkout.onepage.address.shipping" as="address.shipping" template="checkout/onepage/shipping.phtml"/> -->
+                </block>
                 <block type="checkout/onepage_shipping" name="checkout.onepage.shipping" as="shipping" template="checkout/onepage/shipping.phtml"/>
                 <block type="checkout/onepage_shipping_method" name="checkout.onepage.shipping_method" as="shipping_method" template="checkout/onepage/shipping_method.phtml">
                     <block type="checkout/onepage_shipping_method_available" name="checkout.onepage.shipping_method.available" as="available" template="checkout/onepage/shipping_method/available.phtml"/>
@@ -395,6 +403,24 @@ One page checkout main layout
                 <block type="checkout/onepage_review" name="checkout.onepage.review" as="review" template="checkout/onepage/review.phtml"/>
             </block>
         </reference>
+
+        <remove name="footer"/>
+        <reference name="promise">
+            <action method="setTemplate"><template>checkout/onepage/footer.phtml</template></action>
+        </reference>
+        <reference name="checkout.onepage.review">
+            <!-- Adding Order Progess Block on the checkout review step -->
+            <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
+                <label>Checkout Progress Wrapper</label>
+                <action method="setElementId"><value>checkout-progress-wrapper</value></action>
+                <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
+                    <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"/>
+                    <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"/>
+                    <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"/>
+                    <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"/>
+                </block>
+            </block>
+       </reference>
     </checkout_onepage_index>
 
     <!--

@@ -15,8 +15,13 @@
     </div>
     <!-- Table Shop -->
     <?php echo $this->getChildHtml('items'); ?>
+
+    <div class="buttons-set clearfix">
+      <a class="button gray left" href="<?php echo $this->getBaseUrl() ?>"><?php echo $this->__('Continue Shopping') ?></a>
+      <a class="button gold right" href="<?php echo $this->getCheckoutUrl() ?>"><?php echo $this->__('Proceed to Checkout') ?> ></a>
+    </div>
   </section>
-  <section class="cart-deals-wrapper">
+  <section class="cart-deals-wrapper" style="display: none;">
     <div class="title-container">
       <h2>Dein Warenkorb <span class="cart-id">Deals</span></h2>
       <p class="note">Artikel im Warenkorb werden nicht reserviert</p>
@@ -27,7 +32,7 @@
       Todo
     </div>
   </section>
-  <section class="cart-summary-wrapper">
+  <section class="cart-summary-wrapper" style="display: none;">
     <hr class="double-line" />
     <!-- cart summary -->
     <table class="cart-table unstyled">

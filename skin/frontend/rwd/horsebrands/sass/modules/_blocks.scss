@@ -61,7 +61,8 @@
   }
 }
 
-#shopping-cart-container {
+#shopping-cart-container,
+#checkout-review-table-wrapper {
   .cart-summary-wrapper {
     margin-top: 5rem;
 
@@ -110,7 +111,9 @@
     margin-bottom: 5px;
   }
 
-  .cart-table {
+  .cart-table,
+  .data-table {
+    margin-bottom: 10px;
     td {
       vertical-align: baseline;
       line-height: rem-calc(19);
@@ -194,6 +197,14 @@
           }
         }
       }
+    }
+  }
+
+  .buttons-set {
+    margin-bottom: 20px;
+    button, a.button {
+      line-height: 32px;
+      min-width: 200px;
     }
   }
 }

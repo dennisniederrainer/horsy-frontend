@@ -11,13 +11,16 @@ $black: #1d1d1d;
 $white	: #fff;
 $button-border-radius: 5px;
 
-button {
+button,
+a.button {
+	color: $white;
+	@include same-link-style($white);
 	display: inline-block;
 	text-align: center;
 	line-height: 18px;
 	font-size: rem-calc(14);
 	cursor: pointer;
-	border: 1px solid transparent;
+	border: none;
 	border-radius: $button-border-radius;
 
 	@include button-states-color($black-base, $black-lighter);
