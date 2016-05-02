@@ -31,6 +31,10 @@ a.button {
 	&.gray {
 		@include button-states-color($gray-base, $gray-lighter-1);
 	}
+
+	&.default-size {
+		@include btn-size-default;
+	}
 }
 
 .btn {

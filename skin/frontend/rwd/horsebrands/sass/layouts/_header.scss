@@ -62,7 +62,7 @@ $customer-icons-font-size: 1.5rem;
 					margin: 15px 0 0 0;
 					// overflow: hidden;
 
-					li {
+					li.customer-nav-element {
 						display: inline-block;
 						position: relative;
 						text-align: center;
@@ -101,7 +101,7 @@ $customer-icons-font-size: 1.5rem;
 							right: -1px;
 							z-index: 5;
 							padding: 10px 20px;
-							background-color: rgba($white, .8);
+							background-color: rgba($white, .9);
 							border: 1px solid $gray-lighter-2;
 							@include box-shadow(2px 0 1px -2px $gray-lighter-1);
 						}

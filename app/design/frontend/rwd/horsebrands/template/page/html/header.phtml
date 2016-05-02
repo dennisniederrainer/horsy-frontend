@@ -21,7 +21,7 @@
       <div class="customer-nav-container">
       <ul class="customer-nav-list offcanvas-elements">
         <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-        <li>
+        <li class="customer-nav-element">
           <div class="dropdown-tab" style="z-index: 10;">
             <i class="fa fa-user"></i>
             <p>Anmelden</p>
@@ -31,7 +31,7 @@
           </div>
         </li>
         <?php else: ?>
-          <li>
+          <li class="customer-nav-element">
             <div class="dropdown-tab" style="z-index: 10;">
               <i class="fa fa-user"></i>
               <p>Mein Konto</p>
@@ -41,7 +41,7 @@
             </div>
           </li>
         <?php endif; ?>
-        <li>
+        <li class="customer-nav-element">
           <div class="dropdown-tab" style="z-index: 20;">
             <i class="fa fa-star-o"></i>
             <p>Wunschzettel</p>
@@ -50,14 +50,8 @@
             Wunschzettelinhalte
           </div>
         </li>
-        <li>
-          <div class="dropdown-tab" style="z-index: 30;">
-            <i class="fa fa-shopping-cart"></i>
-            <p>Warenkorb</p>
-          </div>
-          <div class="dropdown-content" style="z-index: 25;">
-            Warenkorbinhalte
-          </div>
+        <li class="customer-nav-element">
+          <?php echo $this->getChildHtml('minicart_head'); ?>
         </li>
       </ul>
       </div>
