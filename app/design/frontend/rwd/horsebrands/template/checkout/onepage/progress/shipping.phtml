@@ -1,0 +1,14 @@
+<h2 class="title"><?php echo $this->__('Shipping Address') ?></h2>
+<div class="content">
+<?php if ($this->getCheckout()->getStepData('shipping', 'complete')): ?>
+  <?php $completeClass = $this->getCheckout()->getStepData('shipping', 'complete') ? 'complete' : ''; ?>
+  <address><?php echo $this->getShipping()->format('html') ?></address>
+  <a href="#address" onclick="checkout.changeSection('opc-shipping'); return false;" class="progress-change">
+    <i class="fa fa-pencil-square-o"></i><?php echo $this->__('Change') ?>
+  </a>
+<?php else: ?>
+  <p>
+    <?php echo $this->__('No Shipping Address selected.') ?>
+  </p>
+<?php endif; ?>
+</div>

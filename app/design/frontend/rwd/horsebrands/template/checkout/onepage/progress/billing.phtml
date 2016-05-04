@@ -1,0 +1,13 @@
+<h2 class="title"><?php echo $this->__('Billing Address') ?></h2>
+<div class="content">
+<?php if ($this->getCheckout()->getStepData('billing', 'complete')): ?>
+  <address><?php echo $this->getBilling()->format('html') ?></address>
+  <a href="#billing" onclick="checkout.changeSection('opc-billing'); return false;" class="progress-change">
+    <i class="fa fa-pencil-square-o"></i><?php echo $this->__('Change') ?>
+  </a>
+<?php else: ?>
+  <p>
+    <?php echo $this->__('No Billing Address selected.') ?>
+  </p>
+<?php endif; ?>
+</div>
