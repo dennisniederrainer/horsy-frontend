@@ -13,6 +13,8 @@
         $_imgHtml = '<img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" class="img-responsive full-width" />';
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
+    // $model = Mage::getModel('Purchase/Pdf_Order');
+    // echo get_class($model);
 ?>
 
 <?php echo $this->getMessagesBlock()->toHtml() ?>

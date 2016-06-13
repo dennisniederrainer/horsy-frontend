@@ -33,8 +33,10 @@
         <?php else: ?>
           <li class="customer-nav-element">
             <div class="dropdown-tab" style="z-index: 10;">
-              <i class="fa fa-user"></i>
-              <p>Mein Konto</p>
+              <a href="<?php echo $this->getUrl('customer/account') ?>">
+                <i class="fa fa-user"></i>
+                <p>Mein Konto</p>
+              </a>
             </div>
             <div class="dropdown-content" style="z-index: 5;">
               MeinKontoDropdown
@@ -43,10 +45,12 @@
         <?php endif; ?>
         <li class="customer-nav-element">
           <div class="dropdown-tab" style="z-index: 20;">
-            <i class="fa fa-star-o"></i>
-            <p>Wunschzettel</p>
+            <a href="<?php echo $this->getUrl('wishlist') ?>">
+              <i class="fa fa-star-o"></i>
+              <p>Wunschzettel</p>
+            </a>
           </div>
-          <div class="dropdown-content" style="z-index: 15;">
+          <div class="dropdown-content" style="z-index: 15;display:none;">
             Wunschzettelinhalte
           </div>
         </li>

@@ -1,6 +1,9 @@
 <?php echo $this->getChildHtml('items_before'); ?>
 
 <div id="checkout-review-table-wrapper">
+  <div class="title-container">
+    <h2><?php echo $this->__('Your Order'); ?><span class="cart-id">Shop</span></h2>
+  </div>
     <?php $_tableClass = $this->helper('tax')->displayCartBothPrices() ? 'linearize-table-large' : 'linearize-table'; ?>
     <table class="data-table <?php echo $_tableClass; ?> checkout-review-table" id="checkout-review-table">
       <colgroup>
@@ -48,4 +51,4 @@
     //]]>
     </script>
 </div>
-<?php echo $this->getChildHtml('checkout.progress.wrapper'); ?>
+<?php echo $this->getChildHtml('right'); ?>

@@ -16,6 +16,12 @@
         <horsebrands_rewrites>
           <class>Horsebrands_Rewrites_Model</class>
         </horsebrands_rewrites>
+
+        <customer>
+          <rewrite>
+            <address_abstract>Horsebrands_Rewrites_Model_Customer_Address_Abstract</address_abstract>
+          </rewrite>
+        </customer>
       </models>
 
       <!-- get access to manufacturer and delivery information -->

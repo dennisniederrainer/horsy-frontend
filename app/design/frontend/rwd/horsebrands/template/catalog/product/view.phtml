@@ -46,9 +46,10 @@
                   $filename = strtolower(preg_replace('/\s+/','-',$manufacturer)) . '.png';
                   $imgUrl = $manufacturerSwatchesBaseUrl . $filename;
                   echo '<!-- ' . $imgUrl . ' -->';
-                  if(!getimagesize($imgUrl)) {
-                    $imgUrl = false;
-                  }
+                  $imgUrl = false;
+                  // if(!getimagesize($imgUrl)) {
+                  //   $imgUrl = false;
+                  // }
                 }
               ?>
               <?php if($imgUrl): ?>

@@ -81,6 +81,10 @@ $customer-icons-font-size: 1.5rem;
 							background-color: $white;
 							padding-top: 10px;
 
+							a {
+								@include same-link-style($black-base);
+							}
+
 							i {
 								font-size: $customer-icons-font-size;
 								&.fa {

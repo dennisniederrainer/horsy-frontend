@@ -1,0 +1,31 @@
+<h2 class="title"><?php echo $this->__('Shipping Method') ?></h2>
+<div class="content">
+<?php if ($this->getCheckout()->getStepData('shipping_method', 'complete')): ?>
+  <div>
+    <?php if ($this->getShippingMethod()): ?>
+    <?php echo $this->getShippingDescription() ?>
+
+    <?php $_excl = $this->getShippingPriceExclTax(); ?>
+    <?php $_incl = $this->getShippingPriceInclTax(); ?>
+    <?php if ($this->helper('tax')->displayShippingPriceIncludingTax()): ?>
+        <?php echo $_incl; ?>
+        <?php else: ?>
+        <?php echo $_excl; ?>
+        <?php endif; ?>
+    <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+        (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+        <?php endif; ?>
+
+    <?php else: ?>
+    <?php echo $this->__('Shipping method has not been selected yet') ?>
+    <?php endif; ?>
+  </div>
+  <a href="#shipping_method" onclick="checkout.changeSection('opc-shipping-method'); return false;" class="progress-change">
+    <i class="fa fa-pencil-square-o"></i><?php echo $this->__('Change') ?>
+  </a>
+<?php else: ?>
+  <p>
+    <?php echo $this->__('Shipping method has not been selected yet') ?>
+  </p>
+<?php endif; ?>
+</div>

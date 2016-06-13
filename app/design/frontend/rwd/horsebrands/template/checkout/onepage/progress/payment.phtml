@@ -1,0 +1,13 @@
+<h2 class="title"><?php echo $this->__('Payment Method') ?></h2>
+<div class="content">
+<?php if ($this->getCheckout()->getStepData('billing', 'complete')): ?>
+  <?php echo $this->getPaymentHtml() ?>
+  <a href="#payment" onclick="checkout.changeSection('opc-payment'); return false;" class="progress-change">
+    <i class="fa fa-pencil-square-o"></i><?php echo $this->__('Change') ?>
+  </a>
+<?php else: ?>
+  <p>
+    <?php echo $this->__('No Payment Method selected yet.') ?>
+  </p>
+<?php endif; ?>
+</div>

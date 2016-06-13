@@ -96,6 +96,8 @@
   }
 
   .title-container {
+    min-height: 30px;
+
     h2 {
       font-size: rem-calc(22);
       font-weight: $font-weight-light;
@@ -103,6 +105,7 @@
       margin-bottom: 0;
 
       span.cart-id {
+        margin-left: 5px;
         text-transform: uppercase;
         color: $orange-base;
       }
@@ -205,6 +208,30 @@
     button, a.button {
       line-height: 32px;
       min-width: 200px;
+    }
+  }
+}
+
+#checkout-review-table-wrapper .title-container h2 {
+  margin: 0;
+}
+
+#checkout-progress-wrapper {
+  padding-top: 35px;
+  .box .content {
+    @include clearfix;
+
+    address {
+      font-style: normal;
+    }
+
+    a.progress-change {
+      float: right;
+      @include same-link-style($font-color-default);
+
+      i.fa {
+        margin-right: 5px;
+      }
     }
   }
 }

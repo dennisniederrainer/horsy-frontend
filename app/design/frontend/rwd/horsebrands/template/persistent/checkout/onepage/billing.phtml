@@ -6,7 +6,7 @@
         <div class="content clearfix">
           <form id="co-billing-form" action="">
             <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="billing:address_id" />
-            <?php if ($this->customerHasAddresses()): ?>
+            <?php if (false && $this->customerHasAddresses()): ?>
                 <li class="wide">
                     <label for="billing-address-select"><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></label>
                     <div class="input-box">
@@ -59,6 +59,14 @@
                 </div>
                 <div class="value">
                   <?php echo $this->getCountryHtmlSelect('billing') ?>
+                </div>
+              </div>
+              <div class="kv">
+                <div class="key">
+                  <label for="billing:telephone"><em>*</em><?php echo $this->__('Telephone') ?></label>
+                </div>
+                <div class="value">
+                  <input type="text" name="billing[telephone]" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="billing:telephone" />
                 </div>
               </div>
               <div class="same-as-billing-container">
