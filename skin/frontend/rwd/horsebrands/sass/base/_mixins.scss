@@ -26,19 +26,6 @@
   }
 }
 
-@mixin button-states-color($base, $lighter) {
-
-  @include background-image(linear-gradient($lighter 0%, $lighter 50%, $base 50%, $base 100%));
-
-  &:hover {
-    @include background-image(linear-gradient($base 0%, $base 50%, $lighter 50%, $lighter 100%));
-  }
-  &:active {
-    background: none;
-    background-color: $base;
-  }
-}
-
 @mixin btn-size-default {
   line-height: 32px;
 }

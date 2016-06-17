@@ -1,26 +1,50 @@
-
 @import "../vendor/foundation/functions";
 
-$padding-store-select	: rem-calc(10);
-$black: #1d1d1d;
+$button-black: $black-base;
+$button-black-gradient: #313030;
 
-@mixin button-size($padding, $width-factor: 2) {
-	padding: $padding ($padding * $width-factor) ($padding + rem-calc(1)) ($padding * $width-factor);
-}
+$button-gold: $gold-base;
+$button-gold-gradient: #f6b45e;
 
-$white	: #fff;
+$button-gray: $gray-base;
+$button-gray-gradient: #797979;
+
+$white: #fff;
 $button-border-radius: 5px;
 
-button,
-a.button {
+// Mixins
+@mixin button-states-color($base, $lighter) {
+  @include background-image(linear-gradient($lighter 0%, $lighter 50%, $base 50%, $base 100%));
+
+  &:hover {
+    @include background-image(linear-gradient($base 0%, $base 50%, $lighter 50%, $lighter 100%));
+  }
+  &:active {
+    background: none;
+    background-color: $base;
+  }
+}
+
+@mixin button-states-transparent($base, $hover, $active, $hover-bg: transparent) {
+  border: $base solid 1px;
+
+  &:hover {
+    border-color: $hover;
+		background-color: $hover-bg;
+  }
+  &:active {
+    border-color: $hover;
+    background-color: $active;
+  }
+}
+
+a.button,
+button {
 	color: $white;
-	@include same-link-style($white);
 	display: inline-block;
 	text-align: center;
-	line-height: 18px;
-	font-size: rem-calc(14);
 	cursor: pointer;
-	border: none;
+	border: transparent solid 0px;
 	border-radius: $button-border-radius;
 
 	@include button-states-color($black-base, $black-lighter);
@@ -32,10 +56,60 @@ a.button {
 		@include button-states-color($gray-base, $gray-lighter-1);
 	}
 
-	&.default-size {
-		@include btn-size-default;
+	&.transparent {
+		&.background-bright {
+			@include button-states-transparent($gray-base, $black-base, #f6f6f6);
+		}
+		&.background-colored {
+			@include button-states-transparent($white, $white, rgba($black-base, 40), rgba($white, 20));
+		}
+		&.background-dark {
+			@include button-states-transparent($white, $white, #3c3c3b, #878787);
+		}
 	}
 }
+
+a.button {
+	@include same-link-style($white);
+	line-height: 18px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+$padding-store-select	: rem-calc(10);
+$black: #1d1d1d;
+
+@mixin button-size($padding, $width-factor: 2) {
+	padding: $padding ($padding * $width-factor) ($padding + rem-calc(1)) ($padding * $width-factor);
+}
+
+// a.button {
+// 	@include same-link-style($white);
+// 	// display: inline-block;
+// 	// text-align: center;
+// 	line-height: 18px;
+// 	// font-size: rem-calc(14);
+// 	cursor: pointer;
+// 	// border: none;
+// 	// border-radius: $button-border-radius;
+//
+// 	// @include button-states-color($black-base, $black-lighter);
+//
+// 	// &.gold {
+// 	// 	@include button-states-color($gold-base, $gold-lighter);
+// 	// }
+// 	// &.gray {
+// 	// 	@include button-states-color($gray-base, $gray-lighter-1);
+// 	// }
+// 	//
+// 	// &.default-size {
+// 	// 	@include btn-size-default;
+// 	// }
+// }
 
 .btn {
 	display: inline-block;

@@ -4478,6 +4478,30 @@ td.align-bottom {
 }
 
 /* MODULES */
+/* line 24, ../sass/modules/_typography.scss */
+body {
+  font-family: "tondo", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+/* line 29, ../sass/modules/_typography.scss */
+h1 {
+  font-size: 1.375rem;
+}
+/* line 31, ../sass/modules/_typography.scss */
+h1.strong {
+  text-transform: uppercase;
+}
+
+/* line 40, ../sass/modules/_typography.scss */
+h2.strong,
+h3.strong,
+p.strong,
+p.note.strong {
+  font-weight: 700;
+}
+
 /* line 1, ../sass/modules/_blocks.scss */
 .seo-text {
   color: #c5c5c5;
@@ -4786,17 +4810,14 @@ td.align-bottom {
   margin-right: 5px;
 }
 
-/* line 14, ../sass/modules/_buttons.scss */
-button,
-a.button,
-a.store-select-button {
+/* line 41, ../sass/modules/_buttons.scss */
+a.button, a.store-select-button,
+button {
   color: #fff;
   display: inline-block;
   text-align: center;
-  line-height: 18px;
-  font-size: 0.875rem;
   cursor: pointer;
-  border: none;
+  border: transparent solid 0px;
   border-radius: 5px;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMxMzAzMCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMzEzMDMwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxZDFkMWQiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxZDFkMWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -4805,30 +4826,9 @@ a.store-select-button {
   background-image: -webkit-linear-gradient(#313030 0%, #313030 50%, #1d1d1d 50%, #1d1d1d 100%);
   background-image: linear-gradient(#313030 0%, #313030 50%, #1d1d1d 50%, #1d1d1d 100%);
 }
-/* line 19, ../sass/base/_mixins.scss */
-button:hover, button:active, button:link, button:visited,
-a.button:hover,
-a.store-select-button:hover,
-a.button:active,
-a.store-select-button:active,
-a.button:link,
-a.store-select-button:link,
-a.button:visited,
-a.store-select-button:visited {
-  color: #fff;
-  text-decoration: none;
-}
-/* line 23, ../sass/base/_mixins.scss */
-button:hover,
-a.button:hover,
-a.store-select-button:hover {
-  cursor: pointer;
-  color: #fff;
-}
-/* line 33, ../sass/base/_mixins.scss */
-button:hover,
-a.button:hover,
-a.store-select-button:hover {
+/* line 19, ../sass/modules/_buttons.scss */
+a.button:hover, a.store-select-button:hover,
+button:hover {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFkMWQxZCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMWQxZDFkIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMzMTMwMzAiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMTMwMzAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1d1d1d), color-stop(50%, #1d1d1d), color-stop(50%, #313030), color-stop(100%, #313030));
@@ -4836,17 +4836,16 @@ a.store-select-button:hover {
   background-image: -webkit-linear-gradient(#1d1d1d 0%, #1d1d1d 50%, #313030 50%, #313030 100%);
   background-image: linear-gradient(#1d1d1d 0%, #1d1d1d 50%, #313030 50%, #313030 100%);
 }
-/* line 36, ../sass/base/_mixins.scss */
-button:active,
-a.button:active,
-a.store-select-button:active {
+/* line 22, ../sass/modules/_buttons.scss */
+a.button:active, a.store-select-button:active,
+button:active {
   background: none;
   background-color: #1d1d1d;
 }
-/* line 28, ../sass/modules/_buttons.scss */
-button.gold, #review-buttons-container .btn-checkout,
-a.button.gold,
-a.gold.store-select-button {
+/* line 52, ../sass/modules/_buttons.scss */
+a.button.gold, a.gold.store-select-button,
+button.gold,
+#review-buttons-container .btn-checkout {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QzYjM2NiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZDNiMzY2Ii8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNjY2E2NGIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjY2E2NGIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d3b366), color-stop(50%, #d3b366), color-stop(50%, #cca64b), color-stop(100%, #cca64b));
@@ -4854,10 +4853,10 @@ a.gold.store-select-button {
   background-image: -webkit-linear-gradient(#d3b366 0%, #d3b366 50%, #cca64b 50%, #cca64b 100%);
   background-image: linear-gradient(#d3b366 0%, #d3b366 50%, #cca64b 50%, #cca64b 100%);
 }
-/* line 33, ../sass/base/_mixins.scss */
-button.gold:hover, #review-buttons-container .btn-checkout:hover,
-a.button.gold:hover,
-a.gold.store-select-button:hover {
+/* line 19, ../sass/modules/_buttons.scss */
+a.button.gold:hover, a.gold.store-select-button:hover,
+button.gold:hover,
+#review-buttons-container .btn-checkout:hover {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2NjYTY0YiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjY2NhNjRiIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNkM2IzNjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkM2IzNjYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cca64b), color-stop(50%, #cca64b), color-stop(50%, #d3b366), color-stop(100%, #d3b366));
@@ -4865,17 +4864,16 @@ a.gold.store-select-button:hover {
   background-image: -webkit-linear-gradient(#cca64b 0%, #cca64b 50%, #d3b366 50%, #d3b366 100%);
   background-image: linear-gradient(#cca64b 0%, #cca64b 50%, #d3b366 50%, #d3b366 100%);
 }
-/* line 36, ../sass/base/_mixins.scss */
-button.gold:active, #review-buttons-container .btn-checkout:active,
-a.button.gold:active,
-a.gold.store-select-button:active {
+/* line 22, ../sass/modules/_buttons.scss */
+a.button.gold:active, a.gold.store-select-button:active,
+button.gold:active,
+#review-buttons-container .btn-checkout:active {
   background: none;
   background-color: #cca64b;
 }
-/* line 31, ../sass/modules/_buttons.scss */
-button.gray,
-a.button.gray,
-a.gray.store-select-button {
+/* line 55, ../sass/modules/_buttons.scss */
+a.button.gray, a.gray.store-select-button,
+button.gray {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzliOWI5YiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjOWI5YjliIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM3MDZmNmYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3MDZmNmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9b9b9b), color-stop(50%, #9b9b9b), color-stop(50%, #706f6f), color-stop(100%, #706f6f));
@@ -4883,10 +4881,9 @@ a.gray.store-select-button {
   background-image: -webkit-linear-gradient(#9b9b9b 0%, #9b9b9b 50%, #706f6f 50%, #706f6f 100%);
   background-image: linear-gradient(#9b9b9b 0%, #9b9b9b 50%, #706f6f 50%, #706f6f 100%);
 }
-/* line 33, ../sass/base/_mixins.scss */
-button.gray:hover,
-a.button.gray:hover,
-a.gray.store-select-button:hover {
+/* line 19, ../sass/modules/_buttons.scss */
+a.button.gray:hover, a.gray.store-select-button:hover,
+button.gray:hover {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzcwNmY2ZiIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjNzA2ZjZmIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM5YjliOWIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5YjliOWIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #706f6f), color-stop(50%, #706f6f), color-stop(50%, #9b9b9b), color-stop(100%, #9b9b9b));
@@ -4894,21 +4891,81 @@ a.gray.store-select-button:hover {
   background-image: -webkit-linear-gradient(#706f6f 0%, #706f6f 50%, #9b9b9b 50%, #9b9b9b 100%);
   background-image: linear-gradient(#706f6f 0%, #706f6f 50%, #9b9b9b 50%, #9b9b9b 100%);
 }
-/* line 36, ../sass/base/_mixins.scss */
-button.gray:active,
-a.button.gray:active,
-a.gray.store-select-button:active {
+/* line 22, ../sass/modules/_buttons.scss */
+a.button.gray:active, a.gray.store-select-button:active,
+button.gray:active {
   background: none;
   background-color: #706f6f;
 }
+/* line 60, ../sass/modules/_buttons.scss */
+a.button.transparent.background-bright, a.transparent.background-bright.store-select-button,
+button.transparent.background-bright {
+  border: #706f6f solid 1px;
+}
+/* line 31, ../sass/modules/_buttons.scss */
+a.button.transparent.background-bright:hover, a.transparent.background-bright.store-select-button:hover,
+button.transparent.background-bright:hover {
+  border-color: #1d1d1d;
+  background-color: transparent;
+}
 /* line 35, ../sass/modules/_buttons.scss */
-button.default-size,
-a.button.default-size,
-a.default-size.store-select-button {
-  line-height: 32px;
+a.button.transparent.background-bright:active, a.transparent.background-bright.store-select-button:active,
+button.transparent.background-bright:active {
+  border-color: #1d1d1d;
+  background-color: #f6f6f6;
+}
+/* line 63, ../sass/modules/_buttons.scss */
+a.button.transparent.background-colored, a.transparent.background-colored.store-select-button,
+button.transparent.background-colored {
+  border: #fff solid 1px;
+}
+/* line 31, ../sass/modules/_buttons.scss */
+a.button.transparent.background-colored:hover, a.transparent.background-colored.store-select-button:hover,
+button.transparent.background-colored:hover {
+  border-color: #fff;
+  background-color: white;
+}
+/* line 35, ../sass/modules/_buttons.scss */
+a.button.transparent.background-colored:active, a.transparent.background-colored.store-select-button:active,
+button.transparent.background-colored:active {
+  border-color: #fff;
+  background-color: #1d1d1d;
+}
+/* line 66, ../sass/modules/_buttons.scss */
+a.button.transparent.background-dark, a.transparent.background-dark.store-select-button,
+button.transparent.background-dark {
+  border: #fff solid 1px;
+}
+/* line 31, ../sass/modules/_buttons.scss */
+a.button.transparent.background-dark:hover, a.transparent.background-dark.store-select-button:hover,
+button.transparent.background-dark:hover {
+  border-color: #fff;
+  background-color: #878787;
+}
+/* line 35, ../sass/modules/_buttons.scss */
+a.button.transparent.background-dark:active, a.transparent.background-dark.store-select-button:active,
+button.transparent.background-dark:active {
+  border-color: #fff;
+  background-color: #3c3c3b;
 }
 
-/* line 40, ../sass/modules/_buttons.scss */
+/* line 72, ../sass/modules/_buttons.scss */
+a.button, a.store-select-button {
+  line-height: 18px;
+  cursor: pointer;
+}
+/* line 19, ../sass/base/_mixins.scss */
+a.button:hover, a.store-select-button:hover, a.button:active, a.store-select-button:active, a.button:link, a.store-select-button:link, a.button:visited, a.store-select-button:visited {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 23, ../sass/base/_mixins.scss */
+a.button:hover, a.store-select-button:hover {
+  cursor: pointer;
+  color: #fff;
+}
+
+/* line 114, ../sass/modules/_buttons.scss */
 .btn {
   display: inline-block;
   text-align: center;
@@ -4925,67 +4982,67 @@ a.default-size.store-select-button {
   padding-right: 1em;
   color: #fff;
 }
-/* line 56, ../sass/modules/_buttons.scss */
+/* line 130, ../sass/modules/_buttons.scss */
 .btn.small {
   font-size: 0.75rem;
   padding: 0.3rem 2rem;
 }
-/* line 61, ../sass/modules/_buttons.scss */
+/* line 135, ../sass/modules/_buttons.scss */
 .btn.small-height {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
 }
-/* line 65, ../sass/modules/_buttons.scss */
+/* line 139, ../sass/modules/_buttons.scss */
 .btn.small-font-size {
   font-size: 0.75rem;
 }
-/* line 70, ../sass/modules/_buttons.scss */
+/* line 144, ../sass/modules/_buttons.scss */
 .btn.medium {
   font-size: 0.875rem;
   line-height: 1.375rem;
   line-height: 2.5em;
   font-weight: 400;
 }
-/* line 76, ../sass/modules/_buttons.scss */
+/* line 150, ../sass/modules/_buttons.scss */
 .btn.large {
   font-size: 1.125rem;
   font-weight: 400;
   padding: .65rem 2rem;
 }
-/* line 82, ../sass/modules/_buttons.scss */
+/* line 156, ../sass/modules/_buttons.scss */
 .btn.wide {
   padding-left: 3em;
   padding-right: 3em;
 }
-/* line 87, ../sass/modules/_buttons.scss */
+/* line 161, ../sass/modules/_buttons.scss */
 .btn.btn-transparent {
   border: 1px solid;
 }
-/* line 90, ../sass/modules/_buttons.scss */
+/* line 164, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.white {
   border-color: #fff;
 }
-/* line 93, ../sass/modules/_buttons.scss */
+/* line 167, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray {
   border-color: #6e6e6e;
   color: #6e6e6e;
 }
-/* line 97, ../sass/modules/_buttons.scss */
+/* line 171, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray:hover {
   border-color: #1d1d1d;
   color: #1d1d1d;
 }
-/* line 103, ../sass/modules/_buttons.scss */
+/* line 177, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray-light {
   border-color: #d9d9d9;
   color: #d9d9d9;
 }
-/* line 107, ../sass/modules/_buttons.scss */
+/* line 181, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray-light:hover {
   border-color: #706f6f;
   color: #706f6f;
 }
-/* line 114, ../sass/modules/_buttons.scss */
+/* line 188, ../sass/modules/_buttons.scss */
 .btn.orange {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2YjQ1ZSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZjZiNDVlIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNmN2FhNGUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2FhNGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -4994,7 +5051,7 @@ a.default-size.store-select-button {
   background-image: -webkit-linear-gradient(#f6b45e 0%, #f6b45e 50%, #f7aa4e 50%, #f7aa4e 100%);
   background-image: linear-gradient(#f6b45e 0%, #f6b45e 50%, #f7aa4e 50%, #f7aa4e 100%);
 }
-/* line 117, ../sass/modules/_buttons.scss */
+/* line 191, ../sass/modules/_buttons.scss */
 .btn.gray-light {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QwZDBkMCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZDBkMGQwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNjNWM1YzUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNWM1YzUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -5003,7 +5060,7 @@ a.default-size.store-select-button {
   background-image: -webkit-linear-gradient(#d0d0d0 0%, #d0d0d0 50%, #c5c5c5 50%, #c5c5c5 100%);
   background-image: linear-gradient(#d0d0d0 0%, #d0d0d0 50%, #c5c5c5 50%, #c5c5c5 100%);
 }
-/* line 120, ../sass/modules/_buttons.scss */
+/* line 194, ../sass/modules/_buttons.scss */
 .btn.black {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFkMWQxZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFkMWQxZCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -5012,14 +5069,14 @@ a.default-size.store-select-button {
   background-image: -webkit-linear-gradient(#1d1d1d 0%, #1d1d1d 100%);
   background-image: linear-gradient(#1d1d1d 0%, #1d1d1d 100%);
 }
-/* line 124, ../sass/modules/_buttons.scss */
+/* line 198, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown {
   position: relative;
   z-index: 5;
   color: #6e6e6e;
   background: #e3e3e3;
 }
-/* line 130, ../sass/modules/_buttons.scss */
+/* line 204, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content {
   display: none;
   position: absolute;
@@ -5031,21 +5088,21 @@ a.default-size.store-select-button {
   -webkit-box-shadow: inset 0 0 10px #c5c5c5;
   box-shadow: inset 0 0 10px #c5c5c5;
 }
-/* line 139, ../sass/modules/_buttons.scss */
+/* line 213, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content ul li {
   background: #e3e3e3;
   padding: 0.3rem 0;
 }
-/* line 143, ../sass/modules/_buttons.scss */
+/* line 217, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content ul li a, .btn.filter-dropdown .filter-dropdown-content ul li a:visited, .btn.filter-dropdown .filter-dropdown-content ul li a:focus, .btn.filter-dropdown .filter-dropdown-content ul li a:link {
   color: #6e6e6e;
   text-decoration: none;
 }
-/* line 147, ../sass/modules/_buttons.scss */
+/* line 221, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content ul li a:hover, .btn.filter-dropdown .filter-dropdown-content ul li a:visited:hover, .btn.filter-dropdown .filter-dropdown-content ul li a:focus:hover, .btn.filter-dropdown .filter-dropdown-content ul li a:link:hover {
   color: #f7aa4e;
 }
-/* line 155, ../sass/modules/_buttons.scss */
+/* line 229, ../sass/modules/_buttons.scss */
 .btn.continue-reading.vertical {
   padding-bottom: 4px;
   font-size: 0.75rem;
@@ -5056,13 +5113,13 @@ a.default-size.store-select-button {
   box-shadow: inset 0 -10px 30px -15px #c5c5c5;
 }
 
-/* line 166, ../sass/modules/_buttons.scss */
+/* line 240, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper {
   margin-bottom: .75rem;
   padding-left: calc(0.9375rem / 2);
   padding-right: calc(0.9375rem / 2);
 }
-/* line 171, ../sass/modules/_buttons.scss */
+/* line 245, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper a.btn.btn-transparent.gray-light {
   position: relative;
   border-width: 1px;
@@ -5070,38 +5127,38 @@ a.default-size.store-select-button {
   color: #706f6f;
   font-size: 0.625rem;
 }
-/* line 178, ../sass/modules/_buttons.scss */
+/* line 252, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper a.btn.btn-transparent.gray-light i {
   position: absolute;
   right: 5%;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 185, ../sass/modules/_buttons.scss */
+/* line 259, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper a.btn.btn-transparent.gray-light:hover {
   border-color: #706f6f;
   color: #706f6f;
 }
 
-/* line 192, ../sass/modules/_buttons.scss */
+/* line 266, ../sass/modules/_buttons.scss */
 .expand, .btn.continue-reading.vertical {
   display: block;
   width: 100%;
 }
 
-/* line 197, ../sass/modules/_buttons.scss */
+/* line 271, ../sass/modules/_buttons.scss */
 .no-radius {
   border-radius: 0;
 }
 
-/* line 201, ../sass/modules/_buttons.scss */
+/* line 275, ../sass/modules/_buttons.scss */
 .button, .store-select-button {
   display: inline-block;
   color: #fff;
   text-align: center;
 }
 
-/* line 208, ../sass/modules/_buttons.scss */
+/* line 282, ../sass/modules/_buttons.scss */
 a.store-button {
   font-size: 1.25rem;
   margin-right: 25px;
@@ -5119,12 +5176,12 @@ a.store-button:hover {
   cursor: pointer;
   color: #f7aa4e;
 }
-/* line 216, ../sass/modules/_buttons.scss */
+/* line 290, ../sass/modules/_buttons.scss */
 a.store-button.active {
   font-weight: 700;
 }
 
-/* line 221, ../sass/modules/_buttons.scss */
+/* line 295, ../sass/modules/_buttons.scss */
 .store-select-button {
   height: 46px;
   width: 151px;
@@ -5134,18 +5191,18 @@ a.store-button.active {
   font-weight: 300;
   text-transform: uppercase;
 }
-/* line 232, ../sass/modules/_buttons.scss */
+/* line 306, ../sass/modules/_buttons.scss */
 .store-select-button.shop-button {
   background-color: #f7aa4e;
   margin-right: .5rem;
 }
-/* line 236, ../sass/modules/_buttons.scss */
+/* line 310, ../sass/modules/_buttons.scss */
 .store-select-button.deals-button {
   background-color: #e3e3e3;
   color: #1d1d1d;
   position: relative;
 }
-/* line 241, ../sass/modules/_buttons.scss */
+/* line 315, ../sass/modules/_buttons.scss */
 .store-select-button.deals-button span.label {
   position: absolute;
   right: -25%;
@@ -6235,7 +6292,7 @@ span.count {
 }
 
 /* LAYOUTS */
-/* line 1, ../sass/layouts/_grid.scss */
+/* line 8, ../sass/layouts/_grid.scss */
 .container-fluid {
   width: 96%;
   margin-left: auto;
@@ -6251,7 +6308,7 @@ span.count {
   clear: both;
 }
 
-/* line 9, ../sass/layouts/_grid.scss */
+/* line 16, ../sass/layouts/_grid.scss */
 .container {
   width: 1100px;
   max-width: 1100px;
@@ -6268,42 +6325,47 @@ span.count {
   clear: both;
 }
 
-/* line 19, ../sass/layouts/_grid.scss */
+/* line 26, ../sass/layouts/_grid.scss */
 .row {
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   max-width: 100%;
 }
-/* line 24, ../sass/layouts/_grid.scss */
+/* line 30, ../sass/layouts/_grid.scss */
 .row .row.full-width, .row #checkoutSteps input.row[type="text"], #checkoutSteps .row input.row[type="text"], .row #checkoutSteps input.row[type="password"], #checkoutSteps .row input.row[type="password"], .row .my-account table td input.row, .my-account table td .row input.row {
   margin-left: 0;
   margin-right: 0;
 }
-
-/* line 56, ../sass/layouts/_grid.scss */
-.smaller-margins .columns, .row .columns {
-  padding-left: calc(0.9375rem / 2);
-  padding-right: calc(0.9375rem / 2);
+/* line 35, ../sass/layouts/_grid.scss */
+.row .columns {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
 }
 
-/* line 64, ../sass/layouts/_grid.scss */
+/* line 41, ../sass/layouts/_grid.scss */
+.smaller-margins .columns {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+/* line 48, ../sass/layouts/_grid.scss */
 #main .col2-left-layout .col-left {
   float: left;
 }
-/* line 66, ../sass/layouts/_grid.scss */
+/* line 50, ../sass/layouts/_grid.scss */
 #main .col2-left-layout .col-left.medium {
   width: 20%;
 }
-/* line 70, ../sass/layouts/_grid.scss */
+/* line 54, ../sass/layouts/_grid.scss */
 #main .col2-left-layout .col-main {
   float: left;
   padding: 0;
 }
-/* line 74, ../sass/layouts/_grid.scss */
+/* line 58, ../sass/layouts/_grid.scss */
 #main .col2-left-layout .col-main.medium {
   width: 80%;
 }
 
-/* line 81, ../sass/layouts/_grid.scss */
+/* line 65, ../sass/layouts/_grid.scss */
 .col-left,
 .col-main {
   margin-top: 20px;
@@ -7043,7 +7105,7 @@ section.topics article.topic-element .button-container .btn {
 
 /* line 51, ../sass/main.scss */
 body {
-  font-family: "tondo", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "tondo", Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
   color: #1d1d1d;
 }

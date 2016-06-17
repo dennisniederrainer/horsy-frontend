@@ -1,8 +1,46 @@
 
-$font-family-base: "tondo", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
+$font-family-base: "tondo", Arial, "Helvetica Neue", Helvetica, sans-serif !default;
 $font-weight-light: 300;
 $font-weight-base: 400;
 $font-weight-bold: 700;
+
+// Mixins
+@mixin tondo-light {
+  font-family: $font-family-base;
+  font-weight: $font-weight-light;
+}
+
+@mixin tondo-regular {
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+}
+
+@mixin tondo-bold {
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+}
+
+
+body {
+  @include tondo-light;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  &.strong {
+    text-transform: uppercase;
+  }
+}
+
+h2,
+h3,
+p,
+p.note {
+  &.strong {
+    font-weight: $font-weight-bold;
+  }
+}
 
 // typo boxes
 $font-size-box-header: rem-calc(12);

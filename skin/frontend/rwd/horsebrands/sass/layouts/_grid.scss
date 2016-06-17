@@ -1,3 +1,10 @@
+
+@mixin horizontal-padding($padding) {
+	padding-left: $padding !important;
+	padding-right: $padding !important;
+}
+
+
 .container-fluid {
 	width: 96%;
 	margin-left: auto;
@@ -17,45 +24,22 @@
 
 // get rid of the outter padding
 .row {
-	@extend .smaller-margins;
-	margin-bottom: 1rem;
+	margin-bottom: 10px;
 	max-width: 100%;
 
 	.row.full-width {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	&.full-width {
-		// .columns:first-child {
-		// 	padding-left: 0;
-		// }
-		// .columns:last-child {
-		// 	padding-right: 0;
-		// }
-		.columns.medium-start,
-		.columns.small-start,
-		.columns.large-start {
-			// padding-left: 0;
-		}
-		.columns.medium-end,
-		.columns.small-end,
-		.columns.large-end {
-			// padding-right: 0;
-		}
-	}
 
-	// &.smaller-margins {
-	// 	.columns {
-	// 			padding-left: calc(#{$grid-padding-columns-horizontal} / 2);
-	// 			padding-right: calc(#{$grid-padding-columns-horizontal} / 2);
-	// 	}
-	// }
+	.columns {
+			@include horizontal-padding(5px);
+	}
 }
 
 .smaller-margins {
 	.columns {
-			padding-left: calc(#{$grid-padding-columns-horizontal} / 2);
-			padding-right: calc(#{$grid-padding-columns-horizontal} / 2);
+			@include horizontal-padding(5px);
 	}
 }
 
