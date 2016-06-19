@@ -4442,7 +4442,7 @@ table.unstyled, table#cart-sidebar, .seq table.seq-canvas, .seq .seq-canvas > ta
 ul.check-items li:before {
   content: "\2713";
   margin-right: .4em;
-  color: #f7aa4e;
+  color: #cca64b;
 }
 
 /* line 40, ../sass/base/_base.scss */
@@ -4968,12 +4968,18 @@ button.height-m,
   padding-bottom: 5px;
 }
 /* line 78, ../sass/modules/_buttons.scss */
+a.button.height-l, a.height-l.store-select-button,
+button.height-l {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 82, ../sass/modules/_buttons.scss */
 a.button.width-m, a.width-m.store-select-button,
 button.width-m {
   padding-left: 15px;
   padding-right: 15px;
 }
-/* line 82, ../sass/modules/_buttons.scss */
+/* line 86, ../sass/modules/_buttons.scss */
 a.button.width-l, a.width-l.store-select-button,
 button.width-l,
 .cart .page-title.title-buttons ul.checkout-types li button {
@@ -4981,7 +4987,7 @@ button.width-l,
   padding-right: 30px;
 }
 
-/* line 88, ../sass/modules/_buttons.scss */
+/* line 92, ../sass/modules/_buttons.scss */
 a.button, a.store-select-button {
   cursor: pointer;
 }
@@ -4996,7 +5002,7 @@ a.button:hover, a.store-select-button:hover {
   color: #fff;
 }
 
-/* line 129, ../sass/modules/_buttons.scss */
+/* line 133, ../sass/modules/_buttons.scss */
 .btn {
   display: inline-block;
   text-align: center;
@@ -5013,67 +5019,67 @@ a.button:hover, a.store-select-button:hover {
   padding-right: 1em;
   color: #fff;
 }
-/* line 145, ../sass/modules/_buttons.scss */
+/* line 149, ../sass/modules/_buttons.scss */
 .btn.small {
   font-size: 0.75rem;
   padding: 0.3rem 2rem;
 }
-/* line 150, ../sass/modules/_buttons.scss */
+/* line 154, ../sass/modules/_buttons.scss */
 .btn.small-height {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
 }
-/* line 154, ../sass/modules/_buttons.scss */
+/* line 158, ../sass/modules/_buttons.scss */
 .btn.small-font-size {
   font-size: 0.75rem;
 }
-/* line 159, ../sass/modules/_buttons.scss */
+/* line 163, ../sass/modules/_buttons.scss */
 .btn.medium {
   font-size: 0.875rem;
   line-height: 1.375rem;
   line-height: 2.5em;
   font-weight: 400;
 }
-/* line 165, ../sass/modules/_buttons.scss */
+/* line 169, ../sass/modules/_buttons.scss */
 .btn.large {
   font-size: 1.125rem;
   font-weight: 400;
   padding: .65rem 2rem;
 }
-/* line 171, ../sass/modules/_buttons.scss */
+/* line 175, ../sass/modules/_buttons.scss */
 .btn.wide {
   padding-left: 3em;
   padding-right: 3em;
 }
-/* line 176, ../sass/modules/_buttons.scss */
+/* line 180, ../sass/modules/_buttons.scss */
 .btn.btn-transparent {
   border: 1px solid;
 }
-/* line 179, ../sass/modules/_buttons.scss */
+/* line 183, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.white {
   border-color: #fff;
 }
-/* line 182, ../sass/modules/_buttons.scss */
+/* line 186, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray {
   border-color: #6e6e6e;
   color: #6e6e6e;
 }
-/* line 186, ../sass/modules/_buttons.scss */
+/* line 190, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray:hover {
   border-color: #1d1d1d;
   color: #1d1d1d;
 }
-/* line 192, ../sass/modules/_buttons.scss */
+/* line 196, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray-light {
   border-color: #d9d9d9;
   color: #d9d9d9;
 }
-/* line 196, ../sass/modules/_buttons.scss */
+/* line 200, ../sass/modules/_buttons.scss */
 .btn.btn-transparent.gray-light:hover {
   border-color: #706f6f;
   color: #706f6f;
 }
-/* line 203, ../sass/modules/_buttons.scss */
+/* line 207, ../sass/modules/_buttons.scss */
 .btn.orange {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2YjQ1ZSIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZjZiNDVlIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNmN2FhNGUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2FhNGUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -5082,7 +5088,7 @@ a.button:hover, a.store-select-button:hover {
   background-image: -webkit-linear-gradient(#f6b45e 0%, #f6b45e 50%, #f7aa4e 50%, #f7aa4e 100%);
   background-image: linear-gradient(#f6b45e 0%, #f6b45e 50%, #f7aa4e 50%, #f7aa4e 100%);
 }
-/* line 206, ../sass/modules/_buttons.scss */
+/* line 210, ../sass/modules/_buttons.scss */
 .btn.gray-light {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QwZDBkMCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZDBkMGQwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNjNWM1YzUiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjNWM1YzUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
   background-size: 100%;
@@ -5091,7 +5097,7 @@ a.button:hover, a.store-select-button:hover {
   background-image: -webkit-linear-gradient(#d0d0d0 0%, #d0d0d0 50%, #c5c5c5 50%, #c5c5c5 100%);
   background-image: linear-gradient(#d0d0d0 0%, #d0d0d0 50%, #c5c5c5 50%, #c5c5c5 100%);
 }
-/* line 209, ../sass/modules/_buttons.scss */
+/* line 213, ../sass/modules/_buttons.scss */
 .btn.black {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFkMWQxZCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzFkMWQxZCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -5100,14 +5106,14 @@ a.button:hover, a.store-select-button:hover {
   background-image: -webkit-linear-gradient(#1d1d1d 0%, #1d1d1d 100%);
   background-image: linear-gradient(#1d1d1d 0%, #1d1d1d 100%);
 }
-/* line 213, ../sass/modules/_buttons.scss */
+/* line 217, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown {
   position: relative;
   z-index: 5;
   color: #6e6e6e;
   background: #e3e3e3;
 }
-/* line 219, ../sass/modules/_buttons.scss */
+/* line 223, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content {
   display: none;
   position: absolute;
@@ -5119,21 +5125,21 @@ a.button:hover, a.store-select-button:hover {
   -webkit-box-shadow: inset 0 0 10px #c5c5c5;
   box-shadow: inset 0 0 10px #c5c5c5;
 }
-/* line 228, ../sass/modules/_buttons.scss */
+/* line 232, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content ul li {
   background: #e3e3e3;
   padding: 0.3rem 0;
 }
-/* line 232, ../sass/modules/_buttons.scss */
+/* line 236, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content ul li a, .btn.filter-dropdown .filter-dropdown-content ul li a:visited, .btn.filter-dropdown .filter-dropdown-content ul li a:focus, .btn.filter-dropdown .filter-dropdown-content ul li a:link {
   color: #6e6e6e;
   text-decoration: none;
 }
-/* line 236, ../sass/modules/_buttons.scss */
+/* line 240, ../sass/modules/_buttons.scss */
 .btn.filter-dropdown .filter-dropdown-content ul li a:hover, .btn.filter-dropdown .filter-dropdown-content ul li a:visited:hover, .btn.filter-dropdown .filter-dropdown-content ul li a:focus:hover, .btn.filter-dropdown .filter-dropdown-content ul li a:link:hover {
   color: #f7aa4e;
 }
-/* line 244, ../sass/modules/_buttons.scss */
+/* line 248, ../sass/modules/_buttons.scss */
 .btn.continue-reading.vertical {
   padding-bottom: 4px;
   font-size: 0.75rem;
@@ -5144,13 +5150,13 @@ a.button:hover, a.store-select-button:hover {
   box-shadow: inset 0 -10px 30px -15px #c5c5c5;
 }
 
-/* line 255, ../sass/modules/_buttons.scss */
+/* line 259, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper {
   margin-bottom: .75rem;
   padding-left: calc(0.9375rem / 2);
   padding-right: calc(0.9375rem / 2);
 }
-/* line 260, ../sass/modules/_buttons.scss */
+/* line 264, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper a.btn.btn-transparent.gray-light {
   position: relative;
   border-width: 1px;
@@ -5158,38 +5164,38 @@ a.button:hover, a.store-select-button:hover {
   color: #706f6f;
   font-size: 0.625rem;
 }
-/* line 267, ../sass/modules/_buttons.scss */
+/* line 271, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper a.btn.btn-transparent.gray-light i {
   position: absolute;
   right: 5%;
   top: 50%;
   transform: translateY(-50%);
 }
-/* line 274, ../sass/modules/_buttons.scss */
+/* line 278, ../sass/modules/_buttons.scss */
 .selected-filter-wrapper a.btn.btn-transparent.gray-light:hover {
   border-color: #706f6f;
   color: #706f6f;
 }
 
-/* line 281, ../sass/modules/_buttons.scss */
+/* line 285, ../sass/modules/_buttons.scss */
 .expand, .btn.continue-reading.vertical {
   display: block;
   width: 100%;
 }
 
-/* line 286, ../sass/modules/_buttons.scss */
+/* line 290, ../sass/modules/_buttons.scss */
 .no-radius {
   border-radius: 0;
 }
 
-/* line 290, ../sass/modules/_buttons.scss */
+/* line 294, ../sass/modules/_buttons.scss */
 .button, .store-select-button {
   display: inline-block;
   color: #fff;
   text-align: center;
 }
 
-/* line 297, ../sass/modules/_buttons.scss */
+/* line 301, ../sass/modules/_buttons.scss */
 a.store-button {
   font-size: 1.25rem;
   margin-right: 25px;
@@ -5207,12 +5213,12 @@ a.store-button:hover {
   cursor: pointer;
   color: #f7aa4e;
 }
-/* line 305, ../sass/modules/_buttons.scss */
+/* line 309, ../sass/modules/_buttons.scss */
 a.store-button.active {
   font-weight: 700;
 }
 
-/* line 310, ../sass/modules/_buttons.scss */
+/* line 314, ../sass/modules/_buttons.scss */
 .store-select-button {
   height: 46px;
   width: 151px;
@@ -5222,18 +5228,18 @@ a.store-button.active {
   font-weight: 300;
   text-transform: uppercase;
 }
-/* line 321, ../sass/modules/_buttons.scss */
+/* line 325, ../sass/modules/_buttons.scss */
 .store-select-button.shop-button {
   background-color: #f7aa4e;
   margin-right: .5rem;
 }
-/* line 325, ../sass/modules/_buttons.scss */
+/* line 329, ../sass/modules/_buttons.scss */
 .store-select-button.deals-button {
   background-color: #e3e3e3;
   color: #1d1d1d;
   position: relative;
 }
-/* line 330, ../sass/modules/_buttons.scss */
+/* line 334, ../sass/modules/_buttons.scss */
 .store-select-button.deals-button span.label {
   position: absolute;
   right: -25%;
@@ -5622,7 +5628,7 @@ article.productlist-element:hover .offcanvas {
 /* line 23, ../sass/base/_mixins.scss */
 .box .box-title a:hover {
   cursor: pointer;
-  color: #f7aa4e;
+  color: #cca64b;
 }
 /* line 242, ../sass/modules/_components.scss */
 .box .box-content {
@@ -5685,12 +5691,12 @@ article.productlist-element:hover .offcanvas {
   text-transform: uppercase;
   font-size: 1.0625rem;
   font-weight: 700;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2YjQ1ZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2Y3YWE0ZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y2YjQ1ZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2NjYTY0YiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6b45e), color-stop(100%, #f7aa4e));
-  background-image: -moz-linear-gradient(top, #f6b45e 0%, #f7aa4e 100%);
-  background-image: -webkit-linear-gradient(top, #f6b45e 0%, #f7aa4e 100%);
-  background-image: linear-gradient(to bottom, #f6b45e 0%, #f7aa4e 100%);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f6b45e), color-stop(100%, #cca64b));
+  background-image: -moz-linear-gradient(top, #f6b45e 0%, #cca64b 100%);
+  background-image: -webkit-linear-gradient(top, #f6b45e 0%, #cca64b 100%);
+  background-image: linear-gradient(to bottom, #f6b45e 0%, #cca64b 100%);
 }
 /* line 304, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle div {
@@ -5929,32 +5935,42 @@ ul.menu > li > a:hover, ul.menu > li > a:active, ul.menu > li > a:link, ul.menu 
   font-size: .5em;
 }
 /* line 28, ../sass/modules/_products.scss */
+.product-view .gallery-image {
+  display: none;
+}
+/* line 31, ../sass/modules/_products.scss */
+.product-view .gallery-image.visible {
+  display: block;
+}
+/* line 36, ../sass/modules/_products.scss */
 .product-view .product-essential-left {
   margin-top: 30px;
 }
-/* line 33, ../sass/modules/_products.scss */
+/* line 41, ../sass/modules/_products.scss */
 .product-view label em {
-  color: #f7aa4e;
+  display: none;
+  color: #cca64b;
 }
-/* line 37, ../sass/modules/_products.scss */
+/* line 46, ../sass/modules/_products.scss */
 .product-view p.required {
+  display: none;
   font-size: 0.625rem;
-  color: #f7aa4e;
+  color: #cca64b;
   margin-top: 0;
 }
-/* line 43, ../sass/modules/_products.scss */
+/* line 53, ../sass/modules/_products.scss */
 .product-view .btn {
   margin-bottom: .3rem;
 }
-/* line 47, ../sass/modules/_products.scss */
+/* line 57, ../sass/modules/_products.scss */
 .product-view .review-stars {
-  color: #f7aa4e;
+  color: #cca64b;
 }
-/* line 51, ../sass/modules/_products.scss */
+/* line 61, ../sass/modules/_products.scss */
 .product-view .delivery-time-wrapper {
   font-size: 0.75rem;
 }
-/* line 56, ../sass/modules/_products.scss */
+/* line 66, ../sass/modules/_products.scss */
 .product-view li.promotion-element {
   font-size: 0.75rem;
   background-color: #e3e3e3;
@@ -5964,41 +5980,41 @@ ul.menu > li > a:hover, ul.menu > li > a:active, ul.menu > li > a:link, ul.menu 
   margin-bottom: 2px;
   text-align: center;
 }
-/* line 65, ../sass/modules/_products.scss */
+/* line 75, ../sass/modules/_products.scss */
 .product-view li.promotion-element.return-icon {
   background-image: url("../images/icons/i-return.png");
 }
-/* line 68, ../sass/modules/_products.scss */
+/* line 78, ../sass/modules/_products.scss */
 .product-view li.promotion-element.delivery-icon {
   background-image: url("../images/icons/i-delivery-productview.png");
 }
-/* line 71, ../sass/modules/_products.scss */
+/* line 81, ../sass/modules/_products.scss */
 .product-view li.promotion-element.phone-icon {
   background-image: url("../images/icons/i-phone.png");
 }
-/* line 78, ../sass/modules/_products.scss */
+/* line 88, ../sass/modules/_products.scss */
 .product-view section h5.section-title {
   margin-top: 0;
   font-weight: 300;
   font-size: 0.75rem;
 }
-/* line 83, ../sass/modules/_products.scss */
+/* line 93, ../sass/modules/_products.scss */
 .product-view section p {
   font-size: 0.75rem;
   font-weight: 300;
   line-height: 1.4;
 }
-/* line 88, ../sass/modules/_products.scss */
+/* line 98, ../sass/modules/_products.scss */
 .product-view section p strong {
   font-weight: 700;
 }
 
-/* line 95, ../sass/modules/_products.scss */
+/* line 105, ../sass/modules/_products.scss */
 .thin-weight {
   font-weight: 300;
 }
 
-/* line 98, ../sass/modules/_products.scss */
+/* line 108, ../sass/modules/_products.scss */
 .normal-weight {
   font-weight: 400;
 }
@@ -6677,6 +6693,327 @@ footer .footer-container .row .columns {
 }
 
 /* COMPONENTS */
+/* line 2, ../sass/components/_catalog.scss */
+.product-options-bottom .price-box {
+  display: none;
+}
+
+/* ============================================ *
+ * Configurable Swatches
+ * ============================================ */
+/* Clears */
+/* line 11, ../sass/components/_catalog.scss */
+.clearfix:after,
+.configurable-swatch-list:after,
+.product-view .product-options .swatch-attr:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* General Swatch Styling */
+/* line 20, ../sass/components/_catalog.scss */
+.swatch-link,
+.swatch-label {
+  display: block;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  color: #636363;
+  text-decoration: none;
+  box-sizing: content-box;
+}
+
+/* line 31, ../sass/components/_catalog.scss */
+.swatch-link {
+  border: 1px solid #cccccc;
+  margin: 0 0 3px;
+}
+
+/* line 35, ../sass/components/_catalog.scss */
+.swatch-link img {
+  border-radius: 2px;
+}
+
+/* line 38, ../sass/components/_catalog.scss */
+.swatch-link:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 42, ../sass/components/_catalog.scss */
+.swatch-link .x {
+  display: none;
+  text-indent: -999em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: url(../images/bg_x.png) center no-repeat transparent;
+  z-index: 10;
+}
+
+/* line 53, ../sass/components/_catalog.scss */
+.swatch-link.has-image .swatch-label {
+  position: relative;
+}
+
+/* line 56, ../sass/components/_catalog.scss */
+.swatch-link.has-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 62, ../sass/components/_catalog.scss */
+.swatch-label {
+  border: 1px solid #fff;
+  margin: 0;
+  white-space: nowrap;
+  background: #f4f4f4;
+}
+
+/* line 69, ../sass/components/_catalog.scss */
+.configurable-swatch-list {
+  margin-left: -3px;
+  zoom: 1;
+  clear: both;
+  -webkit-transform: translateZ(0px);
+}
+
+/* line 75, ../sass/components/_catalog.scss */
+.configurable-swatch-list li {
+  float: left;
+  zoom: 1;
+  margin: 0 0 0 3px;
+}
+
+/* line 80, ../sass/components/_catalog.scss */
+.products-grid .configurable-swatch-list li {
+  display: inline-block;
+  float: none;
+  margin: 0;
+  vertical-align: top;
+}
+
+/* line 86, ../sass/components/_catalog.scss */
+.configurable-swatch-list .not-available .x {
+  display: block;
+}
+
+/* line 89, ../sass/components/_catalog.scss */
+.configurable-swatch-list .not-available .swatch-link {
+  border-color: #ededed;
+  position: relative;
+}
+
+/* line 93, ../sass/components/_catalog.scss */
+.configurable-swatch-list .not-available .swatch-link.has-image img {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+
+/* line 97, ../sass/components/_catalog.scss */
+.configurable-swatch-list .not-available .swatch-label {
+  color: #aaa;
+  background: #fff;
+}
+
+/* line 101, ../sass/components/_catalog.scss */
+.configurable-swatch-list .wide-swatch .swatch-label {
+  padding: 0 6px;
+}
+
+/* line 104, ../sass/components/_catalog.scss */
+.configurable-swatch-list .not-available a:focus {
+  outline: 0;
+}
+
+/* line 108, ../sass/components/_catalog.scss */
+#narrow-by-list dd .configurable-swatch-list li {
+  margin: 0 0 0 3px;
+  width: 47%;
+}
+
+/* line 112, ../sass/components/_catalog.scss */
+#narrow-by-list dd .swatch-link {
+  border: none;
+  line-height: 25px;
+  margin-right: 2px;
+  text-align: left;
+}
+
+/* line 118, ../sass/components/_catalog.scss */
+#narrow-by-list dd .swatch-link.has-image {
+  line-height: inherit;
+}
+
+/* line 121, ../sass/components/_catalog.scss */
+#narrow-by-list dd .swatch-link:hover .swatch-label {
+  border-color: #3399cc;
+}
+
+/* line 124, ../sass/components/_catalog.scss */
+#narrow-by-list dd .swatch-label {
+  background: #f4f4f4;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  display: block;
+  float: left;
+  line-height: 1.5em;
+  margin: 0 5px 0 0;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+
+/* line 135, ../sass/components/_catalog.scss */
+#narrow-by-list dd .swatch-label img {
+  border: 1px solid #fff;
+  border-radius: 3px;
+  box-sizing: content-box;
+}
+
+/* line 140, ../sass/components/_catalog.scss */
+#narrow-by-list dd .has-image .swatch-label {
+  padding: 0;
+}
+
+@media only screen and (max-width: 770px) {
+  /* line 145, ../sass/components/_catalog.scss */
+  #narrow-by-list dd .configurable-swatch-list li:nth-child(odd) {
+    clear: left;
+  }
+}
+/* line 149, ../sass/components/_catalog.scss */
+.currently .swatch-current {
+  position: relative;
+}
+
+/* line 152, ../sass/components/_catalog.scss */
+.currently .swatch-current .btn-remove {
+  margin-top: -10px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+/* line 158, ../sass/components/_catalog.scss */
+.currently .swatch-current span {
+  display: block;
+  float: left;
+}
+
+/* line 162, ../sass/components/_catalog.scss */
+.currently .swatch-link {
+  display: inline-block;
+  margin: 0 0 0 3px;
+}
+
+/* line 166, ../sass/components/_catalog.scss */
+.currently .swatch-link:hover {
+  border-color: #cccccc;
+  cursor: default;
+}
+
+/* Other Swatch States */
+/* line 172, ../sass/components/_catalog.scss */
+.configurable-swatch-list .hover .swatch-link,
+.configurable-swatch-list .selected .swatch-link,
+.swatch-link:hover {
+  border-color: #3399cc;
+}
+
+/* line 178, ../sass/components/_catalog.scss */
+.configurable-swatch-box {
+  background: none !important;
+}
+
+/* line 181, ../sass/components/_catalog.scss */
+.configurable-swatch-box select.swatch-select {
+  display: none;
+}
+
+/* line 184, ../sass/components/_catalog.scss */
+.configurable-swatch-box .validation-advice {
+  margin: 0 0 5px;
+  background: #df280a;
+  padding: 2px 5px !important;
+  font-weight: bold;
+  color: #fff !important;
+  float: left;
+  display: block;
+  border-radius: 3px;
+}
+
+/* line 194, ../sass/components/_catalog.scss */
+.product-view .product-img-box .product-image img {
+  max-width: 100%;
+  max-height: 750px;
+  margin: 0px auto;
+}
+
+/* line 199, ../sass/components/_catalog.scss */
+.product-view .product-img-box .product-image-zoom {
+  z-index: 0;
+}
+
+/* line 202, ../sass/components/_catalog.scss */
+.product-view .product-image-thumbs img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* line 207, ../sass/components/_catalog.scss */
+.super-attribute-select.no-display {
+  display: none;
+}
+
+/* line 210, ../sass/components/_catalog.scss */
+.configurable-swatch-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+/* line 215, ../sass/components/_catalog.scss */
+.configurable-swatch-list .swatch-link {
+  width: 32px;
+  height: 32px;
+}
+/* line 219, ../sass/components/_catalog.scss */
+.configurable-swatch-list .swatch-link span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+/* line 225, ../sass/components/_catalog.scss */
+.configurable-swatch-list .swatch-link.has-image {
+  width: 60px;
+  height: 60px;
+}
+/* line 229, ../sass/components/_catalog.scss */
+.configurable-swatch-list .swatch-link.has-image span {
+  width: 60px;
+  height: 60px;
+}
+/* line 235, ../sass/components/_catalog.scss */
+.configurable-swatch-list .swatch-link img {
+  width: 60px;
+  height: 60px;
+}
+
+/* line 242, ../sass/components/_catalog.scss */
+dt.swatch-attr label span.select-label {
+  display: inline-block;
+  font-size: 1em;
+  padding-left: 5px;
+}
+
+/* line 248, ../sass/components/_catalog.scss */
+dd.swatch-attr {
+  margin-left: 0;
+}
+
 /* line 2, ../sass/components/_customer.scss */
 .block.block-login .block-title {
   display: none;
@@ -7233,273 +7570,7 @@ section.topics article.topic-element .button-container .btn {
   text-decoration: none;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 body {
   color: #706f6f;
-}
-
-/* ============================================ *
- * Configurable Swatches
- * ============================================ */
-/* Clears */
-/* line 60, ../sass/main.scss */
-.clearfix:after,
-.configurable-swatch-list:after,
-.product-view .product-options .swatch-attr:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-/* General Swatch Styling */
-/* line 69, ../sass/main.scss */
-.swatch-link,
-.swatch-label {
-  display: block;
-  border-radius: 3px;
-  font-size: 14px;
-  text-align: center;
-  color: #636363;
-  text-decoration: none;
-  box-sizing: content-box;
-}
-
-/* line 80, ../sass/main.scss */
-.swatch-link {
-  border: 1px solid #cccccc;
-  margin: 0 0 3px;
-}
-
-/* line 84, ../sass/main.scss */
-.swatch-link img {
-  border-radius: 2px;
-}
-
-/* line 87, ../sass/main.scss */
-.swatch-link:hover {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-/* line 91, ../sass/main.scss */
-.swatch-link .x {
-  display: none;
-  text-indent: -999em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: url(../images/bg_x.png) center no-repeat transparent;
-  z-index: 10;
-}
-
-/* line 102, ../sass/main.scss */
-.swatch-link.has-image .swatch-label {
-  position: relative;
-}
-
-/* line 105, ../sass/main.scss */
-.swatch-link.has-image img {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* line 111, ../sass/main.scss */
-.swatch-label {
-  border: 1px solid #fff;
-  margin: 0;
-  white-space: nowrap;
-  background: #f4f4f4;
-}
-
-/* line 118, ../sass/main.scss */
-.configurable-swatch-list {
-  margin-left: -3px;
-  zoom: 1;
-  clear: both;
-  -webkit-transform: translateZ(0px);
-}
-
-/* line 124, ../sass/main.scss */
-.configurable-swatch-list li {
-  float: left;
-  zoom: 1;
-  margin: 0 0 0 3px;
-}
-
-/* line 129, ../sass/main.scss */
-.products-grid .configurable-swatch-list li {
-  display: inline-block;
-  float: none;
-  margin: 0;
-  vertical-align: top;
-}
-
-/* line 135, ../sass/main.scss */
-.configurable-swatch-list .not-available .x {
-  display: block;
-}
-
-/* line 138, ../sass/main.scss */
-.configurable-swatch-list .not-available .swatch-link {
-  border-color: #ededed;
-  position: relative;
-}
-
-/* line 142, ../sass/main.scss */
-.configurable-swatch-list .not-available .swatch-link.has-image img {
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-}
-
-/* line 146, ../sass/main.scss */
-.configurable-swatch-list .not-available .swatch-label {
-  color: #aaa;
-  background: #fff;
-}
-
-/* line 150, ../sass/main.scss */
-.configurable-swatch-list .wide-swatch .swatch-label {
-  padding: 0 6px;
-}
-
-/* line 153, ../sass/main.scss */
-.configurable-swatch-list .not-available a:focus {
-  outline: 0;
-}
-
-/* line 157, ../sass/main.scss */
-#narrow-by-list dd .configurable-swatch-list li {
-  margin: 0 0 0 3px;
-  width: 47%;
-}
-
-/* line 161, ../sass/main.scss */
-#narrow-by-list dd .swatch-link {
-  border: none;
-  line-height: 25px;
-  margin-right: 2px;
-  text-align: left;
-}
-
-/* line 167, ../sass/main.scss */
-#narrow-by-list dd .swatch-link.has-image {
-  line-height: inherit;
-}
-
-/* line 170, ../sass/main.scss */
-#narrow-by-list dd .swatch-link:hover .swatch-label {
-  border-color: #3399cc;
-}
-
-/* line 173, ../sass/main.scss */
-#narrow-by-list dd .swatch-label {
-  background: #f4f4f4;
-  border: 1px solid #cccccc;
-  border-radius: 3px;
-  display: block;
-  float: left;
-  line-height: 1.5em;
-  margin: 0 5px 0 0;
-  padding: 1px 5px;
-  white-space: nowrap;
-}
-
-/* line 184, ../sass/main.scss */
-#narrow-by-list dd .swatch-label img {
-  border: 1px solid #fff;
-  border-radius: 3px;
-  box-sizing: content-box;
-}
-
-/* line 189, ../sass/main.scss */
-#narrow-by-list dd .has-image .swatch-label {
-  padding: 0;
-}
-
-@media only screen and (max-width: 770px) {
-  /* line 194, ../sass/main.scss */
-  #narrow-by-list dd .configurable-swatch-list li:nth-child(odd) {
-    clear: left;
-  }
-}
-/* line 198, ../sass/main.scss */
-.currently .swatch-current {
-  position: relative;
-}
-
-/* line 201, ../sass/main.scss */
-.currently .swatch-current .btn-remove {
-  margin-top: -10px;
-  position: absolute;
-  right: 0;
-  top: 50%;
-}
-
-/* line 207, ../sass/main.scss */
-.currently .swatch-current span {
-  display: block;
-  float: left;
-}
-
-/* line 211, ../sass/main.scss */
-.currently .swatch-link {
-  display: inline-block;
-  margin: 0 0 0 3px;
-}
-
-/* line 215, ../sass/main.scss */
-.currently .swatch-link:hover {
-  border-color: #cccccc;
-  cursor: default;
-}
-
-/* Other Swatch States */
-/* line 221, ../sass/main.scss */
-.configurable-swatch-list .hover .swatch-link,
-.configurable-swatch-list .selected .swatch-link,
-.swatch-link:hover {
-  border-color: #3399cc;
-}
-
-/* line 227, ../sass/main.scss */
-.configurable-swatch-box {
-  background: none !important;
-}
-
-/* line 230, ../sass/main.scss */
-.configurable-swatch-box select.swatch-select {
-  display: none;
-}
-
-/* line 233, ../sass/main.scss */
-.configurable-swatch-box .validation-advice {
-  margin: 0 0 5px;
-  background: #df280a;
-  padding: 2px 5px !important;
-  font-weight: bold;
-  color: #fff !important;
-  float: left;
-  display: block;
-  border-radius: 3px;
-}
-
-/* line 243, ../sass/main.scss */
-.product-view .product-img-box .product-image img {
-  max-width: 100%;
-  max-height: 750px;
-  margin: 0px auto;
-}
-
-/* line 248, ../sass/main.scss */
-.product-view .product-img-box .product-image-zoom {
-  z-index: 0;
-}
-
-/* line 251, ../sass/main.scss */
-.product-view .product-image-thumbs img {
-  max-width: 100%;
-  max-height: 100%;
 }

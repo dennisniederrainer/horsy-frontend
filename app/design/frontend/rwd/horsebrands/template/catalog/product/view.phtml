@@ -86,6 +86,7 @@
                   <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
               <?php endif;?>
           </div>
+          <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), 'delivery_time', $storeId)): ?>
           <div class="row">
             <div class="columns medium-12">
               <?php $deliveryAttributes = array('delivery_time') ?>
@@ -100,6 +101,7 @@
               </ul>
             </div>
           </div>
+          <?php endif; ?>
 
           <?php if ($_product->isSaleable() && $this->hasOptions()):?>
           <div class="row double-margin">

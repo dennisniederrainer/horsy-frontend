@@ -25,18 +25,28 @@ $spacing-bottom: 20px;
     }
   }
 
+  .gallery-image {
+    display: none;
+
+    &.visible {
+      display: block;
+    }
+  }
+
   .product-essential-left {
     margin-top: 30px; // brandbar (on the right) + bottom margin
   }
 
   label {
     em {
-      color: $orange-base;
+      display: none;
+      color: $gold-base;
     }
   }
   p.required {
+    display: none;
     font-size: $font-size-small;
-    color: $orange-base;
+    color: $gold-base;
     margin-top: 0;
   }
 
@@ -45,7 +55,7 @@ $spacing-bottom: 20px;
   }
 
   .review-stars {
-    color: $orange-base;
+    color: $gold-base;
   }
 
   .delivery-time-wrapper {

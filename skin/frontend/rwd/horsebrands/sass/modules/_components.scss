@@ -235,7 +235,7 @@ article.productlist-element {
 		}
 		a {
 			float: right;
-			@include same-link-style($font-color-default, $orange-base);
+			@include same-link-style($font-color-default, $gold-base);
 		}
 	}
 
@@ -299,7 +299,7 @@ article.productlist-element {
 					font-weight: $font-weight-bold;
 
 					// @include background-image(radial-gradient(center top, circle cover, lighten($orange-base, 30%), $orange-base));
-					@include background-image(linear-gradient(top, $orange-grad 0%, $orange-base 100%));
+					@include background-image(linear-gradient(top, $gold-grad 0%, $gold-base 100%));
 
 					div {
 						display: table-cell;

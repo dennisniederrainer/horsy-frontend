@@ -36,29 +36,10 @@
     $_product = $this->getProduct();
     $_helper = $this->helper('catalog/output');
 ?>
-<div class="product-image product-image-zoom">
-    <div class="product-image-gallery">
-        <img id="image-main"
-             class="gallery-image visible"
-             src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
-             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
-             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
-
-        <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
-            <?php if ($this->isGalleryImageVisible($_image)): ?>
-            <img id="image-<?php echo $i; ?>"
-                 class="gallery-image"
-                 src="<?php echo $this->getGalleryImageUrl($_image); ?>"
-                 data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>" />
-            <?php endif; ?>
-        <?php $i++; endforeach; ?>
-    </div>
-</div>
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
-<div class="more-views">
-    <h2><?php echo $this->__('More Views') ?></h2>
-    <ul class="product-image-thumbs">
+<div class="columns medium-2 thumbnails-vertical-wrapper">
+    <ul class="product-image-thumbs unstyled">
     <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
         <?php if ($this->isGalleryImageVisible($_image)): ?>
         <li>
@@ -72,5 +53,26 @@
     </ul>
 </div>
 <?php endif; ?>
+
+<div class="columns medium-10 product-image-wrapper">
+  <div class="product-image product-image-zoom">
+      <div class="product-image-gallery">
+          <img id="image-main"
+               class="gallery-image visible"
+               src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
+               alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
+               title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
+
+          <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+              <?php if ($this->isGalleryImageVisible($_image)): ?>
+              <img id="image-<?php echo $i; ?>"
+                   class="gallery-image"
+                   src="<?php echo $this->getGalleryImageUrl($_image); ?>"
+                   data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>" />
+              <?php endif; ?>
+          <?php $i++; endforeach; ?>
+      </div>
+  </div>
+</div>
 
 <?php echo $this->getChildHtml('after'); ?>
