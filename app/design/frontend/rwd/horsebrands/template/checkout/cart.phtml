@@ -1,82 +1,176 @@
-<?php
-/**
- * Shopping cart template
- *
- * @var $this Mage_Checkout_Block_Cart
- */
-?>
+<?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
+<?php $_STORE_ID_SHOP = 4; ?>
+<?php $_STORE_ID_DEALS = 5; ?>
+<div class="cart <?php echo $_priceDisplay; ?>">
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <div class="page-title title-buttons clearfix">
+        <h1 class="strong"><?php echo $this->__('Your Shopping Carts') ?></h1>
 
-<div id="shopping-cart-container">
-  <section class="cart-shop-wrapper">
-    <div class="title-container">
-      <h2>Dein Warenkorb <span class="cart-id">Shop</span></h2>
-      <p class="note">Artikel im Warenkorb werden nicht reserviert</p>
-      <!-- <i class="helper right fa fa-question-circle"></i> -->
+        <?php // EXPRESS CHECKOUT METHODS later! ?>
+        <?php if(!$this->hasError()): ?>
+        <ul class="checkout-types top">
+          <li>
+            <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>" class="button black height-m width-m">
+              <?php echo $this->__('Continue Shopping') ?>
+            </a>
+          </li>
+        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+            <li><?php echo $methodHtml; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
     </div>
-    <!-- Table Shop -->
-    hello
-    <?php echo $this->getChildHtml('items'); ?>
 
-    <div class="buttons-set clearfix">
-      <a class="button gray left" href="<?php echo $this->getBaseUrl() ?>"><?php echo $this->__('Continue Shopping') ?></a>
-      <a class="button gold right" href="<?php echo $this->getCheckoutUrl() ?>"><?php echo $this->__('Proceed to Checkout') ?> ></a>
+    <div class="cart-shop">
+      <div class="cart-title">
+        <h1 class="with-note"><?php echo $this->__('1. Delivery ') ?><span class="strong">Shop</span></h1>
+        <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p>
+      </div>
+
+      <?php echo $this->getChildHtml('form_before') ?>
+      <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <table id="shopping-cart-table-shop" class="cart-table data-table">
+          <col width="1"/>
+          <col/>
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <thead>
+            <tr>
+              <th colspan="2"><span class="nobr"><?php echo $this->__('Product') ?>:</span></th>
+              <th class="a-center">
+                <span class="nobr"><?php echo $this->__('Color') ?>:</span>
+              </th>
+              <th class="a-center">
+                <span class="nobr"><?php echo $this->__('Size') ?>:</span>
+              </th>
+              <th class="a-center">
+                <?php echo $this->__('Qty') ?>:
+              </th>
+              <th class="a-center cart-total-head">
+                <?php echo $this->__('Price') ?>:
+              </th>
+            </tr>
+            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+              <tr>
+                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+              </tr>
+            <?php endif; ?>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="a-left cart-shipping-info">
+                Kommt dann und wann
+              </td>
+              <!-- <td colspan="4" class="a-right cart-part-totals"> -->
+                <?php $this->getChild('part.totals')->setStoreId($_STORE_ID_SHOP); ?>
+                <?php echo $this->getChildHtml('part.totals'); ?>
+              <!-- </td> -->
+            </tr>
+          </tfoot>
+          <tbody>
+            <?php foreach($this->getItemsForStoreId($_STORE_ID_SHOP) as $_item): ?>
+              <?php echo $this->getItemHtml($_item) ?>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('shopping-cart-table-shop')</script>
+      </form>
     </div>
-  </section>
-  <section class="cart-deals-wrapper" style="display: none;">
-    <div class="title-container">
-      <h2>Dein Warenkorb <span class="cart-id">Deals</span></h2>
-      <p class="note">Artikel im Warenkorb werden nicht reserviert</p>
-      <!-- <i class="helper right fa fa-question-circle"></i> -->
+
+    <div class="cart-deals">
+      <div class="cart-title">
+        <h1 class="with-note"><?php echo $this->__('1. Delivery ') ?><span class="strong">Deals</span></h1>
+        <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p>
+      </div>
+
+      <?php echo $this->getChildHtml('form_before') ?>
+      <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <table id="shopping-cart-table-deals" class="cart-table data-table">
+          <col width="1"/>
+          <col/>
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <col width="12%" />
+          <thead>
+            <tr>
+              <th colspan="2"><span class="nobr"><?php echo $this->__('Product') ?>:</span></th>
+              <th class="a-center">
+                <span class="nobr"><?php echo $this->__('Color') ?>:</span>
+              </th>
+              <th class="a-center">
+                <span class="nobr"><?php echo $this->__('Size') ?>:</span>
+              </th>
+              <th class="a-center">
+                <?php echo $this->__('Qty') ?>:
+              </th>
+              <th class="a-center cart-total-head">
+                <?php echo $this->__('Price') ?>:
+              </th>
+            </tr>
+            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+              <tr>
+                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+              </tr>
+            <?php endif; ?>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="2" class="a-left cart-shipping-info">
+                Kommt dann und wann
+              </td>
+              <td colspan="4" class="a-right cart-part-totals">
+                Totals
+              </td>
+            </tr>
+          </tfoot>
+        <tbody>
+          <?php foreach($this->getItemsForStoreId($_STORE_ID_DEALS) as $_item): ?>
+            <?php echo $this->getItemHtml($_item) ?>
+          <?php endforeach ?>
+        </tbody>
+      </table>
+      <script type="text/javascript">decorateTable('shopping-cart-table-deals')</script>
+      </form>
     </div>
-    <!-- Table Deals -->
-    <div>
-      Todo
+
+
+    <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
+    <div class="cart-forms">
+        <?php /* Extensions placeholder */ ?>
+        <?php //echo $this->getChildHtml('checkout_cart_widget') ?>
+        <?php //echo $this->getChildHtml('coupon') ?>
+        <?php //echo $this->getChildHtml('checkout.cart.extra') ?>
+        <?php if (!$this->getIsVirtual()): //echo $this->getChildHtml('shipping');
+        endif; ?>
     </div>
-  </section>
-  <section class="cart-summary-wrapper" style="display: none;">
-    <hr class="double-line" />
-    <!-- cart summary -->
-    <table class="cart-table unstyled">
-      <colgroup>
-        <col width="120px" />
-        <col width="500px" />
-        <col width="220px" />
-        <col width="120px" />
-      </colgroup>
-      <tfoot>
-        <tr>
-          <td class="footer-icon delivery-icon-double">
-            &nbsp;
-          </td>
-          <td class="text-left align-middle">
-            <span><strong>Voraussichtliche Lieferung:</strong></span>
-            <span><strong>1. Lieferung:</strong> Mittwoch, 02.09.2015 - Donerstag, 03.09.2015</span>
-            <span><strong>2. Lieferung:</strong> Mittwoch, 12.09.2015 - Donerstag, 17.09.2015</span>
-          </td>
-          <td class="text-right totals" colspan="2" rowspan="2">
-            <div class="totals-strong">
-              Endsumme:
-              <span class="totals-price">204,96 €</span>
-              <?php if($this->helper('tax')->displayCartPriceInclTax()): ?>
-                <p class="note">inkl. MwSt.</p>
-              <?php elseif($this->helper('tax')->displayCartPriceExclTax()): ?>
-                <p class="note">exkl. MwSt.</p>
-              <?php endif; ?>
-            </div>
-            <div style="margin-top: 16px">
-              <a class="btn orange large wide" href="<?php echo $this->getCheckoutUrl() ?>">Zur Kasse ></a>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="footer-icon coupon-icon">
-            &nbsp;
-          </td>
-          <td class="text-left align-middle">
-            <span><strong>Gutscheincodes k&ouml;nnen im Bestellschritt "Best&auml;tigen" eingel&ouml;st werden.</strong></span>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </section>
+    <br />
+    <br />
+    <div class="cart-totals-wrapper">
+        <div class="cart-totals">
+            <?php echo $this->getChildHtml('totals'); ?>
+            <?php if(!$this->hasError()): ?>
+            <ul class="checkout-types bottom">
+            <?php foreach ($this->getMethods('methods') as $method): ?>
+                <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('crosssell') ?>
 </div>

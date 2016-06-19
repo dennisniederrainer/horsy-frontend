@@ -72,11 +72,10 @@ Default layout, loads most of the pages
         </reference>
     </default>
 
-    <checkout_cart_index translate="label">
+    <!-- <checkout_cart_index translate="label">
         <label>Shopping Cart</label>
         <remove name="right"/>
         <remove name="left"/>
-        <!-- Mage_Checkout -->
         <reference name="root">
             <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
@@ -133,7 +132,7 @@ Default layout, loads most of the pages
         <block type="core/text_list" name="additional.product.info" translate="label">
             <label>Additional Product Info</label>
         </block>
-    </checkout_cart_index>
+    </checkout_cart_index> -->
 
     <checkout_cart_configure translate="label">
         <label>Configure Cart Item</label>

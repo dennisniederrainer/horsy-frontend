@@ -1,0 +1,6 @@
+<?php $storeId = $this->getStoreId(); ?>
+<?php $subtotal = $this->getTotalsInclTaxForStoreId($storeId); ?>
+
+<td colspan="4" class="a-right">
+  PART TOTALS: <?php echo $this->helper('checkout')->formatPrice($subtotal); ?>
+</td>

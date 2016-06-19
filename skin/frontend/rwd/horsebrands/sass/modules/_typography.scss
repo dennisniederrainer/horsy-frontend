@@ -31,12 +31,17 @@ h1 {
   &.strong {
     text-transform: uppercase;
   }
+  &.with-note {
+    margin-bottom: 0;
+  }
 }
 
-h2,
-h3,
-p,
-p.note {
+h1,h2,h3,p,p.note {
+  font-weight: $font-weight-light;
+}
+
+
+h2,h3,p,p.note {
   &.strong {
     font-weight: $font-weight-bold;
   }

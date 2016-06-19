@@ -366,8 +366,9 @@ article.productlist-element {
 
 table {
 	width: 100%;
-	border: 3px solid $table-border-color-default;
+	border: 2px solid $gray-lighter-6;
 	border-top: none;
+	border-collapse: separate;
 
 	thead {
 		background-color: $table-border-color-default;
@@ -377,6 +378,8 @@ table {
 			padding: .2em 0;
 			border-left: 2px solid $white;
 			text-align: center;
+			color: $gray-base;
+			background-color: $gray-lighter-6;
 
 			&.text-left-indent {
 				text-align: left;
@@ -387,6 +390,19 @@ table {
 				border-left: none;
 				text-align: left;
 				padding-left: 30px;
+			}
+		}
+	}
+
+	tbody {
+		tr {
+			td {
+				border-bottom: 1px solid $gray-lighter-6;
+			}
+			&:last-child {
+				td {
+					border-bottom: none;
+				}
 			}
 		}
 	}
@@ -407,9 +423,16 @@ table {
 	}
 
 	tfoot {
-		td {
-			vertical-align: baseline;
-			height: 100px;
+		tr {
+			td {
+				vertical-align: baseline;
+				height: 100px;
+			}
+			&:first-child {
+				td {
+					border-top: 1px solid $black-base;
+				}
+			}
 		}
 	}
 }

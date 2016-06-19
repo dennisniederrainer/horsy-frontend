@@ -10,6 +10,11 @@
         <horsebrands_rewrites>
           <class>Horsebrands_Rewrites_Block</class>
         </horsebrands_rewrites>
+        <checkout>
+          <rewrite>
+            <cart>Horsebrands_Rewrites_Block_Checkout_Cart</cart>
+          </rewrite>
+        </checkout>
       </blocks>
 
       <models>

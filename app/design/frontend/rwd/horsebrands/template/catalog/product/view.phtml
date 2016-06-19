@@ -100,14 +100,15 @@
               </ul>
             </div>
           </div>
+
+          <?php if ($_product->isSaleable() && $this->hasOptions()):?>
           <div class="row double-margin">
             <div class="columns medium-12">
-              <?php echo $this->getChildHtml('addtocart') ?>
-            </div>
-            <div class="columns medium-12">
-              <?php echo $this->getChildHtml('addto') ?>
+                  <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
             </div>
           </div>
+          <?php endif;?>
+
           <div class="row">
             <div class="columns medium-12">
               <ul class="unstyled">
