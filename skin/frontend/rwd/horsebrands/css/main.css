@@ -4816,9 +4816,16 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   margin-right: 5px;
 }
 
+<<<<<<< HEAD
 /* line 41, ../sass/modules/_buttons.scss */
 a.button, a.store-select-button,
 button {
+=======
+/* line 14, ../sass/modules/_buttons.scss */
+button,
+a.button,
+a.store-select-button {
+>>>>>>> ce36a3fa3bd27ce15131bc3c4fa5954c47390e43
   color: #fff;
   display: inline-block;
   text-align: center;
