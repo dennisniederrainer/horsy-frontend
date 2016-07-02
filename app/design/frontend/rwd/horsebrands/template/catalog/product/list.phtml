@@ -66,12 +66,15 @@
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
-            <article class="productlist-element">
-              <a href="<?php echo $_product->getProductUrl() ?>">
+            <article class="productlist-element item">
+              <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
               <div class="product-image">
-                <!-- <div class="crop-height"></div> -->
-                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(232,245); ?>" width="232" height="245" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                <?php $_imgSize = 210; ?>
+                <img id="product-collection-image-<?php echo $_product->getId(); ?>"
+                   src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(232,245); ?>" width="232" height="245"
+                   alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
               </div>
+              </a>
               <div class="product-info">
                 <div class="top-row">
                   <h3><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></h3>
@@ -82,20 +85,35 @@
                   <span class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></span>
                 </div>
               </div>
-              <div class="offcanvas offcanvas-left">
-                <ul class="unstyled">
-                  <li>
-                    <img src="<?php echo $this->getSkinUrl('images/productlist-offcanvas1.jpg'); ?>" class="img-responsive" />
-                  </li>
-                  <li>
-                    <img src="<?php echo $this->getSkinUrl('images/productlist-offcanvas2.jpg'); ?>" class="img-responsive" />
-                  </li>
-                </ul>
-              </div>
+              <?php
+              // Provides extra blocks on which to hang some features for products in the list
+              // Features providing UI elements targeting this block will display directly below the product name
+              if ($this->getChild('name.after')) {
+                  $_nameAfterChildName = 'product_list.swatches';
+                  if ($_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName)) {
+                    echo '<div class="offcanvas offcanvas-left">';
+                    $_nameAfterChild->setProduct($_product);
+                    echo $_nameAfterChild->toHtml();
+                    echo '</div>';
+                  }
+              }
+              ?>
               <div class="offcanvas offcanvas-bottom">
-                foundation badges <?php echo 'saleable: ' . ($_product->isSaleable() ? 'true' : 'false') ?> 
+                foundation badges <?php echo 'saleable: ' . ($_product->isSaleable() ? 'true' : 'false') ?>
+                <?php
+                // Provides extra blocks on which to hang some features for products in the list
+                // Features providing UI elements targeting this block will display directly below the product name
+                if (false && $this->getChild('name.after')) {
+                    $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
+                    foreach ($_nameAfterChildren as $_nameAfterChildName) {
+                        $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
+                        $_nameAfterChild->setProduct($_product);
+                        echo $_nameAfterChild->toHtml();
+                    }
+                }
+                ?>
               </div>
-              </a>
+              <!-- </a> -->
             </article>
           </div>
 

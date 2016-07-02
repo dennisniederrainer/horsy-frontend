@@ -169,23 +169,32 @@ article.productlist-element {
 	}
 	.offcanvas {
 		$image-width: 75px;
-		background-color: rgba($white, .5);
 		position: absolute;
 		visibility: hidden;
 		transition: visibility;
-		overflow: hidden;
+		overflow: scroll;
+		// background-color: rgba($white, .5);
+		background-color: #fff;
 
-		img {
-			width: $image-width;
-		}
+		// img {
+		// 	width: $image-width;
+		// }
 
 		&.offcanvas-left {
-			padding: rem-calc(5px) 0;
+			padding: 10px;
 			border-top: 1px solid $gray-lighter-2;
 			border-left: 1px solid $gray-lighter-2;
 			border-bottom: 1px solid $gray-lighter-2;
 			top: -1px; //border width beachten
 			left: rem-calc(-$image-width - 1);
+
+			ul.configurable-swatch-list li {
+				float: none;
+
+				span.swatch-label {
+					border: none;
+				}
+			}
 		}
 		&.offcanvas-bottom {
 			font-size: $font-size-small;

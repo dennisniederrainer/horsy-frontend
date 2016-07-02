@@ -32,6 +32,9 @@
             <action method="addItem"><type>skin_js</type><name>js/configurableswatches/product-media.js</name></action>
             <action method="addItem"><type>skin_js</type><name>js/configurableswatches/swatches-list.js</name></action>
         </reference>
+        <reference name="product_list">
+            <block type="core/template" name="product_list.swatches.side" as="swatches" template="configurableswatches/catalog/product/list/swatches.phtml" />
+        </reference>
         <reference name="product_list.name.after">
             <block type="core/template" name="product_list.swatches" template="configurableswatches/catalog/product/list/swatches.phtml" />
         </reference>

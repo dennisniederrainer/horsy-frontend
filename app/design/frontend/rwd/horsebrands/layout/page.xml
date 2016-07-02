@@ -58,20 +58,6 @@
                 <!-- Remove items which the RWD package is not dependent upon -->
                 <action method="removeItem"><type>skin_js</type><name>js/ie6.js</name></action>
 
-                <!-- Add vendor dependencies -->
-                <!-- <action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.addListener.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/enquire.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/app.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
-                <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
-                <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</href></action>
-                <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action> -->
-
                 <!-- Add stylesheets with no media queries for use in IE 8 and below -->
                 <!-- <action method="addItem"><type>skin_css</type><name>css/styles-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action> -->
@@ -159,12 +145,7 @@
                 </block>-->
             </block>
 
-            <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
-               <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
-               <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
-               <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
-               <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
-            </block>
+            
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
                 <label>Page Bottom</label>

@@ -5540,26 +5540,30 @@ article.productlist-element .product-info .bottom-row span.price {
 }
 /* line 170, ../sass/modules/_components.scss */
 article.productlist-element .offcanvas {
-  background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
   visibility: hidden;
   transition: visibility;
-  overflow: hidden;
+  overflow: scroll;
+  background-color: #fff;
 }
-/* line 178, ../sass/modules/_components.scss */
-article.productlist-element .offcanvas img {
-  width: 75px;
-}
-/* line 182, ../sass/modules/_components.scss */
+/* line 183, ../sass/modules/_components.scss */
 article.productlist-element .offcanvas.offcanvas-left {
-  padding: 0.3125rem 0;
+  padding: 10px;
   border-top: 1px solid #c5c5c5;
   border-left: 1px solid #c5c5c5;
   border-bottom: 1px solid #c5c5c5;
   top: -1px;
   left: -4.75rem;
 }
-/* line 190, ../sass/modules/_components.scss */
+/* line 191, ../sass/modules/_components.scss */
+article.productlist-element .offcanvas.offcanvas-left ul.configurable-swatch-list li {
+  float: none;
+}
+/* line 194, ../sass/modules/_components.scss */
+article.productlist-element .offcanvas.offcanvas-left ul.configurable-swatch-list li span.swatch-label {
+  border: none;
+}
+/* line 199, ../sass/modules/_components.scss */
 article.productlist-element .offcanvas.offcanvas-bottom {
   font-size: 0.625rem;
   border-right: 1px solid #c5c5c5;
@@ -5571,33 +5575,33 @@ article.productlist-element .offcanvas.offcanvas-bottom {
   padding-left: 0.625rem;
   padding-bottom: 0.3125rem;
 }
-/* line 203, ../sass/modules/_components.scss */
+/* line 212, ../sass/modules/_components.scss */
 article.productlist-element:hover {
   border-top-color: #c5c5c5;
   border-right-color: #c5c5c5;
 }
-/* line 206, ../sass/modules/_components.scss */
+/* line 215, ../sass/modules/_components.scss */
 article.productlist-element:hover .product-info {
   border-top-color: #fff;
 }
-/* line 209, ../sass/modules/_components.scss */
+/* line 218, ../sass/modules/_components.scss */
 article.productlist-element:hover .offcanvas {
   visibility: visible;
 }
 
-/* line 216, ../sass/modules/_components.scss */
+/* line 225, ../sass/modules/_components.scss */
 #teaser .lower-teaser {
   margin: 1rem 0;
 }
 
-/* line 221, ../sass/modules/_components.scss */
+/* line 230, ../sass/modules/_components.scss */
 .box {
   color: #6e6e6e;
   border: 1px solid #d9d9d9;
   margin: 0 0 1rem 0;
   font-size: 0.75rem;
 }
-/* line 227, ../sass/modules/_components.scss */
+/* line 236, ../sass/modules/_components.scss */
 .box .box-title {
   background-color: #d9d9d9;
   padding: 0.5rem;
@@ -5611,12 +5615,12 @@ article.productlist-element:hover .offcanvas {
 .box .box-title:after {
   clear: both;
 }
-/* line 232, ../sass/modules/_components.scss */
+/* line 241, ../sass/modules/_components.scss */
 .box .box-title h3 {
   float: left;
   margin: 0;
 }
-/* line 236, ../sass/modules/_components.scss */
+/* line 245, ../sass/modules/_components.scss */
 .box .box-title a {
   float: right;
 }
@@ -5630,7 +5634,7 @@ article.productlist-element:hover .offcanvas {
   cursor: pointer;
   color: #cca64b;
 }
-/* line 242, ../sass/modules/_components.scss */
+/* line 251, ../sass/modules/_components.scss */
 .box .box-content {
   -moz-box-shadow: inset 0 0 10px #d9d9d9;
   -webkit-box-shadow: inset 0 0 10px #d9d9d9;
@@ -5638,14 +5642,14 @@ article.productlist-element:hover .offcanvas {
   padding: 0.5rem;
   min-height: 60px;
 }
-/* line 247, ../sass/modules/_components.scss */
+/* line 256, ../sass/modules/_components.scss */
 .box .box-content address {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 300;
   font-style: normal;
 }
-/* line 254, ../sass/modules/_components.scss */
+/* line 263, ../sass/modules/_components.scss */
 .box h2.title {
   margin: 0;
   font-size: 0.875rem;
@@ -5653,31 +5657,31 @@ article.productlist-element:hover .offcanvas {
   background-color: #d9d9d9;
   padding: 0.5rem;
 }
-/* line 261, ../sass/modules/_components.scss */
+/* line 270, ../sass/modules/_components.scss */
 .box h2.title i {
   padding: 0 5px;
 }
-/* line 266, ../sass/modules/_components.scss */
+/* line 275, ../sass/modules/_components.scss */
 .box div.content {
   -moz-box-shadow: inset 0 0 10px #d9d9d9;
   -webkit-box-shadow: inset 0 0 10px #d9d9d9;
   box-shadow: inset 0 0 10px #d9d9d9;
   padding: 0.5rem;
 }
-/* line 274, ../sass/modules/_components.scss */
+/* line 283, ../sass/modules/_components.scss */
 .box.newsletter-box .content {
   padding: 0;
   position: relative;
   overflow: hidden;
   max-height: 120px;
 }
-/* line 280, ../sass/modules/_components.scss */
+/* line 289, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount {
   float: left;
   width: 30%;
   height: 105px;
 }
-/* line 285, ../sass/modules/_components.scss */
+/* line 294, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle {
   position: absolute;
   top: -25px;
@@ -5698,39 +5702,39 @@ article.productlist-element:hover .offcanvas {
   background-image: -webkit-linear-gradient(top, #f6b45e 0%, #cca64b 100%);
   background-image: linear-gradient(to bottom, #f6b45e 0%, #cca64b 100%);
 }
-/* line 304, ../sass/modules/_components.scss */
+/* line 313, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle div {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 308, ../sass/modules/_components.scss */
+/* line 317, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle div span {
   font-size: 4.75rem;
   color: #fff;
 }
-/* line 316, ../sass/modules/_components.scss */
+/* line 325, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text {
   width: 70%;
   float: left;
   padding: 0.5rem;
 }
-/* line 321, ../sass/modules/_components.scss */
+/* line 330, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text .title {
   text-transform: uppercase;
   font-size: 1.625rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
-/* line 328, ../sass/modules/_components.scss */
+/* line 337, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text .desc {
   font-size: 0.6875rem;
   line-height: 1.2;
 }
-/* line 333, ../sass/modules/_components.scss */
+/* line 342, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text form#newsletter-subscribe {
   margin-top: 1rem;
 }
-/* line 335, ../sass/modules/_components.scss */
+/* line 344, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text form#newsletter-subscribe input {
   width: 60%;
   margin-right: .5rem;
@@ -5744,18 +5748,18 @@ article.productlist-element:hover .offcanvas {
 .box.customer-service-box:after {
   clear: both;
 }
-/* line 347, ../sass/modules/_components.scss */
+/* line 356, ../sass/modules/_components.scss */
 .box.customer-service-box .customer-service-text {
   width: 75%;
   padding: 0.5rem;
   float: left;
 }
-/* line 352, ../sass/modules/_components.scss */
+/* line 361, ../sass/modules/_components.scss */
 .box.customer-service-box .customer-service-text p {
   margin: 0;
   font-size: 0.875rem;
 }
-/* line 357, ../sass/modules/_components.scss */
+/* line 366, ../sass/modules/_components.scss */
 .box.customer-service-box .customer-service-icon {
   float: right;
   width: 25%;
@@ -5764,18 +5768,18 @@ article.productlist-element:hover .offcanvas {
   background-size: 100%;
 }
 
-/* line 367, ../sass/modules/_components.scss */
+/* line 376, ../sass/modules/_components.scss */
 table {
   width: 100%;
   border: 2px solid #f6f6f6;
   border-top: none;
   border-collapse: separate;
 }
-/* line 373, ../sass/modules/_components.scss */
+/* line 382, ../sass/modules/_components.scss */
 table thead {
   background-color: #d9d9d9;
 }
-/* line 375, ../sass/modules/_components.scss */
+/* line 384, ../sass/modules/_components.scss */
 table thead th {
   font-size: 0.8125rem;
   font-weight: 700;
@@ -5785,26 +5789,26 @@ table thead th {
   color: #706f6f;
   background-color: #f6f6f6;
 }
-/* line 384, ../sass/modules/_components.scss */
+/* line 393, ../sass/modules/_components.scss */
 table thead th.text-left-indent {
   text-align: left;
   padding-left: 5%;
 }
-/* line 389, ../sass/modules/_components.scss */
+/* line 398, ../sass/modules/_components.scss */
 table thead th:first-child {
   border-left: none;
   text-align: left;
   padding-left: 30px;
 }
-/* line 399, ../sass/modules/_components.scss */
+/* line 408, ../sass/modules/_components.scss */
 table tbody tr td {
   border-bottom: 1px solid #f6f6f6;
 }
-/* line 403, ../sass/modules/_components.scss */
+/* line 412, ../sass/modules/_components.scss */
 table tbody tr:last-child td {
   border-bottom: none;
 }
-/* line 410, ../sass/modules/_components.scss */
+/* line 419, ../sass/modules/_components.scss */
 table td {
   font-size: 0.75rem;
   font-weight: 300;
@@ -5812,25 +5816,25 @@ table td {
   vertical-align: top;
   padding: 10px 5px;
 }
-/* line 417, ../sass/modules/_components.scss */
+/* line 426, ../sass/modules/_components.scss */
 table td.text-left, .login-container table tbody td {
   text-align: left;
 }
-/* line 420, ../sass/modules/_components.scss */
+/* line 429, ../sass/modules/_components.scss */
 table td.text-right {
   text-align: right;
 }
-/* line 427, ../sass/modules/_components.scss */
+/* line 436, ../sass/modules/_components.scss */
 table tfoot tr td {
   vertical-align: baseline;
   height: 100px;
 }
-/* line 432, ../sass/modules/_components.scss */
+/* line 441, ../sass/modules/_components.scss */
 table tfoot tr:first-child td {
   border-top: 1px solid #1d1d1d;
 }
 
-/* line 440, ../sass/modules/_components.scss */
+/* line 449, ../sass/modules/_components.scss */
 p.note {
   margin: 0;
   font-size: 0.5rem;
@@ -5838,28 +5842,28 @@ p.note {
   line-height: 12px;
 }
 
-/* line 447, ../sass/modules/_components.scss */
+/* line 456, ../sass/modules/_components.scss */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-/* line 451, ../sass/modules/_components.scss */
+/* line 460, ../sass/modules/_components.scss */
 .dropdown .dropdown-content {
   display: none;
   position: absolute;
 }
-/* line 456, ../sass/modules/_components.scss */
+/* line 465, ../sass/modules/_components.scss */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* line 463, ../sass/modules/_components.scss */
+/* line 472, ../sass/modules/_components.scss */
 input.checkbox.besides {
   float: left;
   margin-top: 5px;
 }
 
-/* line 469, ../sass/modules/_components.scss */
+/* line 478, ../sass/modules/_components.scss */
 div.cb-text {
   margin-left: 20px;
 }
