@@ -19,7 +19,7 @@
  *
  * @category    design
  * @package     base_default
- * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 var Checkout = Class.create();
@@ -36,7 +36,8 @@ Checkout.prototype = {
         this.method = '';
         this.payment = '';
         this.loadWaiting = false;
-        this.steps = ['login', 'billing', 'shipping', 'shipping_method', 'payment', 'review'];
+        // this.steps = ['login', 'billing', 'shipping', 'shipping_method', 'payment', 'review'];
+        this.steps = ['login', 'billing', 'shipping_method', 'payment', 'review'];
         //We use billing as beginning step since progress bar tracks from billing
         this.currentStep = 'billing';
 
@@ -101,21 +102,21 @@ Checkout.prototype = {
             if (this.loadWaiting) {
                 this.setLoadWaiting(false);
             }
-            // var container = $(step+'-buttons-container');
-            // container.addClassName('disabled');
-            // container.setStyle({opacity:.5});
-            // this._disableEnableAll(container, true);
-            // Element.show(step+'-please-wait');
+            var container = $(step+'-buttons-container');
+            container.addClassName('disabled');
+            container.setStyle({opacity:.5});
+            this._disableEnableAll(container, true);
+            Element.show(step+'-please-wait');
         } else {
             if (this.loadWaiting) {
-                // var container = $(this.loadWaiting+'-buttons-container');
-                // var isDisabled = (keepDisabled ? true : false);
-                // if (!isDisabled) {
-                //     container.removeClassName('disabled');
-                //     container.setStyle({opacity:1});
-                // }
-                // this._disableEnableAll(container, isDisabled);
-                // Element.hide(this.loadWaiting+'-please-wait');
+                var container = $(this.loadWaiting+'-buttons-container');
+                var isDisabled = (keepDisabled ? true : false);
+                if (!isDisabled) {
+                    container.removeClassName('disabled');
+                    container.setStyle({opacity:1});
+                }
+                this._disableEnableAll(container, isDisabled);
+                Element.hide(this.loadWaiting+'-please-wait');
             }
         }
         this.loadWaiting = step;
@@ -126,6 +127,7 @@ Checkout.prototype = {
         if (reloadProgressBlock) {
             this.reloadProgressBlock(this.currentStep);
         }
+        console.log('es passiert nix');
         this.currentStep = section;
         var sectionElement = $('opc-' + section);
         sectionElement.addClassName('allow');
@@ -360,14 +362,10 @@ Billing.prototype = {
 
     save: function(){
         if (checkout.loadWaiting!=false) return;
-
         var validator = new Validation(this.form);
         if (validator.validate()) {
             checkout.setLoadWaiting('billing');
 
-//            if ($('billing:use_for_shipping') && $('billing:use_for_shipping').checked) {
-//                $('billing:use_for_shipping').value=1;
-//            }
             var request = new Ajax.Request(
                 this.saveUrl,
                 {
@@ -416,10 +414,6 @@ Billing.prototype = {
 
         checkout.setStepResponse(response);
         payment.initWhatIsCvvListeners();
-        // DELETE
-        //alert('error: ' + response.error + ' / redirect: ' + response.redirect + ' / shipping_methods_html: ' + response.shipping_methods_html);
-        // This moves the accordion panels of one page checkout and updates the checkout progress
-        //checkout.setBilling();
     }
 }
 
