@@ -108,6 +108,12 @@ $customer-icons-font-size: 1.5rem;
 							background-color: rgba($white, .9);
 							border: 1px solid $gray-lighter-2;
 							@include box-shadow(2px 0 1px -2px $gray-lighter-1);
+
+							.links ul {
+								list-style: none;
+								padding: 0;
+								min-width: 160px;
+							}
 						}
 
 						&:hover {

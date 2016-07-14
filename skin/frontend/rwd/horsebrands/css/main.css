@@ -6588,7 +6588,13 @@ span.count {
   -webkit-box-shadow: 2px 0 1px -2px #9b9b9b;
   box-shadow: 2px 0 1px -2px #9b9b9b;
 }
-/* line 113, ../sass/layouts/_header.scss */
+/* line 112, ../sass/layouts/_header.scss */
+.top-header .top-header-element.customer-nav .customer-nav-container ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
+  list-style: none;
+  padding: 0;
+  min-width: 160px;
+}
+/* line 119, ../sass/layouts/_header.scss */
 .top-header .top-header-element.customer-nav .customer-nav-container ul.customer-nav-list li.customer-nav-element:hover {
   padding: 4px 19px 0;
   border: 1px solid #c5c5c5;
@@ -6597,12 +6603,12 @@ span.count {
   -webkit-box-shadow: 2px 0 1px -2px #9b9b9b;
   box-shadow: 2px 0 1px -2px #9b9b9b;
 }
-/* line 119, ../sass/layouts/_header.scss */
+/* line 125, ../sass/layouts/_header.scss */
 .top-header .top-header-element.customer-nav .customer-nav-container ul.customer-nav-list li.customer-nav-element:hover .dropdown-content {
   display: block;
 }
 
-/* line 130, ../sass/layouts/_header.scss */
+/* line 136, ../sass/layouts/_header.scss */
 .navbar {
   border: 1px #c5c5c5 solid;
   border-left: 0;
@@ -6610,16 +6616,16 @@ span.count {
   position: relative;
   font-size: 0.875rem;
 }
-/* line 137, ../sass/layouts/_header.scss */
+/* line 143, ../sass/layouts/_header.scss */
 .navbar .menu {
   width: 70%;
   float: left;
 }
-/* line 141, ../sass/layouts/_header.scss */
+/* line 147, ../sass/layouts/_header.scss */
 .navbar .menu ul.level0 {
   display: none;
 }
-/* line 145, ../sass/layouts/_header.scss */
+/* line 151, ../sass/layouts/_header.scss */
 .navbar .global-search {
   position: absolute;
   top: 0;
@@ -6627,32 +6633,32 @@ span.count {
   right: 0;
   width: 30%;
 }
-/* line 152, ../sass/layouts/_header.scss */
+/* line 158, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group {
   height: 100%;
 }
-/* line 155, ../sass/layouts/_header.scss */
+/* line 161, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group > * {
   height: 100%;
 }
-/* line 159, ../sass/layouts/_header.scss */
+/* line 165, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group .input-group-field, .navbar .global-search .input-group .input-group-button input {
   height: 36px;
   border: 0;
   background-color: #d9d9d9;
 }
-/* line 168, ../sass/layouts/_header.scss */
+/* line 174, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group .input-group-button {
   background-color: #c5c5c5;
   color: #706f6f;
   text-align: center;
   min-width: 45px;
 }
-/* line 177, ../sass/layouts/_header.scss */
+/* line 183, ../sass/layouts/_header.scss */
 .navbar .global-search .global-search-field {
   display: inline-block;
 }
-/* line 181, ../sass/layouts/_header.scss */
+/* line 187, ../sass/layouts/_header.scss */
 .navbar .global-search .global-search-button {
   display: inline-block;
 }
