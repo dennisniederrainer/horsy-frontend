@@ -13,8 +13,6 @@
         $_imgHtml = '<img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" class="img-responsive full-width" />';
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
-    // $model = Mage::getModel('Purchase/Pdf_Order');
-    // echo get_class($model);
 ?>
 
 <?php echo $this->getMessagesBlock()->toHtml() ?>
@@ -33,7 +31,7 @@
       </article>
     </div>
   <?php endif; ?>
-  <?php if($_category->hasChildren()): ?>
+  <?php if(false && $_category->hasChildren()): ?>
     <?php $subcategories = $_category->getChildrenCategories(); ?>
     <?php $subcatCount = $subcategories->getSize(); ?>
     <?php $i = 1; ?>

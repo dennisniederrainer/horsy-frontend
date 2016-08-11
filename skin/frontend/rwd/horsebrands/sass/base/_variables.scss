@@ -1,10 +1,13 @@
 $grid-width: 1100px;
 $grid-padding-columns-horizontal: .9375rem;
 
+$global-border-radius: 4px;
+
 // Colors
 $gray-base: 		#706f6f;
 $black-base: 	#1d1d1d;
 $gold-base: #cca64b;
+$failed-red: #dc143c;
 
 $gray-lighter-1: 	#9b9b9b;
 $gray-lighter-2: 	#c5c5c5;
@@ -13,6 +16,10 @@ $gray-lighter-4:	#e3e3e3;
 $gray-lighter-5:	#ececec;
 $gray-lighter-6:	#f6f6f6;
 $gray-lightest:	$gray-lighter-6;
+
+$weight-light: 300;
+$weight-regular: 400;
+$weight-bold: 700;
 
 // Font Sizes
 $font-size-h1: rem-calc(22);
@@ -50,8 +57,8 @@ $btn-font-size-large: 1.5rem;
 $font-size-big: rem-calc(22);
 $font-size-medium: rem-calc(16);
 $font-size-normal: rem-calc(14);
-$font-size-smaller: rem-calc(12);
-$font-size-small: rem-calc(10);
+$font-size-smaller: rem-calc(14);
+$font-size-small: rem-calc(12);
 
 $padding-height-medium: .85rem;
 $padding-height-small: .3rem;

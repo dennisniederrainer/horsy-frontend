@@ -1,6 +1,10 @@
 <?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
 <?php $_STORE_ID_SHOP = 4; ?>
 <?php $_STORE_ID_DEALS = 5; ?>
+
+<?php $delivery_shop = $this->getEstimatedShippingText($_STORE_ID_SHOP) ?>
+<?php $delivery_deals = $this->getEstimatedShippingText($_STORE_ID_DEALS) ?>
+
 <div class="cart <?php echo $_priceDisplay; ?>">
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <div class="page-title title-buttons clearfix">
@@ -23,9 +27,10 @@
         <?php endif; ?>
     </div>
 
+    <?php $shopItems = $this->getItemsByStoreId($_STORE_ID_SHOP); ?>
     <div class="cart-shop">
       <div class="cart-title">
-        <h1 class="with-note"><?php echo $this->__('1. Delivery ') ?><span class="strong">Shop</span></h1>
+        <h1 class="with-note"><?php echo $this->__('Shopping Cart ') ?><span class="strong">Shop</span></h1>
         <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p>
       </div>
 
@@ -64,30 +69,51 @@
               </tr>
             <?php endif; ?>
           </thead>
+          <?php if(count($shopItems)>0): ?>
           <tfoot>
             <tr>
-              <td colspan="2" class="a-left cart-shipping-info">
-                Kommt dann und wann
+              <td class="shipping-icon">
+                <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
               </td>
-              <!-- <td colspan="4" class="a-right cart-part-totals"> -->
-                <?php $this->getChild('part.totals')->setStoreId($_STORE_ID_SHOP); ?>
-                <?php echo $this->getChildHtml('part.totals'); ?>
-              <!-- </td> -->
+              <td class="a-left cart-shipping-info">
+                <div class="shipping-estimate-wrapper">
+                  <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+                  <p><?php echo $delivery_shop; ?></p>
+                  <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p>
+                </div>
+              </td>
+              <td colspan="4" class="a-right cart-part-totals">
+                <?php echo $this->getChildHtml('totals'); ?>
+              </td>
             </tr>
           </tfoot>
           <tbody>
-            <?php foreach($this->getItemsForStoreId($_STORE_ID_SHOP) as $_item): ?>
-              <?php echo $this->getItemHtml($_item) ?>
+            <?php foreach($shopItems as $_item): ?>
+              <?php //if($_item->getStoreId() == $_STORE_ID_SHOP): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+              <?php //endif; ?>
             <?php endforeach ?>
           </tbody>
+          <?php else: ?>
+            <tbody>
+              <tr>
+                <td colspan="6">
+                  <p class="empty">
+                    Sie haben keine Artikel aus dem Horsebrands Shop im Warenkorb
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          <?php endif; ?>
         </table>
         <script type="text/javascript">decorateTable('shopping-cart-table-shop')</script>
       </form>
     </div>
 
+    <?php $dealsItems = $this->getItemsByStoreId($_STORE_ID_DEALS); ?>
     <div class="cart-deals">
       <div class="cart-title">
-        <h1 class="with-note"><?php echo $this->__('1. Delivery ') ?><span class="strong">Deals</span></h1>
+        <h1 class="with-note"><?php echo $this->__('Shopping Cart ') ?><span class="strong">Deals</span></h1>
         <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p>
       </div>
 
@@ -126,21 +152,42 @@
               </tr>
             <?php endif; ?>
           </thead>
+          <?php if(count($dealsItems)>0): ?>
           <tfoot>
             <tr>
-              <td colspan="2" class="a-left cart-shipping-info">
-                Kommt dann und wann
+              <td class="shipping-icon">
+                <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
+              </td>
+              <td class="a-left cart-shipping-info">
+                <div class="shipping-estimate-wrapper">
+                  <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+                  <p><?php echo $delivery_deals ?></p>
+                  <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p>
+                </div>
               </td>
               <td colspan="4" class="a-right cart-part-totals">
-                Totals
+                <?php echo $this->getChildHtml('totals'); ?>
               </td>
             </tr>
           </tfoot>
         <tbody>
-          <?php foreach($this->getItemsForStoreId($_STORE_ID_DEALS) as $_item): ?>
-            <?php echo $this->getItemHtml($_item) ?>
+          <?php foreach($dealsItems as $_item): ?>
+            <?php //if($_item->getStoreId() == $_STORE_ID_DEALS): ?>
+              <?php echo $this->getItemHtml($_item) ?>
+            <?php //endif; ?>
           <?php endforeach ?>
         </tbody>
+        <?php else: ?>
+          <tbody>
+            <tr>
+              <td colspan="6">
+                <p class="empty">
+                  Sie haben keine Artikel aus den Horsebrands Deals im Warenkorb
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        <?php endif; ?>
       </table>
       <script type="text/javascript">decorateTable('shopping-cart-table-deals')</script>
       </form>
@@ -156,21 +203,40 @@
         <?php if (!$this->getIsVirtual()): //echo $this->getChildHtml('shipping');
         endif; ?>
     </div>
-    <br />
-    <br />
-    <div class="cart-totals-wrapper">
-        <div class="cart-totals">
-            <?php echo $this->getChildHtml('totals'); ?>
-            <?php if(!$this->hasError()): ?>
-            <ul class="checkout-types bottom">
-            <?php foreach ($this->getMethods('methods') as $method): ?>
-                <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-                <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-            </ul>
-            <?php endif; ?>
+    <div class="summary-wrapper">
+      <div class="summary-shipping">
+        <div class="icon-container">
+          <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
         </div>
+        <div class="shipping-estimate-wrapper">
+          <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+          <?php if($delivery_shop != ''): ?>
+            <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
+          <?php endif; ?>
+          <?php if($delivery_deals != ''): ?>
+            <p><strong>Lieferung Deals:</strong> <?php echo $delivery_deals ?></p>
+          <?php endif; ?>
+        </div>
+      </div>
+      <div class="cart-totals-wrapper">
+          <div class="cart-totals">
+              <?php echo $this->getChildHtml('totals'); ?>
+              <?php if(!$this->hasError()): ?>
+              <ul class="checkout-types bottom">
+                <?php /*foreach ($this->getMethods('top_methods') as $method): ?>
+                    <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                    <li><?php echo $methodHtml; ?></li>
+                    <?php endif; ?>
+                <?php endforeach; */?>
+              <?php  foreach ($this->getMethods('methods') as $method): ?>
+                  <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                  <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
+                  <?php endif; ?>
+              <?php endforeach;  ?>
+              </ul>
+              <?php endif; ?>
+          </div>
+      </div>
     </div>
     <?php echo $this->getChildHtml('crosssell') ?>
 </div>

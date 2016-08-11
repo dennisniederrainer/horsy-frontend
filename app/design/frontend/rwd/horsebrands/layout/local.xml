@@ -28,13 +28,28 @@
 
 <checkout_cart_index>
   <reference name="checkout.cart">
-    <block type="checkout/cart" name="checkout.cart.parttotals.totals" as="part.totals" template="checkout/cart/parttotals/totals.phtml"/>
+    <block type="horsebrands_rewrites/checkout_cart_totals_split" name="checkout.cart.part.totals" as="part.totals" template="checkout/cart/totals.phtml"/>
   </reference>
 </checkout_cart_index>
 
 <catalog_category_layered>
+  <!-- <reference name="left_first">
+      <block type="catalog/layer_view" name="catalog.leftnav" after="currency" template="catalog/layer/view.phtml">
+          <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers" />
+      </block>
+  </reference> -->
   <reference name="left">
-      <block type="catalog/navigation" name="catalog.sidenav" template="catalog/category/sidenavigation.phtml"/>
+    <remove name="catalog.leftnav" />
+    <block type="catalog/navigation" name="catalog.sidenav" template="catalog/navigation/left.phtml"/>
+      <!-- <block type="catalog/navigation" name="catalog.leftnav" after="currency" template="catalog/navigation/left.phtml">
+          <action method="unsetChild"><child>category_filter</child></action>
+          <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers" />
+      </block> -->
+  </reference>
+  <reference name="product_list">
+      <block type="catalog/layer_view" name="catalog.filter" template="catalog/layer/view.phtml">
+        <action method="unsetChild"><child>category_filter</child></action>
+      </block>
   </reference>
 </catalog_category_layered>
 
@@ -57,7 +72,7 @@
   </reference>
 </catalog_product_view>
 
-<PRODUCT_TYPE_configurable>
+<!-- <PRODUCT_TYPE_configurable>
 
       <reference name="product.info.options.configurable">
 
@@ -70,6 +85,16 @@
 
       </reference>
 
-  </PRODUCT_TYPE_configurable>
+  </PRODUCT_TYPE_configurable> -->
+
+<customer_account>
+  <reference name="left">
+      <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
+          <action method="addLink" translate="label" module="customer"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
+          <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+          <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+      </block>
+  </reference>
+</customer_account>
 
 </layout>

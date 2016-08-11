@@ -95,7 +95,6 @@ var ConfigurableMediaImages = {
         }
 
         var compatibleProducts = ConfigurableMediaImages.getCompatibleProductImages(fallback, selectedLabels);
-
         if(compatibleProducts.length == 0) { //no compatible products
             return null; //bail
         }
@@ -118,6 +117,7 @@ var ConfigurableMediaImages = {
         var childSwatchImage = null;
         var childProductImages = fallback[ConfigurableMediaImages.imageType];
         compatibleProducts.each(function(productId) {
+          console.log(ConfigurableMediaImages.imageType);
             if(childProductImages[productId] && ConfigurableMediaImages.isValidImage(childProductImages[productId])) {
                 childSwatchImage = childProductImages[productId];
                 return false; //break "loop"
@@ -187,6 +187,7 @@ var ConfigurableMediaImages = {
             $j('.product-collection-image-' + productId).remove();
 
             //add new image
+            console.log('here?');
             imageObject.insertAfter(originalImage);
 
         } else { //need to load image
@@ -200,7 +201,7 @@ var ConfigurableMediaImages = {
             imagesLoaded(imageObject, function() {
                 //remove spinner
                 wrapper.removeClass('loading');
-
+                console.log('or here?');
                 //remove old image
                 originalImage.addClass('hidden');
                 $j('.product-collection-image-' + productId).remove();

@@ -1,17 +1,17 @@
 
 div.kv {
   @include clearfix;
-  @include fs-normal;
+  font-size: $font-size-small;
   font-weight: $font-weight-base;
   margin-bottom: 10px;
 
   div.key {
     float: left;
-    width: 20%;
+    width: 30%;
   }
   div.value {
     float: left;
-    width: 80%;
+    width: 70%;
     padding-left: 3%;
   }
 }

@@ -1,7 +1,16 @@
 
-input[type="text"], input[type="password"], input[type="email"] {
-	border: 1px solid $gray-lighter-2;
+input[type="text"], input[type="password"], input[type="email"], textarea {
+	border: 1px solid $gray-lighter-5;
 	padding: $padding-height-small;
+
+	&.validation-failed {
+		border-color: $failed-red;
+	}
+}
+
+div.validation-advice {
+	font-size: $font-size-small;
+	color: $failed-red;
 }
 
 ul {
@@ -206,6 +215,7 @@ article.productlist-element {
 			line-height: 1em;
 			padding-left: rem-calc(10px);
 			padding-bottom: rem-calc(5px);
+			color: #fff;
 		}
 	}
 
@@ -448,7 +458,7 @@ table {
 
 p.note {
 	margin: 0;
-	font-size: rem-calc(8);
+	font-size: rem-calc(11);
 	font-weight: $font-weight-light;
 	line-height: 12px;
 }

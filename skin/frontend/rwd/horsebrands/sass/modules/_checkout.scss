@@ -238,7 +238,7 @@ span.count {
 .minicart-wrapper {
   h2.block-title {
     font-size: 1rem;
-    margin: 10px 0;
+    margin: 0 0 15px;
     text-align: center;
   }
 
@@ -281,6 +281,12 @@ span.count {
     @include clearfix;
     border-bottom: 1px solid $gray-lighter-2;
     padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
 
     .product-image-wrapper {
       float: left;
@@ -293,6 +299,7 @@ span.count {
       width: 70%;
       text-align: left;
       font-size: rem-calc(12);
+      line-height: 1.4;
 
       .item-options {
         line-height: 18px;

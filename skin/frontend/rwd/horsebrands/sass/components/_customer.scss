@@ -150,10 +150,7 @@
         font-weight: $font-weight-light;
 
         a {
-          @include same-link-style($font-color-default, $orange-base);
-          // strong {
-          //   font-weight: $font-weight-bold;
-          // }
+          @include same-link-style($font-color-default, $gold-base);
         }
 
         &:first-child {
