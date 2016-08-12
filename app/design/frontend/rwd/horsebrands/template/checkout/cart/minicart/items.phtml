@@ -38,7 +38,14 @@ if(empty($_cartQty)) {
         <div class="block-content">
           <div class="right-col">
             <span class="mini-cart-totals-label"><?php echo $this->__('Subtotal') ?>:</span>
-            <span class="mini-cart-totals-value"><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotalInclTax()) ?></span>
+            <?php //if ($_subtotalInclTax = $this->getSubtotalInclTax()): ?>
+              <span class="mini-cart-totals-value">
+                <?php echo Mage::helper('checkout')->formatPrice(Mage::helper('checkout/cart')->getQuote()->getSubtotal()) ?>
+                <?php //echo Mage::helper('checkout')->formatPrice($_subtotalInclTax) ?>
+              </span>
+            <?php //endif; ?>
+
+            <?php //echo Mage::helper('checkout')->formatPrice($this->getSubtotalInclTax()) ?></span>
             <p class="note"><?php echo $this->__('incl. VAT') ?></p>
           </div>
         </div>

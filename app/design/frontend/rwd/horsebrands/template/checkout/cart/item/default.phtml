@@ -1,15 +1,23 @@
 <?php
 $_item = $this->getItem();
+$_product = $_item->getProduct();
+$_childProduct = $_item->getOptionByCode('simple_product')->getProduct();
+$_childProduct = Mage::getModel('catalog/product')->load($_childProduct->getId());
+
+if(!$_childProduct->getId()) {
+  $_childProduct = Mage::getModel('catalog/product')->load($_product->getId());
+}
+
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 
 $manufacturer = "Manufacturer";
-$deliverytime = "1-3 Tage";
-
-$color = "Gray";
-$size = "S";
+$deliverytime = $_product->getAttributeText('delivery_time'); //"1-3 Tage";
+$color = $_childProduct->getAttributeText('color'); //"Gray";
+$size = $_childProduct->getAttributeText('size'); //"S";
 ?>
 <tr>
+  <!-- <?php echo Mage::getModel('catalog/product')->load($_childProduct->getId())->getAttributeText('size'); ?> -->
     <td class="product-cart-image">
         <?php if ($this->hasProductUrl()):?>
             <a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image">
@@ -48,9 +56,11 @@ $size = "S";
       <div class="product-cart-sku">
         <span class="label"><?php echo $this->__('Sku'); ?>:</span> <?php echo $this->escapeHtml($_item->getSku()); ?>
       </div>
+      <?php if($deliverytime != ''): ?>
       <div class="product-cart-deliverytime">
         <span class="label"><?php echo $this->__('Delivery Time'); ?>:</span> <?php echo $deliverytime; ?>
       </div>
+      <?php endif; ?>
 
       <a href="<?php echo $this->getDeleteUrl() ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Remove Item')) ?>" class="btn-remove btn-remove2">
         <i class="fa fa-times-circle-o"></i> <?php echo $this->__('Remove Item') ?>

@@ -40,7 +40,9 @@
 ?>
 <div class="category-products">
 <h2><?php echo $_category->getName(); ?> <span class="products-count">/ <?php echo $_toolbar->getTotalNum() ?></span></h2>
+
 <?php echo $this->getChildHtml('catalog.filter') ?>
+
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
@@ -60,7 +62,7 @@
       <?php $firstInRow = ($i++%$gridSize==1) ?>
       <?php $lastInRow = ($i%$gridSize==0) ?>
       <?php $lastInCollection = ($i==$_collectionSize) ?>
-      <?php // new row? ?>
+
       <?php // new row? ?>
       <?php if($firstInRow): ?>
         <div class="row full-width smaller-margins products-row">
@@ -68,17 +70,19 @@
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
             <article class="productlist-element item">
               <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-              <div class="product-image">
                 <?php $_imgSize = 210; ?>
                 <img id="product-collection-image-<?php echo $_product->getId(); ?>"
                    src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(232,245); ?>" width="232" height="245"
                    alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
-              </div>
               </a>
               <div class="product-info">
                 <div class="top-row">
                   <h3><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></h3>
-                  <span class="msrp">100.00€</span>
+                  <!-- <h3><?php //echo $_product->getManufacturer() ?></h3> -->
+                  <?php $_msrpPrice = $this->helper('core')->currency($_product->getMsrp(),true,true) ?>
+                  <?php if($_msrpPrice && $_msrpPrice > 0.0): ?>
+                    <span class="msrp"><?php echo $_msrpPrice; ?></span>
+                  <?php endif; ?>
                 </div>
                 <div class="bottom-row">
                   <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>

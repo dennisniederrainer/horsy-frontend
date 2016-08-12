@@ -60,3 +60,34 @@ td.align-bottom {
 .color-success {
 	color: #4F8A10;
 }
+
+ul.messages {
+	list-style: none;
+	padding: 0;
+
+	li {
+		border: 1px solid transparent;
+		border-radius: $global-border-radius;
+		padding: 5px 10px;
+
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		&.success-msg {
+			color: #4F8A10;
+    	background-color: #DFF2BF;
+		}
+	}
+}
+
+.progress {
+	background-color: #fff;
+	border-color: $gray-lighter-5;
+	padding: 0;
+
+	.meter {
+		background: $gold-base;
+	}
+}

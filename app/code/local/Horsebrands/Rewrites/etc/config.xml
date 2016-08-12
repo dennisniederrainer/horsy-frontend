@@ -10,11 +10,21 @@
         <horsebrands_rewrites>
           <class>Horsebrands_Rewrites_Block</class>
         </horsebrands_rewrites>
+        <catalog>
+          <rewrite>
+            <navigation>Horsebrands_Rewrites_Block_Catalog_Navigation</navigation>
+          </rewrite>
+        </catalog>
         <checkout>
           <rewrite>
             <cart>Horsebrands_Rewrites_Block_Checkout_Cart</cart>
           </rewrite>
         </checkout>
+        <review>
+          <rewrite>
+            <product_view_list>Horsebrands_Rewrites_Block_Review_Product_View_List</product_view_list>
+          </rewrite>
+        </review>
       </blocks>
 
       <models>
@@ -27,6 +37,12 @@
             <address_abstract>Horsebrands_Rewrites_Model_Customer_Address_Abstract</address_abstract>
           </rewrite>
         </customer>
+        <sales>
+          <rewrite>
+            <quote>Horsebrands_Rewrites_Model_Sales_Quote</quote>
+            <quote_address>Horsebrands_Rewrites_Model_Sales_Quote_Address</quote_address>
+          </rewrite>
+        </sales>
       </models>
 
       <!-- get access to manufacturer and delivery information -->

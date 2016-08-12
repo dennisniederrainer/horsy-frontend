@@ -14,30 +14,41 @@
     <?php $_filters = $this->getFilters() ?>
 
     <?php $gridSize = 3; ?>
-    <?php $_collectionSize = count($_filters) - count($this->getLayer()->getState()->getFilters()); ?>
+    <?php $_collectionSize = count($_filters) - count($this->getLayer()->getState()->getFilters()) -1; ?>
 
-    <?php $i=1; foreach ($_filters as $_filter): ?>
+    <?php $rowOpen = false; ?>
+    <?php $i=0; foreach ($_filters as $_filter): ?>
     <?php if($_filter->getItemsCount()): ?>
-      <?php $firstInRow = ($i%$gridSize==1); ?>
-      <?php $lastInRow = ($i%$gridSize==0); ?>
+      <?php $firstInRow = ( $i%$gridSize == 0 ); ?>
+      <?php $lastInRow = ( $i%$gridSize == $gridSize-1 ); ?>
       <?php $lastInCollection = ($i==$_collectionSize); $i++ ?>
       <?php // new row? ?>
       <?php if($firstInRow): ?>
+        <?php $rowOpen = true; ?>
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
-            <div class="btn filter-dropdown expand no-radius" href="#">
+            <div class="btn filter-dropdown medium expand no-radius" href="#">
               <?php echo $this->__($_filter->getName()) ?> <i class="fa fa-angle-down"></i>
               <div class="filter-dropdown-content"><?php echo $_filter->getHtml() ?></div>
             </div>
           </div>
       <?php // close row? ?>
       <?php if ($lastInRow || $lastInCollection): ?>
+        <?php $rowOpen = false; ?>
         </div>
       <?php endif ?>
 
     <?php endif; ?>
     <?php endforeach; ?>
+
+    <?php if($rowOpen): ?>
+      <?php //pseudo element if, $i is not a multiple of 4, and close row ?>
+        <?php if($i%$gridSize != 0): ?>
+          <div class="columns medium-4 end"></div>
+        <?php endif; ?>
+      </div>
+    <?php endif; ?>
 
   </div>
   <?php endif; ?>

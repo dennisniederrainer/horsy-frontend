@@ -10,6 +10,7 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $storeId = Mage::app()->getStore()->getStoreId(); ?>
 <?php $manufacturerSwatchesBaseUrl = mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/swatches/manufacturer/'; ?>
+<?php $summaryData = Mage::getModel('review/review_summary')->setStoreId($storeId)->load($_product->getId()); ?>
 
 
 <script type="text/javascript">
@@ -37,7 +38,7 @@
         <div class="columns medium-4 product-essential-right">
           <!-- product info -->
           <div class="row">
-            <div class="columns medium-4 manufacturer-logo">
+            <div class="manufacturer-logo left">
               <?php $manufacturer = $_product->getAttributeText('manufacturer'); ?>
               <?php $imgUrl = null; ?>
               <?php
@@ -58,12 +59,14 @@
               <?php echo $manufacturer ?>
               <?php endif; ?>
             </div>
-            <div class="columns medium-8 review-stars" style="text-align:right;">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-              <i class="fa fa-star-o"></i>
+            <div class="review-stars right" style="text-align:right;">
+              <p class="rating overall-rating">
+                <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
+                for ($i=1; $i <= 5 ; $i++) {
+                  echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
+                }
+                ?>
+              </p>
             </div>
           </div>
           <div class="row">
@@ -94,6 +97,9 @@
                 <?php foreach ($deliveryAttributes as $att_code): ?>
                   <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), $att_code, $storeId)): ?>
                   <li>
+                    <?php if($att_code == 'delivery_time'): ?>
+                      Lieferbar innerhalb von
+                    <?php endif; ?>
                     <?php echo $_product->getAttributeText($att_code); ?>
                   </li>
                   <?php endif; ?>

@@ -4,6 +4,61 @@
   }
 }
 
+.catalog-category-view {
+  .col-main {
+    margin-top: 0;
+    .category-products {
+      padding-top: 0;
+    }
+  }
+}
+
+.block-layered-nav {
+  .block-title {
+    display: none;
+  }
+  .block-content {
+    font-size: $font-size-smaller;
+
+    dt.title {
+      border-bottom: 1px solid $gray-base;
+      max-width: 75%;
+    }
+
+    dd {
+      margin-left: 0;
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          i.fa {
+            padding-left: 4px;
+            font-size: 12px;
+          }
+
+          a {
+            @include same-link-style($gray-base);
+            &:hover {
+              font-weight: 700;
+            }
+            &.first {
+              font-weight: 700;
+              color: $black-base;
+            }
+          }
+
+
+        }
+
+        &.subcat-layer {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+
 /* ============================================ *
  * Configurable Swatches
  * ============================================ */

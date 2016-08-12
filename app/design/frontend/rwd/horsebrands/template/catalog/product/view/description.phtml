@@ -15,6 +15,16 @@
   </p>
 
   <?php if ($_shortDescription): ?>
+    <p class="productdescription">
+      <?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), $_shortDescription, 'shortDescription') ?>
+    </p>
+  <?php endif; ?>
+
+  <p class="productdescription">
+    <?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), $_description, 'description') ?>
+  </p>
+
+  <?php if (false && $_shortDescription): ?>
   <p class="productdescription">
     <?php echo $this->helper('catalog/output')->productAttribute($this->getProduct(), $_shortDescription, 'shortDescription') ?>
   </p>

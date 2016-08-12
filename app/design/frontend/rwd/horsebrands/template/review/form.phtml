@@ -8,27 +8,24 @@
             <h3><?php echo $this->__("Write a Review for "); ?><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?>:</h3>
 
             <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
-              <div class="rating-stars width-25">
-                <span class="star-1"><i class="fa fa-star-o"></i></span>
-                <span class="star-2"><i class="fa fa-star-o"></i></span>
-                <span class="star-3"><i class="fa fa-star-o"></i></span>
-                <span class="star-4"><i class="fa fa-star-o"></i></span>
-                <span class="star-5"><i class="fa fa-star-o"></i></span>
-              </div>
-                <table class="data-table" id="product-review-table" style="display: none;">
-                    <tbody>
-                    <?php foreach ($this->getRatings() as $_rating): ?>
-                      <?php if($_rating->getRatingCode() <> 'overall') ?>
-                        <tr>
-                        <?php foreach ($_rating->getOptions() as $_option): ?>
-                            <td class="value"><input type="radio" name="ratings[<?php echo $_rating->getId() ?>]" id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>" value="<?php echo $_option->getId() ?>" class="radio" /></td>
-                        <?php endforeach; ?>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
-                </table>
-                <input type="hidden" name="validate_rating" class="validate-rating" value="" />
-                <script type="text/javascript">decorateTable('product-review-table')</script>
+              <?php foreach ($this->getRatings() as $_rating): ?>
+                <div class="star-rating rating-stars width-25">
+                  <fieldset>
+                    <?php $options = $_rating->getOptions(); ?>
+                    <?php $index = count($options); ?>
+                    <?php while($index>0): ?>
+                      <?php $_option = $options[--$index]; ?>
+                      <input type="radio"
+                      name="ratings[<?php echo $_rating->getId() ?>]"
+                      id="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>"
+                      value="<?php echo $_option->getId() ?>"
+                      class="radio <?php echo ($index==0 ? 'validate-one-rating' : '') ?>" /><label for="<?php echo $this->escapeHtml($_rating->getRatingCode()) ?>_<?php echo $_option->getValue() ?>">Stars</label>
+                    <?php endwhile; ?>
+                  </fieldset>
+                </div>
+              <?php endforeach; ?>
+              <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+              <script type="text/javascript">decorateTable('product-review-table')</script>
             <?php endif; ?>
 
                 <ul class="form-list unstyled">
@@ -61,35 +58,45 @@
     <script type="text/javascript">
     //<![CDATA[
         var dataForm = new VarienForm('review-form');
-        Validation.addAllThese(
-        [
-               ['validate-rating', '<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Please select one of each of the ratings above')) ?>', function(v) {
-                    var trs = $('product-review-table').select('tr');
-                    var inputs;
-                    var error = 1;
-
-                    for( var j=0; j < trs.length; j++ ) {
-                        var tr = trs[j];
-                        if( j > 0 ) {
-                            inputs = tr.select('input');
-
-                            for( i in inputs ) {
-                                if( inputs[i].checked == true ) {
-                                    error = 0;
-                                }
-                            }
-
-                            if( error == 1 ) {
-                                return false;
-                            } else {
-                                error = 1;
-                            }
-                        }
-                    }
-                    return true;
-                }]
-        ]
-        );
+        Translator.add('Please give a rating of minimum one star.','<?php echo $this->__('Please give a rating of minimum one star.')?>');
+        Validation.addAllThese([
+               ['validate-one-rating','Please give a rating of minimum one star.',function (v,elm) {
+                           var p = elm.parentNode;
+                           var options = p.getElementsByTagName('INPUT');
+                           return $A(options).any(function(elm) {
+                               return $F(elm);
+                           });
+                       }]
+        ]);
+        // Validation.addAllThese(
+        // [
+        //        ['validate-rating', '<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Please select one of each of the ratings above')) ?>', function(v) {
+        //             var trs = $('product-review-table').select('tr');
+        //             var inputs;
+        //             var error = 1;
+        //
+        //             for( var j=0; j < trs.length; j++ ) {
+        //                 var tr = trs[j];
+        //                 if( j > 0 ) {
+        //                     inputs = tr.select('input');
+        //
+        //                     for( i in inputs ) {
+        //                         if( inputs[i].checked == true ) {
+        //                             error = 0;
+        //                         }
+        //                     }
+        //
+        //                     if( error == 1 ) {
+        //                         return false;
+        //                     } else {
+        //                         error = 1;
+        //                     }
+        //                 }
+        //             }
+        //             return true;
+        //         }]
+        // ]
+        // );
     //]]>
     </script>
     <?php else: ?>
