@@ -11,10 +11,19 @@ if(!$_childProduct->getId()) {
 $isVisibleProduct = $_item->getProduct()->isVisibleInSiteVisibility();
 $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage_Catalog_Model_Product_Attribute_Source_Msrp_Type::TYPE_BEFORE_ORDER_CONFIRM);
 
-$manufacturer = "Manufacturer";
-$deliverytime = $_product->getAttributeText('delivery_time'); //"1-3 Tage";
-$color = $_childProduct->getAttributeText('color'); //"Gray";
-$size = $_childProduct->getAttributeText('size'); //"S";
+$manufacturer = "";
+$deliverytime = "";
+$color = "";
+$size = "";
+if($_product->getManufacturer()) $manufacturer = $_product->getManufacturer();
+if($_product->getDeliveryTime()) $deliverytime = $_product->getAttributeText('delivery_time');
+
+if($_childProduct && $_childProduct->getColor()) $color = $_childProduct->getAttributeText('color');
+if($_childProduct && $_childProduct->getSize()) {
+  $size = $_childProduct->getAttributeText('size');
+} elseif ($_childProduct && $_childProduct->getShoeSize()) {
+  $size = $_childProduct->getAttributeText('shoe_size');
+}
 ?>
 <tr>
   <!-- <?php echo Mage::getModel('catalog/product')->load($_childProduct->getId())->getAttributeText('size'); ?> -->

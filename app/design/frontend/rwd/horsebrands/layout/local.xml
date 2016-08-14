@@ -28,7 +28,7 @@
 
 <checkout_cart_index>
   <reference name="checkout.cart">
-    <block type="horsebrands_rewrites/checkout_cart_totals_split" name="checkout.cart.part.totals" as="part.totals" template="checkout/cart/totals.phtml"/>
+    <!-- <block type="horsebrands_rewrites/checkout_cart_totals_split" name="checkout.cart.part.totals" as="part.totals" template="checkout/cart/totals.phtml"/> -->
   </reference>
 </checkout_cart_index>
 

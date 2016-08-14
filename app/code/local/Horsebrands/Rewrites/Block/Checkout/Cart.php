@@ -38,7 +38,7 @@ class Horsebrands_Rewrites_Block_Checkout_Cart extends Mage_Checkout_Block_Cart 
     $highestIndex = 0;
 
     foreach ($items as $item) {
-      if($item->getStoreId() != $storeId) {
+      if($item->getStoreId() != $storeId || !$item->getProduct()->getDeliveryTime()) {
         continue;
       }
       $deliverytime = $item->getProduct()->getAttributeText('delivery_time');

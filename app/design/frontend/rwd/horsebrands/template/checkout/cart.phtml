@@ -1,6 +1,6 @@
 <?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
-<?php $_STORE_ID_SHOP = 4; ?>
-<?php $_STORE_ID_DEALS = 5; ?>
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
 
 <?php $delivery_shop = $this->getEstimatedShippingText($_STORE_ID_SHOP) ?>
 <?php $delivery_deals = $this->getEstimatedShippingText($_STORE_ID_DEALS) ?>
