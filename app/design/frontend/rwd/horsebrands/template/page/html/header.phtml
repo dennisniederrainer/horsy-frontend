@@ -1,3 +1,4 @@
+<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
 <header>
   <div class="fixed-top">
     <div class="container">
@@ -10,7 +11,7 @@
   <div class="top-header container clearfix">
     <div class="top-header-element top-header-left store-select">
       <a href="<?php echo $this->getBaseUrl() ?>" class="store-button active">Shop</a>
-      <a href="<?php echo Mage::app()->getStore(5)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button">Deals</a>
+      <a href="<?php echo Mage::app()->getStore($_STORE_ID_DEALS)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button">Deals</a>
     </div>
     <div class="top-header-element top-header-center brand">
       <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
