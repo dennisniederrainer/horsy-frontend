@@ -4592,6 +4592,11 @@ ul.messages li.success-msg {
   background: #cca64b;
 }
 
+/* line 96, ../sass/base/_base.scss */
+.checkout-onepage-index .col-right.sidebar {
+  display: none;
+}
+
 /* MODULES */
 /* line 24, ../sass/modules/_typography.scss */
 body {

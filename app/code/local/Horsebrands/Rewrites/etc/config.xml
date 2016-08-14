@@ -18,6 +18,7 @@
         <checkout>
           <rewrite>
             <cart>Horsebrands_Rewrites_Block_Checkout_Cart</cart>
+            <onepage_billing>Horsebrands_Rewrites_Block_Checkout_Onepage_Billing</onepage_billing>
           </rewrite>
         </checkout>
         <review>
@@ -70,4 +71,16 @@
         </sales_quote_collect_totals_before>
       </events>
     </global>
+
+    <frontend>
+      <routers>
+        <checkout>
+          <args>
+            <modules>
+              <horsebrands_checkout before="Mage_Checkout">Horsebrands_Rewrites_Checkout</horsebrands_checkout>
+            </modules>
+          </args>
+        </checkout>
+      </routers>
+    </frontend>
 </config>

@@ -123,11 +123,9 @@ Checkout.prototype = {
     },
 
     gotoSection: function (section, reloadProgressBlock) {
-
         if (reloadProgressBlock) {
             this.reloadProgressBlock(this.currentStep);
         }
-        console.log('es passiert nix');
         this.currentStep = section;
         var sectionElement = $('opc-' + section);
         sectionElement.addClassName('allow');
@@ -371,7 +369,7 @@ Billing.prototype = {
                 {
                     method: 'post',
                     onComplete: this.onComplete,
-                    onSuccess: this.onSave,
+                    onSuccess: function(data){console.log(data);this.onSave;},
                     onFailure: checkout.ajaxFailure.bind(checkout),
                     parameters: Form.serialize(this.form)
                 }

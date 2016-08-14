@@ -26,12 +26,6 @@
   </block>
 </default>
 
-<checkout_cart_index>
-  <reference name="checkout.cart">
-    <!-- <block type="horsebrands_rewrites/checkout_cart_totals_split" name="checkout.cart.part.totals" as="part.totals" template="checkout/cart/totals.phtml"/> -->
-  </reference>
-</checkout_cart_index>
-
 <catalog_category_layered>
   <!-- <reference name="left_first">
       <block type="catalog/layer_view" name="catalog.leftnav" after="currency" template="catalog/layer/view.phtml">
@@ -96,5 +90,14 @@
       </block>
   </reference>
 </customer_account>
+
+<checkout_onepage_index>
+    <reference name="checkout.onepage.billing">
+        <action method="setTemplate"><template>persistent/checkout/onepage/billing.phtml</template></action>
+        <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
+        <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
+        <block type="checkout/onepage_billing" name="address.shipping" template="checkout/onepage/shipping.phtml"/>
+    </reference>
+</checkout_onepage_index>
 
 </layout>
