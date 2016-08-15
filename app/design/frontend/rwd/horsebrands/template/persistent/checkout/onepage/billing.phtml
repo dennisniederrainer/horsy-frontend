@@ -72,7 +72,7 @@
               <input type="hidden" name="billing[save_in_address_book]" value="1" />
               <div class="same-as-billing-container">
                 <?php if ($this->canShip()): ?>
-                  <input type="checkbox" name="billing[use_for_shipping]" id="billing:use_for_shipping" value="0" title="<?php echo $this->__('Ship to different address') ?>"  class="radio" /><label for="billing:use_for_shipping_no">&nbsp;<?php echo $this->__('Ship to different address') ?></label>
+                  <input type="checkbox" name="billing[use_for_shipping]" id="billing:use_for_shipping" value="1" title="<?php echo $this->__('Ship to different address') ?>"  class="radio" /><label for="billing:use_for_shipping_no">&nbsp;<?php echo $this->__('Ship to different address') ?></label>
                   <!-- <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1"<?php if ($this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> title="<?php echo  Mage::helper('core')->quoteEscape($this->__('Ship to this address')) ?>" onclick="$('shipping:same_as_billing').checked = true;" class="radio" /><label for="billing:use_for_shipping_yes"><?php echo  $this->__('Ship to this address') ?></label> -->
                   <!-- <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_no" value="0"<?php if (!$this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> title="<?php echo Mage::helper('core')->quoteEscape($this->__('Ship to different address')) ?>" onclick="$('shipping:same_as_billing').checked = false;" class="radio" /><label for="billing:use_for_shipping_no"><?php echo $this->__('Ship to different address') ?></label> -->
                 <?php endif; ?>
@@ -98,10 +98,10 @@
 </form>
 <script type="text/javascript">
 //<![CDATA[
-    var billing = new Billing('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveBilling') ?>');
+    var billing = new Billing('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveAddress') ?>');
     var billingForm = new VarienForm('co-address-form');
 
-    var shipping = new Shipping('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveShipping') ?>');
+    var shipping = new Shipping('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveAddress') ?>');
     var shippingForm = new VarienForm('co-address-form');
 
     $('billing-address-select') && billing.newAddress(!$('billing-address-select').value);

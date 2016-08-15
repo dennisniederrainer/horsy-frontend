@@ -369,7 +369,7 @@ Billing.prototype = {
                 {
                     method: 'post',
                     onComplete: this.onComplete,
-                    onSuccess: function(data){console.log(data);this.onSave;},
+                    onSuccess: this.onSave,
                     onFailure: checkout.ajaxFailure.bind(checkout),
                     parameters: Form.serialize(this.form)
                 }

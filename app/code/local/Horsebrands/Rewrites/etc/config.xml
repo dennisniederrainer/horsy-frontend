@@ -69,6 +69,15 @@
             </horsebrands_rewrites_checkout_observer>
           </observers>
         </sales_quote_collect_totals_before>
+         <cart_updateShipping>
+            <observers>
+                <horsebrands_checkout_observer>
+                    <type>singleton</type>
+                    <class>horsebrands_rewrites/checkout_observer</class>
+                    <method>updateShipping</method>
+                </horsebrands_checkout_observer>
+            </observers>
+        </cart_updateShipping>
       </events>
     </global>
 

@@ -15,9 +15,9 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
     }
 
     /**
-     * @denno: neue saveBillingAction Methode, die Billing und Shipping-Daten beachtet
+     * horsebrands: neue saveBillingAction Methode, die Billing und Shipping-Daten beachtet
      */
-    public function saveBillingAction() {
+    public function saveAddressAction() {
         //Ajax-Session expired?
         if ($this->_expireAjax()) {
             return;
@@ -35,7 +35,7 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
 
             //save address to current checkout
             $result = $this->getOnepage()->saveBilling($data, $customerAddressId);
-            // Mage::dispatchEvent('cart_updateShipping', array('countryIdBefore' => $countryBefore));
+            Mage::dispatchEvent('cart_updateShipping', array());
 
             if (!isset($result['error'])) {
                 /* check quote for virtual */
@@ -56,17 +56,14 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
 
                     $method = Mage::getSingleton('checkout/cart')->getQuote()->getShippingAddress()->getShippingMethod();
 
-                    if(!is_null($method)) {
-                        Mage::log("1", null, 'opcController.log');
+                    if($method) {
                         $this->getOnepage()->saveShippingMethod($method);
                         $this->getOnepage()->getQuote()->collectTotals()->save();
-                        Mage::log("2", null, 'opcController.log');
                         $result['goto_section'] = 'payment';
                         $result['update_section'] = array(
                             'name' => 'payment-method',
                             'html' => $this->_getPaymentMethodsHtml()
                         );
-                        Mage::log("3", null, 'opcController.log');
 
                     } else {
                         $result['goto_section'] = 'shipping_method';
@@ -78,11 +75,11 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
                         $result['allow_sections'] = array('billing');
                     }
 
-                    $result['duplicateBillingInfo'] = 'true';
+                    // $result['duplicateBillingInfo'] = 'true';
 
                 } else {
                     //wenn billing != shipping wird von hier die saveShipping aufgerufen.
-                    return $this->saveShippingActionOne();
+                    return $this->_saveShipping();
                 }
 
                 $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
@@ -92,17 +89,7 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
         }
     }
 
-    /* 2014-06-05
-     * @denno: Da Shipping und Billing in einem Formular sind, muss trotzdem Billing gespeichert werden.
-     * Die Daten dazu werden im Request-Post unter 'billing' und 'shipping' mitgesendet.
-     */
-    public function saveShippingAction()
-    {
-        $this->saveBillingAction();
-        return;
-    }
-
-    public function saveShippingActionOne()
+    protected function _saveShipping()
     {
         if ($this->_expireAjax()) {
             return;
@@ -111,7 +98,6 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
             $data = $this->getRequest()->getPost('shipping', array());
             $customerAddressId = $this->getRequest()->getPost('shipping_address_id', false);
             $result = $this->getOnepage()->saveShipping($data, $customerAddressId);
-            // Mage::dispatchEvent('cart_updateShipping', null);
 
             Mage::dispatchEvent('cart_updateShipping', array());
 
@@ -137,6 +123,17 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
             }
             $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
         }
+    }
+
+    protected function _getShippingMethodsHtml()
+    {
+        $layout = $this->getLayout();
+        $update = $layout->getUpdate();
+        $update->load('checkout_onepage_shippingmethod');
+        $layout->generateXml();
+        $layout->generateBlocks();
+        $output = $layout->getOutput();
+        return $output;
     }
 
     public function updateGrandtotalAction() {
