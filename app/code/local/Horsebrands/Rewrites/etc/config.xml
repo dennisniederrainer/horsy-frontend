@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Horsebrands_Rewrites>
-            <version>0.0.0.7</version>
+            <version>0.0.0.8</version>
         </Horsebrands_Rewrites>
     </modules>
     <global>
@@ -18,6 +18,7 @@
         <checkout>
           <rewrite>
             <cart>Horsebrands_Rewrites_Block_Checkout_Cart</cart>
+            <onepage_billing>Horsebrands_Rewrites_Block_Checkout_Onepage_Billing</onepage_billing>
           </rewrite>
         </checkout>
         <review>
@@ -25,6 +26,14 @@
             <product_view_list>Horsebrands_Rewrites_Block_Review_Product_View_List</product_view_list>
           </rewrite>
         </review>
+        <Purchase>
+          <rewrite>
+            <supplier_edit_form>Horsebrands_Rewrites_Block_Purchase_Supplier_Edit_Form</supplier_edit_form>
+            <supplier_edit_tabs>Horsebrands_Rewrites_Block_Purchase_Supplier_Edit_Tabs</supplier_edit_tabs>
+            <!-- <supplier_edit_tabs_info>Horsebrands_Rewrites_Block_Purchase_Supplier_Edit_Tabs_Info</supplier_edit_tabs_info> -->
+          </rewrite>
+        </Purchase>
+
       </blocks>
 
       <models>
@@ -68,6 +77,38 @@
             </horsebrands_rewrites_checkout_observer>
           </observers>
         </sales_quote_collect_totals_before>
+         <cart_updateShipping>
+            <observers>
+                <horsebrands_checkout_observer>
+                    <type>singleton</type>
+                    <class>horsebrands_rewrites/checkout_observer</class>
+                    <method>updateShipping</method>
+                </horsebrands_checkout_observer>
+            </observers>
+        </cart_updateShipping>
       </events>
     </global>
+
+    <frontend>
+      <routers>
+        <checkout>
+          <args>
+            <modules>
+              <horsebrands_checkout before="Mage_Checkout">Horsebrands_Rewrites_Checkout</horsebrands_checkout>
+            </modules>
+          </args>
+        </checkout>
+      </routers>
+    </frontend>
+    <admin>
+      <routers>
+        <Purchase>
+          <args>
+            <modules>
+              <Horsebrands_Rewrites before="MDN_Purchase">Horsebrands_Rewrites_Purchase</Horsebrands_Rewrites>
+            </modules>
+          </args>
+        </Purchase>
+      </routers>
+    </admin>
 </config>

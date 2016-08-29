@@ -3,6 +3,9 @@
     <Horsebrands_Rewrites>
       <active>true</active>
       <codePool>local</codePool>
+      <depends>
+        <MDN_Purchase />
+      </depends>
     </Horsebrands_Rewrites>
   </modules>
 </config>
