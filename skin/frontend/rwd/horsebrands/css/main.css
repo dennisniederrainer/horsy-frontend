@@ -8534,6 +8534,103 @@ dl.totals-block dt {
   clear: left;
 }
 
+/* line 2, ../sass/components/_aktionen.scss */
+.aktionen-container .page-title {
+  background: url("../images/aktionen-header-line.png") repeat-x 0 50%;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 35px;
+}
+/* line 8, ../sass/components/_aktionen.scss */
+.aktionen-container .page-title.upcoming {
+  margin-top: 50px;
+}
+@media (max-width: 1023px) {
+  /* line 13, ../sass/components/_aktionen.scss */
+  .aktionen-container .page-title.upcoming {
+    margin-top: 0;
+  }
+}
+/* line 18, ../sass/components/_aktionen.scss */
+.aktionen-container .page-title h2 {
+  display: inline-block;
+  background-color: #fff;
+  padding: 0 30px;
+  color: #6e6e6e;
+  text-transform: uppercase;
+  margin: 0;
+}
+/* line 28, ../sass/components/_aktionen.scss */
+.aktionen-container .no-campaigns {
+  text-align: center;
+}
+
+/* line 33, ../sass/components/_aktionen.scss */
+.aktion {
+  width: 98%;
+}
+/* line 36, ../sass/components/_aktionen.scss */
+.aktion.odd {
+  margin-right: auto;
+}
+/* line 39, ../sass/components/_aktionen.scss */
+.aktion.even {
+  margin-left: auto;
+}
+@media (max-width: 1023px) {
+  /* line 33, ../sass/components/_aktionen.scss */
+  .aktion {
+    margin: 0 auto 20px;
+  }
+}
+/* line 47, ../sass/components/_aktionen.scss */
+.aktion .info-wrapper {
+  font-size: 12px;
+}
+/* line 3, ../sass/base/_mixins.scss */
+.aktion .info-wrapper:before, .aktion .info-wrapper:after {
+  content: " ";
+  display: table;
+}
+/* line 4, ../sass/base/_mixins.scss */
+.aktion .info-wrapper:after {
+  clear: both;
+}
+/* line 51, ../sass/components/_aktionen.scss */
+.aktion .info-wrapper i {
+  padding-right: 3px;
+}
+/* line 19, ../sass/base/_mixins.scss */
+.aktion a:hover, .aktion a:active, .aktion a:link, .aktion a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 23, ../sass/base/_mixins.scss */
+.aktion a:hover {
+  cursor: pointer;
+  color: #fff;
+}
+/* line 60, ../sass/components/_aktionen.scss */
+.aktion .image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+/* line 65, ../sass/components/_aktionen.scss */
+.aktion .aktion-action {
+  font-size: 12px;
+  line-height: 30px;
+  background-color: #919292;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: right;
+  padding-right: 30px;
+}
+/* line 74, ../sass/components/_aktionen.scss */
+.aktion .aktion-action i {
+  font-size: 10px;
+  padding-left: 3px;
+}
+
 /* VENDOR */
 /**
  * Theme Name: Pop Slide
@@ -8701,7 +8798,7 @@ dl.totals-block dt {
   text-decoration: none;
 }
 
-/* line 55, ../sass/main.scss */
+/* line 56, ../sass/main.scss */
 body {
   color: #706f6f;
 }

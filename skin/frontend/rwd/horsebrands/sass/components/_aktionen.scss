@@ -1,0 +1,79 @@
+.aktionen-container {
+  .page-title {
+    background: url('../images/aktionen-header-line.png')  repeat-x 0 50%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 35px;
+
+    &.upcoming {
+      margin-top: 50px;
+    }
+
+    @include media('<desktop') {
+      &.upcoming {
+        margin-top: 0;
+      }
+    }
+
+    h2 {
+      display: inline-block;
+      background-color: #fff;
+      padding: 0 30px;
+      color: #6e6e6e;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+
+  .no-campaigns {
+    text-align: center;
+  }
+}
+
+.aktion {
+  width: 98%;
+
+  &.odd {
+    margin-right: auto;
+  }
+  &.even {
+    margin-left: auto;
+  }
+
+  @include media('<desktop') {
+      margin: 0 auto 20px;
+  }
+
+  .info-wrapper {
+    @include clearfix;
+    font-size: 12px;
+
+    i {
+      padding-right: 3px;
+    }
+  }
+
+  a {
+    @include same-link-style(#fff);
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+  .aktion-action {
+    font-size: 12px;
+    line-height: 30px;
+    background-color: #919292;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: right;
+    padding-right: 30px;
+
+    i {
+      font-size: 10px;
+      padding-left: 3px;
+    }
+  }
+}
