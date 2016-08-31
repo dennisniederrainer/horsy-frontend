@@ -1,6 +1,8 @@
+<?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
 <header>
-  <div class="fixed-top">
+  <div class="fixed-top hide-for-small-down">
     <div class="container">
       <span>Kostenlose Hotline</span>
       <span>service@horsebrands.de</span>
@@ -10,76 +12,101 @@
   </div>
   <div class="top-header container clearfix">
     <div class="top-header-element top-header-left store-select">
-      <a href="<?php echo $this->getBaseUrl() ?>" class="store-button active">Shop</a>
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button">Deals</a>
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
+        Shop</a>
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
+        Deals</a>
     </div>
     <div class="top-header-element top-header-center brand">
-      <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
-        <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" class="img-responsive">
-      </a>
-    </div>
-    <div class="top-header-element top-header-right customer-nav">
-      <div class="customer-nav-container">
-      <ul class="customer-nav-list offcanvas-elements">
-        <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-        <li class="customer-nav-element">
-          <div class="dropdown-tab" style="z-index: 10;">
-            <i class="fa fa-user"></i>
-            <p>Anmelden</p>
-          </div>
-          <div class="dropdown-content" style="z-index: 5;">
-            <?php echo $this->getChildHtml('customer.login') ?>
-          </div>
-        </li>
-        <?php else: ?>
-          <li class="customer-nav-element">
-            <div class="dropdown-tab" style="z-index: 10;">
-              <a href="<?php echo $this->getUrl('customer/account') ?>">
-                <i class="fa fa-user"></i>
-                <p>Mein Konto</p>
-              </a>
-            </div>
-            <div class="dropdown-content" style="z-index: 5;">
-              <?php echo $this->getChildHtml('topLinks') ?>
-            </div>
-          </li>
-        <?php endif; ?>
-        <li class="customer-nav-element">
-          <div class="dropdown-tab" style="z-index: 20;">
-            <a href="<?php echo $this->getUrl('wishlist') ?>">
-              <i class="fa fa-star-o"></i>
-              <p>Wunschzettel</p>
-            </a>
-          </div>
-          <div class="dropdown-content" style="z-index: 15;display:none;">
-            Wunschzettelinhalte
-          </div>
-        </li>
-        <li class="customer-nav-element">
-          <?php echo $this->getChildHtml('minicart_head'); ?>
-        </li>
-      </ul>
+      <div class="logo-wrapper small-5 medium-12">
+        <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
+          <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" class="img-responsive">
+        </a>
       </div>
-    </div>
-  </div>
-  <div class="navbar container  clearfix">
-    <ul class="menu">
-      <?php echo $this->getChildHtml('topMenu'); ?>
-      <!-- <li><a href="#">Reiter</a></li>
-      <li><a href="#">Pferd</a></li> -->
-      <li><a href="#">Marken</a></li>
-      <li><a href="#">Shop the Look</a></li>
-      <li><a href="#">Sale %</a></li>
-      <li><a href="#">Magazin</a></li>
-    </ul>
-    <div class="global-search">
-      <div class="input-group">
-        <input class="global-search-x input-group-field" placeholder="Suche..." />
-        <div class="global-search-x input-group-button">
-          <a class="submit-button"><i class="fa fa-search"></i></a>
+      <div class="search-wrapper small-7 hide-for-medium-up">
+        <div class="mobile-search-wrapper">
+          <div class="input-group">
+            <input type="text" class="input-group-field" placeholder="Suche..." />
+            <div class="input-group-button">
+              <a class="submit-button"><i class="fa fa-search"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="top-header-element top-header-right customer-nav">
+      <div class="customer-nav-container">
+        <ul class="customer-nav-list offcanvas-elements">
+          <li class="customer-nav-element hide-for-medium-up">
+            <div class="dropdown-tab">
+              <a id="mobile-menu-button">
+                <div class="icon mobile-menu">
+                  <span><?php echo $this->__('Menu'); ?></span>
+                </div>
+                <p></p>
+              </a>
+            </div>
+          </li>
+          <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+          <li class="customer-nav-element">
+            <div class="dropdown-tab" style="z-index: 10;">
+              <i class="fa fa-user"></i>
+              <p>Anmelden</p>
+            </div>
+            <div class="dropdown-content" style="z-index: 5;">
+              <?php echo $this->getChildHtml('customer.login') ?>
+            </div>
+          </li>
+          <?php else: ?>
+            <li class="customer-nav-element">
+              <div class="dropdown-tab" style="z-index: 10;">
+                <a href="<?php echo $this->getUrl('customer/account') ?>">
+                  <i class="fa fa-user"></i>
+                  <p>Mein Konto</p>
+                </a>
+              </div>
+              <div class="dropdown-content" style="z-index: 5;">
+                <?php echo $this->getChildHtml('topLinks') ?>
+              </div>
+            </li>
+          <?php endif; ?>
+          <li class="customer-nav-element">
+            <div class="dropdown-tab" style="z-index: 20;">
+              <a href="<?php echo $this->getUrl('wishlist') ?>">
+                <i class="fa fa-star-o"></i>
+                <p>Wunschzettel</p>
+              </a>
+            </div>
+            <div class="dropdown-content" style="z-index: 15;display:none;">
+              Wunschzettelinhalte
+            </div>
+          </li>
+          <li class="customer-nav-element">
+            <?php echo $this->getChildHtml('minicart_head'); ?>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+  <?php if($currentStoreId == $_STORE_ID_SHOP): ?>
+    <div class="navbar container  clearfix">
+      <ul class="menu">
+        <?php echo $this->getChildHtml('topMenu'); ?>
+        <!-- <li><a href="#">Reiter</a></li>
+        <li><a href="#">Pferd</a></li> -->
+        <li><a href="#">Marken</a></li>
+        <li><a href="#">Shop the Look</a></li>
+        <li><a href="#">Sale %</a></li>
+        <li><a href="#">Magazin</a></li>
+      </ul>
+      <div class="global-search">
+        <div class="input-group">
+          <input class="global-search-x input-group-field" placeholder="Suche..." />
+          <div class="global-search-x input-group-button">
+            <a class="submit-button"><i class="fa fa-search"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
 </header>

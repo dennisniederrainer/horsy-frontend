@@ -19,8 +19,14 @@ $customer-icons-font-size: 1.5rem;
 }
 
 .top-header {
+	max-height: 100px;
 	height: 100px;
 	position: relative;
+
+	@include media("<desktop") {
+		max-height: 100%;
+		height: auto;
+	}
 
 	.top-header-element {
 		position: absolute;
@@ -55,80 +61,135 @@ $customer-icons-font-size: 1.5rem;
 
 			.customer-nav-container {
 				float: right;
+			}
+		}
 
-				ul.customer-nav-list {
-					list-style-type: none;
-					padding: 0;
-					margin: 15px 0 0 0;
-					// overflow: hidden;
+		@include media("<desktop") {
+			position: relative;
 
-					li.customer-nav-element {
-						display: inline-block;
-						position: relative;
+			&.top-header-left {
+				display: none;
+			}
+			&.top-header-center {
+				left: 0;
+				transform: none;
+				clear: both;
+
+				&.brand {
+					@include clearfix;
+					text-align: left;
+					bottom: 0;
+
+					.logo-wrapper {
+						float: left;
 						text-align: center;
-						padding: 0;
-						height: 62px;
-						width: 90px;
-						// transition: border, box-shadow;
 
-						.dropdown-tab {
-							position: absolute;
-							z-index: 10;
-							top: 0;
-							left: 0;
-							right: 0;
-							bottom: 0;
-							background-color: $white;
-							padding-top: 10px;
-
-							a {
-								@include same-link-style($black-base);
-							}
-
-							i {
-								font-size: $customer-icons-font-size;
-								&.fa {
-									margin: 0;
-								}
-							}
-							p {
-								font-size: rem-calc(13);
-								margin: 0;
-							}
+						.logo-link img {
+							max-height: 80px;
+							width: auto;
 						}
+					}
 
-						.dropdown-content {
-							display: none;
-							margin-top: 10px;
-							position: absolute;
-							top: 50px;
-							right: -1px;
-							z-index: 5;
-							padding: 10px 20px;
-							background-color: rgba($white, .9);
-							border: 1px solid $gray-lighter-2;
-							@include box-shadow(2px 0 1px -2px $gray-lighter-1);
+					.search-wrapper {
+						float: right;
 
-							.links ul {
-								list-style: none;
-								padding: 0;
-								min-width: 160px;
-							}
-						}
-
-						&:hover {
-							padding: 4px 19px 0;
-							border: 1px solid $gray-lighter-2;
-							border-bottom: none;
-							@include box-shadow(2px 0 1px -2px $gray-lighter-1);
-
-							.dropdown-content {
-								display: block;
-							}
+						.mobile-search-wrapper {
+							margin-top: 20px;
+							padding: 0 20px;
 						}
 					}
 				}
 			}
+			&.top-header-right {
+				right: 0;
+			}
+
+			&.customer-nav .customer-nav-container {
+				float: none;
+			}
+		}
+	}
+}
+
+ul.customer-nav-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 15px 0 0 0;
+	// overflow: hidden;
+
+	li.customer-nav-element {
+		display: inline-block;
+		position: relative;
+		text-align: center;
+		padding: 0;
+		height: 62px;
+		width: 90px;
+		// transition: border, box-shadow;
+
+		.dropdown-tab {
+			position: absolute;
+			z-index: 10;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $white;
+			padding-top: 10px;
+
+			a {
+				@include same-link-style($black-base);
+			}
+
+			i {
+				font-size: $customer-icons-font-size;
+				&.fa {
+					margin: 0;
+				}
+			}
+			p {
+				font-size: rem-calc(13);
+				margin: 0;
+			}
+		}
+
+		.dropdown-content {
+			display: none;
+			margin-top: 10px;
+			position: absolute;
+			top: 50px;
+			right: -1px;
+			z-index: 5;
+			padding: 10px 20px;
+			background-color: rgba($white, .9);
+			border: 1px solid $gray-lighter-2;
+			@include box-shadow(2px 0 1px -2px $gray-lighter-1);
+
+			.links ul {
+				list-style: none;
+				padding: 0;
+				min-width: 160px;
+			}
+		}
+
+		@include media('>=desktop') {
+			&:hover {
+				padding: 4px 19px 0;
+				border: 1px solid $gray-lighter-2;
+				border-bottom: none;
+				@include box-shadow(2px 0 1px -2px $gray-lighter-1);
+
+				.dropdown-content {
+					display: block;
+				}
+			}
+		}
+	}
+
+	@include media('<desktop') {
+		li.customer-nav-element {
+			height: 75px;
+			float: left;
+			width: 25%;
 		}
 	}
 }
@@ -139,6 +200,10 @@ $customer-icons-font-size: 1.5rem;
 	border-right: 0;
 	position: relative;
 	font-size: $font-size-normal;
+
+	@include media("<desktop") {
+		display: none;
+	}
 
 	.menu {
 		width: 70%;
@@ -156,36 +221,41 @@ $customer-icons-font-size: 1.5rem;
 		width: 30%;
 
 		.input-group {
-			height: 100%;
+			border: none;
+			padding: 0;
+			border-radius: 0;
 
-			& > * {
-				height: 100%;
-			}
-
-			.input-group-field, .input-group-button input {
-				// padding: 0;
-				height: 36px;
-				border: 0;
-				background-color: $gray-lighter-6;
-			}
-			.input-group-field{
-
-			}
-			.input-group-button {
-				// font-size: $font-size-normal;
-				background-color: $gray-lighter-2;
-				color: $gray-base;
-				text-align: center;
-				min-width: 45px;
+			> * {
+				border-radius: 0;
 			}
 		}
 
-		.global-search-field {
-			display: inline-block;
-
+		.global-search-x {
+			height: 35px;
 		}
-		.global-search-button {
+
+		.global-search-field, .global-search-button {
 			display: inline-block;
 		}
+	}
+}
+
+.icon {
+	position: relative;
+	width: 40px;
+	height: 55px;
+	margin: 0 auto;
+
+	span {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		bottom: -14px;
+		left: 0;
+	}
+
+	&.mobile-menu {
+		background: url('../images/icons/icon-menu.png') no-repeat 0 0;
+		background-size: contain;
 	}
 }

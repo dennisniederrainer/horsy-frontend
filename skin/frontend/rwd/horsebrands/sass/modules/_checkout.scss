@@ -1,3 +1,8 @@
+.checkout-onepage-index {
+	.col-right.sidebar {
+		display: none;
+	}
+}
 
 .cart-table {
     td.product-qty {
@@ -158,6 +163,8 @@
 
   .buttons-set {
     margin-bottom: 20px;
+    clear: both;
+
     button {
       line-height: 32px;
       min-width: 200px;
@@ -223,7 +230,7 @@
 #review-buttons-container {
   .btn-checkout {
     @extend button.gold;
-    @extend .right;
+    float: right;
   }
 }
 

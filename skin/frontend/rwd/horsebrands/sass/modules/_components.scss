@@ -52,6 +52,15 @@ ul {
 .input-group {
 	display: table;
 	width: 100%;
+	border: 1px solid #b1b2b2;
+	border-radius: $global-border-radius;
+	background-color: #f9f9f9;
+	padding-right: 10px;
+
+	> * {
+		color: #b1b2b2;
+		border-radius: $global-border-radius;
+	}
 
 	.input-group-label,
 	.input-group-field,
@@ -73,13 +82,18 @@ ul {
 		height: 2.5rem;
 		width: 100%;
 		padding: 0 1rem;
+		border: none;
+		background: transparent;
+
+ 		&:focus {
+			outline: none;
+		}
 	}
 	.input-group-button {
 		height: 100%;
-	    padding-top: 0;
-	    padding-bottom: 0;
-	    text-align: center;
-	    width: 1%;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
 	}
 }
 

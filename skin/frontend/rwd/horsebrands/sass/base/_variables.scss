@@ -1,7 +1,13 @@
 $grid-width: 1100px;
 $grid-padding-columns-horizontal: .9375rem;
 
-$global-border-radius: 4px;
+$breakpoints:(
+  'phone': 320px,
+  'tablet': 640px,
+  'desktop': 1024px
+);
+
+$global-border-radius: 5px;
 
 // Colors
 $gray-base: 		#706f6f;
