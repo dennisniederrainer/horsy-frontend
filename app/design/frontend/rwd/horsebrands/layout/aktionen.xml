@@ -22,6 +22,20 @@
         </reference>
     </aktionen_index_index>
 
+    <aktionen_index_login>
+      <reference name="root">
+          <action method="setTemplate">
+              <template>page/1column.phtml</template>
+          </action>
+      </reference>
+      <reference name="content">
+        <block type="aktionen/login" name="aktionen.login" as="aktionen.login" template="aktionen/login.phtml">
+          <block type="aktionen/list" name="aktionen.list" as="aktionen.list" template="aktionen/list.phtml"/>
+          <block type="aktionen/login" name="aktionen.modal.content" template="aktionen/login/modalcontent.phtml"/>
+        </block>
+      </reference>
+    </aktionen_index_login>
+
     <aktionen_kommende_index>
         <reference name="root">
             <action method="setTemplate">

@@ -50,8 +50,9 @@
           <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
           <li class="customer-nav-element">
             <div class="dropdown-tab" style="z-index: 10;">
-              <i class="fa fa-user"></i>
-              <p>Anmelden</p>
+              <div class="icon customeraccount">
+                <span><?php echo $this->__('Anmelden'); ?></span>
+              </div>
             </div>
             <div class="dropdown-content" style="z-index: 5;">
               <?php echo $this->getChildHtml('customer.login') ?>
@@ -61,8 +62,9 @@
             <li class="customer-nav-element">
               <div class="dropdown-tab" style="z-index: 10;">
                 <a href="<?php echo $this->getUrl('customer/account') ?>">
-                  <i class="fa fa-user"></i>
-                  <p>Mein Konto</p>
+                  <div class="icon customeraccount">
+                    <span><?php echo $this->__('Mein Konto'); ?></span>
+                  </div>
                 </a>
               </div>
               <div class="dropdown-content" style="z-index: 5;">
@@ -73,8 +75,9 @@
           <li class="customer-nav-element">
             <div class="dropdown-tab" style="z-index: 20;">
               <a href="<?php echo $this->getUrl('wishlist') ?>">
-                <i class="fa fa-star-o"></i>
-                <p>Wunschzettel</p>
+                <div class="icon wishlist">
+                  <span><?php echo $this->__('Wunschliste'); ?></span>
+                </div>
               </a>
             </div>
             <div class="dropdown-content" style="z-index: 15;display:none;">

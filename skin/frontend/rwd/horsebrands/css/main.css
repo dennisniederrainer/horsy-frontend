@@ -5149,6 +5149,16 @@ ul.messages li.success-msg {
   background: #cca64b;
 }
 
+/* line 95, ../sass/base/_base.scss */
+#modal-global {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
 /* MODULES */
 /* line 24, ../sass/modules/_typography.scss */
 body {
@@ -7456,19 +7466,39 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   width: 40px;
   height: 55px;
   margin: 0 auto;
+  background-size: contain;
 }
-/* line 249, ../sass/layouts/_header.scss */
+/* line 250, ../sass/layouts/_header.scss */
 .icon span {
   position: absolute;
+  font-size: 14px;
   width: 100%;
   text-align: center;
-  bottom: -14px;
-  left: 0;
+  bottom: -5px;
+  left: -12px;
 }
-/* line 257, ../sass/layouts/_header.scss */
+/* line 259, ../sass/layouts/_header.scss */
 .icon.mobile-menu {
-  background: url("../images/icons/icon-menu.png") no-repeat 0 0;
-  background-size: contain;
+  background: url("../images/icons/icon-menu.svg") no-repeat 0 0;
+}
+/* line 262, ../sass/layouts/_header.scss */
+.icon.customeraccount {
+  background: url("../images/icons/icon-customeraccount.svg") no-repeat 0 0;
+}
+/* line 265, ../sass/layouts/_header.scss */
+.icon.shoppingcart {
+  background: url("../images/icons/icon-cart.svg") no-repeat 0 0;
+}
+/* line 268, ../sass/layouts/_header.scss */
+.icon.shoppingcart span.count {
+  top: 50%;
+  bottom: 0;
+  left: 22px;
+  transform: translateY(-50%);
+}
+/* line 275, ../sass/layouts/_header.scss */
+.icon.wishlist {
+  background: url("../images/icons/icon-wishlist.svg") no-repeat 0 0;
 }
 
 /* line 2, ../sass/layouts/_footer.scss */
@@ -8629,6 +8659,204 @@ dl.totals-block dt {
 .aktion .aktion-action i {
   font-size: 10px;
   padding-left: 3px;
+}
+
+/* line 81, ../sass/components/_aktionen.scss */
+.grayout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* line 88, ../sass/components/_aktionen.scss */
+.grayout .registration-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-15%);
+  width: 60%;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  font-weight: 500;
+}
+/* line 3, ../sass/base/_mixins.scss */
+.grayout .registration-container .content-wrapper:before, .grayout .registration-container .content-wrapper:after {
+  content: " ";
+  display: table;
+}
+/* line 4, ../sass/base/_mixins.scss */
+.grayout .registration-container .content-wrapper:after {
+  clear: both;
+}
+/* line 102, ../sass/components/_aktionen.scss */
+.grayout .registration-container .content-wrapper .content-left, .grayout .registration-container .content-wrapper .content-right {
+  float: left;
+  width: 50%;
+  padding: 25px;
+}
+/* line 108, ../sass/components/_aktionen.scss */
+.grayout .registration-container .content-wrapper .logo-wrapper {
+  width: 75%;
+  margin: 0 auto;
+}
+/* line 113, ../sass/components/_aktionen.scss */
+.grayout .registration-container .content-wrapper .usp-wrapper ul {
+  padding-left: 18px;
+  margin: 0;
+}
+/* line 117, ../sass/components/_aktionen.scss */
+.grayout .registration-container .content-wrapper .usp-wrapper ul li {
+  font-size: 13px;
+  line-height: 42px;
+}
+/* line 123, ../sass/components/_aktionen.scss */
+.grayout .registration-container .content-wrapper .content-bottom {
+  clear: both;
+  padding: 30px;
+  padding-top: 0;
+}
+/* line 130, ../sass/components/_aktionen.scss */
+.grayout .registration-container .registration-footer {
+  background-color: #9c9c9c;
+  padding: 20px 25px;
+}
+/* line 134, ../sass/components/_aktionen.scss */
+.grayout .registration-container .registration-footer ul.known-from {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 139, ../sass/components/_aktionen.scss */
+.grayout .registration-container .registration-footer ul.known-from li {
+  font-size: 12px;
+  line-height: 14px;
+  color: #fff;
+}
+
+/* line 150, ../sass/components/_aktionen.scss */
+#signup h1, #login h1 {
+  font-size: 23px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+/* line 157, ../sass/components/_aktionen.scss */
+#signup input, #login input {
+  line-height: 16px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+/* line 61, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signup input:-moz-placeholder, #login input:-moz-placeholder {
+  font-weight: 300;
+}
+/* line 64, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signup input::-moz-placeholder, #login input::-moz-placeholder {
+  font-weight: 300;
+}
+/* line 67, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signup input:-ms-input-placeholder, #login input:-ms-input-placeholder {
+  font-weight: 300;
+}
+/* line 56, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signup input::-webkit-input-placeholder, #login input::-webkit-input-placeholder {
+  font-weight: 300;
+}
+/* line 166, ../sass/components/_aktionen.scss */
+#signup button.btn, #login button.btn {
+  font-size: 15px;
+  line-height: 40px;
+  margin: 20px 0;
+}
+/* line 171, ../sass/components/_aktionen.scss */
+#signup button.btn:last-child, #login button.btn:last-child {
+  margin-bottom: 0;
+}
+/* line 175, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper, #login .persistend-forgot-wrapper {
+  color: #000;
+}
+/* line 177, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .persistent-login, #signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .forgot-password {
+  width: 50%;
+}
+/* line 179, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .persistent-login > *, #signup .persistend-forgot-wrapper .forgot-password > *, #login .persistend-forgot-wrapper .persistent-login > *, #login .persistend-forgot-wrapper .forgot-password > * {
+  font-size: 12px;
+  font-weight: 300;
+}
+/* line 184, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .persistent-login {
+  float: left;
+}
+/* line 187, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .forgot-password {
+  float: right;
+  text-align: right;
+}
+/* line 190, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .forgot-password a, #login .persistend-forgot-wrapper .forgot-password a {
+  color: #706f6f;
+  text-decoration: underline !important;
+}
+/* line 19, ../sass/base/_mixins.scss */
+#signup .persistend-forgot-wrapper .forgot-password a:hover, #signup .persistend-forgot-wrapper .forgot-password a:active, #signup .persistend-forgot-wrapper .forgot-password a:link, #signup .persistend-forgot-wrapper .forgot-password a:visited, #login .persistend-forgot-wrapper .forgot-password a:hover, #login .persistend-forgot-wrapper .forgot-password a:active, #login .persistend-forgot-wrapper .forgot-password a:link, #login .persistend-forgot-wrapper .forgot-password a:visited {
+  color: #706f6f;
+  text-decoration: none;
+}
+/* line 23, ../sass/base/_mixins.scss */
+#signup .persistend-forgot-wrapper .forgot-password a:hover, #login .persistend-forgot-wrapper .forgot-password a:hover {
+  cursor: pointer;
+  color: #706f6f;
+}
+
+/* line 199, ../sass/components/_aktionen.scss */
+#signup input {
+  margin-bottom: 0;
+}
+
+/* line 203, ../sass/components/_aktionen.scss */
+p.note.registration-terms {
+  color: #706f6f;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+/* line 210, ../sass/components/_aktionen.scss */
+.switch-wrapper ul.switch {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 215, ../sass/components/_aktionen.scss */
+.switch-wrapper ul.switch li {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RmZGZkZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyZTJlMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dfdfdf), color-stop(100%, #e2e2e3));
+  background-image: -moz-linear-gradient(#dfdfdf, #e2e2e3);
+  background-image: -webkit-linear-gradient(#dfdfdf, #e2e2e3);
+  background-image: linear-gradient(#dfdfdf, #e2e2e3);
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 17px;
+  line-height: 45px;
+  text-transform: uppercase;
+}
+/* line 224, ../sass/components/_aktionen.scss */
+.switch-wrapper ul.switch li:hover {
+  cursor: pointer;
+}
+/* line 229, ../sass/components/_aktionen.scss */
+.switch-wrapper ul.switch li.active {
+  background: none;
+  background-color: #fff;
 }
 
 /* VENDOR */

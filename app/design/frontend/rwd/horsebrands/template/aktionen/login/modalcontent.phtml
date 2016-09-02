@@ -1,0 +1,91 @@
+<?php $storeId = Mage::app()->getStore()->getStoreId(); ?>
+<div class="grayout">
+  <div class="registration-container">
+    <div class="switch-wrapper">
+      <ul class="switch">
+        <li id="switch-signup" class="active"><?php echo $this->__('Become a Member') ?></li>
+        <li id="switch-login"><?php echo $this->__('Login') ?></li>
+      </ul>
+    </div>
+    <div class="content-wrapper">
+      <div class="content-left">
+        <div class="logo-wrapper">
+          <img src="<?php echo $this->getSkinUrl(Mage::getStoreConfig('design/header/logo_src', $storeId)); ?>" alt="<?php echo Mage::getStoreConfig('design/header/logo_alt', $storeId); ?>" class="img-responsive" />
+        </div>
+        <div class="usp-wrapper">
+          <ul>
+            <li>
+              <?php echo $this->__('Save up to 70% on Fashion and Equipment') ?>
+            </li>
+            <li>
+              <?php echo $this->__('New campaigns daily') ?>
+            </li>
+            <li>
+              <?php echo $this->__('Find exclusive Brands and Products') ?>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-right">
+        <div id="signup">
+          <h1><?php echo $this->__('Become a Member for free now.') ?></h1>
+          <form action="<?php echo $this->getRegistrationAction(); ?>" method="post">
+            <input type="text" name="email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+            <button class="btn gold expand"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+            <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button>
+          </form>
+        </div>
+        <div id="login" class="hide">
+          <form action="<?php echo $this->getLoginAction(); ?>" method="post">
+            <input type="text" name="email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+            <input type="password" name="password" placeholder="<?php echo $this->__('Your Password') ?>"/>
+            <div class="persistend-forgot-wrapper">
+              <div class="persistent-login">
+                <label>
+                  <?php echo $this->__("Stay logged in") ?>
+                  <input type="checkbox" name="persistend.login" />
+                </label>
+              </div>
+              <div class="forgot-password">
+                <a href="#newPassword"><?php echo $this->__("Forgot Password") ?>?</a>
+              </div>
+            </div>
+            <button class="btn gold expand"><?php echo $this->__('Log In'); ?></button>
+            <button class="btn black expand"><?php echo $this->__('Login with Facebook'); ?></button>
+          </form>
+        </div>
+      </div>
+      <div class="content-bottom">
+        <p class="note registration-terms">
+          <em>*</em>Mit der Anmeldung stimme ich den <a>AGB</a> und <a>Datenschutzbestimmungen</a> zu und erhalte regelm&auml;&szlig;ig einen Newsletter, den ich jederzeit kostenfrei abbestellen kann.
+        </p>
+      </div>
+    </div>
+    <div class="registration-footer">
+      <ul class="known-from">
+        <li><?php echo $this->__('Bekannt<br />aus') ?></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+  var $j = jQuery;
+  $j(".switch li").on('click', function(ev) {
+    if($j(this).is('#switch-signup') && !$j(this).hasClass('active')) {
+      $j('#signup').removeClass('hide');
+      $j('#login').addClass('hide');
+      $j('#switch-signup').addClass('active');
+      $j('#switch-login').removeClass('active');
+    }
+    if($j(this).is('#switch-login') && !$j(this).hasClass('active')) {
+      $j('#login').removeClass('hide');
+      $j('#signup').addClass('hide');
+      $j('#switch-signup').removeClass('active');
+      $j('#switch-login').addClass('active');
+    }
+  });
+
+//]]>
+</script>

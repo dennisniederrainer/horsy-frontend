@@ -77,3 +77,159 @@
     }
   }
 }
+
+.grayout {
+  position: absolute;
+  top: 0; bottom: 0;
+	left: 0; right: 0;
+  z-index: 100;
+  background-color: rgba(0,0,0,.8);
+
+  .registration-container {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    transform: translateY(-15%);
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+
+    .content-wrapper {
+      @include clearfix;
+
+      .content-left, .content-right {
+        float: left;
+        width: 50%;
+        padding: 25px;
+      }
+
+      .logo-wrapper {
+        width: 75%;
+        margin: 0 auto;
+      }
+
+      .usp-wrapper ul {
+        padding-left: 18px;
+        margin: 0;
+
+        li {
+          font-size: 13px;
+          line-height: 42px;
+        }
+      }
+
+      .content-bottom {
+        clear: both;
+        padding: 30px;
+        padding-top: 0;
+      }
+    }
+
+    .registration-footer {
+      background-color: #9c9c9c;
+      padding: 20px 25px;
+
+      ul.known-from {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          font-size: 12px;
+          line-height: 14px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+#signup, #login {
+  h1 {
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  input {
+    line-height: 16px;
+    padding: 12px;
+    margin-bottom: 10px;
+
+    @include input-placeholder {
+      font-weight: 300;
+    }
+  }
+  button.btn {
+    font-size: 15px;
+    line-height: 40px;
+    margin: 20px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .persistend-forgot-wrapper {
+    color: #000;
+    .persistent-login, .forgot-password {
+      width: 50%;
+      > * {
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+    .persistent-login {
+      float: left;
+    }
+    .forgot-password {
+      float: right;
+      text-align: right;
+      a {
+        color: $gray-base;
+        text-decoration: underline !important;
+        @include same-link-style($gray-base);
+      }
+    }
+  }
+}
+
+#signup input {
+  margin-bottom: 0;
+}
+
+p.note.registration-terms {
+  color: $gray-base;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.switch-wrapper {
+  ul.switch {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      @include background-image(linear-gradient(#dfdfdf, #e2e2e3));
+      float: left;
+      width: 50%;
+      text-align: center;
+      font-size: 17px;
+      line-height: 45px;
+      text-transform: uppercase;
+
+      &:hover {
+        cursor: pointer;
+        // hier sollte mehr passieren on hover -- shadow!?
+      }
+
+      &.active {
+        background: none;
+        background-color: #fff;
+      }
+    }
+  }
+}

@@ -6,8 +6,10 @@
 ?>
 
 <div class="dropdown-tab" style="z-index: 30;">
-  <i class="fa fa-shopping-cart"></i><span class="count">(<?php echo $_cartQty; ?>)</span>
-  <p>Warenkorb</p>
+  <div class="icon shoppingcart">
+    <span class="count">(<?php echo $_cartQty; ?>)</span>
+    <span><?php echo $this->__('Warenkorb'); ?></span>
+  </div>
 </div>
 <div class="dropdown-content minicart-dropdown" style="z-index: 25;">
   <?php echo $this->getChildHtml('minicart_content');?>

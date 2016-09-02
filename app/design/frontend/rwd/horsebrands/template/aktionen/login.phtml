@@ -1,0 +1,19 @@
+<div class="aktionen-login-container">
+  <?php $block = $this->getChild('aktionen.list')->setDisableLinks(true); ?>
+  <?php echo $block->toHtml(); ?>
+  <div id="modalcontent" class="hidden">
+    <?php echo $this->getChildHtml('aktionen.modal.content'); ?>
+  </div>
+  <script type="text/javascript">
+  //<![CDATA[
+
+    jQuery(document).ready(function($) {
+      var html = $('#modalcontent').html();
+      $('#modalcontent').html('');
+      $('#modal-global').html(html)
+      $('#modal-global').removeClass('hide');
+    });
+
+  //]]>
+  </script>
+</div>
