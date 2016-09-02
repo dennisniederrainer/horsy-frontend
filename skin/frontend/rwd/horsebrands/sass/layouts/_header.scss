@@ -258,6 +258,9 @@ ul.customer-nav-list {
 
 	&.mobile-menu {
 		background: url('../images/icons/icon-menu.svg') no-repeat 0 0;
+		span {
+			left: 0;
+		}
 	}
 	&.customeraccount {
 		background: url('../images/icons/icon-customeraccount.svg') no-repeat 0 0;
