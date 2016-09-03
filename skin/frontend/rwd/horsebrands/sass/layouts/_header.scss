@@ -264,10 +264,20 @@ ul.customer-nav-list {
 	}
 	&.customeraccount {
 		background: url('../images/icons/icon-customeraccount.svg') no-repeat 0 0;
+
+		&.loggedin {
+			span {
+				width: 75px;
+				left: -18px;
+			}
+		}
 	}
 	&.shoppingcart {
 		background: url('../images/icons/icon-cart.svg') no-repeat 0 0;
 
+		span {
+			left: -14px;
+		}
 		span.count {
 			top: 50%;
 			bottom: 0;
@@ -277,5 +287,8 @@ ul.customer-nav-list {
 	}
 	&.wishlist {
 		background: url('../images/icons/icon-wishlist.svg') no-repeat 0 0;
+		span {
+			left: -17px;
+		}
 	}
 }

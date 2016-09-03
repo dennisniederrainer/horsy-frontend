@@ -7481,24 +7481,41 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
 .icon.mobile-menu {
   background: url("../images/icons/icon-menu.svg") no-repeat 0 0;
 }
-/* line 262, ../sass/layouts/_header.scss */
+/* line 261, ../sass/layouts/_header.scss */
+.icon.mobile-menu span {
+  left: 0;
+}
+/* line 265, ../sass/layouts/_header.scss */
 .icon.customeraccount {
   background: url("../images/icons/icon-customeraccount.svg") no-repeat 0 0;
 }
-/* line 265, ../sass/layouts/_header.scss */
+/* line 269, ../sass/layouts/_header.scss */
+.icon.customeraccount.loggedin span {
+  width: 75px;
+  left: -18px;
+}
+/* line 275, ../sass/layouts/_header.scss */
 .icon.shoppingcart {
   background: url("../images/icons/icon-cart.svg") no-repeat 0 0;
 }
-/* line 268, ../sass/layouts/_header.scss */
+/* line 278, ../sass/layouts/_header.scss */
+.icon.shoppingcart span {
+  left: -14px;
+}
+/* line 281, ../sass/layouts/_header.scss */
 .icon.shoppingcart span.count {
   top: 50%;
   bottom: 0;
   left: 22px;
   transform: translateY(-50%);
 }
-/* line 275, ../sass/layouts/_header.scss */
+/* line 288, ../sass/layouts/_header.scss */
 .icon.wishlist {
   background: url("../images/icons/icon-wishlist.svg") no-repeat 0 0;
+}
+/* line 290, ../sass/layouts/_header.scss */
+.icon.wishlist span {
+  left: -17px;
 }
 
 /* line 2, ../sass/layouts/_footer.scss */

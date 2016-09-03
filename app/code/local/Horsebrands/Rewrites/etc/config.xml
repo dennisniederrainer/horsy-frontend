@@ -89,17 +89,17 @@
       </events>
     </global>
 
-    <frontend>
+    <!-- <frontend>
       <routers>
-        <checkout>
+        <customer>
           <args>
             <modules>
-              <horsebrands_checkout before="Mage_Checkout">Horsebrands_Rewrites_Checkout</horsebrands_checkout>
+              <horsebrands_customer before="Mage_Customer">Horsebrands_Rewrites_Customer</horsebrands_customer>
             </modules>
           </args>
-        </checkout>
+        </customer>
       </routers>
-    </frontend>
+    </frontend> -->
     <admin>
       <routers>
         <Purchase>

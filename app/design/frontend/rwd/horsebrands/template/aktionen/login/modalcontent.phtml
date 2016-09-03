@@ -29,16 +29,18 @@
       <div class="content-right">
         <div id="signup">
           <h1><?php echo $this->__('Become a Member for free now.') ?></h1>
-          <form action="<?php echo $this->getRegistrationAction(); ?>" method="post">
+          <form action="<?php echo $this->getActionUrl('registration'); ?>" method="post">
             <input type="text" name="email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
             <button class="btn gold expand"><?php echo $this->__('Sign In'); ?><em>*</em></button>
             <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button>
           </form>
         </div>
         <div id="login" class="hide">
-          <form action="<?php echo $this->getLoginAction(); ?>" method="post">
-            <input type="text" name="email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
-            <input type="password" name="password" placeholder="<?php echo $this->__('Your Password') ?>"/>
+          <form action="<?php echo $this->getActionUrl('login'); ?>" method="post">
+            <input type="hidden" name="aktionenlogin" value='true' />
+            <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+            <input type="text" name="login[username]" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+            <input type="password" name="login[password]" placeholder="<?php echo $this->__('Your Password') ?>"/>
             <div class="persistend-forgot-wrapper">
               <div class="persistent-login">
                 <label>
@@ -50,7 +52,7 @@
                 <a href="#newPassword"><?php echo $this->__("Forgot Password") ?>?</a>
               </div>
             </div>
-            <button class="btn gold expand"><?php echo $this->__('Log In'); ?></button>
+            <button class="btn gold expand" type="submit"><?php echo $this->__('Log In'); ?></button>
             <button class="btn black expand"><?php echo $this->__('Login with Facebook'); ?></button>
           </form>
         </div>

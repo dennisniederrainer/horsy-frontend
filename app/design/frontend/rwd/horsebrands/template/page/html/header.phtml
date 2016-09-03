@@ -14,7 +14,7 @@
     <div class="top-header-element top-header-left store-select">
       <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
         Shop</a>
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
         Deals</a>
     </div>
     <div class="top-header-element top-header-center brand">
@@ -62,7 +62,7 @@
             <li class="customer-nav-element">
               <div class="dropdown-tab" style="z-index: 10;">
                 <a href="<?php echo $this->getUrl('customer/account') ?>">
-                  <div class="icon customeraccount">
+                  <div class="icon customeraccount loggedin">
                     <span><?php echo $this->__('Mein Konto'); ?></span>
                   </div>
                 </a>
