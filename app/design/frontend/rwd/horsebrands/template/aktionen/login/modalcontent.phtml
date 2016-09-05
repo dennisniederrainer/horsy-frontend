@@ -37,8 +37,8 @@
         </div>
         <div id="login" class="hide">
           <form action="<?php echo $this->getActionUrl('login'); ?>" method="post">
-            <input type="hidden" name="aktionenlogin" value='true' />
             <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+            <input type="hidden" name="aktionenlogin" value='true' />
             <input type="text" name="login[username]" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
             <input type="password" name="login[password]" placeholder="<?php echo $this->__('Your Password') ?>"/>
             <div class="persistend-forgot-wrapper">

@@ -89,7 +89,7 @@
       </events>
     </global>
 
-    <!-- <frontend>
+    <frontend>
       <routers>
         <customer>
           <args>
@@ -99,7 +99,7 @@
           </args>
         </customer>
       </routers>
-    </frontend> -->
+    </frontend>
     <admin>
       <routers>
         <Purchase>
