@@ -28,11 +28,24 @@
       </div>
       <div class="content-right">
         <div id="signup">
-          <h1><?php echo $this->__('Become a Member for free now.') ?></h1>
-          <form action="<?php echo $this->getActionUrl('registration'); ?>" method="post">
-            <input type="text" name="email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
-            <button class="btn gold expand"><?php echo $this->__('Sign In'); ?><em>*</em></button>
-            <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button>
+          <form id="registration-form" action="<?php echo $this->getActionUrl('registration'); ?>" method="post">
+            <input type="hidden" name="success_url" value="<?php echo $this->getUrl('aktionen') ?>" />
+            <!-- <input type="hidden" name="error_url" value="<?php //echo $this->getErrorUrl() ?>" /> -->
+            <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+            <input type="hidden" name="is_subscribed" value="1" checked="checked" />
+            <div id="reg-step-one">
+              <h1><?php echo $this->__('Become a Member for free now.') ?></h1>
+              <input type="text" name="email" id="reg-email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+              <button type="button" class="btn gold expand reg-continue"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+              <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button>
+            </div>
+            <div id="reg-step-two" class="hide">
+              <input type="text" name="firstname" placeholder="<?php echo $this->__('Your First Name') ?>" />
+              <input type="text" name="lastname" placeholder="<?php echo $this->__('Your Last Name') ?>" />
+              <input type="password" name="password" placeholder="<?php echo $this->__('Your Password') ?>" />
+              <input type="password" name="confirmation" placeholder="<?php echo $this->__('Confirm Your Password') ?>" />
+              <button type="submit" class="btn gold expand"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+            </div>
           </form>
         </div>
         <div id="login" class="hide">
@@ -86,6 +99,18 @@
       $j('#signup').addClass('hide');
       $j('#switch-signup').removeClass('active');
       $j('#switch-login').addClass('active');
+    }
+  });
+
+  $j("#registration-form button.reg-continue").on('click', function(ev) {
+    // #registration-step-
+    console.log('click');
+    // mehr validation
+
+    console.log($j('#reg-email').val().length);
+    if($j('#reg-email').val().length > 0) {
+      $j('#reg-step-one').addClass('hide');
+      $j('#reg-step-two').removeClass('hide');
     }
   });
 
