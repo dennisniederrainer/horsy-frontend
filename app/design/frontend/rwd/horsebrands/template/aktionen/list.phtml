@@ -34,7 +34,7 @@
                 <?php echo $campaign->getFsDescription(); ?>
               </div>
             </div>
-            <a <?php echo ($disableLinks ? 'href="#" onclick="return false;"' : 'href="<?php echo $category->getUrl(); ?>"')?>>
+            <a <?php echo ($disableLinks ? 'href="#" onclick="return false;"' : 'href="'.$category->getUrl().'"')?>>
             <div class="image-wrapper">
               <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $campaign->getFsPicture(); ?>" title="<?php echo $campaign->getFsName(); ?>" alt="<?php echo $campaign->getFsName(); ?>" class="img-responsive" />
             </div>

@@ -103,11 +103,7 @@
   });
 
   $j("#registration-form button.reg-continue").on('click', function(ev) {
-    // #registration-step-
-    console.log('click');
     // mehr validation
-
-    console.log($j('#reg-email').val().length);
     if($j('#reg-email').val().length > 0) {
       $j('#reg-step-one').addClass('hide');
       $j('#reg-step-two').removeClass('hide');
