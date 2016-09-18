@@ -143,6 +143,18 @@
   div.validation-advice {
     display: none !important;
   }
+
+  @include media('<tablet') {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: left;
+    width: 100% !important;
+
+    fieldset {
+      padding: 0;
+    }
+  };
 }
 
 .rating {

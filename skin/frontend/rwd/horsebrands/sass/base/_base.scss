@@ -98,3 +98,7 @@ ul.messages {
 	left: 0; right: 0;
 	z-index: 99;
 }
+
+.transparent-layer {
+	background-color: rgba($white, .6);
+}

@@ -1,13 +1,12 @@
-
 section {
   &.topics {
 
     article.topic-element {
       position: relative;
-      height: 300px;
+      max-height: 300px;
 
       .canvas {
-        height: 300px;
+        max-height: 300px;
         overflow: hidden;
       }
       .button-container {
@@ -33,6 +32,20 @@ section {
           width: 185px;
         }
       }
+
+      @include media('<tablet') {
+        margin-bottom: 15px;
+
+        .button-container {
+          background-color: rgba($white, .6);
+          padding: 10px 0;
+
+          a.btn {
+            color: $black-base;
+            border-color: $black-base;
+          }
+        }
+      };
     }
   }
 }

@@ -79,8 +79,9 @@
                 <div class="top-row">
                   <h3><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></h3>
                   <!-- <h3><?php //echo $_product->getManufacturer() ?></h3> -->
-                  <?php $_msrpPrice = $this->helper('core')->currency($_product->getMsrp(),true,true) ?>
-                  <?php if($_msrpPrice && $_msrpPrice > 0.0): ?>
+                  <?php $_msrp = $_helper->productAttribute($_product, $_product->getMsrp(), 'msrp') ?>
+                  <?php $_msrpPrice = $this->helper('core')->currency($_msrp,true,true) ?>
+                  <?php if($_msrp): ?>
                     <span class="msrp"><?php echo $_msrpPrice; ?></span>
                   <?php endif; ?>
                 </div>

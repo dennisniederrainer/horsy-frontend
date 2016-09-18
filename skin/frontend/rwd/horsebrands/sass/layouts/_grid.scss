@@ -1,9 +1,7 @@
-
 @mixin horizontal-padding($padding) {
 	padding-left: $padding !important;
 	padding-right: $padding !important;
 }
-
 
 .container-fluid {
 	width: 96%;
@@ -14,12 +12,15 @@
 }
 
 .container {
+	@include clearfix;
 	width: 100%;
 	max-width: $grid-width;
 	margin-left: auto;
 	margin-right: auto;
 
-  @include clearfix;
+	@include media('<tablet') {
+		padding: 0 15px;
+	};
 }
 
 // get rid of the outter padding
@@ -43,24 +44,24 @@
 	}
 }
 
-#main {
-  .col2-left-layout {
-    .col-left {
-      float: left;
-      &.medium {
-        width: 20%;
-      }
-    }
-    .col-main {
-      float: left;
-			padding: 0;
-
-			&.medium{
-				width: 80%;
-			}
-    }
-  }
-}
+// #main {
+//   .col2-left-layout {
+//     .col-left {
+//       float: left;
+//       &.medium {
+//         width: 20%;
+//       }
+//     }
+//     .col-main {
+//       float: left;
+// 			padding: 0;
+//
+// 			&.medium{
+// 				width: 80%;
+// 			}
+//     }
+//   }
+// }
 
 .col-left,
 .col-main {

@@ -5159,6 +5159,11 @@ ul.messages li.success-msg {
   z-index: 99;
 }
 
+/* line 102, ../sass/base/_base.scss */
+.transparent-layer {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
 /* MODULES */
 /* line 24, ../sass/modules/_typography.scss */
 body {
@@ -6658,31 +6663,35 @@ ul.menu > li > a:hover, ul.menu > li > a:active, ul.menu > li > a:link, ul.menu 
 .product-view .product-essential-left {
   margin-top: 30px;
 }
-/* line 41, ../sass/modules/_products.scss */
+/* line 40, ../sass/modules/_products.scss */
+.product-view .manufacturer-logo {
+  width: 25%;
+}
+/* line 45, ../sass/modules/_products.scss */
 .product-view label em {
   display: none;
   color: #cca64b;
 }
-/* line 46, ../sass/modules/_products.scss */
+/* line 50, ../sass/modules/_products.scss */
 .product-view p.required {
   display: none;
   font-size: 0.75rem;
   color: #cca64b;
   margin-top: 0;
 }
-/* line 53, ../sass/modules/_products.scss */
+/* line 57, ../sass/modules/_products.scss */
 .product-view .btn {
   margin-bottom: .3rem;
 }
-/* line 57, ../sass/modules/_products.scss */
+/* line 61, ../sass/modules/_products.scss */
 .product-view .review-stars {
   color: #cca64b;
 }
-/* line 61, ../sass/modules/_products.scss */
+/* line 65, ../sass/modules/_products.scss */
 .product-view .delivery-time-wrapper {
   font-size: 0.75rem;
 }
-/* line 66, ../sass/modules/_products.scss */
+/* line 70, ../sass/modules/_products.scss */
 .product-view li.promotion-element {
   font-size: 0.75rem;
   background-color: #e3e3e3;
@@ -6692,41 +6701,41 @@ ul.menu > li > a:hover, ul.menu > li > a:active, ul.menu > li > a:link, ul.menu 
   margin-bottom: 2px;
   text-align: center;
 }
-/* line 75, ../sass/modules/_products.scss */
+/* line 79, ../sass/modules/_products.scss */
 .product-view li.promotion-element.return-icon {
   background-image: url("../images/icons/i-return.png");
 }
-/* line 78, ../sass/modules/_products.scss */
+/* line 82, ../sass/modules/_products.scss */
 .product-view li.promotion-element.delivery-icon {
   background-image: url("../images/icons/i-delivery-productview.png");
 }
-/* line 81, ../sass/modules/_products.scss */
+/* line 85, ../sass/modules/_products.scss */
 .product-view li.promotion-element.phone-icon {
   background-image: url("../images/icons/i-phone.png");
 }
-/* line 88, ../sass/modules/_products.scss */
+/* line 92, ../sass/modules/_products.scss */
 .product-view section h5.section-title {
   margin-top: 0;
   font-weight: 300;
   font-size: 0.875rem;
 }
-/* line 93, ../sass/modules/_products.scss */
+/* line 97, ../sass/modules/_products.scss */
 .product-view section p {
   font-size: 0.875rem;
   font-weight: 300;
   line-height: 1.4;
 }
-/* line 98, ../sass/modules/_products.scss */
+/* line 102, ../sass/modules/_products.scss */
 .product-view section p strong {
   font-weight: 700;
 }
 
-/* line 105, ../sass/modules/_products.scss */
+/* line 109, ../sass/modules/_products.scss */
 .thin-weight {
   font-weight: 300;
 }
 
-/* line 108, ../sass/modules/_products.scss */
+/* line 112, ../sass/modules/_products.scss */
 .normal-weight {
   font-weight: 400;
 }
@@ -7084,7 +7093,7 @@ span.count {
 }
 
 /* LAYOUTS */
-/* line 8, ../sass/layouts/_grid.scss */
+/* line 6, ../sass/layouts/_grid.scss */
 .container-fluid {
   width: 96%;
   margin-left: auto;
@@ -7100,7 +7109,7 @@ span.count {
   clear: both;
 }
 
-/* line 16, ../sass/layouts/_grid.scss */
+/* line 14, ../sass/layouts/_grid.scss */
 .container {
   width: 100%;
   max-width: 1100px;
@@ -7116,48 +7125,36 @@ span.count {
 .container:after {
   clear: both;
 }
+@media (max-width: 639px) {
+  /* line 14, ../sass/layouts/_grid.scss */
+  .container {
+    padding: 0 15px;
+  }
+}
 
-/* line 26, ../sass/layouts/_grid.scss */
+/* line 27, ../sass/layouts/_grid.scss */
 .row {
   margin-bottom: 10px;
   max-width: 100%;
 }
-/* line 30, ../sass/layouts/_grid.scss */
+/* line 31, ../sass/layouts/_grid.scss */
 .row .row.full-width, .row #checkoutSteps input.row[type="text"], #checkoutSteps .row input.row[type="text"], .row #checkoutSteps input.row[type="password"], #checkoutSteps .row input.row[type="password"], .row .my-account table td input.row, .my-account table td .row input.row {
   margin-left: 0;
   margin-right: 0;
 }
-/* line 35, ../sass/layouts/_grid.scss */
+/* line 36, ../sass/layouts/_grid.scss */
 .row .columns {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
 
-/* line 41, ../sass/layouts/_grid.scss */
+/* line 42, ../sass/layouts/_grid.scss */
 .smaller-margins .columns {
   padding-left: 5px !important;
   padding-right: 5px !important;
 }
 
-/* line 48, ../sass/layouts/_grid.scss */
-#main .col2-left-layout .col-left {
-  float: left;
-}
-/* line 50, ../sass/layouts/_grid.scss */
-#main .col2-left-layout .col-left.medium {
-  width: 20%;
-}
-/* line 54, ../sass/layouts/_grid.scss */
-#main .col2-left-layout .col-main {
-  float: left;
-  padding: 0;
-}
-/* line 58, ../sass/layouts/_grid.scss */
-#main .col2-left-layout .col-main.medium {
-  width: 80%;
-}
-
-/* line 65, ../sass/layouts/_grid.scss */
+/* line 66, ../sass/layouts/_grid.scss */
 .col-left,
 .col-main {
   margin-top: 20px;
@@ -7889,54 +7886,66 @@ footer .footer-container .row .columns {
   max-height: 100%;
 }
 
-/* line 262, ../sass/components/_catalog.scss */
+/* line 264, ../sass/components/_catalog.scss */
+.product-view ul.product-image-thumbs li {
+  display: inline-block;
+}
+
+/* line 270, ../sass/components/_catalog.scss */
 .super-attribute-select.no-display {
   display: none;
 }
 
-/* line 265, ../sass/components/_catalog.scss */
+/* line 273, ../sass/components/_catalog.scss */
 .configurable-swatch-list {
   list-style: none;
   padding-left: 0;
   margin-top: 0;
 }
-/* line 270, ../sass/components/_catalog.scss */
+/* line 278, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link {
   width: 32px;
   height: 32px;
 }
-/* line 274, ../sass/components/_catalog.scss */
+/* line 282, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link span {
   width: 30px;
   height: 30px;
   line-height: 30px;
 }
-/* line 280, ../sass/components/_catalog.scss */
+/* line 288, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link.has-image {
   width: 60px;
   height: 60px;
 }
-/* line 284, ../sass/components/_catalog.scss */
+/* line 292, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link.has-image span {
   width: 60px;
   height: 60px;
 }
-/* line 290, ../sass/components/_catalog.scss */
+/* line 298, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link img {
   width: 60px;
   height: 60px;
 }
 
-/* line 297, ../sass/components/_catalog.scss */
+/* line 305, ../sass/components/_catalog.scss */
 dt.swatch-attr label span.select-label {
   display: inline-block;
   font-size: 1em;
   padding-left: 5px;
 }
 
-/* line 303, ../sass/components/_catalog.scss */
+/* line 311, ../sass/components/_catalog.scss */
 dd.swatch-attr {
   margin-left: 0;
+}
+
+@media (max-width: 639px) {
+  /* line 315, ../sass/components/_catalog.scss */
+  .layered-navigation-wrapper {
+    display: none;
+  }
 }
 
 /* line 2, ../sass/components/_customer.scss */
@@ -8138,17 +8147,17 @@ dd.swatch-attr {
   font-size: 0.75rem;
 }
 
-/* line 5, ../sass/components/_homepage.scss */
+/* line 4, ../sass/components/_homepage.scss */
 section.topics article.topic-element {
   position: relative;
-  height: 300px;
+  max-height: 300px;
 }
-/* line 9, ../sass/components/_homepage.scss */
+/* line 8, ../sass/components/_homepage.scss */
 section.topics article.topic-element .canvas {
-  height: 300px;
+  max-height: 300px;
   overflow: hidden;
 }
-/* line 13, ../sass/components/_homepage.scss */
+/* line 12, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container {
   position: absolute;
   bottom: 20px;
@@ -8156,23 +8165,39 @@ section.topics article.topic-element .button-container {
   right: 0;
   width: 100%;
 }
-/* line 20, ../sass/components/_homepage.scss */
+/* line 19, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container.btn-centered {
   text-align: center;
 }
-/* line 23, ../sass/components/_homepage.scss */
+/* line 22, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container.btn-left {
   text-align: left;
   padding-left: 20px;
 }
-/* line 27, ../sass/components/_homepage.scss */
+/* line 26, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container.btn-right {
   text-align: right;
   padding-right: 20px;
 }
-/* line 32, ../sass/components/_homepage.scss */
+/* line 31, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container .btn {
   width: 185px;
+}
+@media (max-width: 639px) {
+  /* line 4, ../sass/components/_homepage.scss */
+  section.topics article.topic-element {
+    margin-bottom: 15px;
+  }
+  /* line 39, ../sass/components/_homepage.scss */
+  section.topics article.topic-element .button-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px 0;
+  }
+  /* line 43, ../sass/components/_homepage.scss */
+  section.topics article.topic-element .button-container a.btn {
+    color: #1d1d1d;
+    border-color: #1d1d1d;
+  }
 }
 
 /* line 2, ../sass/components/_reviews.scss */
@@ -8332,38 +8357,52 @@ section.topics article.topic-element .button-container .btn {
 .star-rating div.validation-advice {
   display: none !important;
 }
+@media (max-width: 639px) {
+  /* line 90, ../sass/components/_reviews.scss */
+  .star-rating {
+    position: relative;
+    top: auto;
+    right: auto;
+    text-align: left;
+    width: 100% !important;
+  }
+  /* line 154, ../sass/components/_reviews.scss */
+  .star-rating fieldset {
+    padding: 0;
+  }
+}
 
-/* line 148, ../sass/components/_reviews.scss */
+/* line 160, ../sass/components/_reviews.scss */
 .rating {
   padding: 0 10px;
 }
-/* line 151, ../sass/components/_reviews.scss */
+/* line 163, ../sass/components/_reviews.scss */
 .rating i.fa {
   font-size: 18px;
   color: #cca64b;
   margin-right: 5px;
 }
-/* line 157, ../sass/components/_reviews.scss */
+/* line 169, ../sass/components/_reviews.scss */
 .rating.star-small {
   padding: 0;
 }
-/* line 160, ../sass/components/_reviews.scss */
+/* line 172, ../sass/components/_reviews.scss */
 .rating.star-small i.fa {
   font-size: 16px;
 }
 
-/* line 166, ../sass/components/_reviews.scss */
+/* line 178, ../sass/components/_reviews.scss */
 #rating-total-overview {
   border: none;
 }
-/* line 169, ../sass/components/_reviews.scss */
+/* line 181, ../sass/components/_reviews.scss */
 #rating-total-overview td {
   border: none;
   padding: 0 10px;
   text-align: left;
 }
 
-/* line 177, ../sass/components/_reviews.scss */
+/* line 189, ../sass/components/_reviews.scss */
 .customerratings-container section {
   margin-bottom: 0;
 }
@@ -8969,13 +9008,26 @@ p.note.registration-terms {
   top: 0;
   right: 0;
 }
-/* line 92, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+@media (max-width: 639px) {
+  /* line 93, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+  .seq .content-position {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: auto;
+  }
+  /* line 98, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+  .seq .content-position.top-right {
+    top: auto;
+    bottom: 10px;
+  }
+}
+/* line 106, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .content {
   display: inline-block;
   margin: 0 auto;
   color: #fff;
 }
-/* line 97, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 111, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .content h1,
 .seq .content p,
 .seq .content .btn-container {
@@ -8985,21 +9037,21 @@ p.note.registration-terms {
   line-height: 1.4;
   letter-spacing: 1.5px;
 }
-/* line 107, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 121, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .content h1 {
   font-weight: 400;
 }
-/* line 110, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 124, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .content p {
   font-weight: 100;
 }
-/* line 114, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 128, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .content .button-container {
   text-align: right;
   width: 100%;
   margin: 5px 0;
 }
-/* line 121, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 135, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination {
   width: 100%;
 }
@@ -9012,7 +9064,7 @@ p.note.registration-terms {
 .seq .seq-pagination:after {
   clear: both;
 }
-/* line 124, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li {
   float: left;
   background-color: #d9d9d9;
@@ -9022,35 +9074,35 @@ p.note.registration-terms {
   text-align: center;
   border-right: 1px solid #fff;
 }
-/* line 133, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 147, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:nth-last-child {
   border-right: none;
 }
-/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 152, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:first-child:nth-last-child(1), .seq .seq-pagination li:first-child:nth-last-child(1) ~ li {
   width: calc(100% / 1);
 }
-/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 152, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:first-child:nth-last-child(2), .seq .seq-pagination li:first-child:nth-last-child(2) ~ li {
   width: calc(100% / 2);
 }
-/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 152, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:first-child:nth-last-child(3), .seq .seq-pagination li:first-child:nth-last-child(3) ~ li {
   width: calc(100% / 3);
 }
-/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 152, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:first-child:nth-last-child(4), .seq .seq-pagination li:first-child:nth-last-child(4) ~ li {
   width: calc(100% / 4);
 }
-/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 152, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:first-child:nth-last-child(5), .seq .seq-pagination li:first-child:nth-last-child(5) ~ li {
   width: calc(100% / 5);
 }
-/* line 138, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 152, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li:first-child:nth-last-child(6), .seq .seq-pagination li:first-child:nth-last-child(6) ~ li {
   width: calc(100% / 6);
 }
-/* line 144, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
+/* line 158, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
 .seq .seq-pagination li a {
   color: #706f6f;
   text-decoration: none;

@@ -32,10 +32,12 @@
         <!-- <div class="col-left sidebar col-left-first"><?php //echo $_leftContent;   ?></div> -->
         <?php endif; ?>
 
-        <div class="col-left sidebar medium"><?php echo $this->getChildHtml('left') ?></div>
-        <div class="col-main medium">
+        <div class="row">
+          <div class="columns hide-for-small medium-3 col-left sidebar medium"><?php echo $this->getChildHtml('left') ?></div>
+          <div class="col-main medium columns small-12 medium-9">
             <?php echo $this->getChildHtml('global_messages') ?>
             <?php echo $this->getChildHtml('content') ?>
+          </div>
         </div>
       </div>
       <div class="container promise-wrapper">

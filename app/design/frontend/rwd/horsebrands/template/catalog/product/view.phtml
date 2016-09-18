@@ -39,24 +39,15 @@
           <!-- product info -->
           <div class="row">
             <div class="manufacturer-logo left">
-              <?php $manufacturer = $_product->getAttributeText('manufacturer'); ?>
-              <?php $imgUrl = null; ?>
-              <?php
-                // get manufacturer image
-                if($manufacturer != '') {
-                  $filename = strtolower(preg_replace('/\s+/','-',$manufacturer)) . '.png';
-                  $imgUrl = $manufacturerSwatchesBaseUrl . $filename;
-                  echo '<!-- ' . $imgUrl . ' -->';
-                  $imgUrl = false;
-                  // if(!getimagesize($imgUrl)) {
-                  //   $imgUrl = false;
-                  // }
-                }
-              ?>
+              <?php $manufacturerName = $_product->getAttributeText('manufacturer'); ?>
+              <?php $manufacturerId = $_product->getManufacturer(); ?>
+              <?php $manufacturer = Mage::getModel('Purchase/supplier')->load($manufacturerId, 'sup_code'); ?>
+              <?php $imgUrl = $manufacturer->getsup_logo(); ?>
               <?php if($imgUrl): ?>
-              <img src="<?php echo $imgUrl ?>" alt="<?php echo $manufacturer ?>" class="img-responsive" />
+                <?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .DS. 'manufacturer' .DS. 'logos' .DS. $imgUrl; ?>
+                <img src="<?php echo $imgUrl ?>" alt="<?php echo $manufacturerName ?>" class="img-responsive" />
               <?php else: ?>
-              <?php echo $manufacturer ?>
+                <?php echo $manufacturerName ?>
               <?php endif; ?>
             </div>
             <div class="review-stars right" style="text-align:right;">
