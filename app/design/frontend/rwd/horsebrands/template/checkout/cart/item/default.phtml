@@ -15,7 +15,7 @@ $manufacturer = "";
 $deliverytime = "";
 $color = "";
 $size = "";
-if($_product->getManufacturer()) $manufacturer = $_product->getManufacturer();
+if($_product->getManufacturer()) $manufacturer = $_product->getAttributeText('manufacturer');
 if($_product->getDeliveryTime()) $deliverytime = $_product->getAttributeText('delivery_time');
 
 if($_childProduct && $_childProduct->getColor()) $color = $_childProduct->getAttributeText('color');
