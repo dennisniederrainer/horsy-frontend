@@ -23,10 +23,13 @@ if($_childProduct && $_childProduct->getSize()) {
   $size = $_childProduct->getAttributeText('size');
 } elseif ($_childProduct && $_childProduct->getShoeSize()) {
   $size = $_childProduct->getAttributeText('shoe_size');
+} elseif ($_childProduct && $_childProduct->getClothingSize()) {
+  $size = $_childProduct->getAttributeText('clothing_size');
+} elseif ($_childProduct && $_childProduct->getEquipmentSize()) {
+  $size = $_childProduct->getAttributeText('equipment_size');
 }
 ?>
 <tr>
-  <!-- <?php echo Mage::getModel('catalog/product')->load($_childProduct->getId())->getAttributeText('size'); ?> -->
     <td class="product-cart-image">
         <?php if ($this->hasProductUrl()):?>
             <a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image">
