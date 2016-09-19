@@ -34,4 +34,32 @@ class Horsebrands_Rewrites_Model_Checkout_Observer {
             $quote->save();
         }
     }
+
+    public function updateShipping($params = null) {
+      $quote = Mage::getSingleton('checkout/session')->getQuote();
+
+      $country = "DE"; /* To test */
+      $address = $quote->getShippingAddress();
+      $address->setCountryId($country)->setCollectShippingRates(true)->collectShippingRates();
+      $quote->setShippingMethod('flatrate_flatrate')->save();
+
+      // $quote = Mage::helper('checkout/cart')->getQuote();
+      // Mage::log('1', null, 'observer.log');
+      // if (!$quote->getId()) return;
+      //
+      // // $shippingMethod = $quote->getShippingAddress()->getShippingMethod();
+      // $shippingAddress = $quote->getShippingAddress();
+      // // if($shippingMethod) return;
+      //
+      // Mage::log('2', null, 'observer.log');
+      // $country = 'DE'; // Some country code
+      // $method = 'flatrate_flatrate'; // Used shipping method
+      // $shippingAddress
+      //     ->setCountryId($country)
+      //     ->setShippingMethod($method)
+      //     ->setCollectShippingRates(true)
+      // ;
+      // $shippingAddress->save();
+      // $quote->save();
+  }
 }

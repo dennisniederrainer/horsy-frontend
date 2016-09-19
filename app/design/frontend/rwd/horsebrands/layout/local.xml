@@ -111,9 +111,9 @@
 
     <reference name="checkout.onepage.billing">
         <action method="setTemplate"><template>persistent/checkout/onepage/billing.phtml</template></action>
-        <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
-        <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
-        <block type="checkout/onepage_billing" name="address.shipping" template="checkout/onepage/shipping.phtml"/>
+        <remove name="persistent.remember.me" />
+        <remove name="persistent.remember.me.tooltip" />
+        <block type="checkout/onepage_shipping" name="address.shipping" template="checkout/onepage/shipping.phtml"/>
     </reference>
 
     <reference name="checkout.onepage.review">

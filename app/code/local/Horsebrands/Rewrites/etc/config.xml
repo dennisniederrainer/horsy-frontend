@@ -69,7 +69,6 @@
       <events>
         <sales_quote_collect_totals_before>
           <observers>
-            <!-- Set default shipping method and rate when necessary -->
             <horsebrands_rewrites_checkout_observer>
               <type>singleton</type>
               <class>horsebrands_rewrites/checkout_observer</class>
@@ -98,6 +97,13 @@
             </modules>
           </args>
         </customer>
+        <checkout>
+          <args>
+            <modules>
+              <Horsebrands_Rewrites before="Mage_Checkout">Horsebrands_Rewrites_Checkout</Horsebrands_Rewrites>
+            </modules>
+          </args>
+        </checkout>
       </routers>
     </frontend>
     <admin>
