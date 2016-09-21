@@ -301,14 +301,22 @@ $black: #1d1d1d;
 
 a.store-button {
 	font-size: rem-calc(20);
-	margin-right: 25px;
-	font-weight: 100;
+	margin-right: 5px;
+  padding: 4px 15px;
+	font-weight: 500;
 	text-decoration: none;
 	text-transform: uppercase;
-	@include same-link-style($black, $orange-base);
+  border-radius: $global-border-radius;
+	@include same-link-style($black-base, $white-base);
+
+  &:hover {
+    background-color: $black-base;
+  }
 
 	&.active {
-		font-weight: 700;
+    color: $white;
+		font-weight: 500;
+    background-color: $black-base;
 	}
 }
 

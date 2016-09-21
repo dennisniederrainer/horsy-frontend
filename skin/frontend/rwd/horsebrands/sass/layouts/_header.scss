@@ -4,8 +4,8 @@ $customer-icons-font-size: 1.5rem;
 .fixed-top {
 	height: 30px;
 	line-height: 30px;
-	background-color: #1d1d1d;
-	color: #fff;
+	background-color: $grey-base;
+	color: $white-base;
 	margin-bottom: 10px;
 
 	div.container {
@@ -42,7 +42,7 @@ $customer-icons-font-size: 1.5rem;
 			right: 0;
 		}
 		&.store-select {
-			bottom: 12px;
+			bottom: 8px;
 		}
 		&.brand {
 			align-self: center;
@@ -77,6 +77,7 @@ $customer-icons-font-size: 1.5rem;
 
 				&.brand {
 					@include clearfix;
+					position: relative;
 					text-align: left;
 					bottom: 0;
 
@@ -92,10 +93,17 @@ $customer-icons-font-size: 1.5rem;
 
 					.search-wrapper {
 						float: right;
+						height: 80px;
+						background-color: $white-base;
 
 						.mobile-search-wrapper {
 							margin-top: 20px;
 							padding: 0 20px;
+						}
+
+						&.spread {
+							position: absolute;
+							width: 100%;
 						}
 					}
 				}
@@ -114,8 +122,7 @@ $customer-icons-font-size: 1.5rem;
 ul.customer-nav-list {
 	list-style-type: none;
 	padding: 0;
-	margin: 15px 0 0 0;
-	// overflow: hidden;
+	margin: 0;
 
 	li.customer-nav-element {
 		display: inline-block;
@@ -231,7 +238,14 @@ ul.customer-nav-list {
 		}
 
 		.global-search-x {
-			height: 35px;
+			height: 36px;
+
+			&.input-group-button {
+				background-color: #b6b8b8;
+				a {
+					padding: 0 5px;
+				}
+			}
 		}
 
 		.global-search-field, .global-search-button {
@@ -242,41 +256,45 @@ ul.customer-nav-list {
 
 .icon {
 	position: relative;
-	width: 40px;
-	height: 55px;
+	width: 60px;
+	height: 50px;
 	margin: 0 auto;
-	background-size: contain;
+	background-size: 70%;
+	background-repeat: no-repeat;
+	background-position: center 0;
 
 	span {
 		position: absolute;
-		font-size: 14px;
+		font-size: .7em;
 		width: 100%;
 		text-align: center;
 		bottom: -5px;
-		left: -12px;
+		left: 0;
 	}
 
 	&.mobile-menu {
-		background: url('../images/icons/icon-menu.svg') no-repeat 0 0;
+		background-image: url('../images/icons/icon-menu.svg');
+		background-size: 60%;
+
 		span {
-			left: 0;
+			left: -2px;
 		}
 	}
 	&.customeraccount {
-		background: url('../images/icons/icon-customeraccount.svg') no-repeat 0 0;
+		background-image: url('../images/icons/icon-customeraccount.svg');
 
 		&.loggedin {
 			span {
 				width: 75px;
-				left: -18px;
+				// left: -18px;
 			}
 		}
 	}
 	&.shoppingcart {
-		background: url('../images/icons/icon-cart.svg') no-repeat 0 0;
+		background-image: url('../images/icons/icon-cart.svg');
 
 		span {
-			left: -14px;
+			// left: -14px;
 		}
 		span.count {
 			top: 50%;
@@ -286,9 +304,39 @@ ul.customer-nav-list {
 		}
 	}
 	&.wishlist {
-		background: url('../images/icons/icon-wishlist.svg') no-repeat 0 0;
+		// background: url('../images/icons/icon-wishlist.svg') no-repeat 0 0;
+		background-image: url('../images/icons/icon-heart.svg');
+		background-size: 60%;
+		background-position: center 4px;
+
 		span {
-			left: -17px;
+			left: -5px;
+		}
+	}
+}
+
+.offcanvas-menu-wrapper {
+	margin-top: 3em;
+	h1 {
+		@extend .uppercase;
+		color: $white-base;
+		a {
+			color: $white-base;
+			@include same-link-style($white-base);
+		}
+	}
+	ul {
+		@extend .unstyled;
+
+		li {
+			margin-bottom: 5px;
+			a {
+				color: $white-base;
+				@include same-link-style($white-base);
+			}
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 }

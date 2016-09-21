@@ -17,6 +17,9 @@
     <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
     <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
     <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
+    <action method="addItem"><type>skin_js</type><name>js/horsebrands.js</name></action>
+    <action method="addItem"><type>skin_js</type><name>js/foundation/vendor/foundation.js</name></action>
+    <action method="addItem"><type>skin_js</type><name>js/foundation/app.js</name></action>
   </reference>
   <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
      <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
@@ -24,6 +27,18 @@
      <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
      <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
   </block>
+  <reference name="root">
+    <block type="core/text_list" name="top.menu.sidebar" translate="label">
+      <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu_offcanvas.phtml">
+          <block type="page/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>
+      </block>
+    </block>
+  </reference>
+  <reference name="footer">
+    <block type="cms/block" name="footer_content">
+      <action method="setBlockId"><block_id>footer_content</block_id></action>
+    </block>
+  </reference>
 </default>
 
 <catalog_category_layered>

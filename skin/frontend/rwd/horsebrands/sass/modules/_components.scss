@@ -54,11 +54,11 @@ ul {
 	width: 100%;
 	border: 1px solid #b1b2b2;
 	border-radius: $global-border-radius;
-	background-color: #f9f9f9;
+	background-color: $grey-base-light;
 	padding-right: 10px;
 
 	> * {
-		color: #b1b2b2;
+		color: $grey-base;
 		border-radius: $global-border-radius;
 	}
 

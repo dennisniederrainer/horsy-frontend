@@ -49,3 +49,17 @@ section {
     }
   }
 }
+
+#brands-container {
+  @include clearfix;
+
+  .brand {
+    float: left;
+    margin-right: 2%;
+    max-width: 180px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
