@@ -8206,12 +8206,13 @@ ul.menu {
   padding: 0;
 }
 /* line 7, ../sass/modules/_menu.scss */
-ul.menu > li {
+ul.menu li {
   display: table-cell;
   vertical-align: middle;
+  font-size: .875em;
 }
-/* line 11, ../sass/modules/_menu.scss */
-ul.menu > li > a {
+/* line 12, ../sass/modules/_menu.scss */
+ul.menu li a {
   display: block;
   padding: 0.7rem 1.6rem;
   line-height: 1;
@@ -8220,12 +8221,12 @@ ul.menu > li > a {
   text-decoration: inherit;
   cursor: pointer;
 }
-/* line 21, ../sass/modules/_menu.scss */
-ul.menu > li > a:first-child {
+/* line 22, ../sass/modules/_menu.scss */
+ul.menu li a:first-child {
   padding-left: 0;
 }
-/* line 25, ../sass/modules/_menu.scss */
-ul.menu > li > a:hover, ul.menu > li > a:active, ul.menu > li > a:link, ul.menu > li > a:focus {
+/* line 26, ../sass/modules/_menu.scss */
+ul.menu li a:hover, ul.menu li a:active, ul.menu li a:link, ul.menu li a:focus {
   color: inherit;
   text-decoration: inherit;
 }
@@ -9178,6 +9179,10 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
 /* line 337, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li:last-child {
   margin-bottom: 0;
+}
+/* line 341, ../sass/layouts/_header.scss */
+.offcanvas-menu-wrapper ul li ul {
+  display: none;
 }
 
 /* line 2, ../sass/layouts/_footer.scss */
