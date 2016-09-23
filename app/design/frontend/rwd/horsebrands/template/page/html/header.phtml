@@ -14,8 +14,13 @@
     <div class="top-header-element top-header-left store-select">
       <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
         Shop</a>
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
-        Inside</a>
+      <!-- <div class="inside-wrapper"> -->
+        <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
+          Inside
+          <span class="ic-deals-fahne">&nbsp;</span>
+        </a>
+      <!-- </div> -->
+
     </div>
     <div class="top-header-element top-header-center brand">
       <div class="logo-wrapper small-5 medium-12">
