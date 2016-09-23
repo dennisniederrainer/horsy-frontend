@@ -182,6 +182,7 @@ $black: #1d1d1d;
 
 		&.white {
 			border-color: $white;
+      color: $white-base;
 		}
 		&.gray {
 			border-color: $teaser-title-color;
