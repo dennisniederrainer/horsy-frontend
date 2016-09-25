@@ -2,18 +2,19 @@ $customer-nav-list-p-margin-top: 5px;
 $customer-icons-font-size: 1.5rem;
 
 .fixed-top {
-	height: 40px;
-	line-height: 40px;
+	height: 1.75em;
+	line-height: 1.75em;
 	background-color: $grey-base;
 	color: $white-base;
 	margin-bottom: 10px;
 
 	div.container {
 		span {
-			width: 24%;
-			display: inline-block;
+			display: block;
+			float: left;
+			width: 25%;
 			font-weight: 100;
-			font-size: rem-calc(12);
+			font-size: .75em;
 		}
 	}
 }
@@ -84,10 +85,11 @@ $customer-icons-font-size: 1.5rem;
 					.logo-wrapper {
 						float: left;
 						text-align: center;
+						line-height: 80px;
+						max-height: 80px;
 
 						.logo-link img {
-							max-height: 80px;
-							width: auto;
+							width: 100%;
 						}
 					}
 
@@ -97,8 +99,9 @@ $customer-icons-font-size: 1.5rem;
 						background-color: $white-base;
 
 						.mobile-search-wrapper {
-							margin-top: 20px;
+							margin-top: 25px;
 							padding: 0 20px;
+							line-height: 1.75rem;
 						}
 
 						&.spread {
@@ -356,7 +359,8 @@ ul.customer-nav-list {
 		top: -20px; right: -60px
 	}
 
-	&:hover {
+	&:hover,
+	&.active {
 		.ic-deals-fahne {
 			right: -70px;
 		}

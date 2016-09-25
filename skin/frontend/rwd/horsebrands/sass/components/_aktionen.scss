@@ -87,10 +87,11 @@
 
   .registration-container {
     position: absolute;
-    bottom: 0;
+    top: 15px;
     left: 0; right: 0;
-    transform: translateY(-15%);
-    width: 65%;
+    // transform: translateY(-15%);
+    width: 715px;
+    max-width: 715px;
     margin: 0 auto;
     background-color: #fff;
     color: #000;

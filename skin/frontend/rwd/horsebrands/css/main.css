@@ -6693,7 +6693,7 @@ ul.messages li.success-msg {
 /* line 107, ../sass/base/_base.scss */
 #modal-global {
   position: fixed;
-  top: 0;
+  top: 145px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -8795,89 +8795,90 @@ span.count {
 
 /* line 4, ../sass/layouts/_header.scss */
 .fixed-top {
-  height: 40px;
-  line-height: 40px;
+  height: 1.75em;
+  line-height: 1.75em;
   background-color: #919292;
   color: #fff;
   margin-bottom: 10px;
 }
 /* line 12, ../sass/layouts/_header.scss */
 .fixed-top div.container span {
-  width: 24%;
-  display: inline-block;
+  display: block;
+  float: left;
+  width: 25%;
   font-weight: 100;
-  font-size: 0.75rem;
+  font-size: .75em;
 }
 
-/* line 21, ../sass/layouts/_header.scss */
+/* line 22, ../sass/layouts/_header.scss */
 .top-header {
   max-height: 100px;
   height: 100px;
   position: relative;
 }
 @media (max-width: 1023px) {
-  /* line 21, ../sass/layouts/_header.scss */
+  /* line 22, ../sass/layouts/_header.scss */
   .top-header {
     max-height: 100%;
     height: auto;
   }
 }
-/* line 31, ../sass/layouts/_header.scss */
+/* line 32, ../sass/layouts/_header.scss */
 .top-header .top-header-element {
   position: absolute;
 }
-/* line 34, ../sass/layouts/_header.scss */
+/* line 35, ../sass/layouts/_header.scss */
 .top-header .top-header-element.top-header-left {
   left: 0;
 }
-/* line 37, ../sass/layouts/_header.scss */
+/* line 38, ../sass/layouts/_header.scss */
 .top-header .top-header-element.top-header-center {
   left: 50%;
   transform: translateX(-50%);
 }
-/* line 41, ../sass/layouts/_header.scss */
+/* line 42, ../sass/layouts/_header.scss */
 .top-header .top-header-element.top-header-right {
   right: 0;
 }
-/* line 44, ../sass/layouts/_header.scss */
+/* line 45, ../sass/layouts/_header.scss */
 .top-header .top-header-element.store-select {
   bottom: 8px;
 }
-/* line 47, ../sass/layouts/_header.scss */
+/* line 48, ../sass/layouts/_header.scss */
 .top-header .top-header-element.brand {
   align-self: center;
   text-align: center;
   bottom: 5px;
 }
-/* line 52, ../sass/layouts/_header.scss */
+/* line 53, ../sass/layouts/_header.scss */
 .top-header .top-header-element.brand a.logo-link img {
   max-width: 170px;
 }
-/* line 58, ../sass/layouts/_header.scss */
+/* line 59, ../sass/layouts/_header.scss */
 .top-header .top-header-element.customer-nav {
   align-self: flex-start;
   bottom: 0;
 }
-/* line 62, ../sass/layouts/_header.scss */
+/* line 63, ../sass/layouts/_header.scss */
 .top-header .top-header-element.customer-nav .customer-nav-container {
   float: right;
 }
 @media (max-width: 1023px) {
-  /* line 31, ../sass/layouts/_header.scss */
+  /* line 32, ../sass/layouts/_header.scss */
   .top-header .top-header-element {
     position: relative;
   }
-  /* line 70, ../sass/layouts/_header.scss */
+  /* line 71, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-left {
     display: none;
   }
-  /* line 73, ../sass/layouts/_header.scss */
+  /* line 74, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center {
     left: 0;
     transform: none;
     clear: both;
   }
-  /* line 78, ../sass/layouts/_header.scss */
+  /* line 79, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand {
     position: relative;
     text-align: left;
@@ -8892,49 +8893,49 @@ span.count {
   .top-header .top-header-element.top-header-center.brand:after {
     clear: both;
   }
-  /* line 84, ../sass/layouts/_header.scss */
+  /* line 85, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .logo-wrapper {
     float: left;
     text-align: center;
   }
-  /* line 88, ../sass/layouts/_header.scss */
+  /* line 89, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .logo-wrapper .logo-link img {
     max-height: 80px;
     width: auto;
   }
-  /* line 94, ../sass/layouts/_header.scss */
+  /* line 95, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .search-wrapper {
     float: right;
     height: 80px;
     background-color: #fff;
   }
-  /* line 99, ../sass/layouts/_header.scss */
+  /* line 100, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .search-wrapper .mobile-search-wrapper {
     margin-top: 20px;
     padding: 0 20px;
   }
-  /* line 104, ../sass/layouts/_header.scss */
+  /* line 105, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .search-wrapper.spread {
     position: absolute;
     width: 100%;
   }
-  /* line 111, ../sass/layouts/_header.scss */
+  /* line 112, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-right {
     right: 0;
   }
-  /* line 115, ../sass/layouts/_header.scss */
+  /* line 116, ../sass/layouts/_header.scss */
   .top-header .top-header-element.customer-nav .customer-nav-container {
     float: none;
   }
 }
 
-/* line 122, ../sass/layouts/_header.scss */
+/* line 123, ../sass/layouts/_header.scss */
 ul.customer-nav-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-/* line 127, ../sass/layouts/_header.scss */
+/* line 128, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element {
   display: inline-block;
   position: relative;
@@ -8943,7 +8944,7 @@ ul.customer-nav-list li.customer-nav-element {
   height: 62px;
   width: 90px;
 }
-/* line 136, ../sass/layouts/_header.scss */
+/* line 137, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab {
   position: absolute;
   z-index: 10;
@@ -8964,20 +8965,20 @@ ul.customer-nav-list li.customer-nav-element .dropdown-tab a:hover {
   cursor: pointer;
   color: #1d1d1d;
 }
-/* line 150, ../sass/layouts/_header.scss */
+/* line 151, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab i {
   font-size: 1.5rem;
 }
-/* line 152, ../sass/layouts/_header.scss */
+/* line 153, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab i.fa {
   margin: 0;
 }
-/* line 156, ../sass/layouts/_header.scss */
+/* line 157, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab p {
   font-size: 0.8125rem;
   margin: 0;
 }
-/* line 162, ../sass/layouts/_header.scss */
+/* line 163, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-content {
   display: none;
   margin-top: 10px;
@@ -8992,14 +8993,14 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content {
   -webkit-box-shadow: 2px 0 1px -2px #9b9b9b;
   box-shadow: 2px 0 1px -2px #9b9b9b;
 }
-/* line 174, ../sass/layouts/_header.scss */
+/* line 175, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   list-style: none;
   padding: 0;
   min-width: 160px;
 }
 @media (min-width: 1024px) {
-  /* line 182, ../sass/layouts/_header.scss */
+  /* line 183, ../sass/layouts/_header.scss */
   ul.customer-nav-list li.customer-nav-element:hover {
     padding: 4px 19px 0;
     border: 1px solid #c5c5c5;
@@ -9008,13 +9009,13 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
     -webkit-box-shadow: 2px 0 1px -2px #9b9b9b;
     box-shadow: 2px 0 1px -2px #9b9b9b;
   }
-  /* line 188, ../sass/layouts/_header.scss */
+  /* line 189, ../sass/layouts/_header.scss */
   ul.customer-nav-list li.customer-nav-element:hover .dropdown-content {
     display: block;
   }
 }
 @media (max-width: 1023px) {
-  /* line 196, ../sass/layouts/_header.scss */
+  /* line 197, ../sass/layouts/_header.scss */
   ul.customer-nav-list li.customer-nav-element {
     height: 75px;
     float: left;
@@ -9022,7 +9023,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   }
 }
 
-/* line 204, ../sass/layouts/_header.scss */
+/* line 205, ../sass/layouts/_header.scss */
 .navbar {
   border: 1px #c5c5c5 solid;
   border-left: 0;
@@ -9031,44 +9032,44 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   font-size: 0.875rem;
 }
 @media (max-width: 1023px) {
-  /* line 204, ../sass/layouts/_header.scss */
+  /* line 205, ../sass/layouts/_header.scss */
   .navbar {
     display: none;
   }
 }
-/* line 215, ../sass/layouts/_header.scss */
+/* line 216, ../sass/layouts/_header.scss */
 .navbar .menu {
   width: 70%;
   float: left;
 }
-/* line 219, ../sass/layouts/_header.scss */
+/* line 220, ../sass/layouts/_header.scss */
 .navbar .menu ul.level0 {
   display: none;
 }
-/* line 223, ../sass/layouts/_header.scss */
+/* line 224, ../sass/layouts/_header.scss */
 .navbar .global-search {
   float: right;
   width: 30%;
   padding: 0.375rem 0;
 }
-/* line 228, ../sass/layouts/_header.scss */
+/* line 229, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group {
   padding: 0;
 }
-/* line 231, ../sass/layouts/_header.scss */
+/* line 232, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group > * {
   border-radius: 0;
 }
-/* line 239, ../sass/layouts/_header.scss */
+/* line 240, ../sass/layouts/_header.scss */
 .navbar .global-search .global-search-x.input-group-button a {
   padding: 0 5px;
 }
-/* line 245, ../sass/layouts/_header.scss */
+/* line 246, ../sass/layouts/_header.scss */
 .navbar .global-search .global-search-field, .navbar .global-search .global-search-button {
   display: inline-block;
 }
 
-/* line 251, ../sass/layouts/_header.scss */
+/* line 252, ../sass/layouts/_header.scss */
 .icon {
   position: relative;
   width: 60px;
@@ -9078,7 +9079,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   background-repeat: no-repeat;
   background-position: center 0;
 }
-/* line 260, ../sass/layouts/_header.scss */
+/* line 261, ../sass/layouts/_header.scss */
 .icon span {
   position: absolute;
   font-size: .7em;
@@ -9087,55 +9088,55 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   bottom: -5px;
   left: 0;
 }
-/* line 269, ../sass/layouts/_header.scss */
+/* line 270, ../sass/layouts/_header.scss */
 .icon.mobile-menu {
   background-image: url("../images/icons/icon-menu.svg");
   background-size: 60%;
 }
-/* line 273, ../sass/layouts/_header.scss */
+/* line 274, ../sass/layouts/_header.scss */
 .icon.mobile-menu span {
   left: -2px;
 }
-/* line 277, ../sass/layouts/_header.scss */
+/* line 278, ../sass/layouts/_header.scss */
 .icon.customeraccount {
   background-image: url("../images/icons/icon-customeraccount.svg");
 }
-/* line 281, ../sass/layouts/_header.scss */
+/* line 282, ../sass/layouts/_header.scss */
 .icon.customeraccount.loggedin span {
   width: 75px;
 }
-/* line 287, ../sass/layouts/_header.scss */
+/* line 288, ../sass/layouts/_header.scss */
 .icon.shoppingcart {
   background-image: url("../images/icons/icon-cart.svg");
 }
-/* line 293, ../sass/layouts/_header.scss */
+/* line 294, ../sass/layouts/_header.scss */
 .icon.shoppingcart span.count {
   top: 50%;
   bottom: 0;
   left: 22px;
   transform: translateY(-50%);
 }
-/* line 300, ../sass/layouts/_header.scss */
+/* line 301, ../sass/layouts/_header.scss */
 .icon.wishlist {
   background-image: url("../images/icons/icon-heart.svg");
   background-size: 60%;
   background-position: center 4px;
 }
-/* line 306, ../sass/layouts/_header.scss */
+/* line 307, ../sass/layouts/_header.scss */
 .icon.wishlist span {
   left: -5px;
 }
 
-/* line 312, ../sass/layouts/_header.scss */
+/* line 313, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper {
   margin-top: 3em;
 }
-/* line 314, ../sass/layouts/_header.scss */
+/* line 315, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper h1 {
   color: #fff;
   font-size: 1.75em;
 }
-/* line 318, ../sass/layouts/_header.scss */
+/* line 319, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper h1 a {
   color: #fff;
 }
@@ -9149,12 +9150,12 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   cursor: pointer;
   color: #fff;
 }
-/* line 326, ../sass/layouts/_header.scss */
+/* line 327, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
-/* line 329, ../sass/layouts/_header.scss */
+/* line 330, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li a {
   color: #fff;
 }
@@ -9168,21 +9169,21 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   cursor: pointer;
   color: #fff;
 }
-/* line 333, ../sass/layouts/_header.scss */
+/* line 334, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li:last-child {
   margin-bottom: 0;
 }
-/* line 337, ../sass/layouts/_header.scss */
+/* line 338, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li ul {
   display: none;
 }
 
-/* line 344, ../sass/layouts/_header.scss */
+/* line 345, ../sass/layouts/_header.scss */
 .store-button {
   display: inline-block;
   position: relative;
 }
-/* line 348, ../sass/layouts/_header.scss */
+/* line 349, ../sass/layouts/_header.scss */
 .store-button .ic-deals-fahne {
   display: inline-block;
   background: url("../images/icons/deals_fahne.png") center no-repeat;
@@ -9193,8 +9194,8 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   top: -20px;
   right: -60px;
 }
-/* line 360, ../sass/layouts/_header.scss */
-.store-button:hover .ic-deals-fahne {
+/* line 362, ../sass/layouts/_header.scss */
+.store-button:hover .ic-deals-fahne, .store-button.active .ic-deals-fahne {
   right: -70px;
 }
 
@@ -10453,11 +10454,11 @@ dl.totals-block dt {
 /* line 88, ../sass/components/_aktionen.scss */
 .grayout .registration-container {
   position: absolute;
-  bottom: 0;
+  top: 15px;
   left: 0;
   right: 0;
-  transform: translateY(-15%);
-  width: 65%;
+  width: 715px;
+  max-width: 715px;
   margin: 0 auto;
   background-color: #fff;
   color: #000;
@@ -10472,52 +10473,52 @@ dl.totals-block dt {
 .grayout .registration-container .content-wrapper:after {
   clear: both;
 }
-/* line 102, ../sass/components/_aktionen.scss */
+/* line 103, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .content-left, .grayout .registration-container .content-wrapper .content-right {
   float: left;
   width: 50%;
   padding: 25px;
 }
-/* line 108, ../sass/components/_aktionen.scss */
+/* line 109, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .logo-wrapper {
   width: 75%;
   margin: 0 auto;
 }
-/* line 113, ../sass/components/_aktionen.scss */
+/* line 114, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .usp-wrapper ul {
   padding-left: 18px;
   margin: 0;
 }
-/* line 117, ../sass/components/_aktionen.scss */
+/* line 118, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .usp-wrapper ul li {
   font-size: 13px;
   line-height: 42px;
 }
-/* line 123, ../sass/components/_aktionen.scss */
+/* line 124, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .content-bottom {
   clear: both;
   padding: 30px;
   padding-top: 0;
 }
-/* line 130, ../sass/components/_aktionen.scss */
+/* line 131, ../sass/components/_aktionen.scss */
 .grayout .registration-container .registration-footer {
   background-color: #9c9c9c;
   padding: 20px 25px;
 }
-/* line 134, ../sass/components/_aktionen.scss */
+/* line 135, ../sass/components/_aktionen.scss */
 .grayout .registration-container .registration-footer ul.known-from {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 139, ../sass/components/_aktionen.scss */
+/* line 140, ../sass/components/_aktionen.scss */
 .grayout .registration-container .registration-footer ul.known-from li {
   font-size: 12px;
   line-height: 14px;
   color: #fff;
 }
 
-/* line 150, ../sass/components/_aktionen.scss */
+/* line 151, ../sass/components/_aktionen.scss */
 #signup h1, #login h1 {
   font-size: 23px;
   font-weight: 500;
@@ -10525,7 +10526,7 @@ dl.totals-block dt {
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-/* line 157, ../sass/components/_aktionen.scss */
+/* line 158, ../sass/components/_aktionen.scss */
 #signup input, #login input {
   line-height: 16px;
   padding: 12px;
@@ -10547,39 +10548,39 @@ dl.totals-block dt {
 #signup input::-webkit-input-placeholder, #login input::-webkit-input-placeholder {
   font-weight: 300;
 }
-/* line 166, ../sass/components/_aktionen.scss */
+/* line 167, ../sass/components/_aktionen.scss */
 #signup button.btn, #login button.btn {
   font-size: 15px;
   line-height: 40px;
   margin: 20px 0;
 }
-/* line 171, ../sass/components/_aktionen.scss */
+/* line 172, ../sass/components/_aktionen.scss */
 #signup button.btn:last-child, #login button.btn:last-child {
   margin-bottom: 0;
 }
-/* line 175, ../sass/components/_aktionen.scss */
+/* line 176, ../sass/components/_aktionen.scss */
 #signup .persistend-forgot-wrapper, #login .persistend-forgot-wrapper {
   color: #000;
 }
-/* line 177, ../sass/components/_aktionen.scss */
+/* line 178, ../sass/components/_aktionen.scss */
 #signup .persistend-forgot-wrapper .persistent-login, #signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .forgot-password {
   width: 50%;
 }
-/* line 179, ../sass/components/_aktionen.scss */
+/* line 180, ../sass/components/_aktionen.scss */
 #signup .persistend-forgot-wrapper .persistent-login > *, #signup .persistend-forgot-wrapper .forgot-password > *, #login .persistend-forgot-wrapper .persistent-login > *, #login .persistend-forgot-wrapper .forgot-password > * {
   font-size: 12px;
   font-weight: 300;
 }
-/* line 184, ../sass/components/_aktionen.scss */
+/* line 185, ../sass/components/_aktionen.scss */
 #signup .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .persistent-login {
   float: left;
 }
-/* line 187, ../sass/components/_aktionen.scss */
+/* line 188, ../sass/components/_aktionen.scss */
 #signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .forgot-password {
   float: right;
   text-align: right;
 }
-/* line 190, ../sass/components/_aktionen.scss */
+/* line 191, ../sass/components/_aktionen.scss */
 #signup .persistend-forgot-wrapper .forgot-password a, #login .persistend-forgot-wrapper .forgot-password a {
   color: #706f6f;
   text-decoration: underline !important;
@@ -10595,38 +10596,38 @@ dl.totals-block dt {
   color: #706f6f;
 }
 
-/* line 199, ../sass/components/_aktionen.scss */
+/* line 200, ../sass/components/_aktionen.scss */
 #signup input {
   margin-bottom: 0;
 }
 
-/* line 203, ../sass/components/_aktionen.scss */
+/* line 204, ../sass/components/_aktionen.scss */
 #reg-step-two input {
   margin-bottom: 5px;
 }
-/* line 206, ../sass/components/_aktionen.scss */
+/* line 207, ../sass/components/_aktionen.scss */
 #reg-step-two input:last-child {
   margin-bottom: 0;
 }
-/* line 211, ../sass/components/_aktionen.scss */
+/* line 212, ../sass/components/_aktionen.scss */
 #reg-step-two button.btn {
   margin-top: 15px;
 }
 
-/* line 216, ../sass/components/_aktionen.scss */
+/* line 217, ../sass/components/_aktionen.scss */
 p.note.registration-terms {
   color: #706f6f;
   font-size: 10px;
   font-weight: 300;
 }
 
-/* line 223, ../sass/components/_aktionen.scss */
+/* line 224, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 228, ../sass/components/_aktionen.scss */
+/* line 229, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch li {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RmZGZkZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyZTJlMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -10641,11 +10642,11 @@ p.note.registration-terms {
   line-height: 45px;
   text-transform: uppercase;
 }
-/* line 237, ../sass/components/_aktionen.scss */
+/* line 238, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch li:hover {
   cursor: pointer;
 }
-/* line 242, ../sass/components/_aktionen.scss */
+/* line 243, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch li.active {
   background: none;
   background-color: #fff;
