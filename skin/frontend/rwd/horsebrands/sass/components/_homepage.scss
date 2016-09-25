@@ -4,6 +4,7 @@ section {
     article.topic-element {
       position: relative;
       max-height: 300px;
+      margin-bottom: 15px;
 
       .canvas {
         max-height: 300px;
@@ -15,6 +16,14 @@ section {
         left: 0;
         right: 0;
         width: 100%;
+
+        background-color: rgba($white, .6);
+        padding: 10px 0;
+
+        a.btn {
+          color: $black-base;
+          border-color: $black-base;
+        }
 
         &.btn-centered {
           text-align: center;
@@ -34,17 +43,6 @@ section {
       }
 
       @include media('<tablet') {
-        margin-bottom: 15px;
-
-        .button-container {
-          background-color: rgba($white, .6);
-          padding: 10px 0;
-
-          a.btn {
-            color: $black-base;
-            border-color: $black-base;
-          }
-        }
       };
     }
   }

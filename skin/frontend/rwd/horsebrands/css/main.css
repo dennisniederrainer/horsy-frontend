@@ -8897,45 +8897,47 @@ span.count {
   .top-header .top-header-element.top-header-center.brand .logo-wrapper {
     float: left;
     text-align: center;
-  }
-  /* line 89, ../sass/layouts/_header.scss */
-  .top-header .top-header-element.top-header-center.brand .logo-wrapper .logo-link img {
+    line-height: 80px;
     max-height: 80px;
-    width: auto;
   }
-  /* line 95, ../sass/layouts/_header.scss */
+  /* line 91, ../sass/layouts/_header.scss */
+  .top-header .top-header-element.top-header-center.brand .logo-wrapper .logo-link img {
+    width: 100%;
+  }
+  /* line 96, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .search-wrapper {
     float: right;
     height: 80px;
     background-color: #fff;
   }
-  /* line 100, ../sass/layouts/_header.scss */
+  /* line 101, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .search-wrapper .mobile-search-wrapper {
-    margin-top: 20px;
+    margin-top: 25px;
     padding: 0 20px;
+    line-height: 1.75rem;
   }
-  /* line 105, ../sass/layouts/_header.scss */
+  /* line 107, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-center.brand .search-wrapper.spread {
     position: absolute;
     width: 100%;
   }
-  /* line 112, ../sass/layouts/_header.scss */
+  /* line 114, ../sass/layouts/_header.scss */
   .top-header .top-header-element.top-header-right {
     right: 0;
   }
-  /* line 116, ../sass/layouts/_header.scss */
+  /* line 118, ../sass/layouts/_header.scss */
   .top-header .top-header-element.customer-nav .customer-nav-container {
     float: none;
   }
 }
 
-/* line 123, ../sass/layouts/_header.scss */
+/* line 125, ../sass/layouts/_header.scss */
 ul.customer-nav-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-/* line 128, ../sass/layouts/_header.scss */
+/* line 130, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element {
   display: inline-block;
   position: relative;
@@ -8944,7 +8946,7 @@ ul.customer-nav-list li.customer-nav-element {
   height: 62px;
   width: 90px;
 }
-/* line 137, ../sass/layouts/_header.scss */
+/* line 139, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab {
   position: absolute;
   z-index: 10;
@@ -8965,20 +8967,20 @@ ul.customer-nav-list li.customer-nav-element .dropdown-tab a:hover {
   cursor: pointer;
   color: #1d1d1d;
 }
-/* line 151, ../sass/layouts/_header.scss */
+/* line 153, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab i {
   font-size: 1.5rem;
 }
-/* line 153, ../sass/layouts/_header.scss */
+/* line 155, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab i.fa {
   margin: 0;
 }
-/* line 157, ../sass/layouts/_header.scss */
+/* line 159, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-tab p {
   font-size: 0.8125rem;
   margin: 0;
 }
-/* line 163, ../sass/layouts/_header.scss */
+/* line 165, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-content {
   display: none;
   margin-top: 10px;
@@ -8993,14 +8995,14 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content {
   -webkit-box-shadow: 2px 0 1px -2px #9b9b9b;
   box-shadow: 2px 0 1px -2px #9b9b9b;
 }
-/* line 175, ../sass/layouts/_header.scss */
+/* line 177, ../sass/layouts/_header.scss */
 ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   list-style: none;
   padding: 0;
   min-width: 160px;
 }
 @media (min-width: 1024px) {
-  /* line 183, ../sass/layouts/_header.scss */
+  /* line 185, ../sass/layouts/_header.scss */
   ul.customer-nav-list li.customer-nav-element:hover {
     padding: 4px 19px 0;
     border: 1px solid #c5c5c5;
@@ -9009,13 +9011,13 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
     -webkit-box-shadow: 2px 0 1px -2px #9b9b9b;
     box-shadow: 2px 0 1px -2px #9b9b9b;
   }
-  /* line 189, ../sass/layouts/_header.scss */
+  /* line 191, ../sass/layouts/_header.scss */
   ul.customer-nav-list li.customer-nav-element:hover .dropdown-content {
     display: block;
   }
 }
 @media (max-width: 1023px) {
-  /* line 197, ../sass/layouts/_header.scss */
+  /* line 199, ../sass/layouts/_header.scss */
   ul.customer-nav-list li.customer-nav-element {
     height: 75px;
     float: left;
@@ -9023,7 +9025,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   }
 }
 
-/* line 205, ../sass/layouts/_header.scss */
+/* line 207, ../sass/layouts/_header.scss */
 .navbar {
   border: 1px #c5c5c5 solid;
   border-left: 0;
@@ -9032,44 +9034,44 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   font-size: 0.875rem;
 }
 @media (max-width: 1023px) {
-  /* line 205, ../sass/layouts/_header.scss */
+  /* line 207, ../sass/layouts/_header.scss */
   .navbar {
     display: none;
   }
 }
-/* line 216, ../sass/layouts/_header.scss */
+/* line 218, ../sass/layouts/_header.scss */
 .navbar .menu {
   width: 70%;
   float: left;
 }
-/* line 220, ../sass/layouts/_header.scss */
+/* line 222, ../sass/layouts/_header.scss */
 .navbar .menu ul.level0 {
   display: none;
 }
-/* line 224, ../sass/layouts/_header.scss */
+/* line 226, ../sass/layouts/_header.scss */
 .navbar .global-search {
   float: right;
   width: 30%;
   padding: 0.375rem 0;
 }
-/* line 229, ../sass/layouts/_header.scss */
+/* line 231, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group {
   padding: 0;
 }
-/* line 232, ../sass/layouts/_header.scss */
+/* line 234, ../sass/layouts/_header.scss */
 .navbar .global-search .input-group > * {
   border-radius: 0;
 }
-/* line 240, ../sass/layouts/_header.scss */
+/* line 242, ../sass/layouts/_header.scss */
 .navbar .global-search .global-search-x.input-group-button a {
   padding: 0 5px;
 }
-/* line 246, ../sass/layouts/_header.scss */
+/* line 248, ../sass/layouts/_header.scss */
 .navbar .global-search .global-search-field, .navbar .global-search .global-search-button {
   display: inline-block;
 }
 
-/* line 252, ../sass/layouts/_header.scss */
+/* line 254, ../sass/layouts/_header.scss */
 .icon {
   position: relative;
   width: 60px;
@@ -9079,7 +9081,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   background-repeat: no-repeat;
   background-position: center 0;
 }
-/* line 261, ../sass/layouts/_header.scss */
+/* line 263, ../sass/layouts/_header.scss */
 .icon span {
   position: absolute;
   font-size: .7em;
@@ -9088,55 +9090,55 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   bottom: -5px;
   left: 0;
 }
-/* line 270, ../sass/layouts/_header.scss */
+/* line 272, ../sass/layouts/_header.scss */
 .icon.mobile-menu {
   background-image: url("../images/icons/icon-menu.svg");
   background-size: 60%;
 }
-/* line 274, ../sass/layouts/_header.scss */
+/* line 276, ../sass/layouts/_header.scss */
 .icon.mobile-menu span {
   left: -2px;
 }
-/* line 278, ../sass/layouts/_header.scss */
+/* line 280, ../sass/layouts/_header.scss */
 .icon.customeraccount {
   background-image: url("../images/icons/icon-customeraccount.svg");
 }
-/* line 282, ../sass/layouts/_header.scss */
+/* line 284, ../sass/layouts/_header.scss */
 .icon.customeraccount.loggedin span {
   width: 75px;
 }
-/* line 288, ../sass/layouts/_header.scss */
+/* line 290, ../sass/layouts/_header.scss */
 .icon.shoppingcart {
   background-image: url("../images/icons/icon-cart.svg");
 }
-/* line 294, ../sass/layouts/_header.scss */
+/* line 296, ../sass/layouts/_header.scss */
 .icon.shoppingcart span.count {
   top: 50%;
   bottom: 0;
   left: 22px;
   transform: translateY(-50%);
 }
-/* line 301, ../sass/layouts/_header.scss */
+/* line 303, ../sass/layouts/_header.scss */
 .icon.wishlist {
   background-image: url("../images/icons/icon-heart.svg");
   background-size: 60%;
   background-position: center 4px;
 }
-/* line 307, ../sass/layouts/_header.scss */
+/* line 309, ../sass/layouts/_header.scss */
 .icon.wishlist span {
   left: -5px;
 }
 
-/* line 313, ../sass/layouts/_header.scss */
+/* line 315, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper {
   margin-top: 3em;
 }
-/* line 315, ../sass/layouts/_header.scss */
+/* line 317, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper h1 {
   color: #fff;
   font-size: 1.75em;
 }
-/* line 319, ../sass/layouts/_header.scss */
+/* line 321, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper h1 a {
   color: #fff;
 }
@@ -9150,12 +9152,12 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   cursor: pointer;
   color: #fff;
 }
-/* line 327, ../sass/layouts/_header.scss */
+/* line 329, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
-/* line 330, ../sass/layouts/_header.scss */
+/* line 332, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li a {
   color: #fff;
 }
@@ -9169,21 +9171,21 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   cursor: pointer;
   color: #fff;
 }
-/* line 334, ../sass/layouts/_header.scss */
+/* line 336, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li:last-child {
   margin-bottom: 0;
 }
-/* line 338, ../sass/layouts/_header.scss */
+/* line 340, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li ul {
   display: none;
 }
 
-/* line 345, ../sass/layouts/_header.scss */
+/* line 347, ../sass/layouts/_header.scss */
 .store-button {
   display: inline-block;
   position: relative;
 }
-/* line 349, ../sass/layouts/_header.scss */
+/* line 351, ../sass/layouts/_header.scss */
 .store-button .ic-deals-fahne {
   display: inline-block;
   background: url("../images/icons/deals_fahne.png") center no-repeat;
@@ -9194,7 +9196,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   top: -20px;
   right: -60px;
 }
-/* line 362, ../sass/layouts/_header.scss */
+/* line 364, ../sass/layouts/_header.scss */
 .store-button:hover .ic-deals-fahne, .store-button.active .ic-deals-fahne {
   right: -70px;
 }
@@ -9855,53 +9857,45 @@ dd.swatch-attr {
 section.topics article.topic-element {
   position: relative;
   max-height: 300px;
+  margin-bottom: 15px;
 }
-/* line 8, ../sass/components/_homepage.scss */
+/* line 9, ../sass/components/_homepage.scss */
 section.topics article.topic-element .canvas {
   max-height: 300px;
   overflow: hidden;
 }
-/* line 12, ../sass/components/_homepage.scss */
+/* line 13, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container {
   position: absolute;
   bottom: 20px;
   left: 0;
   right: 0;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px 0;
 }
-/* line 19, ../sass/components/_homepage.scss */
+/* line 23, ../sass/components/_homepage.scss */
+section.topics article.topic-element .button-container a.btn {
+  color: #1d1d1d;
+  border-color: #1d1d1d;
+}
+/* line 28, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container.btn-centered {
   text-align: center;
 }
-/* line 22, ../sass/components/_homepage.scss */
+/* line 31, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container.btn-left {
   text-align: left;
   padding-left: 20px;
 }
-/* line 26, ../sass/components/_homepage.scss */
+/* line 35, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container.btn-right {
   text-align: right;
   padding-right: 20px;
 }
-/* line 31, ../sass/components/_homepage.scss */
+/* line 40, ../sass/components/_homepage.scss */
 section.topics article.topic-element .button-container .btn {
   width: 185px;
-}
-@media (max-width: 639px) {
-  /* line 4, ../sass/components/_homepage.scss */
-  section.topics article.topic-element {
-    margin-bottom: 15px;
-  }
-  /* line 39, ../sass/components/_homepage.scss */
-  section.topics article.topic-element .button-container {
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 10px 0;
-  }
-  /* line 43, ../sass/components/_homepage.scss */
-  section.topics article.topic-element .button-container a.btn {
-    color: #1d1d1d;
-    border-color: #1d1d1d;
-  }
 }
 
 /* line 3, ../sass/base/_mixins.scss */
@@ -9913,13 +9907,13 @@ section.topics article.topic-element .button-container .btn {
 #brands-container:after {
   clear: both;
 }
-/* line 56, ../sass/components/_homepage.scss */
+/* line 54, ../sass/components/_homepage.scss */
 #brands-container .brand {
   float: left;
   margin-right: 2%;
   max-width: 180px;
 }
-/* line 61, ../sass/components/_homepage.scss */
+/* line 59, ../sass/components/_homepage.scss */
 #brands-container .brand:last-child {
   margin-right: 0;
 }
