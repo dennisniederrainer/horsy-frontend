@@ -56,19 +56,19 @@
     <?php $gridSize = 3; ?>
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $i=0; foreach ($_productCollection as $_product): ?>
-
+      <?php $i++ ?>
       <?php $manufacturer = $_product->getAttributeText('manufacturer'); ?>
 
-      <?php $firstInRow = ($i++%$gridSize==1) ?>
-      <?php $lastInRow = ($i%$gridSize==0) ?>
-      <?php $lastInCollection = ($i==$_collectionSize) ?>
+      <?php $firstInRow = ($i % $gridSize == 1) ?>
+      <?php $lastInRow = ($i % $gridSize == 0) ?>
+      <?php $lastInCollection = ($i == $_collectionSize) ?>
 
       <?php // new row? ?>
       <?php if($firstInRow): ?>
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
-            <article class="productlist-element item">
+            <article class="productlist-element item <?php echo $_product->getTypeId() ?>">
               <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                 <?php $_imgSize = 210; ?>
                 <img id="product-collection-image-<?php echo $_product->getId(); ?>"

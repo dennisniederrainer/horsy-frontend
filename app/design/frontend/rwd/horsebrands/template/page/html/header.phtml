@@ -1,14 +1,10 @@
 <?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
-<?php $storePhone = Mage::getStoreConfig('general/store_information/phone'); ?>
 <header>
   <div class="fixed-top hide-for-small-down">
     <div class="container">
-      <span>Kostenlose Hotline <?php echo $storePhone ?></span>
-      <span>service@horsebrands.de</span>
-      <span>14 Tage Rückgaberecht</span>
-      <span>Versandkostenfrei ab einem Bestellwert von 30€</span>
+      <?php echo $this->getChildHtml('topline.content'); ?>
     </div>
   </div>
   <div class="top-header container clearfix">

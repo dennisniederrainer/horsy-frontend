@@ -195,7 +195,7 @@ article.productlist-element {
 		position: absolute;
 		visibility: hidden;
 		transition: visibility;
-		overflow: scroll;
+		overflow: hidden;
 		// background-color: rgba($white, .5);
 		background-color: #fff;
 
@@ -234,14 +234,31 @@ article.productlist-element {
 	}
 
 	&:hover {
+		border-left-color: $gray-lighter-2;
 		border-top-color: $gray-lighter-2;
 		border-right-color: $gray-lighter-2;
+
 		.product-info {
 			border-top-color: $white;
 		}
-		.offcanvas {
+
+		.offcanvas-bottom {
+			display: block;
+			visibility: visible;
+			// border-left: 1px solid $gray-lighter-2;
+		}
+	}
+
+	&.configurable:hover {
+		border-left-color: $white;
+
+		.offcanvas-left {
 			visibility: visible;
 		}
+		.offcanvas-bottom {
+			border-left: none;
+		}
+
 	}
 }
 
