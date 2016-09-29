@@ -1,19 +1,33 @@
 <div class="aktionen-login-container">
   <?php $block = $this->getChild('aktionen.list')->setDisableLinks(true); ?>
   <?php echo $block->toHtml(); ?>
-  <div id="modalcontent" class="hidden">
-    <?php echo $this->getChildHtml('aktionen.modal.content'); ?>
+  <div id="modalcontent" class="hide">
+    <div class="grayout">
+      <!-- insert content for desktop up -->
+    </div>
   </div>
-  <script type="text/javascript">
-  //<![CDATA[
-
-    jQuery(document).ready(function($) {
-      var html = $('#modalcontent').html();
-      $('#modalcontent').html('');
-      $('#modal-global').html(html)
-      $('#modal-global').removeClass('hide');
-    });
-
-  //]]>
-  </script>
+  <div id="aktionen-login-content-wrapper" class="hide">
+    <?php echo $this->getChildHtml('aktionen.login.content') ?>
+  </div>
 </div>
+
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function($) {
+  if(Modernizr.mq('screen and (min-width: 1024px)')) {
+    $('#modalcontent .grayout').html( $('#aktionen-login-content-wrapper').html() );
+    $('#modalcontent .grayout #aktionen-login-content-wrapper').attr('id', 'desktop-content');
+    var html = $('#modalcontent').html();
+    $('#modalcontent').html('');
+    $('#aktionen-login-content-wrapper').html('');
+    $('#modal-global').html(html)
+    $('#modal-global').removeClass('hide');
+    $('#desktop-content').removeClass('hide');
+  } else {
+    $('.aktionen-login-container .aktionen-container').addClass('hide');
+    $('#aktionen-login-content-wrapper').removeClass('hide');
+  }
+});
+
+//]]>
+</script>
