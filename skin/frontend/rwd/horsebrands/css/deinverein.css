@@ -1,0 +1,84 @@
+
+/* --------------------------  GLOBAL -------------------*/
+
+* {
+margin: 0;
+padding: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.collapse {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust:none;
+  width: 100%!important;
+  height: 100%; 
+  font-family: sans-serif;  
+}
+
+
+
+#main {
+  margin-left: 20px;  
+  margin-right: -20px; 
+} 
+
+p {
+  font-family: sans-serif;  
+
+}
+
+
+/* ------------------------------------- 
+		ELEMENTS 
+------------------------------------- */
+
+
+/* ------------------------------------- 
+		PICTURE-ELEMENTS 
+------------------------------------- */
+.deinverein-start1 {
+  display: block;
+  margin: 0 auto;
+  width: 1000px; 
+  height: 1000px;  
+}
+
+/* ------------------------------------------- 
+	TEST
+-------------------------------------------- */
+
+#vorteile {
+text-align: center;
+background-color: #EDEDED;
+}
+
+#navi-vorteile {
+  height: 200px; 
+}
+
+#vorteil {
+  float: left;
+  width: 15%;
+  padding: 4%;
+
+  color: #000;
+}
+
+#vorteil p {
+  text-align: left; 
+  font-size: 9px;
+  
+}
+
+#our-products {
+    background-color: white; 
+    text-align: left; 
+}
