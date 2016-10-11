@@ -68,7 +68,7 @@
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
-            <article class="productlist-element item <?php echo $_product->getTypeId() ?>">
+            <div class="productlist-element item <?php echo $_product->getTypeId() ?>">
               <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                 <?php $_imgSize = 210; ?>
                 <img id="product-collection-image-<?php echo $_product->getId(); ?>"
@@ -119,7 +119,7 @@
                 ?>
               </div>
               <!-- </a> -->
-            </article>
+            </div>
           </div>
 
             <?php /* <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">

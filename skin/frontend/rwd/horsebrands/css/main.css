@@ -2769,7 +2769,7 @@ th.hide-for-touch {
 }
 
 /* line 160, ../sass/vendor/foundation/components/_type.scss */
-.text-center {
+.text-center, .deinverein-container .usp-column {
   text-align: center !important;
 }
 
@@ -6766,6 +6766,43 @@ a:hover {
   text-align: left;
 }
 
+/* line 169, ../sass/base/_base.scss */
+.text-center, .deinverein-container .usp-column {
+  text-align: center;
+}
+
+/* line 173, ../sass/base/_base.scss */
+.uppercase, .offcanvas-menu-wrapper h1 {
+  text-transform: uppercase;
+}
+
+/* line 177, ../sass/base/_base.scss */
+.margin-top-0 {
+  margin-top: 0 !important;
+}
+
+/* line 181, ../sass/base/_base.scss */
+.grey-bg {
+  background-color: #f5f5f5 !important;
+}
+
+/* line 185, ../sass/base/_base.scss */
+.line-through-heading {
+  border-top: 1px solid #1d1d1d;
+  position: relative;
+  height: 2em;
+}
+/* line 190, ../sass/base/_base.scss */
+.line-through-heading h1 {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: -.875em;
+  transform: translateX(-50%);
+  padding: 0 15px;
+  background-color: #fff;
+}
+
 /* MODULES */
 /* line 24, ../sass/modules/_typography.scss */
 body {
@@ -6807,70 +6844,71 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 0;
+  color: #9b9b9b;
 }
-/* line 10, ../sass/modules/_blocks.scss */
+/* line 11, ../sass/modules/_blocks.scss */
 .seo-text p {
   font-size: 0.875rem;
   margin-top: 0;
   line-height: 1.5;
 }
 
-/* line 17, ../sass/modules/_blocks.scss */
+/* line 18, ../sass/modules/_blocks.scss */
 .breadcrumbs {
   margin: 1em 0 .5rem;
 }
-/* line 20, ../sass/modules/_blocks.scss */
+/* line 21, ../sass/modules/_blocks.scss */
 .breadcrumbs ul li {
   font-size: 0.875rem;
 }
-/* line 23, ../sass/modules/_blocks.scss */
+/* line 24, ../sass/modules/_blocks.scss */
 .breadcrumbs ul li.home {
   display: none;
 }
-/* line 29, ../sass/modules/_blocks.scss */
+/* line 30, ../sass/modules/_blocks.scss */
 .breadcrumbs ul li:last-child:after {
   content: "";
 }
-/* line 32, ../sass/modules/_blocks.scss */
+/* line 33, ../sass/modules/_blocks.scss */
 .breadcrumbs ul li strong {
   font-size: 1em;
   font-weight: normal;
   color: #706f6f;
 }
-/* line 36, ../sass/modules/_blocks.scss */
+/* line 37, ../sass/modules/_blocks.scss */
 .breadcrumbs ul li strong a:link, .breadcrumbs ul li strong a:visited, .breadcrumbs ul li strong a:focus {
   color: #706f6f;
 }
-/* line 41, ../sass/modules/_blocks.scss */
+/* line 42, ../sass/modules/_blocks.scss */
 .breadcrumbs ul li a, .breadcrumbs ul li a:link, .breadcrumbs ul li a:visited, .breadcrumbs ul li a:focus {
   color: #c5c5c5;
   text-decoration: none;
 }
 
-/* line 49, ../sass/modules/_blocks.scss */
+/* line 50, ../sass/modules/_blocks.scss */
 .category-headline {
   margin-bottom: 1rem;
 }
 
-/* line 53, ../sass/modules/_blocks.scss */
+/* line 54, ../sass/modules/_blocks.scss */
 .category-products {
   padding-top: 1rem;
 }
-/* line 56, ../sass/modules/_blocks.scss */
+/* line 57, ../sass/modules/_blocks.scss */
 .category-products h2 {
   font-weight: normal;
 }
-/* line 58, ../sass/modules/_blocks.scss */
+/* line 59, ../sass/modules/_blocks.scss */
 .category-products h2 span.products-count {
   color: #c5c5c5;
 }
 
-/* line 66, ../sass/modules/_blocks.scss */
+/* line 67, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-summary-wrapper,
 #checkout-review-table-wrapper .cart-summary-wrapper {
   margin-top: 5rem;
 }
-/* line 69, ../sass/modules/_blocks.scss */
+/* line 70, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-summary-wrapper hr.double-line,
 #checkout-review-table-wrapper .cart-summary-wrapper hr.double-line {
   padding: 0;
@@ -6878,7 +6916,7 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   border-top: 1px solid #1d1d1d;
   margin-bottom: 20px;
 }
-/* line 75, ../sass/modules/_blocks.scss */
+/* line 76, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-summary-wrapper hr.double-line:after,
 #checkout-review-table-wrapper .cart-summary-wrapper hr.double-line:after {
   content: ' ';
@@ -6887,12 +6925,12 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   display: block;
   margin-top: 10px;
 }
-/* line 85, ../sass/modules/_blocks.scss */
+/* line 86, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-summary-wrapper table.cart-table tfoot,
 #checkout-review-table-wrapper .cart-summary-wrapper table.cart-table tfoot {
   border: none;
 }
-/* line 91, ../sass/modules/_blocks.scss */
+/* line 92, ../sass/modules/_blocks.scss */
 #shopping-cart-container p.note,
 #checkout-review-table-wrapper p.note {
   margin: 0;
@@ -6900,34 +6938,34 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   font-weight: 300;
   line-height: 12px;
 }
-/* line 98, ../sass/modules/_blocks.scss */
+/* line 99, ../sass/modules/_blocks.scss */
 #shopping-cart-container .title-container,
 #checkout-review-table-wrapper .title-container {
   min-height: 30px;
   margin-bottom: 5px;
 }
-/* line 101, ../sass/modules/_blocks.scss */
+/* line 102, ../sass/modules/_blocks.scss */
 #shopping-cart-container .title-container h2,
 #checkout-review-table-wrapper .title-container h2 {
   font-size: 1.375rem;
   font-weight: 300;
   margin-bottom: 0;
 }
-/* line 107, ../sass/modules/_blocks.scss */
+/* line 108, ../sass/modules/_blocks.scss */
 #shopping-cart-container .title-container h2 span.cart-id,
 #checkout-review-table-wrapper .title-container h2 span.cart-id {
   margin-left: 5px;
   text-transform: uppercase;
   color: #f7aa4e;
 }
-/* line 117, ../sass/modules/_blocks.scss */
+/* line 118, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table,
 #shopping-cart-container .data-table,
 #checkout-review-table-wrapper .cart-table,
 #checkout-review-table-wrapper .data-table {
   margin-bottom: 10px;
 }
-/* line 120, ../sass/modules/_blocks.scss */
+/* line 121, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table td,
 #shopping-cart-container .data-table td,
 #checkout-review-table-wrapper .cart-table td,
@@ -6935,35 +6973,35 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   vertical-align: baseline;
   line-height: 1.1875rem;
 }
-/* line 124, ../sass/modules/_blocks.scss */
+/* line 125, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table td span,
 #shopping-cart-container .data-table td span,
 #checkout-review-table-wrapper .cart-table td span,
 #checkout-review-table-wrapper .data-table td span {
   display: block;
 }
-/* line 127, ../sass/modules/_blocks.scss */
+/* line 128, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table td span strong,
 #shopping-cart-container .data-table td span strong,
 #checkout-review-table-wrapper .cart-table td span strong,
 #checkout-review-table-wrapper .data-table td span strong {
   font-weight: 700;
 }
-/* line 141, ../sass/modules/_blocks.scss */
+/* line 142, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tbody tr,
 #shopping-cart-container .data-table tbody tr,
 #checkout-review-table-wrapper .cart-table tbody tr,
 #checkout-review-table-wrapper .data-table tbody tr {
   border-bottom: 1px solid #c5c5c5;
 }
-/* line 144, ../sass/modules/_blocks.scss */
+/* line 145, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tbody tr:last-child,
 #shopping-cart-container .data-table tbody tr:last-child,
 #checkout-review-table-wrapper .cart-table tbody tr:last-child,
 #checkout-review-table-wrapper .data-table tbody tr:last-child {
   border: none;
 }
-/* line 149, ../sass/modules/_blocks.scss */
+/* line 150, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tbody tr td .btn.shopping-cart.remove,
 #shopping-cart-container .data-table tbody tr td .btn.shopping-cart.remove,
 #checkout-review-table-wrapper .cart-table tbody tr td .btn.shopping-cart.remove,
@@ -6974,7 +7012,7 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   padding: 0;
   margin-top: 0.5rem;
 }
-/* line 157, ../sass/modules/_blocks.scss */
+/* line 158, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tbody tr td .item-options,
 #shopping-cart-container .data-table tbody tr td .item-options,
 #checkout-review-table-wrapper .cart-table tbody tr td .item-options,
@@ -6982,21 +7020,21 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   display: inline-table;
   text-align: left;
 }
-/* line 162, ../sass/modules/_blocks.scss */
+/* line 163, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tbody tr td.product-image,
 #shopping-cart-container .data-table tbody tr td.product-image,
 #checkout-review-table-wrapper .cart-table tbody tr td.product-image,
 #checkout-review-table-wrapper .data-table tbody tr td.product-image {
   vertical-align: middle;
 }
-/* line 168, ../sass/modules/_blocks.scss */
+/* line 169, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot,
 #shopping-cart-container .data-table tfoot,
 #checkout-review-table-wrapper .cart-table tfoot,
 #checkout-review-table-wrapper .data-table tfoot {
   border-top: 1px solid #1d1d1d;
 }
-/* line 172, ../sass/modules/_blocks.scss */
+/* line 173, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.footer-icon,
 #shopping-cart-container .data-table tfoot td.footer-icon,
 #checkout-review-table-wrapper .cart-table tfoot td.footer-icon,
@@ -7005,28 +7043,28 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   background-position: center;
   background-repeat: no-repeat;
 }
-/* line 177, ../sass/modules/_blocks.scss */
+/* line 178, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.footer-icon.delivery-icon,
 #shopping-cart-container .data-table tfoot td.footer-icon.delivery-icon,
 #checkout-review-table-wrapper .cart-table tfoot td.footer-icon.delivery-icon,
 #checkout-review-table-wrapper .data-table tfoot td.footer-icon.delivery-icon {
   background-image: url("../images/icons/i-delivery.png");
 }
-/* line 180, ../sass/modules/_blocks.scss */
+/* line 181, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.footer-icon.delivery-icon-double,
 #shopping-cart-container .data-table tfoot td.footer-icon.delivery-icon-double,
 #checkout-review-table-wrapper .cart-table tfoot td.footer-icon.delivery-icon-double,
 #checkout-review-table-wrapper .data-table tfoot td.footer-icon.delivery-icon-double {
   background-image: url("../images/icons/i-delivery-double.png");
 }
-/* line 183, ../sass/modules/_blocks.scss */
+/* line 184, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.footer-icon.coupon-icon,
 #shopping-cart-container .data-table tfoot td.footer-icon.coupon-icon,
 #checkout-review-table-wrapper .cart-table tfoot td.footer-icon.coupon-icon,
 #checkout-review-table-wrapper .data-table tfoot td.footer-icon.coupon-icon {
   background-image: url("../images/icons/i-coupon.png");
 }
-/* line 188, ../sass/modules/_blocks.scss */
+/* line 189, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.totals,
 #shopping-cart-container .data-table tfoot td.totals,
 #checkout-review-table-wrapper .cart-table tfoot td.totals,
@@ -7034,7 +7072,7 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   font-weight: 700;
   padding-right: 35px;
 }
-/* line 192, ../sass/modules/_blocks.scss */
+/* line 193, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.totals span.totals-price,
 #shopping-cart-container .data-table tfoot td.totals span.totals-price,
 #checkout-review-table-wrapper .cart-table tfoot td.totals span.totals-price,
@@ -7042,7 +7080,7 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   display: inline-block;
   width: 100px;
 }
-/* line 197, ../sass/modules/_blocks.scss */
+/* line 198, ../sass/modules/_blocks.scss */
 #shopping-cart-container .cart-table tfoot td.totals .totals-strong,
 #shopping-cart-container .data-table tfoot td.totals .totals-strong,
 #checkout-review-table-wrapper .cart-table tfoot td.totals .totals-strong,
@@ -7050,12 +7088,12 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   font-size: 0.875rem;
   margin: 5px 0;
 }
-/* line 206, ../sass/modules/_blocks.scss */
+/* line 207, ../sass/modules/_blocks.scss */
 #shopping-cart-container .buttons-set,
 #checkout-review-table-wrapper .buttons-set {
   margin-bottom: 20px;
 }
-/* line 208, ../sass/modules/_blocks.scss */
+/* line 209, ../sass/modules/_blocks.scss */
 #shopping-cart-container .buttons-set button, #shopping-cart-container .buttons-set a.button, #shopping-cart-container .buttons-set a.store-select-button,
 #checkout-review-table-wrapper .buttons-set button,
 #checkout-review-table-wrapper .buttons-set a.button,
@@ -7064,12 +7102,12 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   min-width: 200px;
 }
 
-/* line 215, ../sass/modules/_blocks.scss */
+/* line 216, ../sass/modules/_blocks.scss */
 #checkout-review-table-wrapper .title-container h2 {
   margin: 0;
 }
 
-/* line 219, ../sass/modules/_blocks.scss */
+/* line 220, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper {
   padding-top: 35px;
 }
@@ -7082,11 +7120,11 @@ h2.strong, h3.strong, p.strong, p.note.strong {
 #checkout-progress-wrapper .box .content:after {
   clear: both;
 }
-/* line 224, ../sass/modules/_blocks.scss */
+/* line 225, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper .box .content address {
   font-style: normal;
 }
-/* line 228, ../sass/modules/_blocks.scss */
+/* line 229, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper .box .content a.progress-change {
   float: right;
 }
@@ -7100,7 +7138,7 @@ h2.strong, h3.strong, p.strong, p.note.strong {
   cursor: pointer;
   color: #6e6e6e;
 }
-/* line 232, ../sass/modules/_blocks.scss */
+/* line 233, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper .box .content a.progress-change i.fa {
   margin-right: 5px;
 }
@@ -7816,139 +7854,19 @@ article.teaser-element:hover .canvas p {
   visibility: visible;
 }
 
-/* line 153, ../sass/modules/_components.scss */
-article.productlist-element {
-  position: relative;
-  transition: border;
-  border: 1px solid #fff;
-  padding: 0.625rem;
-}
-/* line 162, ../sass/modules/_components.scss */
-article.productlist-element .product-info {
-  font-size: 0.75rem;
-  color: #1d1d1d;
-  line-height: 1.3;
-  border-top: 1px solid #c5c5c5;
-  padding-top: .5rem;
-}
-/* line 3, ../sass/base/_mixins.scss */
-article.productlist-element .product-info .top-row:before, article.productlist-element .product-info .top-row:after {
-  content: " ";
-  display: table;
-}
-/* line 4, ../sass/base/_mixins.scss */
-article.productlist-element .product-info .top-row:after {
-  clear: both;
-}
-/* line 171, ../sass/modules/_components.scss */
-article.productlist-element .product-info .top-row h3 {
-  font-size: 0.75rem;
-  font-weight: 500;
-  margin: 0;
-  float: left;
-}
-/* line 177, ../sass/modules/_components.scss */
-article.productlist-element .product-info .top-row span.msrp {
-  text-decoration: line-through;
-  float: right;
-}
-/* line 3, ../sass/base/_mixins.scss */
-article.productlist-element .product-info .bottom-row:before, article.productlist-element .product-info .bottom-row:after {
-  content: " ";
-  display: table;
-}
-/* line 4, ../sass/base/_mixins.scss */
-article.productlist-element .product-info .bottom-row:after {
-  clear: both;
-}
-/* line 184, ../sass/modules/_components.scss */
-article.productlist-element .product-info .bottom-row span.product-name {
-  float: left;
-}
-/* line 187, ../sass/modules/_components.scss */
-article.productlist-element .product-info .bottom-row span.price {
-  font-weight: 500;
-  float: right;
-}
-/* line 193, ../sass/modules/_components.scss */
-article.productlist-element .offcanvas {
-  position: absolute;
-  visibility: hidden;
-  transition: visibility;
-  overflow: hidden;
-  background-color: #fff;
-}
-/* line 206, ../sass/modules/_components.scss */
-article.productlist-element .offcanvas.offcanvas-left {
-  padding: 10px;
-  border-top: 1px solid #c5c5c5;
-  border-left: 1px solid #c5c5c5;
-  border-bottom: 1px solid #c5c5c5;
-  top: -1px;
-  left: -4.75rem;
-}
-/* line 214, ../sass/modules/_components.scss */
-article.productlist-element .offcanvas.offcanvas-left ul.configurable-swatch-list li {
-  float: none;
-}
-/* line 217, ../sass/modules/_components.scss */
-article.productlist-element .offcanvas.offcanvas-left ul.configurable-swatch-list li span.swatch-label {
-  border: none;
-}
-/* line 222, ../sass/modules/_components.scss */
-article.productlist-element .offcanvas.offcanvas-bottom {
-  font-size: 0.75rem;
-  border-right: 1px solid #c5c5c5;
-  border-bottom: 1px solid #c5c5c5;
-  width: 100%;
-  right: -1px;
-  bottom: -1em;
-  line-height: 1em;
-  padding-left: 0.625rem;
-  padding-bottom: 0.3125rem;
-  color: #fff;
-}
-/* line 236, ../sass/modules/_components.scss */
-article.productlist-element:hover {
-  border-left-color: #c5c5c5;
-  border-top-color: #c5c5c5;
-  border-right-color: #c5c5c5;
-}
-/* line 241, ../sass/modules/_components.scss */
-article.productlist-element:hover .product-info {
-  border-top-color: #fff;
-}
-/* line 245, ../sass/modules/_components.scss */
-article.productlist-element:hover .offcanvas-bottom {
-  display: block;
-  visibility: visible;
-}
-/* line 252, ../sass/modules/_components.scss */
-article.productlist-element.configurable:hover {
-  border-left-color: #fff;
-}
-/* line 255, ../sass/modules/_components.scss */
-article.productlist-element.configurable:hover .offcanvas-left {
-  visibility: visible;
-}
-/* line 258, ../sass/modules/_components.scss */
-article.productlist-element.configurable:hover .offcanvas-bottom {
-  border-left: none;
-}
-
-/* line 266, ../sass/modules/_components.scss */
+/* line 154, ../sass/modules/_components.scss */
 #teaser .lower-teaser {
   margin: 1rem 0;
 }
 
-/* line 271, ../sass/modules/_components.scss */
+/* line 159, ../sass/modules/_components.scss */
 .box {
   color: #6e6e6e;
   border: 1px solid #d9d9d9;
   margin: 0 0 1rem 0;
   font-size: 0.75rem;
 }
-/* line 277, ../sass/modules/_components.scss */
+/* line 165, ../sass/modules/_components.scss */
 .box .box-title {
   background-color: #d9d9d9;
   padding: 0.5rem;
@@ -7962,12 +7880,12 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
 .box .box-title:after {
   clear: both;
 }
-/* line 282, ../sass/modules/_components.scss */
+/* line 170, ../sass/modules/_components.scss */
 .box .box-title h3 {
   float: left;
   margin: 0;
 }
-/* line 286, ../sass/modules/_components.scss */
+/* line 174, ../sass/modules/_components.scss */
 .box .box-title a {
   float: right;
 }
@@ -7981,7 +7899,7 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
   cursor: pointer;
   color: #cca64b;
 }
-/* line 292, ../sass/modules/_components.scss */
+/* line 180, ../sass/modules/_components.scss */
 .box .box-content {
   -moz-box-shadow: inset 0 0 10px #d9d9d9;
   -webkit-box-shadow: inset 0 0 10px #d9d9d9;
@@ -7989,14 +7907,14 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
   padding: 0.5rem;
   min-height: 60px;
 }
-/* line 297, ../sass/modules/_components.scss */
+/* line 185, ../sass/modules/_components.scss */
 .box .box-content address {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 300;
   font-style: normal;
 }
-/* line 304, ../sass/modules/_components.scss */
+/* line 192, ../sass/modules/_components.scss */
 .box h2.title {
   margin: 0;
   font-size: 0.875rem;
@@ -8004,31 +7922,31 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
   background-color: #d9d9d9;
   padding: 0.5rem;
 }
-/* line 311, ../sass/modules/_components.scss */
+/* line 199, ../sass/modules/_components.scss */
 .box h2.title i {
   padding: 0 5px;
 }
-/* line 316, ../sass/modules/_components.scss */
+/* line 204, ../sass/modules/_components.scss */
 .box div.content {
   -moz-box-shadow: inset 0 0 10px #d9d9d9;
   -webkit-box-shadow: inset 0 0 10px #d9d9d9;
   box-shadow: inset 0 0 10px #d9d9d9;
   padding: 0.5rem;
 }
-/* line 324, ../sass/modules/_components.scss */
+/* line 212, ../sass/modules/_components.scss */
 .box.newsletter-box .content {
   padding: 0;
   position: relative;
   overflow: hidden;
   max-height: 120px;
 }
-/* line 330, ../sass/modules/_components.scss */
+/* line 218, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount {
   float: left;
   width: 30%;
   height: 105px;
 }
-/* line 335, ../sass/modules/_components.scss */
+/* line 223, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle {
   position: absolute;
   top: -25px;
@@ -8049,39 +7967,39 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
   background-image: -webkit-linear-gradient(top, #f6b45e 0%, #cca64b 100%);
   background-image: linear-gradient(to bottom, #f6b45e 0%, #cca64b 100%);
 }
-/* line 354, ../sass/modules/_components.scss */
+/* line 242, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle div {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 358, ../sass/modules/_components.scss */
+/* line 246, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-discount .circle div span {
   font-size: 4.75rem;
   color: #fff;
 }
-/* line 366, ../sass/modules/_components.scss */
+/* line 254, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text {
   width: 70%;
   float: left;
   padding: 0.5rem;
 }
-/* line 371, ../sass/modules/_components.scss */
+/* line 259, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text .title {
   text-transform: uppercase;
   font-size: 1.625rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
-/* line 378, ../sass/modules/_components.scss */
+/* line 266, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text .desc {
   font-size: 0.6875rem;
   line-height: 1.2;
 }
-/* line 383, ../sass/modules/_components.scss */
+/* line 271, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text form#newsletter-subscribe {
   margin-top: 1rem;
 }
-/* line 385, ../sass/modules/_components.scss */
+/* line 273, ../sass/modules/_components.scss */
 .box.newsletter-box .content .newsletter-text form#newsletter-subscribe input {
   width: 60%;
   margin-right: .5rem;
@@ -8095,18 +8013,18 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
 .box.customer-service-box:after {
   clear: both;
 }
-/* line 397, ../sass/modules/_components.scss */
+/* line 285, ../sass/modules/_components.scss */
 .box.customer-service-box .customer-service-text {
   width: 75%;
   padding: 0.5rem;
   float: left;
 }
-/* line 402, ../sass/modules/_components.scss */
+/* line 290, ../sass/modules/_components.scss */
 .box.customer-service-box .customer-service-text p {
   margin: 0;
   font-size: 0.875rem;
 }
-/* line 407, ../sass/modules/_components.scss */
+/* line 295, ../sass/modules/_components.scss */
 .box.customer-service-box .customer-service-icon {
   float: right;
   width: 25%;
@@ -8115,18 +8033,18 @@ article.productlist-element.configurable:hover .offcanvas-bottom {
   background-size: 100%;
 }
 
-/* line 417, ../sass/modules/_components.scss */
+/* line 305, ../sass/modules/_components.scss */
 table {
   width: 100%;
   border: 2px solid #f6f6f6;
   border-top: none;
   border-collapse: separate;
 }
-/* line 423, ../sass/modules/_components.scss */
+/* line 311, ../sass/modules/_components.scss */
 table thead {
   background-color: #d9d9d9;
 }
-/* line 425, ../sass/modules/_components.scss */
+/* line 313, ../sass/modules/_components.scss */
 table thead th {
   font-size: 0.8125rem;
   font-weight: 700;
@@ -8136,26 +8054,26 @@ table thead th {
   color: #706f6f;
   background-color: #f6f6f6;
 }
-/* line 434, ../sass/modules/_components.scss */
+/* line 322, ../sass/modules/_components.scss */
 table thead th.text-left-indent {
   text-align: left;
   padding-left: 5%;
 }
-/* line 439, ../sass/modules/_components.scss */
+/* line 327, ../sass/modules/_components.scss */
 table thead th:first-child {
   border-left: none;
   text-align: left;
   padding-left: 30px;
 }
-/* line 449, ../sass/modules/_components.scss */
+/* line 337, ../sass/modules/_components.scss */
 table tbody tr td {
   border-bottom: 1px solid #f6f6f6;
 }
-/* line 453, ../sass/modules/_components.scss */
+/* line 341, ../sass/modules/_components.scss */
 table tbody tr:last-child td {
   border-bottom: none;
 }
-/* line 460, ../sass/modules/_components.scss */
+/* line 348, ../sass/modules/_components.scss */
 table td {
   font-size: 0.75rem;
   font-weight: 300;
@@ -8163,25 +8081,25 @@ table td {
   vertical-align: top;
   padding: 10px 5px;
 }
-/* line 467, ../sass/modules/_components.scss */
+/* line 355, ../sass/modules/_components.scss */
 table td.text-left, .login-container table tbody td {
   text-align: left;
 }
-/* line 470, ../sass/modules/_components.scss */
+/* line 358, ../sass/modules/_components.scss */
 table td.text-right {
   text-align: right;
 }
-/* line 477, ../sass/modules/_components.scss */
+/* line 365, ../sass/modules/_components.scss */
 table tfoot tr td {
   vertical-align: baseline;
   height: 100px;
 }
-/* line 482, ../sass/modules/_components.scss */
+/* line 370, ../sass/modules/_components.scss */
 table tfoot tr:first-child td {
   border-top: 1px solid #1d1d1d;
 }
 
-/* line 490, ../sass/modules/_components.scss */
+/* line 378, ../sass/modules/_components.scss */
 p.note {
   margin: 0;
   font-size: 0.6875rem;
@@ -8189,28 +8107,28 @@ p.note {
   line-height: 12px;
 }
 
-/* line 497, ../sass/modules/_components.scss */
+/* line 385, ../sass/modules/_components.scss */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-/* line 501, ../sass/modules/_components.scss */
+/* line 389, ../sass/modules/_components.scss */
 .dropdown .dropdown-content {
   display: none;
   position: absolute;
 }
-/* line 506, ../sass/modules/_components.scss */
+/* line 394, ../sass/modules/_components.scss */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* line 513, ../sass/modules/_components.scss */
+/* line 401, ../sass/modules/_components.scss */
 input.checkbox.besides {
   float: left;
   margin-top: 5px;
 }
 
-/* line 519, ../sass/modules/_components.scss */
+/* line 407, ../sass/modules/_components.scss */
 div.cb-text {
   margin-left: 20px;
 }
@@ -9688,6 +9606,149 @@ dd.swatch-attr {
   font-weight: 700;
 }
 
+/* line 1, ../sass/components/_productlist.scss */
+.productlist-element,
+.featured-product {
+  position: relative;
+  transition: border;
+  border: 1px solid #fff;
+  padding: 0.625rem;
+}
+/* line 11, ../sass/components/_productlist.scss */
+.productlist-element .product-info,
+.featured-product .product-info {
+  font-size: 0.75rem;
+  color: #1d1d1d;
+  line-height: 1.3;
+  border-top: 1px solid #c5c5c5;
+  padding-top: .5rem;
+}
+/* line 3, ../sass/base/_mixins.scss */
+.productlist-element .product-info .top-row:before, .productlist-element .product-info .top-row:after,
+.featured-product .product-info .top-row:before,
+.featured-product .product-info .top-row:after {
+  content: " ";
+  display: table;
+}
+/* line 4, ../sass/base/_mixins.scss */
+.productlist-element .product-info .top-row:after,
+.featured-product .product-info .top-row:after {
+  clear: both;
+}
+/* line 20, ../sass/components/_productlist.scss */
+.productlist-element .product-info .top-row h3,
+.featured-product .product-info .top-row h3 {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 0;
+  float: left;
+}
+/* line 26, ../sass/components/_productlist.scss */
+.productlist-element .product-info .top-row span.msrp,
+.featured-product .product-info .top-row span.msrp {
+  text-decoration: line-through;
+  float: right;
+}
+/* line 3, ../sass/base/_mixins.scss */
+.productlist-element .product-info .bottom-row:before, .productlist-element .product-info .bottom-row:after,
+.featured-product .product-info .bottom-row:before,
+.featured-product .product-info .bottom-row:after {
+  content: " ";
+  display: table;
+}
+/* line 4, ../sass/base/_mixins.scss */
+.productlist-element .product-info .bottom-row:after,
+.featured-product .product-info .bottom-row:after {
+  clear: both;
+}
+/* line 33, ../sass/components/_productlist.scss */
+.productlist-element .product-info .bottom-row span.product-name,
+.featured-product .product-info .bottom-row span.product-name {
+  float: left;
+}
+/* line 36, ../sass/components/_productlist.scss */
+.productlist-element .product-info .bottom-row span.price,
+.featured-product .product-info .bottom-row span.price {
+  font-weight: 500;
+  float: right;
+}
+/* line 42, ../sass/components/_productlist.scss */
+.productlist-element .offcanvas,
+.featured-product .offcanvas {
+  position: absolute;
+  visibility: hidden;
+  transition: visibility;
+  overflow: hidden;
+  background-color: #fff;
+}
+/* line 55, ../sass/components/_productlist.scss */
+.productlist-element .offcanvas.offcanvas-left,
+.featured-product .offcanvas.offcanvas-left {
+  padding: 10px;
+  border-top: 1px solid #c5c5c5;
+  border-left: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
+  top: -1px;
+  left: -4.75rem;
+}
+/* line 63, ../sass/components/_productlist.scss */
+.productlist-element .offcanvas.offcanvas-left ul.configurable-swatch-list li,
+.featured-product .offcanvas.offcanvas-left ul.configurable-swatch-list li {
+  float: none;
+}
+/* line 66, ../sass/components/_productlist.scss */
+.productlist-element .offcanvas.offcanvas-left ul.configurable-swatch-list li span.swatch-label,
+.featured-product .offcanvas.offcanvas-left ul.configurable-swatch-list li span.swatch-label {
+  border: none;
+}
+/* line 71, ../sass/components/_productlist.scss */
+.productlist-element .offcanvas.offcanvas-bottom,
+.featured-product .offcanvas.offcanvas-bottom {
+  font-size: 0.75rem;
+  border-right: 1px solid #c5c5c5;
+  border-bottom: 1px solid #c5c5c5;
+  width: 100%;
+  right: -1px;
+  bottom: -1em;
+  line-height: 1em;
+  padding-left: 0.625rem;
+  padding-bottom: 0.3125rem;
+  color: #fff;
+}
+/* line 85, ../sass/components/_productlist.scss */
+.productlist-element:hover,
+.featured-product:hover {
+  border-left-color: #c5c5c5;
+  border-top-color: #c5c5c5;
+  border-right-color: #c5c5c5;
+}
+/* line 90, ../sass/components/_productlist.scss */
+.productlist-element:hover .product-info,
+.featured-product:hover .product-info {
+  border-top-color: #fff;
+}
+/* line 94, ../sass/components/_productlist.scss */
+.productlist-element:hover .offcanvas-bottom,
+.featured-product:hover .offcanvas-bottom {
+  display: block;
+  visibility: visible;
+}
+/* line 101, ../sass/components/_productlist.scss */
+.productlist-element.configurable:hover,
+.featured-product.configurable:hover {
+  border-left-color: #fff;
+}
+/* line 104, ../sass/components/_productlist.scss */
+.productlist-element.configurable:hover .offcanvas-left,
+.featured-product.configurable:hover .offcanvas-left {
+  visibility: visible;
+}
+/* line 107, ../sass/components/_productlist.scss */
+.productlist-element.configurable:hover .offcanvas-bottom,
+.featured-product.configurable:hover .offcanvas-bottom {
+  border-left: none;
+}
+
 /* line 2, ../sass/components/_customer.scss */
 .block.block-login .block-title {
   display: none;
@@ -10740,6 +10801,61 @@ p.note.registration-terms {
   }
 }
 
+/* line 1, ../sass/components/_deinverein.scss */
+.cms-deinverein-home .col-main {
+  margin-top: 0;
+}
+
+/* line 6, ../sass/components/_deinverein.scss */
+.deinverein-container .buttons-container {
+  margin: 30px;
+}
+/* line 10, ../sass/components/_deinverein.scss */
+.deinverein-container .section {
+  padding: 50px 0 20px;
+}
+/* line 17, ../sass/components/_deinverein.scss */
+.deinverein-container .usp-column .usp-icon-header {
+  padding: 10px 0 20px;
+}
+/* line 20, ../sass/components/_deinverein.scss */
+.deinverein-container .usp-column h3 {
+  font-size: .875em;
+}
+/* line 23, ../sass/components/_deinverein.scss */
+.deinverein-container .usp-column p {
+  text-align: left;
+  font-size: .75em;
+}
+
+/* line 32, ../sass/components/_deinverein.scss */
+.button.black-transparent, .black-transparent.store-select-button {
+  border: 1px solid #1d1d1d;
+  border-radius: 5px;
+  background: none;
+  font-weight: 500;
+}
+/* line 19, ../sass/base/_mixins.scss */
+.button.black-transparent:hover, .black-transparent.store-select-button:hover, .button.black-transparent:active, .black-transparent.store-select-button:active, .button.black-transparent:link, .black-transparent.store-select-button:link, .button.black-transparent:visited, .black-transparent.store-select-button:visited {
+  color: #1d1d1d;
+  text-decoration: none;
+}
+/* line 23, ../sass/base/_mixins.scss */
+.button.black-transparent:hover, .black-transparent.store-select-button:hover {
+  cursor: pointer;
+  color: #fff;
+}
+/* line 39, ../sass/components/_deinverein.scss */
+.button.black-transparent:hover, .black-transparent.store-select-button:hover {
+  border-color: #fff;
+  background-color: #1d1d1d;
+}
+
+/* line 47, ../sass/components/_deinverein.scss */
+#deinverein-references .deinverein-reference img {
+  margin: 0 auto;
+}
+
 /* VENDOR */
 /**
  * Theme Name: Pop Slide
@@ -10930,7 +11046,7 @@ p.note.registration-terms {
   }
 }
 
-/* line 57, ../sass/main.scss */
+/* line 59, ../sass/main.scss */
 body {
   position: relative;
   color: #1d1d1d;

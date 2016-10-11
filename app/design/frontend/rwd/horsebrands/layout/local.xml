@@ -20,6 +20,9 @@
     <action method="addItem"><type>skin_js</type><name>js/horsebrands.js</name></action>
     <action method="addItem"><type>skin_js</type><name>js/foundation/vendor/foundation.js</name></action>
     <action method="addItem"><type>skin_js</type><name>js/foundation/app.js</name></action>
+    <action method="addItem"><type>skin_css</type><name>css/slick.css</name></action>
+    <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name></action>
+    <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
   </reference>
   <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
      <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>

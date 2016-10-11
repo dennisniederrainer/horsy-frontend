@@ -165,3 +165,35 @@ a {
 .validation-advice {
 	text-align: left;
 }
+
+.text-center {
+	text-align: center;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.margin-top-0 {
+	margin-top: 0 !important;
+}
+
+.grey-bg {
+	background-color: $grey-base-light !important;
+}
+
+.line-through-heading {
+	border-top: 1px solid $black-base;
+	position: relative;
+	height: 2em;
+
+	h1 {
+		display: inline-block;
+		position: absolute;
+    left: 50%;
+    top: -.875em;
+    transform: translateX(-50%);
+    padding: 0 15px;
+		background-color: $white-base;
+	}
+}

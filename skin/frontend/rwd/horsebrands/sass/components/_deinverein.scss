@@ -1,0 +1,50 @@
+.cms-deinverein-home .col-main {
+  margin-top: 0;
+}
+
+.deinverein-container {
+  .buttons-container {
+    margin: 30px;
+  }
+
+  .section {
+    padding: 50px 0 20px;
+  }
+
+  .usp-column {
+    @extend .text-center;
+
+    .usp-icon-header {
+      padding: 10px 0 20px;
+    }
+    h3 {
+      font-size: .875em;
+    }
+    p {
+      text-align: left;
+      font-size: .75em;
+    }
+  }
+}
+
+
+.button {
+  &.black-transparent {
+    @include same-link-style($black-base, $white-base);
+    border: 1px solid $black-base;
+    border-radius: $global-border-radius;
+    background: none;
+    font-weight: 500;
+
+    &:hover {
+      border-color: $white-base;
+      background-color: $black-base;
+    }
+  }
+}
+
+#deinverein-references {
+  .deinverein-reference img {
+    margin: 0 auto;
+  }
+}
