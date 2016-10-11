@@ -10820,12 +10820,12 @@ p.note.registration-terms {
 }
 /* line 20, ../sass/components/_deinverein.scss */
 .deinverein-container .usp-column h3 {
-  font-size: .875em;
+  font-size: 1em;
 }
 /* line 23, ../sass/components/_deinverein.scss */
 .deinverein-container .usp-column p {
   text-align: left;
-  font-size: .75em;
+  font-size: .875em;
 }
 
 /* line 32, ../sass/components/_deinverein.scss */
