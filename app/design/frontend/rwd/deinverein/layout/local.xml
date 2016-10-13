@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+  <default>
+    <reference name="head">
+      <action method="addItem"><type>skin_js</type><name>js/jquery-1.12.0.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/jquery-noconflict.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.addListener.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/enquire.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/app.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/horsebrands.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/foundation/vendor/foundation.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/foundation/app.js</name></action>
+      <action method="addItem"><type>skin_css</type><name>css/slick.css</name></action>
+      <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
+    </reference>
+    <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
+       <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
+       <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
+       <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
+       <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
+    </block>
+    <reference name="header">
+      <block type="cms/block" name="topline.content">
+          <action method="setBlockId"><block_id>topline_content</block_id></action>
+      </block>
+    </reference>
+    <reference name="root">
+      <block type="core/text_list" name="top.menu.sidebar" translate="label">
+        <block type="page/html_topmenu" name="catalog.topnav.offcanvas" template="page/html/topmenu_offcanvas.phtml">
+            <block type="page/html_topmenu_renderer" name="catalog.topnav.renderer.offcanvas" template="page/html/topmenu/renderer.phtml"/>
+        </block>
+      </block>
+    </reference>
+    <reference name="footer">
+      <block type="cms/block" name="footer_content">
+        <action method="setBlockId"><block_id>footer_content</block_id></action>
+      </block>
+    </reference>
+  </default>
+
+  <catalog_category_default>
+    <remove name="breadcrumbs" />
+  </catalog_category_default>
+
+</layout>

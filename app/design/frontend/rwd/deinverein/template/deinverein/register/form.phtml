@@ -1,0 +1,60 @@
+<div class="register-form-container">
+  <form method="post">
+    <div class="row">
+      <div class="columns medium-6 small-12 form-column">
+        <ul class="input-fields unstyled">
+          <li>
+            <label>Vereinsname<em>*</em></label>
+            <input type="text" name="name" />
+          </li>
+          <li>
+            <label>Vereinsfarben<em>*</em></label>
+            <input type="text" name="colors" />
+          </li>
+          <li>
+            <label>Straße (Verein)</label>
+            <input type="text" name="street" />
+          </li>
+          <li>
+            <label>PLZ, Ort (Verein)</label>
+            <div class="input-aside-30-70">
+              <input type="text" name="zip" />
+              <input type="text" name="city" />
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="columns medium-6 small-12 form-column">
+        <ul class="input-fields unstyled">
+          <li>
+            <label>Telefonnummer (Ansprechpartner)<em>*</em></label>
+            <input type="text" name="tel" />
+          </li>
+          <li>
+            <label>E-Mail (Ansprechpartner)<em>*</em></label>
+            <input type="text" name="email" />
+          </li>
+          <li>
+            <label>Position im Verein (Ansprechpartner)</label>
+            <input type="text" name="street" />
+          </li>
+          <li>
+            <label>Nachricht</label>
+            <textarea name="message"></textarea>
+          </li>
+        </ul>
+      </div>
+    <!-- </div>
+    <div class="row"> -->
+      <div class="columns medium-6 small-12">
+        <label>Lade hier Dein Vereinslogo hoch</label>
+        <input type="file" name="logo" title="<?php echo $this->__('Vereinslogo Upload') ?>"/>
+      </div>
+      <div class="columns medium-6 small-12">
+        <div class="form-buttons-container clearfix">
+          <button type="submit" class="button black large right"><?php echo $this->__('Dein Verein anmelden') ?></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
