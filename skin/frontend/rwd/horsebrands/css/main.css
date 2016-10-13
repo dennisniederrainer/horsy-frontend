@@ -10878,24 +10878,39 @@ p.note.registration-terms {
 .deinverein-category-banner {
   background: url("../images/deinverein/deinverein-verein-banner.jpg") center no-repeat;
   background-size: cover;
+  position: relative;
   width: 100%;
   height: 300px;
   margin-top: 10px;
 }
+/* line 80, ../sass/components/_deinverein.scss */
+.deinverein-category-banner img {
+  max-width: 200px;
+}
+/* line 83, ../sass/components/_deinverein.scss */
+.deinverein-category-banner .banner-overlay {
+  position: absolute;
+}
+/* line 86, ../sass/components/_deinverein.scss */
+.deinverein-category-banner .banner-overlay.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-/* line 79, ../sass/components/_deinverein.scss */
+/* line 93, ../sass/components/_deinverein.scss */
 .deinverein-category-description,
 .deinverein-register-description {
   margin: 10px 0;
 }
-/* line 83, ../sass/components/_deinverein.scss */
+/* line 97, ../sass/components/_deinverein.scss */
 .deinverein-category-description p,
 .deinverein-register-description p {
   font-weight: 400;
   line-height: 1.2;
 }
 
-/* line 89, ../sass/components/_deinverein.scss */
+/* line 103, ../sass/components/_deinverein.scss */
 .register-form-container {
   margin-top: 20px;
 }
@@ -10908,24 +10923,24 @@ p.note.registration-terms {
 .register-form-container:after {
   clear: both;
 }
-/* line 93, ../sass/components/_deinverein.scss */
+/* line 107, ../sass/components/_deinverein.scss */
 .register-form-container ul.input-fields li {
   margin-bottom: 10px;
 }
-/* line 96, ../sass/components/_deinverein.scss */
+/* line 110, ../sass/components/_deinverein.scss */
 .register-form-container ul.input-fields li:last-child {
   margin-bottom: 0;
 }
-/* line 101, ../sass/components/_deinverein.scss */
+/* line 115, ../sass/components/_deinverein.scss */
 .register-form-container .form-buttons-container {
   margin: 15px 0;
 }
 
-/* line 109, ../sass/components/_deinverein.scss */
+/* line 123, ../sass/components/_deinverein.scss */
 .input-aside-30-70 input:first-child {
   width: 30%;
 }
-/* line 112, ../sass/components/_deinverein.scss */
+/* line 126, ../sass/components/_deinverein.scss */
 .input-aside-30-70 input:last-child {
   width: 69%;
   padding-left: 1%;
