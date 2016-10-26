@@ -1,0 +1,32 @@
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $_menu = $this->getHtml('level-top') ?>
+
+
+<div class="offcanvas-menu-wrapper">
+  <h1><a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>"><?php echo $this->__('Shop')?></a></h1>
+  <?php if($_menu): ?>
+    <ul>
+      <?php echo $_menu ?>
+    </ul>
+  <?php endif ?>
+  <!-- <ul>
+    <li>
+      <a href="<?php echo $this->getUrl('reiter.html') ?>">Reiter</a>
+    </li>
+    <li>
+      <a href="<?php echo $this->getUrl('pferd.html') ?>">Pferd</a>
+    </li>
+    <li>
+      <a href="<?php echo $this->getUrl() ?>">Marken</a>
+    </li>
+    <li>
+      <a href="<?php echo $this->getUrl() ?>">Shop the Look</a>
+    </li>
+    <li>
+      <a href="<?php echo $this->getUrl() ?>">Magazin</a>
+    </li>
+  </ul> -->
+  <div class="divider white"></div>
+  <h1><a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>"><?php echo $this->__('Inside')?></a></h1>
+</div>

@@ -1,8 +1,5 @@
-<?php
-/**
- * Template for Mage_Page_Block_Html
- */
-?>
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
 
 <!DOCTYPE html>
 
@@ -16,30 +13,42 @@
 <?php echo $this->getChildHtml('head') ?>
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
-<?php echo $this->getChildHtml('after_body_start') ?>
+<div id="site-wrapper">
+  <div id="site-canvas">
+    <?php echo $this->getChildHtml('after_body_start') ?>
 
-<!-- Include Header  -->
-<?php echo $this->getChildHtml('header') ?>
+    <!-- Include Header  -->
+    <?php echo $this->getChildHtml('header') ?>
 
-<div class="wrapper">
-    <?php echo $this->getChildHtml('global_notices') ?>
-        <div id="main">
-          <!-- HIER -->
-          <div class="container">
-            <?php echo $this->getChildHtml('breadcrumbs') ?>
-            <div class="col-main">
-                <?php echo $this->getChildHtml('global_messages') ?>
-                <?php echo $this->getChildHtml('content') ?>
-                <?php echo $this->getChildHtml('promise') ?>
-            </div>
+    <div class="wrapper">
+        <?php echo $this->getChildHtml('global_notices') ?>
+            <div id="main">
+              <!-- HIER -->
+              <div class="container">
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                    <?php echo $this->getChildHtml('promise') ?>
+                </div>
+                <div id='modal-global' class="hide"></div>
+              </div>
+            <?php echo $this->getChildHtml('footer_before') ?>
+            <?php echo $this->getChildHtml('footer') ?>
+            <?php echo $this->getChildHtml('global_cookie_notice') ?>
+            <?php echo $this->getChildHtml('before_body_end') ?>
         </div>
-        <?php echo $this->getChildHtml('footer_before') ?>
-        <?php echo $this->getChildHtml('footer') ?>
-        <?php echo $this->getChildHtml('global_cookie_notice') ?>
-        <?php echo $this->getChildHtml('before_body_end') ?>
     </div>
+    <?php echo $this->getChildHtml('jsfooter') ?>
+    <?php echo $this->getAbsoluteFooter() ?>
+
+    <aside id="offcanvas-left-wrapper">
+      <a class="offcanvas-close right toggle-nav"><i class="fa fa-times"></i></a>
+      <div class="menu-wrapper">
+        <?php echo $this->getChildHtml('top.menu.sidebar') ?>
+      </div>
+    </aside>
+  </div>
 </div>
-<?php echo $this->getChildHtml('jsfooter') ?>
-<?php echo $this->getAbsoluteFooter() ?>
 </body>
 </html>

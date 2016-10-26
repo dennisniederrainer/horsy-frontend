@@ -271,7 +271,7 @@ Checkout.prototype = {
         if(response.duplicateBillingInfo)
         {
             this.syncBillingShipping = true;
-            shipping.setSameAsBilling(true);
+            // shipping.setSameAsBilling(true);
         }
 
         if (response.goto_section) {
@@ -364,6 +364,10 @@ Billing.prototype = {
         if (validator.validate()) {
             checkout.setLoadWaiting('billing');
 
+//            if ($('billing:use_for_shipping') && $('billing:use_for_shipping').checked) {
+//                $('billing:use_for_shipping').value=1;
+//            }
+
             var request = new Ajax.Request(
                 this.saveUrl,
                 {
@@ -412,6 +416,10 @@ Billing.prototype = {
 
         checkout.setStepResponse(response);
         payment.initWhatIsCvvListeners();
+        // DELETE
+        //alert('error: ' + response.error + ' / redirect: ' + response.redirect + ' / shipping_methods_html: ' + response.shipping_methods_html);
+        // This moves the accordion panels of one page checkout and updates the checkout progress
+        //checkout.setBilling();
     }
 }
 

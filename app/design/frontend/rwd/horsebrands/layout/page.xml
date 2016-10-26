@@ -67,6 +67,7 @@
                 <action method="addItem"><type>skin_css</type><name>css/madisonisland.css</name><params/><if><![CDATA[<! - -[if (gte IE 9) | (IEMobile)]><! - ->]]></if></action> -->
 
                 <action method="addItem"><type>skin_js</type><name>js/tondo-load.js</name></action>
+                <!-- <action method="addItem"><type>skin_css</type><name>css/vendor/foundation.css</name><params/></action> -->
                 <action method="addItem"><type>skin_css</type><name>css/main.css</name><params/></action>
                 <action method="addLinkRel"><rel>stylesheet</rel><href>//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css</href></action>
 
@@ -145,7 +146,7 @@
                 </block>-->
             </block>
 
-            
+
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
                 <label>Page Bottom</label>

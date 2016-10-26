@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <Horsebrands_Deinverein>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Horsebrands_Deinverein>
+  </modules>
+</config>

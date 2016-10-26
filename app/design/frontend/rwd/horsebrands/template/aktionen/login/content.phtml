@@ -1,0 +1,106 @@
+<?php $storeId = Mage::app()->getStore()->getStoreId(); ?>
+  <div class="registration-container">
+    <div class="switch-wrapper">
+      <ul class="switch">
+        <li id="switch-signup" class="active"><?php echo $this->__('Become a Member') ?></li>
+        <li id="switch-login"><?php echo $this->__('Login') ?></li>
+      </ul>
+    </div>
+    <div class="content-wrapper">
+      <div id="signup">
+        <form id="registration-form" action="<?php echo $this->getActionUrl('registration'); ?>" method="post">
+          <input type="hidden" name="success_url" value="<?php echo $this->getUrl('aktionen') ?>" />
+          <!-- <input type="hidden" name="error_url" value="<?php //echo $this->getErrorUrl() ?>" /> -->
+          <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+          <input type="hidden" name="is_subscribed" value="1" checked="checked" />
+          <div id="reg-step-one">
+            <h1><?php echo $this->__('Become a Member for free now.') ?></h1>
+            <div class="usp-wrapper">
+              <ul>
+                <li>
+                  <?php echo $this->__('Save up to 70% on Fashion and Equipment') ?>
+                </li>
+                <li>
+                  <?php echo $this->__('New campaigns daily') ?>
+                </li>
+                <li>
+                  <?php echo $this->__('Find exclusive Brands and Products') ?>
+                </li>
+              </ul>
+            </div>
+
+            <input type="text" name="email" id="reg-email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+            <button type="button" class="btn gold expand reg-continue"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+            <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button>
+          </div>
+          <div id="reg-step-two" class="hide">
+            <input class="required-entry input-text" type="text" name="firstname" placeholder="<?php echo $this->__('Your First Name') ?>" />
+            <input class="required-entry input-text" type="text" name="lastname" placeholder="<?php echo $this->__('Your Last Name') ?>" />
+            <input class="required-entry input-text" type="password" name="password" placeholder="<?php echo $this->__('Your Password') ?>" />
+            <input class="required-entry input-text" type="password" name="confirmation" placeholder="<?php echo $this->__('Confirm Your Password') ?>" />
+            <button class="btn gold expand" type="button" onclick="signupForm.submit();"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+          </div>
+          <div class="content-bottom">
+            <p class="note registration-terms">
+              <em>*</em>Mit der Anmeldung stimme ich den <a>AGB</a> und <a>Datenschutzbestimmungen</a> zu und erhalte regelm&auml;&szlig;ig einen Newsletter, den ich jederzeit kostenfrei abbestellen kann.
+            </p>
+          </div>
+        </form>
+      </div>
+      <div id="login" class="hide">
+        <form id="login-form" action="<?php echo $this->getActionUrl('login'); ?>" method="post">
+          <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+          <input type="hidden" name="aktionenlogin" value='true' />
+          <h1>Anmelden</h1>
+          <input class="required-entry input-text" type="text" name="login[username]" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+          <input class="required-entry input-text" type="password" name="login[password]" placeholder="<?php echo $this->__('Your Password') ?>"/>
+          <div class="persistend-forgot-wrapper">
+            <div class="persistent-login">
+              <label>
+                <?php echo $this->__("Stay logged in") ?>
+                <input type="checkbox" name="persistend.login" />
+              </label>
+            </div>
+            <div class="forgot-password">
+              <a href="#newPassword"><?php echo $this->__("Forgot Password") ?>?</a>
+            </div>
+          </div>
+          <button class="btn gold expand" type="button" onclick="loginForm.submit();"><?php echo $this->__('Log In'); ?></button>
+          <button class="btn black expand"><?php echo $this->__('Login with Facebook'); ?></button>
+        </form>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+//<![CDATA[
+
+  var $j = jQuery;
+  $j("ul.switch li").click(function(ev) {
+    if($j(this).is('#switch-signup') && !$j(this).hasClass('active')) {
+      $j('#signup').removeClass('hide');
+      $j('#login').addClass('hide');
+      $j('#switch-signup').addClass('active');
+      $j('#switch-login').removeClass('active');
+    }
+    if($j(this).is('#switch-login') && !$j(this).hasClass('active')) {
+      console.log('switch!!');
+      $j('#login').removeClass('hide');
+      $j('#signup').addClass('hide');
+      $j('#switch-signup').removeClass('active');
+      $j('#switch-login').addClass('active');
+    }
+  });
+
+  $j("#registration-form button.reg-continue").on('click', function(ev) {
+    // mehr validation
+    if($j('#reg-email').val().length > 0) {
+      $j('#reg-step-one').addClass('hide');
+      $j('#reg-step-two').removeClass('hide');
+    }
+  });
+
+  var loginForm = new VarienForm('login-form', true);
+  var signupForm = new VarienForm('registration-form', true);
+
+//]]>
+</script>

@@ -1,0 +1,101 @@
+<?php $disableLinks = $this->getDisableLinks(); ?>
+<?php $ongoingFlashsales = $this->getOngoingFlashsales(); ?>
+<?php $fsCount = count($ongoingFlashsales); ?>
+
+<?php $upcomingFlashsales = $this->getUpcomingFlashsales(); ?>
+<?php $upcomingFsCount = count($upcomingFlashsales); ?>
+
+<div class="aktionen-container">
+  <div class="page-title">
+    <h2><?php echo $this->__('Current Campaigns') ?></h2>
+  </div>
+<?php if($fsCount == 0): ?>
+    <p class="no-campaigns">Es existieren leider keine laufenden Aktionen</p>
+<?php else: ?>
+
+
+    <?php $i = 0; ?>
+    <?php foreach ($ongoingFlashsales as $campaign): ?>
+      <?php $i++; ?>
+
+      <?php // begin row if element is first in row ?>
+      <?php if($i % 2 == 1): ?>
+      <div class="row">
+      <?php endif; ?>
+
+        <div class="columns small-12 medium-6<?php echo ($i == $fsCount ? ' end' : '') ?>">
+          <div class="aktion<?php echo ($i % 2 == 1 ? ' odd' : ' even') ?>">
+            <?php $category = Mage::getModel('catalog/category')->load($campaign->getFsCategoryId()); ?>
+            <div class="info-wrapper">
+              <div class="info-countdown left">
+                <i class="fa fa-clock-o"></i>Noch: <?php echo $campaign->getFsEndDate(); ?>
+              </div>
+              <div class="info-description right">
+                <?php echo $campaign->getFsDescription(); ?>
+              </div>
+            </div>
+            <a <?php echo ($disableLinks ? 'href="#" onclick="return false;"' : 'href="'.$category->getUrl().'"')?>>
+            <div class="image-wrapper">
+              <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $campaign->getFsPicture(); ?>" title="<?php echo $campaign->getFsName(); ?>" alt="<?php echo $campaign->getFsName(); ?>" class="img-responsive" />
+            </div>
+            <div class="aktion-action">
+              <span><?php echo $this->__('Zur Aktion') ?><i class="fa fa-chevron-right"></i></span>
+            </div>
+            </a>
+          </div>
+        </div>
+
+        <?php // close row if lastelement in collection or in row ?>
+        <?php if($i % 2 == 0 || $i == $fsCount): ?>
+        </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
+<?php endif; ?>
+
+
+    <!-- Kommende Aktionen Carousel -->
+<?php if($upcomingFsCount > 0): ?>
+    <div class="page-title upcoming">
+      <h2><?php echo $this->__('Upcoming Campaigns') ?></h2>
+    </div>
+
+    <?php $i = 0; ?>
+    <?php foreach ($upcomingFlashsales as $campaign): ?>
+      <?php $i++; ?>
+
+      <?php // begin row if element is first in row ?>
+      <?php if($i % 2 == 1): ?>
+      <div class="row">
+      <?php endif; ?>
+
+        <div class="columns small-12 medium-6<?php echo ($i == $upcomingFsCount ? ' end' : '') ?>">
+          <div class="aktion<?php echo ($i % 2 == 1 ? ' odd' : ' even') ?>">
+            <?php $category = Mage::getModel('catalog/category')->load($campaign->getFsCategoryId()); ?>
+            <div class="info-wrapper">
+              <div class="info-countdown left">
+                <i class="fa fa-clock-o"></i>Startet am <?php echo $campaign->getFsStartDate(); ?>
+              </div>
+              <div class="info-description right">
+                <?php echo $campaign->getFsDescription(); ?>
+              </div>
+            </div>
+            <!-- <a href="<?php echo $category->getUrl(); ?>"> -->
+            <div class="image-wrapper">
+              <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $campaign->getFsPicture(); ?>" title="<?php echo $campaign->getFsName(); ?>" alt="<?php echo $campaign->getFsName(); ?>" class="img-responsive" />
+            </div>
+            <div class="aktion-action">
+              <span>&nbsp;</span>
+            </div>
+            <!-- </a> -->
+          </div>
+        </div>
+
+        <?php // close row if lastelement in collection or in row ?>
+        <?php if($i % 2 == 0 || $i == $upcomingFsCount): ?>
+        </div>
+        <?php endif; ?>
+
+    <?php endforeach; ?>
+<?php endif; ?>
+</div>
