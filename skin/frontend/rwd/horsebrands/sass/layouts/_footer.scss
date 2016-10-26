@@ -1,31 +1,30 @@
 
 footer {
-	// position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background-color: $footer-bg-color;
-	padding: rem-calc(40) 0;
+	background-color: $grey-base;
+	padding: 30px 0;
 	font-size: .7rem;
 
 	.footer-container {
 		h1 {
 			text-transform: uppercase;
-			font-weight: 600;
+			font-weight: 700;
 			font-size: 1.15em;
 			margin: 0;
+			color: $white-base;
 		}
 
 		ul {
+			@extend .unstyled;
+
 			li {
 				line-height: 1.8;
 				a {
-					color: inherit;
-					text-decoration: underline;
-
-					&:hover, &:active, &:link, &:focus {
-						color: inherit;
-						text-decoration: underline;
+					@include same-link-style($white-base);
+					&:hover {
+						font-weight: 700;
 					}
 				}
 			}
@@ -38,5 +37,20 @@ footer {
 				padding: 0;
 			}
 		}
+
+		@include media('<tablet') {
+			ul li {
+				line-height: 2;
+			}
+
+			.row .columns {
+				padding-top: 20px;
+				text-align: center;
+
+				&:first-child {
+					padding-top: 0;
+				}
+			}
+		};
 	}
 }

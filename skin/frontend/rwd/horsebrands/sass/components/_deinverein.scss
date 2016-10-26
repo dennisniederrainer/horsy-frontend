@@ -1,0 +1,145 @@
+.cms-deinverein-home .col-main {
+  margin-top: 0;
+}
+
+.deinverein-container {
+  .buttons-container {
+    margin: 30px;
+  }
+
+  .section {
+    padding: 50px 0 20px;
+  }
+
+  .usp-column {
+    @extend .text-center;
+
+    .usp-icon-header {
+      padding: 10px 0 20px;
+      img {
+        width: 25%;
+      }
+    }
+    h3 {
+      font-size: 1em;
+    }
+    p {
+      text-align: left;
+      font-size: .875em;
+    }
+  }
+}
+
+
+.button {
+  &.black-transparent {
+    @include same-link-style($black-base, $white-base);
+    border: 1px solid $black-base;
+    border-radius: $global-border-radius;
+    background: none;
+    font-weight: 500;
+
+    &:hover {
+      border-color: $white-base;
+      background-color: $black-base;
+    }
+  }
+}
+
+#deinverein-references {
+  .deinverein-reference img {
+    margin: 0 auto;
+  }
+}
+
+.deinverein-header .top-header {
+  border-bottom: 1px solid $black-base;
+}
+
+.deinverein-main-container {
+  .category-products {
+    margin-top: 20px;
+    h2 {
+      font-size: 1.6em;
+    }
+
+    .productlist-element {
+      &:hover {
+        border-color: $gray-lighter-2;
+      }
+    }
+  }
+}
+
+.deinverein-category-banner {
+  background: url('../images/deinverein/deinverein-verein-banner.jpg') center no-repeat;
+  background-size: cover;
+
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+
+  img {
+    max-width: 200px;
+  }
+  .banner-overlay {
+    position: absolute;
+
+    &.centered {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.deinverein-category-description,
+.deinverein-register-description {
+  margin: 10px 0;
+
+  p {
+    font-weight: 400;
+    line-height: 1.2;
+  }
+}
+
+.register-form-container {
+  @include clearfix;
+  margin-top: 20px;
+
+  ul.input-fields li {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-buttons-container {
+    margin: 15px 0;
+  }
+
+}
+
+ul.verein-list {
+  li {
+    // padding: 10px 5px;
+
+    a {
+      @include same-link-style($black-base, $gold-base);
+      font-weight: 500;
+    }
+  }
+}
+
+.input-aside-30-70 {
+  input {
+    &:first-child {
+      width: 30%
+    }
+    &:last-child {
+      width: 69%;
+      padding-left: 1%;
+    }
+  }
+}

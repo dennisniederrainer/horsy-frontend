@@ -95,6 +95,11 @@
     <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
   </span>
 </div>
+<div class="fake-container" id="shipping-buttons-container">
+  <span id="shipping-please-wait" class="please-wait" style="display:none;">
+      <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+  </span>
+</div>
 </form>
 <script type="text/javascript">
 //<![CDATA[
@@ -120,10 +125,8 @@
         });
 
         $j('#btnBillingContinue').on('click', function () {
-          console.log('bounce');
           var useforshipping = $j('input:checkbox[id="billing:use_for_shipping"]:checked').val();
           if (useforshipping == null) {
-            console.log('null');
             if ($j('input:text[name="shipping[street][]"]').val() == '' ||
                 $j('input:text[name="shipping[street][]"]').val() != $j('input:text[name="billing[street][]"]').val()){
                 var billingaddress = $j('input:text[name="billing[street][]"]').val();
@@ -150,7 +153,6 @@
 
             billing.save();
           } else {
-            console.log('not null');
             shipping.save();
           }
         });

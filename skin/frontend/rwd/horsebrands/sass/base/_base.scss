@@ -24,6 +24,9 @@ table.unstyled {
 	border: none;
 }
 
+.uppercase {
+	text-transform: uppercase;
+}
 .new-inner-row {
 	padding-left: 0 !important;
 }
@@ -64,6 +67,7 @@ td.align-bottom {
 ul.messages {
 	list-style: none;
 	padding: 0;
+	margin: 0;
 
 	li {
 		border: 1px solid transparent;
@@ -82,6 +86,15 @@ ul.messages {
 	}
 }
 
+.divider {
+	border-top: 1px solid $black-base;
+	margin: 1em 0;
+
+	&.white {
+		border-color: $white-base;
+	}
+}
+
 .progress {
 	background-color: #fff;
 	border-color: $gray-lighter-5;
@@ -89,5 +102,99 @@ ul.messages {
 
 	.meter {
 		background: $gold-base;
+	}
+}
+
+#modal-global {
+	position: fixed;
+	top: 145px; bottom: 0;
+	left: 0; right: 0;
+	z-index: 99;
+}
+
+.transparent-layer {
+	background-color: rgba($white, .6);
+}
+
+a {
+	color: $black-base;
+	@include same-link-style($black-base);
+}
+
+#site-wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+
+	&.show-nav {
+		#site-canvas {
+			-webkit-transform: translateX(350px);
+		  transform: translateX(350px);
+		}
+	}
+}
+
+#site-canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+
+	-webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+#offcanvas-left-wrapper {
+	width: 350px;
+  position: absolute;
+  top: 0;
+	bottom: 0;
+  left: -350px;
+  background: $black-base;
+  padding: 15px;
+	z-index: 110;
+
+	a.offcanvas-close {
+		padding: .5em 1em;
+		font-size: 1.5em;
+		color: $white-base;
+	}
+}
+
+.validation-advice {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.margin-top-0 {
+	margin-top: 0 !important;
+}
+
+.grey-bg {
+	background-color: $grey-base-light !important;
+}
+
+.line-through-heading {
+	border-top: 1px solid $black-base;
+	position: relative;
+	height: 2em;
+
+	h1 {
+		display: inline-block;
+		position: absolute;
+    left: 50%;
+    top: -.875em;
+    transform: translateX(-50%);
+    padding: 0 15px;
+		background-color: $white-base;
 	}
 }

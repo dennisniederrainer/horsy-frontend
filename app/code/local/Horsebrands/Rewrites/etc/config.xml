@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Horsebrands_Rewrites>
-            <version>0.0.0.7</version>
+            <version>0.0.0.8</version>
         </Horsebrands_Rewrites>
     </modules>
     <global>
@@ -26,6 +26,14 @@
             <product_view_list>Horsebrands_Rewrites_Block_Review_Product_View_List</product_view_list>
           </rewrite>
         </review>
+        <Purchase>
+          <rewrite>
+            <supplier_edit_form>Horsebrands_Rewrites_Block_Purchase_Supplier_Edit_Form</supplier_edit_form>
+            <supplier_edit_tabs>Horsebrands_Rewrites_Block_Purchase_Supplier_Edit_Tabs</supplier_edit_tabs>
+            <!-- <supplier_edit_tabs_info>Horsebrands_Rewrites_Block_Purchase_Supplier_Edit_Tabs_Info</supplier_edit_tabs_info> -->
+          </rewrite>
+        </Purchase>
+
       </blocks>
 
       <models>
@@ -83,13 +91,24 @@
 
     <frontend>
       <routers>
-        <checkout>
+        <customer>
           <args>
             <modules>
-              <horsebrands_checkout before="Mage_Checkout">Horsebrands_Rewrites_Checkout</horsebrands_checkout>
+              <horsebrands_customer before="Mage_Customer">Horsebrands_Rewrites_Customer</horsebrands_customer>
             </modules>
           </args>
-        </checkout>
+        </customer>
       </routers>
     </frontend>
+    <admin>
+      <routers>
+        <Purchase>
+          <args>
+            <modules>
+              <Horsebrands_Rewrites before="MDN_Purchase">Horsebrands_Rewrites_Purchase</Horsebrands_Rewrites>
+            </modules>
+          </args>
+        </Purchase>
+      </routers>
+    </admin>
 </config>

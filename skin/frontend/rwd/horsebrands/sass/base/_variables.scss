@@ -1,13 +1,21 @@
 $grid-width: 1100px;
 $grid-padding-columns-horizontal: .9375rem;
 
-$global-border-radius: 4px;
+$breakpoints:(
+  'phone': 320px,
+  'tablet': 640px,
+  'desktop': 1024px
+);
+
+$global-border-radius: 5px;
 
 // Colors
-$gray-base: 		#706f6f;
-$black-base: 	#1d1d1d;
+$gray-base: #706f6f;
+$black-base: #1d1d1d;
 $gold-base: #cca64b;
 $failed-red: #dc143c;
+$grey-base: #919292;
+$grey-base-light: #f5f5f5;
 
 $gray-lighter-1: 	#9b9b9b;
 $gray-lighter-2: 	#c5c5c5;
@@ -49,6 +57,7 @@ $footer-bg-color: $gray-lighter-3;
 
 
 $white: #fff;
+$white-base: #fff;
 
 $btn-default-color: #fff;
 $btn-padding-height-basic: .85em;

@@ -34,6 +34,7 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
             }
 
             //save address to current checkout
+            Mage::log('ja', null, 'opcController.log');
             $result = $this->getOnepage()->saveBilling($data, $customerAddressId);
             Mage::dispatchEvent('cart_updateShipping', array());
 
@@ -84,7 +85,7 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
 
                 $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
             } else {
-              Mage::log($result['error'], null, 'opcController.log');
+              Mage::log($result['message'], null, 'opcController.log');
             }
         }
     }

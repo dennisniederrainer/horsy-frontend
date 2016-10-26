@@ -28,11 +28,15 @@
 
         <div class="columns medium-8 product-essential-left">
           <!-- img and description -->
-          <div class="row full-width">
-            <?php echo $this->getChildHtml('media') ?>
+          <div class="row full-width" style="padding-right: 15px;">
+            <div class="columns small-12">
+              <?php echo $this->getChildHtml('media') ?>
+            </div>
           </div>
-          <div class="row full-width description-wrapper">
-            <?php echo $this->getChildHtml('description') ?>
+          <div class="row full-width description-wrapper" style="padding-right: 15px;">
+            <div class="columns small-12">
+              <?php echo $this->getChildHtml('description') ?>
+            </div>
           </div>
         </div>
         <div class="columns medium-4 product-essential-right">
@@ -87,7 +91,21 @@
           <div class="row no-margin">
               <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                   <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-              <?php endif;?>
+              <?php elseif (!$this->hasOptions()):?>
+                  <div class="add-to-box">
+                      <?php if($_product->isSaleable()): ?>
+                          <?php echo $this->getChildHtml('addtocart') ?>
+                      <?php endif; ?>
+                      <?php echo $this->getChildHtml('addto') ?>
+                      <?php //echo $this->getChildHtml('sharing') ?>
+                  </div>
+                  <?php echo $this->getChildHtml('extra_buttons') ?>
+              <?php elseif (!$_product->isSaleable()): ?>
+                  <div class="add-to-box">
+                      <?php echo $this->getChildHtml('addto') ?>
+                      <?php //echo $this->getChildHtml('sharing') ?>
+                  </div>
+              <?php endif; ?>
           </div>
           <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), 'delivery_time', $storeId)): ?>
           <div class="row">

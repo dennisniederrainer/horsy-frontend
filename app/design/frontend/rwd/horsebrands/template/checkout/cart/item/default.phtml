@@ -14,19 +14,19 @@ $canApplyMsrp = Mage::helper('catalog')->canApplyMsrp($_item->getProduct(), Mage
 $manufacturer = "";
 $deliverytime = "";
 $color = "";
-$size = "";
-if($_product->getManufacturer()) $manufacturer = $_product->getManufacturer();
+$size = "12";
+if($_product->getManufacturer()) $manufacturer = $_product->getAttributeText('manufacturer');
 if($_product->getDeliveryTime()) $deliverytime = $_product->getAttributeText('delivery_time');
 
 if($_childProduct && $_childProduct->getColor()) $color = $_childProduct->getAttributeText('color');
 if($_childProduct && $_childProduct->getSize()) {
-  $size = $_childProduct->getAttributeText('size');
+  $size = '22'; //$_childProduct->getAttributeText('size');
 } elseif ($_childProduct && $_childProduct->getShoeSize()) {
-  $size = $_childProduct->getAttributeText('shoe_size');
+  $size = '32'; //$_childProduct->getAttributeText('shoe_size');
 }
 ?>
 <tr>
-  <!-- <?php echo Mage::getModel('catalog/product')->load($_childProduct->getId())->getAttributeText('size'); ?> -->
+  <!-- <?php echo $_childProduct->getSize(); ?> -->
     <td class="product-cart-image">
         <?php if ($this->hasProductUrl()):?>
             <a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>" class="product-image">

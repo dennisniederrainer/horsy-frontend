@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+      <Horsebrands_Deinverein>
+          <version>0.0.9</version>
+      </Horsebrands_Deinverein>
+  </modules>
+  <global>
+    <blocks>
+      <deinverein>
+        <class>Horsebrands_Deinverein_Block</class>
+      </deinverein>
+    </blocks>
+    <!-- <models>
+      <deinverein>
+        <class>Horsebrands_Deinverein_Model</class>
+      </deinverein>
+    </models> -->
+  </global>
+
+  <frontend>
+    <routers>
+      <deinverein>
+        <use>standard</use>
+        <args>
+          <module>Horsebrands_Deinverein</module>
+          <frontName>deinverein</frontName>
+        </args>
+      </deinverein>
+    </routers>
+  </frontend>
+</config>

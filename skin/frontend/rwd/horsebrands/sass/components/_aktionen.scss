@@ -1,0 +1,297 @@
+.aktionen-container {
+  .page-title {
+    background: url('../images/aktionen-header-line.png')  repeat-x 0 50%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 35px;
+
+    &.upcoming {
+      margin-top: 50px;
+    }
+
+    @include media('<desktop') {
+      &.upcoming {
+        margin-top: 0;
+      }
+    }
+
+    h2 {
+      display: inline-block;
+      background-color: #fff;
+      padding: 0 30px;
+      color: #6e6e6e;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+
+  .no-campaigns {
+    text-align: center;
+  }
+}
+
+.aktion {
+  width: 98%;
+
+  &.odd {
+    margin-right: auto;
+  }
+  &.even {
+    margin-left: auto;
+  }
+
+  @include media('<desktop') {
+      margin: 0 auto 20px;
+  }
+
+  .info-wrapper {
+    @include clearfix;
+    font-size: 12px;
+
+    i {
+      padding-right: 3px;
+    }
+  }
+
+  a {
+    @include same-link-style(#fff);
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+
+  .aktion-action {
+    font-size: 12px;
+    line-height: 30px;
+    background-color: #919292;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: right;
+    padding-right: 30px;
+
+    i {
+      font-size: 10px;
+      padding-left: 3px;
+    }
+  }
+}
+
+.grayout {
+  position: absolute;
+  top: 0; bottom: 0;
+	left: 0; right: 0;
+  z-index: 100;
+  background-color: rgba(0,0,0,.8);
+
+  .registration-container {
+    position: absolute;
+    top: 15px;
+    left: 0; right: 0;
+    // transform: translateY(-15%);
+    width: 420px;
+    max-width: 420px;
+    margin: 0 auto;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+
+    .content-wrapper {
+      @include clearfix;
+
+      .content-left, .content-right {
+        float: left;
+        width: 50%;
+        padding: 25px;
+      }
+
+      .logo-wrapper {
+        width: 75%;
+        margin: 0 auto;
+      }
+
+      .usp-wrapper {
+        margin: 10px 0 30px;
+
+        ul {
+          padding-left: 18px;
+          margin: 0;
+
+          li {
+            font-size: 13px;
+            line-height: 2em;
+          }
+        }
+      }
+    }
+
+    .registration-footer {
+      background-color: #9c9c9c;
+      padding: 20px 25px;
+
+      ul.known-from {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          font-size: 12px;
+          line-height: 14px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+#signup, #login {
+  h1 {
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  &#login h1 {
+    font-weight: 300;
+  }
+
+  input {
+    line-height: 16px;
+    padding: 12px;
+    margin-bottom: 10px;
+
+    @include input-placeholder {
+      font-weight: 300;
+    }
+
+    &.validation-failed {
+      margin-bottom: 0;
+    }
+  }
+  button.btn {
+    font-size: 15px;
+    line-height: 40px;
+    margin: 20px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .persistend-forgot-wrapper {
+    color: #000;
+    .persistent-login, .forgot-password {
+      width: 50%;
+      > * {
+        font-size: 12px;
+        font-weight: 300;
+      }
+    }
+    .persistent-login {
+      float: left;
+    }
+    .forgot-password {
+      float: right;
+      text-align: right;
+      a {
+        color: $gray-base;
+        text-decoration: underline !important;
+        @include same-link-style($gray-base);
+      }
+    }
+  }
+
+  @include media('<desktop') {
+    h1 {
+      font-size: 1.125em;
+    }
+  };
+}
+
+#signup input {
+  margin-bottom: 0;
+}
+#reg-step-two {
+  input {
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  button.btn {
+    margin-top: 15px;
+  }
+}
+
+p.note.registration-terms {
+  color: $gray-base;
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.switch-wrapper {
+  @include clearfix;
+
+  ul.switch {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      @include background-image(linear-gradient(#dfdfdf, #e2e2e3));
+      float: left;
+      width: 50%;
+      text-align: center;
+      font-size: 17px;
+      line-height: 45px;
+      text-transform: uppercase;
+
+      &:hover {
+        cursor: pointer;
+        // hier sollte mehr passieren on hover -- shadow!?
+      }
+
+      &.active {
+        background: none;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.registration-container {
+  .content-wrapper {
+    padding: 30px;
+  }
+
+  .content-bottom {
+    padding-top: 10px;
+  }
+
+  @include media('<desktop') {
+    border: 1px solid $gray-base;
+
+    .switch-wrapper {
+
+      ul.switch li {
+        @include box-shadow(inset 0 0 10px $gold-base);
+
+        &.active {
+          @include box-shadow(none);
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    .known-from {
+      display: none;
+    }
+  };
+}

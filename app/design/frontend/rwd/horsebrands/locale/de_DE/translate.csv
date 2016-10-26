@@ -9,6 +9,7 @@
 "SKU","Artikelnummer"
 "Qty","Anzahl"
 "Price","Preis"
+"Wishlist","Wunschzettel"
 
 "Secure Connection","Sichere Verbindung"
 "Billing Information","Adresse"
@@ -41,3 +42,29 @@
 "Billing Address","Rechnungsadresse"
 "Payment Method","Zahlungsart"
 "Change","Bearbeiten"
+
+// AKTIONEN -- CAMPAIGNS
+"Current Campaigns","Aktuelle Aktionen"
+"Upcoming Campaigns","Kommende Aktionen"
+
+// Vorschaltseite
+"Become a Member","Mitglied werden"
+"Login","Login"
+"Save up to 70% on Fashion and Equipment","Spare bis zu 70% auf Reitmode und Equipment"
+"New campaigns daily","Täglich neue Aktionen"
+"Find exclusive Brands and Products","Entdecke exklusive Marken und Produkte"
+"Become a Member for free now.","Werde jetzt kostenlos Mitglied."
+"Sign In","Registrieren"
+"Sign In with Facebook","Mit Facebook registrieren"
+"Log In","Einloggen"
+"Login with Facebook","Mit Facebook einloggen"
+"Your E-Mail Address","Deine E-Mail Adresse"
+"Your Password","Dein Password"
+"Forgot Password","Passwort vergessen"
+"Stay logged in","Angemeldet bleiben"
+
+"Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.","Deine Anfrage wurde erfolgreich gesendet. Vielen Dank dafür - wir werden sie so schnell wie möglich bearbeiten."
+"Maximum number of characters:","Maximale Anzahl an Buchstaben:"
+"Choose option...","Bitte wählen..."
+"Add to Cart","In den Warenkorb"
+"Add to Wishlist","Auf den Wunschzettel"

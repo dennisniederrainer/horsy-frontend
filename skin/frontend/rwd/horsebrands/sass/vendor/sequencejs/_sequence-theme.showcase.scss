@@ -147,4 +147,28 @@ $canvasHeight: 417px;
         }
       }
     }
+
+    @include media('<tablet'){
+      .content-position {
+        background-color: rgba($white, .6);
+        width: 100%;
+        height: auto;
+
+        &.top-right {
+          top: auto;
+          bottom: 10px;
+        }
+
+        .content {
+          color: $black-base;
+
+          .button-container .btn.white {
+            color: $black-base;
+            border-color:  $black-base;
+            width: 100% !important;
+          }
+        }
+      }
+
+    };
 }

@@ -95,9 +95,14 @@
               if ($this->getChild('name.after')) {
                   $_nameAfterChildName = 'product_list.swatches';
                   if ($_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName)) {
-                    echo '<div class="offcanvas offcanvas-left">';
                     $_nameAfterChild->setProduct($_product);
-                    echo $_nameAfterChild->toHtml();
+                    $html = $_nameAfterChild->toHtml();
+                    if($html && $html != '') {
+                      echo '<div class="offcanvas offcanvas-left">';
+                      echo $html;
+                    } else {
+                      echo '<div class="offcanvas offcanvas-left" style="left: 0; background-color: transparent;">';
+                    }
                     echo '</div>';
                   }
               }

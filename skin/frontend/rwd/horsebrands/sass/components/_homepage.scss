@@ -1,13 +1,13 @@
-
 section {
   &.topics {
 
     article.topic-element {
       position: relative;
-      height: 300px;
+      max-height: 300px;
+      margin-bottom: 15px;
 
       .canvas {
-        height: 300px;
+        max-height: 300px;
         overflow: hidden;
       }
       .button-container {
@@ -16,6 +16,18 @@ section {
         left: 0;
         right: 0;
         width: 100%;
+
+        background-color: rgba($white, .6);
+        padding: 10px 0;
+
+        a.btn {
+          color: $black-base;
+          border-color: $black-base;
+
+          &:hover {
+            background-color: rgba($white, .8);
+          }
+        }
 
         &.btn-centered {
           text-align: center;
@@ -33,6 +45,23 @@ section {
           width: 185px;
         }
       }
+
+      @include media('<tablet') {
+      };
+    }
+  }
+}
+
+#brands-container {
+  @include clearfix;
+
+  .brand {
+    float: left;
+    margin-right: 2%;
+    max-width: 180px;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

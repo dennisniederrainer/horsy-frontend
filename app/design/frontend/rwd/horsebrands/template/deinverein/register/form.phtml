@@ -1,0 +1,52 @@
+<div class="deinverein-container">
+  <div class="teaser-wrapper">
+    <img src="http://placehold.it/1280x400?text=JETZT+ANMELDEN!" alt="Teaser Image" />
+  </div>
+  <div class="deinverein-register-description">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('deinverein-register-description')->toHtml(); ?>
+  </div>
+  <div class="register-form-container">
+    <form method="post">
+      <div class="form-column left">
+        <ul class="input-fields">
+          <li>
+            <label>Vereinsname<em>*</em></label>
+            <input type="text" name="name" />
+          </li>
+          <li>
+            <label>Vereinsfarben<em>*</em></label>
+            <input type="text" name="colors" />
+          </li>
+          <li>
+            <label>Straße (Verein)</label>
+            <input type="text" name="street" />
+          </li>
+          <li>
+            <label>PLZ, Ort (Verein)</label>
+            <input type="text" name="zip" /><input type="text" name="city" />
+          </li>
+        </ul>
+      </div>
+      <div class="form-column right">
+        <ul class="input-fields">
+          <li>
+            <label>Telefonnummer (Ansprechpartner)<em>*</em></label>
+            <input type="text" name="tel" />
+          </li>
+          <li>
+            <label>E-Mail (Ansprechpartner)<em>*</em></label>
+            <input type="text" name="email" />
+          </li>
+          <li>
+            <label>Position im Verein (Ansprechpartner)</label>
+            <input type="text" name="street" />
+          </li>
+          <li>
+            <label>Nachricht</label>
+            <textarea name="message"></textarea>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
