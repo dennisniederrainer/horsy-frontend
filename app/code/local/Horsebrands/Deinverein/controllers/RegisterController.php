@@ -3,7 +3,7 @@ require_once(Mage::getModuleDir('controllers','Mage_Contacts').DS.'IndexControll
 
 class Horsebrands_Deinverein_RegisterController extends Mage_Contacts_IndexController {
 
-  const EMAIL_TEMPLATE_REGISTER_ID = 22;
+  const EMAIL_TEMPLATE_REGISTER_ID = 103;
 
   public function postAction() {
     $post = $this->getRequest()->getPost();

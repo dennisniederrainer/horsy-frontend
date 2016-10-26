@@ -10628,19 +10628,19 @@ dl.totals-block dt {
   padding: 12px;
   margin-bottom: 10px;
 }
-/* line 61, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 61, ../../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 #signup input:-moz-placeholder, #login input:-moz-placeholder {
   font-weight: 300;
 }
-/* line 64, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 64, ../../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 #signup input::-moz-placeholder, #login input::-moz-placeholder {
   font-weight: 300;
 }
-/* line 67, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 67, ../../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 #signup input:-ms-input-placeholder, #login input:-ms-input-placeholder {
   font-weight: 300;
 }
-/* line 56, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/* line 56, ../../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
 #signup input::-webkit-input-placeholder, #login input::-webkit-input-placeholder {
   font-weight: 300;
 }
@@ -10807,33 +10807,37 @@ p.note.registration-terms {
   margin-top: 0;
 }
 
-/* line 6, ../sass/components/_deinverein.scss */
+/* line 5, ../sass/components/_deinverein.scss */
+.deinverein-container {
+  margin-top: 10px;
+}
+/* line 8, ../sass/components/_deinverein.scss */
 .deinverein-container .buttons-container {
   margin: 30px;
 }
-/* line 10, ../sass/components/_deinverein.scss */
+/* line 12, ../sass/components/_deinverein.scss */
 .deinverein-container .section {
   padding: 50px 0 20px;
 }
-/* line 17, ../sass/components/_deinverein.scss */
+/* line 19, ../sass/components/_deinverein.scss */
 .deinverein-container .usp-column .usp-icon-header {
   padding: 10px 0 20px;
 }
-/* line 19, ../sass/components/_deinverein.scss */
+/* line 21, ../sass/components/_deinverein.scss */
 .deinverein-container .usp-column .usp-icon-header img {
   width: 25%;
 }
-/* line 23, ../sass/components/_deinverein.scss */
+/* line 25, ../sass/components/_deinverein.scss */
 .deinverein-container .usp-column h3 {
   font-size: 1em;
 }
-/* line 26, ../sass/components/_deinverein.scss */
+/* line 28, ../sass/components/_deinverein.scss */
 .deinverein-container .usp-column p {
   text-align: left;
   font-size: .875em;
 }
 
-/* line 35, ../sass/components/_deinverein.scss */
+/* line 37, ../sass/components/_deinverein.scss */
 .button.black-transparent, .black-transparent.store-select-button {
   border: 1px solid #1d1d1d;
   border-radius: 5px;
@@ -10850,36 +10854,36 @@ p.note.registration-terms {
   cursor: pointer;
   color: #fff;
 }
-/* line 42, ../sass/components/_deinverein.scss */
+/* line 44, ../sass/components/_deinverein.scss */
 .button.black-transparent:hover, .black-transparent.store-select-button:hover {
   border-color: #fff;
   background-color: #1d1d1d;
 }
 
-/* line 50, ../sass/components/_deinverein.scss */
+/* line 52, ../sass/components/_deinverein.scss */
 #deinverein-references .deinverein-reference img {
   margin: 0 auto;
 }
 
-/* line 55, ../sass/components/_deinverein.scss */
+/* line 57, ../sass/components/_deinverein.scss */
 .deinverein-header .top-header {
   border-bottom: 1px solid #1d1d1d;
 }
 
-/* line 60, ../sass/components/_deinverein.scss */
+/* line 62, ../sass/components/_deinverein.scss */
 .deinverein-main-container .category-products {
   margin-top: 20px;
 }
-/* line 62, ../sass/components/_deinverein.scss */
+/* line 64, ../sass/components/_deinverein.scss */
 .deinverein-main-container .category-products h2 {
   font-size: 1.6em;
 }
-/* line 67, ../sass/components/_deinverein.scss */
+/* line 69, ../sass/components/_deinverein.scss */
 .deinverein-main-container .category-products .productlist-element:hover {
   border-color: #c5c5c5;
 }
 
-/* line 74, ../sass/components/_deinverein.scss */
+/* line 76, ../sass/components/_deinverein.scss */
 .deinverein-category-banner {
   background: url("../images/deinverein/deinverein-verein-banner.jpg") center no-repeat;
   background-size: cover;
@@ -10888,34 +10892,34 @@ p.note.registration-terms {
   height: 300px;
   margin-top: 10px;
 }
-/* line 83, ../sass/components/_deinverein.scss */
+/* line 85, ../sass/components/_deinverein.scss */
 .deinverein-category-banner img {
   max-width: 200px;
 }
-/* line 86, ../sass/components/_deinverein.scss */
+/* line 88, ../sass/components/_deinverein.scss */
 .deinverein-category-banner .banner-overlay {
   position: absolute;
 }
-/* line 89, ../sass/components/_deinverein.scss */
+/* line 91, ../sass/components/_deinverein.scss */
 .deinverein-category-banner .banner-overlay.centered {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* line 96, ../sass/components/_deinverein.scss */
+/* line 98, ../sass/components/_deinverein.scss */
 .deinverein-category-description,
 .deinverein-register-description {
   margin: 10px 0;
 }
-/* line 100, ../sass/components/_deinverein.scss */
+/* line 102, ../sass/components/_deinverein.scss */
 .deinverein-category-description p,
 .deinverein-register-description p {
   font-weight: 400;
   line-height: 1.2;
 }
 
-/* line 106, ../sass/components/_deinverein.scss */
+/* line 108, ../sass/components/_deinverein.scss */
 .register-form-container {
   margin-top: 20px;
 }
@@ -10928,20 +10932,20 @@ p.note.registration-terms {
 .register-form-container:after {
   clear: both;
 }
-/* line 110, ../sass/components/_deinverein.scss */
+/* line 112, ../sass/components/_deinverein.scss */
 .register-form-container ul.input-fields li {
   margin-bottom: 10px;
 }
-/* line 113, ../sass/components/_deinverein.scss */
+/* line 115, ../sass/components/_deinverein.scss */
 .register-form-container ul.input-fields li:last-child {
   margin-bottom: 0;
 }
-/* line 118, ../sass/components/_deinverein.scss */
+/* line 120, ../sass/components/_deinverein.scss */
 .register-form-container .form-buttons-container {
   margin: 15px 0;
 }
 
-/* line 128, ../sass/components/_deinverein.scss */
+/* line 130, ../sass/components/_deinverein.scss */
 ul.verein-list li a {
   font-weight: 500;
 }
@@ -10956,11 +10960,11 @@ ul.verein-list li a:hover {
   color: #cca64b;
 }
 
-/* line 137, ../sass/components/_deinverein.scss */
+/* line 139, ../sass/components/_deinverein.scss */
 .input-aside-30-70 input:first-child {
   width: 30%;
 }
-/* line 140, ../sass/components/_deinverein.scss */
+/* line 142, ../sass/components/_deinverein.scss */
 .input-aside-30-70 input:last-child {
   width: 69%;
   padding-left: 1%;
