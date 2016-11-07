@@ -2,12 +2,12 @@
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
     $_category = mage::registry('current_category');
+    $_showProductPrice = !($_category->getId() == 114);
 
     $_isShowHeadline = $this->getIsShowHeadline();
     $_toolbar = $this->getToolbarBlock();
 ?>
 <div class="category-products">
-
 <?php if($_isShowHeadline): ?>
   <h2><?php echo $_category->getName(); ?> <span class="products-count">/ <?php echo $_toolbar->getTotalNum() ?></span></h2>
 <?php endif; ?>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="bottom-row">
                   <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
-                  <span class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></span>
+                  <?php if($_showProductPrice): ?><span class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></span><?php endif; ?>
                 </div>
               </div>
               <?php
@@ -77,8 +77,8 @@
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
 
-    <!-- <div class="toolbar-bottom"> -->
-      <?php //echo $this->getToolbarHtml() ?>
-    <!-- </div> -->
+    <div class="toolbar-bottom">
+      <?php echo $this->getToolbarHtml() ?>
+    </div>
 <?php endif; ?>
 </div>

@@ -2,14 +2,14 @@
 .featured-product {
 	position: relative;
 	transition: border;
-	border: 1px solid $white;
-	padding: rem-calc(10px);
+	border: 1px solid transparent;
+	padding: 10px;
 
 	.product-image {
 
 	}
 	.product-info {
-		font-size: $font-size-small;
+		font-size: 1em;
 		color: $black-base;
 		line-height: 1.3;
 		border-top: 1px solid $gray-lighter-2;
@@ -18,7 +18,7 @@
 		.top-row {
 			@include clearfix;
 			h3 {
-				font-size: $font-size-small;
+				font-size: $font-size-smaller;
 				font-weight: 500;
 				margin: 0;
 				float: left;
@@ -44,7 +44,7 @@
 		position: absolute;
 		visibility: hidden;
 		transition: visibility;
-		overflow: hidden;
+		overflow: auto;
 		// background-color: rgba($white, .5);
 		background-color: #fff;
 
@@ -58,9 +58,11 @@
 			border-left: 1px solid $gray-lighter-2;
 			border-bottom: 1px solid $gray-lighter-2;
 			top: -1px; //border width beachten
-			left: rem-calc(-$image-width - 1);
+			left: 0;
+			transform: translateX(-100%);
 
 			ul.configurable-swatch-list li {
+				display: block;
 				float: none;
 
 				span.swatch-label {
@@ -83,18 +85,10 @@
 	}
 
 	&:hover {
-		border-left-color: $gray-lighter-2;
-		border-top-color: $gray-lighter-2;
-		border-right-color: $gray-lighter-2;
+		border: 1px solid $gray-lighter-2;
 
 		.product-info {
 			border-top-color: $white;
-		}
-
-		.offcanvas-bottom {
-			display: block;
-			visibility: visible;
-			// border-left: 1px solid $gray-lighter-2;
 		}
 	}
 
@@ -108,5 +102,55 @@
 			border-left: none;
 		}
 
+	}
+}
+
+.toolbar-bottom {
+	margin-top: 20px;
+}
+
+.toolbar {
+	.pager {
+		@include clearfix;
+
+		p.amount {
+			float: left;
+		}
+		.pages {
+			float: right;
+
+			strong {display: none;}
+			ol {
+				list-style: none;
+
+				li {
+					display: inline-block;
+					margin-right: 5px;
+
+					&:last-child {
+						margin-right: 0;
+					}
+
+					&.current,
+					a {
+						padding: 5px 10px;
+						border: 1px solid $black-base;
+						border-radius: 5px;
+					}
+
+					&.current {
+						padding: 3px 10px;
+						color: $white-base;
+						background-color: $black-base;
+					}
+
+					a.next,
+					a.previous {
+						border: none;
+					}
+				}
+
+			}
+		}
 	}
 }

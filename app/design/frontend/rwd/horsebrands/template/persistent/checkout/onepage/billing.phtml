@@ -1,4 +1,3 @@
-
 <form id="co-address-form" method="post">
 <div class="row full-width small-margins">
   <div class="columns small-12 medium-6">
@@ -63,7 +62,7 @@
               </div>
               <div class="kv">
                 <div class="key">
-                  <label for="billing:telephone"><em>*</em><?php echo $this->__('Telephone') ?></label>
+                  <label for="billing:telephone"><?php echo $this->__('Telephone') ?><em>*</em></label>
                 </div>
                 <div class="value">
                   <input type="text" name="billing[telephone]" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Telephone')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="billing:telephone" />
@@ -72,7 +71,8 @@
               <input type="hidden" name="billing[save_in_address_book]" value="1" />
               <div class="same-as-billing-container">
                 <?php if ($this->canShip()): ?>
-                  <input type="checkbox" name="billing[use_for_shipping]" id="billing:use_for_shipping" value="1" title="<?php echo $this->__('Ship to different address') ?>"  class="radio" /><label for="billing:use_for_shipping_no">&nbsp;<?php echo $this->__('Ship to different address') ?></label>
+                  <input type="checkbox" name="billing[use_for_shipping]" id="billing:use_for_shipping" value="1" title="<?php echo $this->__('Ship to different address') ?>"  class="radio"/>
+                  <label for="billing:use_for_shipping"><?php echo $this->__('Ship to different address') ?></label>
                   <!-- <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_yes" value="1"<?php if ($this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> title="<?php echo  Mage::helper('core')->quoteEscape($this->__('Ship to this address')) ?>" onclick="$('shipping:same_as_billing').checked = true;" class="radio" /><label for="billing:use_for_shipping_yes"><?php echo  $this->__('Ship to this address') ?></label> -->
                   <!-- <input type="radio" name="billing[use_for_shipping]" id="billing:use_for_shipping_no" value="0"<?php if (!$this->isUseBillingAddressForShipping()) {?> checked="checked"<?php }?> title="<?php echo Mage::helper('core')->quoteEscape($this->__('Ship to different address')) ?>" onclick="$('shipping:same_as_billing').checked = false;" class="radio" /><label for="billing:use_for_shipping_no"><?php echo $this->__('Ship to different address') ?></label> -->
                 <?php endif; ?>
@@ -88,74 +88,50 @@
     <?php echo $this->getChildHtml('address.shipping'); ?>
   </div>
 </div>
-<div class="buttons-set clearfix" id="billing-buttons-container">
+<div class="buttons-set clearfix" id="billing-buttons-container"><div id="shipping-buttons-container">
   <button class="left" onclick="checkout.back(); return false;"><i class="fa fa-angle-double-left"></i> <?php echo $this->__('Back'); ?></button>
-  <button class="gold right" id="btnBillingContinue" type='button'><?php echo $this->__('Continue'); ?> <i class="fa fa-angle-double-right"></i></button>
+  <button class="gold right" id="btnBillingContinue" type='button' onclick="billing.save()"><?php echo $this->__('Continue'); ?> <i class="fa fa-angle-double-right"></i></button>
   <span class="please-wait" id="billing-please-wait" style="display:none;">
     <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
   </span>
-</div>
-<div class="fake-container" id="shipping-buttons-container">
-  <span id="shipping-please-wait" class="please-wait" style="display:none;">
-      <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+  <span class="please-wait" id="shipping-please-wait" style="display:none;">
+    <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
   </span>
-</div>
+</div></div>
 </form>
 <script type="text/javascript">
 //<![CDATA[
     var billing = new Billing('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveAddress') ?>');
     var billingForm = new VarienForm('co-address-form');
-
     var shipping = new Shipping('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveAddress') ?>');
     var shippingForm = new VarienForm('co-address-form');
-
     $('billing-address-select') && billing.newAddress(!$('billing-address-select').value);
     $('shipping-address-select') && shipping.newAddress(!$('shipping-address-select').value);
-
     jQuery(document).ready(function ($j) {
-
         if($j('#shippingcontent').find('input').hasClass('validation-failed')) {
             $j('input:checkbox[name="billing[use_for_shipping]"]').prop('checked');
             $j('#shippingcontent').show(100);
         }
-
         $j('input:checkbox[name="billing[use_for_shipping]"]').change(function () {
             $j('#shippingcontent').toggle(100);
             $j('#same-as-billing-text').toggle(100);
+            var sameasbilling_element = $j(document.getElementById("shipping:same_as_billing"));
+            var sameasbilling_value = $j(sameasbilling_element).val();
+            if(sameasbilling_value === '0') {
+              $j(sameasbilling_element).val('1');
+            } else {
+              $j(sameasbilling_element).val('0');
+            }
         });
 
-        $j('#btnBillingContinue').on('click', function () {
-          var useforshipping = $j('input:checkbox[id="billing:use_for_shipping"]:checked').val();
-          if (useforshipping == null) {
-            if ($j('input:text[name="shipping[street][]"]').val() == '' ||
-                $j('input:text[name="shipping[street][]"]').val() != $j('input:text[name="billing[street][]"]').val()){
-                var billingaddress = $j('input:text[name="billing[street][]"]').val();
-                $j('input:text[name="shipping[street][]"]').val(billingaddress);
-            }
-            if ($j('input:text[name="shipping[city]"]').val() == '' ||
-                $j('input:text[name="shipping[city]"]').val() != $j('input:text[name="billing[city]"]').val()) {
-                var billingcity = $j('input:text[name="billing[city]"]').val();
-                $j('input:text[name="shipping[city]"]').val(billingcity);
-            }
-            if ($j('input:text[name="shipping[postcode]"]').val() == '' ||
-                $j('input:text[name="shipping[postcode]"]').val() != $j('input:text[name="billing[postcode]"]').val()) {
-                var billingpostcode = $j('input:text[name="billing[postcode]"]').val();
-                $j('input:text[name="shipping[postcode]"]').val(billingpostcode);
-            }
-            if ($j('select[name="shipping[country_id]"]').val() == '' ||
-                $j('select[name="shipping[country_id]"]').val() != $j('select[name="billing[country_id]"]').val()) {
-                var billingcountryid = $j('select[name="billing[country_id]"]').val();
-                $j('select[name="shipping[country_id]"]').val(billingcountryid).change();
-                if(billingcountryid != 'DE') {
-                    //$j('input:text[name="shipping[postcode]"]').removeClass('hb-validate-zipcode');
-                }
-            }
-
-            billing.save();
-          } else {
-            shipping.save();
-          }
-        });
+        // $j('#btnBillingContinue').on('click', function () {
+        //   var useforshipping = $j('input:checkbox[id="billing:use_for_shipping"]:checked').val();
+        //   if (useforshipping == null) {
+        //     billing.save();
+        //   } else {
+        //     shipping.save();
+        //   }
+        // });
     });
 //]]>
 </script>

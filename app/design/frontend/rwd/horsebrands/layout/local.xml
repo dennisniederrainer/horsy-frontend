@@ -34,6 +34,7 @@
     <block type="cms/block" name="topline.content">
         <action method="setBlockId"><block_id>topline_content</block_id></action>
     </block>
+    <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
   </reference>
   <reference name="root">
     <block type="core/text_list" name="top.menu.sidebar" translate="label">
@@ -47,6 +48,10 @@
       <action method="setBlockId"><block_id>footer_content</block_id></action>
     </block>
   </reference>
+  <remove name="right.reports.product.viewed" />
+  <remove name="catalog.compare.sidebar" />
+  <remove name="right.poll" />
+  <remove name="sale.reorder.sidebar" />
 </default>
 
 <catalog_category_layered>
@@ -123,6 +128,12 @@
 </checkout_cart_index>
 
 <checkout_onepage_index>
+  <reference name="head">
+    <action method="addItem"><type>skin_js</type><name>js/checkout/ops/payment.js</name></action>
+  </reference>
+  <reference name="header">
+    <action method="setTemplate"><template>checkout/onepage/header.phtml</template></action>
+  </reference>
   <reference name="checkout.onepage.login">
       <block type="customer/form_register" name="customer_form_register" as="registration" template="customer/form/register.phtml">
         <action method="setData">

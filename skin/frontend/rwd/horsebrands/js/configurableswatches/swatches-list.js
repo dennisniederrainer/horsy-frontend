@@ -58,10 +58,11 @@ var ConfigurableSwatchesList = {
 
     handleSwatchSelect: function($swatch)
     {
+        console.log('swap');
         var productId = $swatch.data('product-id');
         var label;
         if (label = $swatch.data('option-label')) {
-            console.log('swap');
+            console.log('swap 2');
             ConfigurableMediaImages.swapListImageByOption(productId, label);
         }
 

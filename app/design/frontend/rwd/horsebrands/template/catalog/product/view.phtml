@@ -18,125 +18,119 @@
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <div class="product-view">
-    <div class="row smaller-margins full-width product-essential">
-    <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+  <div class="product-essential">
+    <div class="product-essential-left">
+      <!-- img and description -->
+      <div class="image-gallery-wrapper">
+        <?php echo $this->getChildHtml('media') ?>
+      </div>
+      <!-- <div class="description-wrapper">
+        <?php //echo $this->getChildHtml('description') ?>
+      </div> -->
+    </div>
+    <div class="product-essential-right">
+      <!-- product info -->
+      <div class="row">
+        <div class="manufacturer-logo left">
+          <?php $manufacturerName = $_product->getAttributeText('manufacturer'); ?>
+          <?php $manufacturerId = $_product->getManufacturer(); ?>
+          <?php $manufacturer = Mage::getModel('Purchase/supplier')->load($manufacturerId, 'sup_code'); ?>
+          <?php $imgUrl = $manufacturer->getsup_logo(); ?>
+          <?php if($imgUrl): ?>
+            <?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .DS. 'manufacturer' .DS. 'logos' .DS. $imgUrl; ?>
+            <img src="<?php echo $imgUrl ?>" alt="<?php echo $manufacturerName ?>" class="img-responsive" />
+          <?php else: ?>
+            <?php echo $manufacturerName ?>
+          <?php endif; ?>
+        </div>
+        <div class="review-stars right" style="text-align:right;">
+          <p class="rating overall-rating">
+            <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
+            for ($i=1; $i <= 5 ; $i++) {
+              echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
+            }
+            ?>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns medium-12 product-name">
+          <h1 class="thin-weight"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columns medium-12">
+          <h1 class="normal-weight">
+            <?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?>
+            <span class="note">
+              <?php echo (Mage::helper('tax')->priceIncludesTax() ? 'inkl. MwSt' : 'exkl. MwSt'); ?>
+            </span>
+          </h1>
+        </div>
+      </div>
+      <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
         <?php echo $this->getBlockHtml('formkey') ?>
         <div class="no-display">
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
         </div>
-
-        <div class="columns medium-8 product-essential-left">
-          <!-- img and description -->
-          <div class="row full-width" style="padding-right: 15px;">
-            <div class="columns small-12">
-              <?php echo $this->getChildHtml('media') ?>
-            </div>
-          </div>
-          <div class="row full-width description-wrapper" style="padding-right: 15px;">
-            <div class="columns small-12">
-              <?php echo $this->getChildHtml('description') ?>
-            </div>
-          </div>
-        </div>
-        <div class="columns medium-4 product-essential-right">
-          <!-- product info -->
-          <div class="row">
-            <div class="manufacturer-logo left">
-              <?php $manufacturerName = $_product->getAttributeText('manufacturer'); ?>
-              <?php $manufacturerId = $_product->getManufacturer(); ?>
-              <?php $manufacturer = Mage::getModel('Purchase/supplier')->load($manufacturerId, 'sup_code'); ?>
-              <?php $imgUrl = $manufacturer->getsup_logo(); ?>
-              <?php if($imgUrl): ?>
-                <?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .DS. 'manufacturer' .DS. 'logos' .DS. $imgUrl; ?>
-                <img src="<?php echo $imgUrl ?>" alt="<?php echo $manufacturerName ?>" class="img-responsive" />
-              <?php else: ?>
-                <?php echo $manufacturerName ?>
-              <?php endif; ?>
-            </div>
-            <div class="review-stars right" style="text-align:right;">
-              <p class="rating overall-rating">
-                <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
-                for ($i=1; $i <= 5 ; $i++) {
-                  echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
-                }
-                ?>
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="columns medium-12 product-name">
-              <h1 class="thin-weight"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="columns medium-12">
-              <h1 class="normal-weight">
-                <?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?>
-                <span class="note">
-                  <?php echo (Mage::helper('tax')->priceIncludesTax() ? 'inkl. MwSt' : 'exkl. MwSt'); ?>
-                </span>
-              </h1>
-            </div>
-          </div>
-          <div class="row no-margin">
-              <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                  <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-              <?php elseif (!$this->hasOptions()):?>
-                  <div class="add-to-box">
-                      <?php if($_product->isSaleable()): ?>
-                          <?php echo $this->getChildHtml('addtocart') ?>
-                      <?php endif; ?>
-                      <?php echo $this->getChildHtml('addto') ?>
-                      <?php //echo $this->getChildHtml('sharing') ?>
-                  </div>
-                  <?php echo $this->getChildHtml('extra_buttons') ?>
-              <?php elseif (!$_product->isSaleable()): ?>
-                  <div class="add-to-box">
-                      <?php echo $this->getChildHtml('addto') ?>
-                      <?php //echo $this->getChildHtml('sharing') ?>
-                  </div>
-              <?php endif; ?>
-          </div>
-          <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), 'delivery_time', $storeId)): ?>
-          <div class="row">
-            <div class="columns medium-12">
-              <?php $deliveryAttributes = array('delivery_time') ?>
-              <ul class="unstyled check-items delivery-time-wrapper">
-                <?php foreach ($deliveryAttributes as $att_code): ?>
-                  <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), $att_code, $storeId)): ?>
-                  <li>
-                    <?php if($att_code == 'delivery_time'): ?>
-                      Lieferbar innerhalb von
+        <div class="row">
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php elseif (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
                     <?php endif; ?>
-                    <?php echo $_product->getAttributeText($att_code); ?>
-                  </li>
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <?php if($_product->isSaleable() && Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), 'delivery_time', $storeId)): ?>
+        <div class="row">
+          <div class="columns medium-12">
+            <?php $deliveryAttributes = array('delivery_time') ?>
+            <ul class="unstyled check-items delivery-time-wrapper">
+              <?php foreach ($deliveryAttributes as $att_code): ?>
+                <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), $att_code, $storeId)): ?>
+                <li>
+                  <?php if($att_code == 'delivery_time'): ?>
+                    Lieferbar innerhalb von
                   <?php endif; ?>
-                <?php endforeach; ?>
-              </ul>
-            </div>
-          </div>
-          <?php endif; ?>
-
-          <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-          <div class="row double-margin">
-            <div class="columns medium-12">
-                  <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-            </div>
-          </div>
-          <?php endif;?>
-
-          <div class="row">
-            <div class="columns medium-12">
-              <ul class="unstyled">
-                <li class="promotion-element expand return-icon">14 Tage R&uuml;ckgaberecht</li>
-                <li class="promotion-element expand phone-icon">Hotline 0251/67448555</li>
-                <li class="promotion-element expand delivery-icon">Versandkostenfrei</li>
-              </ul>
-            </div>
+                  <?php echo $_product->getAttributeText($att_code); ?>
+                </li>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </ul>
           </div>
         </div>
-    </form>
+        <?php endif; ?>
+
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+        <div class="row">
+          <div class="columns medium-12">
+                <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+          </div>
+        </div>
+        <?php endif;?>
+
+        <div class="row">
+          <div class="columns medium-12">
+            <ul class="unstyled">
+              <li class="promotion-element expand return-icon">14 Tage R&uuml;ckgaberecht</li>
+              <li class="promotion-element expand phone-icon">Hotline 0251/67448555</li>
+              <li class="promotion-element expand delivery-icon">Versandkostenfrei</li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
     <script type="text/javascript">
     //<![CDATA[
         var productAddToCartForm = new VarienForm('product_addtocart_form');
@@ -188,80 +182,23 @@
         }.bind(productAddToCartForm);
     //]]>
     </script>
-    </div>
-    <div class="row smaller-margins full-width crossselling-container">
-      <div class="columns medium-12">
-        <section>
-          <h5 class="section-title">&Auml;hnliche Produkte</h5>
-          <div>
-            Produkte Slider
-          </div>
-        </section>
+    <div class="product-essential-left">
+      <div class="description-wrapper">
+        <?php echo $this->getChildHtml('description') ?>
       </div>
     </div>
+  </div>
 
-    <div class="row smaller-margins full-width customerratings-container">
-      <div class="columns medium-12">
-        <section>
-          <h5 class="section-title">&nbsp;</h5>
-          <div>
-            <?php echo $this->getChildHtml('product_review'); ?>
-          </div>
-        </section>
-      </div>
-    </div>
+  <?php echo $this->getChildHtml('upsell_products') ?>
 
-    <?php /* ?>
-    <div class="product-collateral">
-<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
-        <div class="box-collateral <?php echo "box-{$alias}"?>">
-            <?php if ($title = $this->getChildData($alias, 'title')):?>
-            <h2><?php echo $this->escapeHtml($title); ?></h2>
-            <?php endif;?>
-            <?php echo $html; ?>
+  <div class="row smaller-margins full-width customerratings-container">
+    <div class="columns medium-12">
+      <section>
+        <h5 class="section-title"><?php echo $this->__('Customer Reviews'); ?></h5>
+        <div>
+          <?php echo $this->getChildHtml('product_review'); ?>
         </div>
-<?php endforeach;?>
-        <?php echo $this->getChildHtml('upsell_products') ?>
-        <?php echo $this->getChildHtml('product_additional_data') ?>
+      </section>
     </div>
-    <?php */ ?>
-
+  </div>
 </div>
-<script>
-jQuery(document).ready(function($j) {
-  if (typeof ConfigurableMediaImages === 'undefined' || typeof optionsPrice === 'undefined' || typeof Product === 'undefined') return;
-
-  /**
-  * Returns true, if there is a label-matching image on config product for the selected option's label
-  * @param el
-  * @returns {boolean}
-  */
-  var matchingImageExists = function(el) {
-    // copy from product-media.js:150-152
-    var select = $j(el);
-    var label = select.find('option:selected').attr('data-label');
-    var productId = optionsPrice.productId; //get product ID from options price object
-
-    // the inspection, based on product-media.js:94
-    return ConfigurableMediaImages.productImages[productId]['option_labels'][label]['configurable_product'][ConfigurableMediaImages.imageType];
-  };
-
-  // activation for attribute selectors (selectors as used in product-media.js:175)
-  $j('.product-options .super-attribute-select')
-  .off('change', ConfigurableMediaImages.updateImage(this))
-  .on('change', function() { if (matchingImageExists(this)) { ConfigurableMediaImages.updateImage(this); } });
-
-  // activation for swatches (overriding Product.ConfigurableSwatches.prototype.updateSelect method in swatches-product.js:722)
-  Product.ConfigurableSwatches.prototype.updateSelect = function(attr) {
-    // fire select change event
-    // this will trigger the validation of the select
-    // only fire if this attribute has had a selected option at one time
-    if (attr._e.selectedOption !== false && attr._e.optionSelect) {
-      this._F.nativeSelectChange = false;
-      if (matchingImageExists(attr._e.optionSelect)) ConfigurableMediaImages.updateImage(attr._e.optionSelect);
-      this.productConfig.handleSelectChange(attr._e.optionSelect);
-      this._F.nativeSelectChange = true;
-    };
-  }
-});
-</script>

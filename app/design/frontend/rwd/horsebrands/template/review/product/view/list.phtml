@@ -3,61 +3,55 @@
 <?php $summaryData = Mage::getModel('review/review_summary')->setStoreId($storeId)->load($this->getProduct()->getId()); ?>
 
 <div class="box-collateral box-reviews" id="customer-reviews">
-  <div class="row">
-    <div class="columns small-12 medium-4">
-      <div class="reviews-title">
-        <h2 class="container-title"><?php echo $this->__('Customer Reviews'); ?></h2>
-      </div>
-      <div class="review-summary-container">
+  <div class="box-reviews-left">
+    <div class="review-summary-container">
+      <?php if (count($_items)):?>
+        <p class="rating overall-rating">
+          <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
+          for ($i=1; $i <= 5 ; $i++) {
+            echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
+          }
+          ?>
+          <span><?php echo $numStarsTotal; ?>/5 Sterne</span>
+        </p>
+      <?php endif; ?>
+      <div class="summary-bars">
         <?php if (count($_items)):?>
-          <p class="rating overall-rating">
-            <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
-            for ($i=1; $i <= 5 ; $i++) {
-              echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
-            }
-            ?>
-            <span><?php echo $numStarsTotal; ?>/5 Sterne</span>
-          </p>
-        <?php endif; ?>
-        <div class="summary-bars">
-          <?php if (count($_items)):?>
-              <?php $overallVotes = $this->getRatingVotes() ?>
-              <?php $totalRatingsCount = $summaryData->getReviewsCount() ?>
+            <?php $overallVotes = $this->getRatingVotes() ?>
+            <?php $totalRatingsCount = $summaryData->getReviewsCount() ?>
 
-              <table id="rating-total-overview">
-                <colgroup>
-                  <col width="20%" />
-                  <col />
-                  <col width="20%" />
-                </colgroup>
-                <tbody>
-                  <?php foreach ($overallVotes as $key => $value) : ?>
-                    <tr>
-                      <td><?php echo $key . (intval($key)==1 ? " Stern" : " Sterne") ?>:</td>
-                      <td>
-                        <div class="progress">
-                          <span class="meter" style="width: <?php echo intval($value/$totalRatingsCount*100) ?>%;"></span>
-                        </div>
-                      </td>
-                      <td class="percentage"><?php echo intval($value/$totalRatingsCount*100) ?></td>
-                    </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
-            <?php else: ?>
-              <p>
-                <?php echo $this->__('There are no reviews for the product, yet.') ?>
-              </p>
-            <?php endif; ?>
-        </div>
+            <table id="rating-total-overview">
+              <colgroup>
+                <col width="20%" />
+                <col />
+                <col width="20%" />
+              </colgroup>
+              <tbody>
+                <?php foreach ($overallVotes as $key => $value) : ?>
+                  <tr>
+                    <td><?php echo $key . (intval($key)==1 ? " Stern" : " Sterne") ?>:</td>
+                    <td class="shares-bar">
+                      <div class="progress">
+                        <span class="meter" style="width: <?php echo intval($value/$totalRatingsCount*100) ?>%;"></span>
+                      </div>
+                    </td>
+                    <td class="percentage"><?php echo intval($value/$totalRatingsCount*100) ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          <?php else: ?>
+            <p>
+              <?php echo $this->__('There are no reviews for the product, yet.') ?>
+            </p>
+          <?php endif; ?>
       </div>
-    </div>
-    <div class="columns small-12 medium-8">
-      <?php echo $this->getChildHtml('review_form') ?>
     </div>
   </div>
-  <div class="row">
-    <div class="columns small-12">
+  <div class="box-reviews-right">
+    <?php echo $this->getChildHtml('review_form') ?>
+  </div>
+  <div class="reviews-list-wrapper">
     <?php if (count($_items)):?>
         <div class="review-heading">
             <h2><?php echo count($_items); ?> <?php echo $this->__('Customer Reviews') ?></h2>
@@ -66,7 +60,6 @@
         <dl>
         <?php foreach ($_items as $_review):?>
             <dt class="a-review-title">
-                <!-- sterne hier !! -->
                 <?php $_votes = $_review->getRatingVotes(); ?>
                 <?php if (count($_votes)): ?>
                   <?php foreach ($_votes as $_vote): ?>
@@ -91,7 +84,5 @@
         <?php endforeach; ?>
         </dl>
     <?php endif;?>
-    </div>
   </div>
-
 </div>

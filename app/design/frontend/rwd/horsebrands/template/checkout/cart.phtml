@@ -8,23 +8,22 @@
 <div class="cart <?php echo $_priceDisplay; ?>">
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <div class="page-title title-buttons clearfix">
-        <h1 class="strong"><?php echo $this->__('Your Shopping Carts') ?></h1>
-
-        <?php // EXPRESS CHECKOUT METHODS later! ?>
-        <?php if(!$this->hasError()): ?>
+      <?php // EXPRESS CHECKOUT METHODS later! ?>
+      <?php if(!$this->hasError()): ?>
         <ul class="checkout-types top">
           <li>
             <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>" class="button black height-m width-m">
               <?php echo $this->__('Continue Shopping') ?>
             </a>
           </li>
-        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+          <?php foreach ($this->getMethods('top_methods') as $method): ?>
             <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-            <li><?php echo $methodHtml; ?></li>
+              <li><?php echo $methodHtml; ?></li>
             <?php endif; ?>
-        <?php endforeach; ?>
+          <?php endforeach; ?>
         </ul>
-        <?php endif; ?>
+      <?php endif; ?>
+      <h1 class="strong"><?php echo $this->__('Your Shopping Carts') ?></h1>
     </div>
 
     <?php $shopItems = $this->getItemsByStoreId($_STORE_ID_SHOP); ?>
@@ -70,9 +69,16 @@
             <?php endif; ?>
           </thead>
           <?php if(count($shopItems)>0): ?>
+          <tbody>
+            <?php foreach($shopItems as $_item): ?>
+              <?php //if($_item->getStoreId() == $_STORE_ID_SHOP): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+              <?php //endif; ?>
+            <?php endforeach ?>
+          </tbody>
           <tfoot>
             <tr>
-              <td class="shipping-icon">
+              <td class="shipping-icon hide-small">
                 <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
               </td>
               <td class="a-left cart-shipping-info">
@@ -87,19 +93,12 @@
               </td>
             </tr>
           </tfoot>
-          <tbody>
-            <?php foreach($shopItems as $_item): ?>
-              <?php //if($_item->getStoreId() == $_STORE_ID_SHOP): ?>
-                <?php echo $this->getItemHtml($_item) ?>
-              <?php //endif; ?>
-            <?php endforeach ?>
-          </tbody>
           <?php else: ?>
             <tbody>
               <tr>
                 <td colspan="6">
                   <p class="empty">
-                    Sie haben keine Artikel aus dem Horsebrands Shop im Warenkorb
+                    <?php echo $this->__('You have no Items of Horsebrands Shop in your cart') ?>
                   </p>
                 </td>
               </tr>
@@ -153,9 +152,16 @@
             <?php endif; ?>
           </thead>
           <?php if(count($dealsItems)>0): ?>
+          <tbody>
+            <?php foreach($dealsItems as $_item): ?>
+              <?php //if($_item->getStoreId() == $_STORE_ID_DEALS): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+              <?php //endif; ?>
+            <?php endforeach ?>
+          </tbody>
           <tfoot>
             <tr>
-              <td class="shipping-icon">
+              <td class="shipping-icon hide-small">
                 <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
               </td>
               <td class="a-left cart-shipping-info">
@@ -170,19 +176,12 @@
               </td>
             </tr>
           </tfoot>
-        <tbody>
-          <?php foreach($dealsItems as $_item): ?>
-            <?php //if($_item->getStoreId() == $_STORE_ID_DEALS): ?>
-              <?php echo $this->getItemHtml($_item) ?>
-            <?php //endif; ?>
-          <?php endforeach ?>
-        </tbody>
         <?php else: ?>
           <tbody>
             <tr>
               <td colspan="6">
                 <p class="empty">
-                  Sie haben keine Artikel aus den Horsebrands Deals im Warenkorb
+                  <?php echo $this->__('You have no Items of Horsebrands Deals in your cart') ?>
                 </p>
               </td>
             </tr>
@@ -205,15 +204,15 @@
     </div>
     <div class="summary-wrapper">
       <div class="summary-shipping">
-        <div class="icon-container">
+        <div class="icon-container hide-small">
           <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
         </div>
         <div class="shipping-estimate-wrapper">
           <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-          <?php if($delivery_shop != ''): ?>
+          <?php if($delivery_shop): ?>
             <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
           <?php endif; ?>
-          <?php if($delivery_deals != ''): ?>
+          <?php if($delivery_deals): ?>
             <p><strong>Lieferung Deals:</strong> <?php echo $delivery_deals ?></p>
           <?php endif; ?>
         </div>

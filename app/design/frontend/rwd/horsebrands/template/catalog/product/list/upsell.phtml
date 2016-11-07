@@ -1,52 +1,77 @@
-<?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magento.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magento.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<?php if(count($this->getItemCollection()->getItems())): ?>
-<div class="box-collateral box-up-sell">
-    <h2><?php echo $this->__('You may also be interested in the following product(s)') ?></h2>
-    <table class="products-grid" id="upsell-product-table">
-    <?php // $this->setColumnCount(5); // uncomment this line if you want to have another number of columns. also can be changed in layout ?>
-    <?php $this->resetItemsIterator() ?>
-    <?php for($_i=0;$_i<$this->getRowCount();$_i++): ?>
-        <tr>
-        <?php for($_j=0;$_j<$this->getColumnCount();$_j++): ?>
-            <?php if($_link=$this->getIterableItem()): ?>
-            <td>
-                <a href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_link->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_link, 'small_image')->resize(125) ?>" width="125" height="125" alt="<?php echo $this->escapeHtml($_link->getName()) ?>" /></a>
-                <h3 class="product-name"><a href="<?php echo $_link->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_link->getName()) ?>"><?php echo $this->escapeHtml($_link->getName()) ?></a></h3>
-                <?php echo $this->getPriceHtml($_link, true, '-upsell') ?>
-                <?php echo $this->getReviewsSummaryHtml($_link) ?>
-            </td>
-            <?php else: ?>
-            <td class="empty">&nbsp;</td>
-            <?php endif; ?>
-        <?php endfor; ?>
-        </tr>
-    <?php endfor; ?>
-    </table>
-    <script type="text/javascript">decorateTable('upsell-product-table')</script>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $upsellitems = $this->getItemCollection()->getItems() ?>
+
+<?php if(count($upsellitems)): ?>
+<div class="row smaller-margins full-width crossselling-container">
+  <div class="columns medium-12">
+    <section class="upsell-products-wrapper">
+      <h5 class="section-title"><?php echo $this->__('You may also be interested in the following product(s)') ?></h5>
+      <div class="box-up-sell">
+        <div id="featured-products">
+          <?php foreach ($upsellitems as $_product): ?>
+            <div class="featured-product">
+              <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                <img id="product-collection-image-<?php echo $_product->getId(); ?>"
+                  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(232,245); ?>" width="232" height="245"
+                  alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+              </a>
+              <div class="product-info">
+                <div class="top-row">
+                  <h3><?php echo ($_product->getManufacturer() ? $_product->getAttributeText('manufacturer') : '&nbsp;'); ?></h3>
+                  <?php $_msrp = $_helper->productAttribute($_product, $_product->getMsrp(), 'msrp') ?>
+                  <?php $_msrpPrice = $this->helper('core')->currency($_msrp,true,true) ?>
+                  <?php if($_msrp): ?>
+                    <span class="msrp"><?php echo $_msrpPrice; ?></span>
+                  <?php endif; ?>
+                </div>
+                <div class="bottom-row">
+                  <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+                  <span class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></span>
+                </div>
+              </div>
+                <?php
+                if ($this->getChild('name.after')) {
+                    $_nameAfterChildName = 'product_list.swatches';
+                    if ($_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName)) {
+                      echo '<div class="offcanvas offcanvas-left">';
+                      $_nameAfterChild->setProduct($_product);
+                      echo $_nameAfterChild->toHtml();
+                      echo '</div>';
+                    }
+                }
+                ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+
+      </div>
+    </section>
+  </div>
 </div>
-<?php endif ?>
+<script type="text/javascript">
+//<![CDATA[
+
+  jQuery('#featured-products').slick({
+    dots: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      }
+    ]
+  })
+
+//]]>
+</script>
+<?php endif; ?>

@@ -108,30 +108,6 @@ $black: #1d1d1d;
 	padding: $padding ($padding * $width-factor) ($padding + rem-calc(1)) ($padding * $width-factor);
 }
 
-// a.button {
-// 	@include same-link-style($white);
-// 	// display: inline-block;
-// 	// text-align: center;
-// 	line-height: 18px;
-// 	// font-size: rem-calc(14);
-// 	cursor: pointer;
-// 	// border: none;
-// 	// border-radius: $button-border-radius;
-//
-// 	// @include button-states-color($black-base, $black-lighter);
-//
-// 	// &.gold {
-// 	// 	@include button-states-color($gold-base, $gold-lighter);
-// 	// }
-// 	// &.gray {
-// 	// 	@include button-states-color($gray-base, $gray-lighter-1);
-// 	// }
-// 	//
-// 	// &.default-size {
-// 	// 	@include btn-size-default;
-// 	// }
-// }
-
 .btn {
 	display: inline-block;
 	text-align: center;
@@ -199,16 +175,6 @@ $black: #1d1d1d;
 				color: $black-base;
 			}
 		}
-
-		&.gray-light {
-			border-color: $gray-lighter-3;
-			color: $gray-lighter-3;
-
-			&:hover {
-				border-color: $gray-base;
-				color: $gray-base;
-			}
-		}
 	}
 
 	&.orange {
@@ -261,6 +227,18 @@ $black: #1d1d1d;
 		color: $gray-lighter-3;
 		@include box-shadow(inset 0 -10px 30px -15px $gray-lighter-2);
 	}
+}
+
+.btn-gold {
+  color: $white-base !important;
+  @include button-states-color($gold-base, $gold-lighter);
+}
+.btn-gray {
+  color: $black-base;
+  @include button-states-color($gray-base, $gray-lighter-1);
+}
+.btn-gray-light {
+  @include button-states-color($gray-lighter-3, $gray-lighter-4);
 }
 
 .selected-filter-wrapper {
@@ -352,4 +330,8 @@ a.store-button {
 			right: -25%;
 		}
 	}
+}
+
+.btn-size-medium {
+  padding: .5em 3em;
 }

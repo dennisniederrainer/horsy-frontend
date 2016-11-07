@@ -10,31 +10,6 @@ $spacing-bottom: 20px;
     &.double-margin {
       margin-bottom: calc(#{$spacing-bottom} * 2);
     }
-
-    h1 {
-      font-size: rem-calc(22);
-      margin: 0;
-
-      span {
-        color: $gray-lighter-2;
-
-        &.note {
-          font-size: .5em;
-        }
-      }
-    }
-  }
-
-  .gallery-image {
-    display: none;
-
-    &.visible {
-      display: block;
-    }
-  }
-
-  .product-essential-left {
-    margin-top: 30px; // brandbar (on the right) + bottom margin
   }
 
   .manufacturer-logo {
@@ -54,55 +29,13 @@ $spacing-bottom: 20px;
     margin-top: 0;
   }
 
-  .btn {
-    margin-bottom: .3rem;
-  }
-
   .review-stars {
     color: $gold-base;
   }
 
   .delivery-time-wrapper {
-    font-size: rem-calc(12);
+    // font-size: rem-calc(12);
     // straussberg philipp
-  }
-
-  li.promotion-element {
-    font-size: rem-calc(12);
-    background-color: $gray-lighter-4;
-    background-repeat: no-repeat;
-    background-position: 20px 16px;
-    padding: .75rem 2rem;
-    margin-bottom: 2px;
-    text-align: center;
-
-    &.return-icon {
-      background-image: url('../images/icons/i-return.png');
-    }
-    &.delivery-icon {
-      background-image: url('../images/icons/i-delivery-productview.png');
-    }
-    &.phone-icon {
-      background-image: url('../images/icons/i-phone.png');
-    }
-  }
-
-  section {
-    @extend section;
-    h5.section-title {
-      margin-top: 0;
-      font-weight: $font-weight-light;
-      font-size: $font-size-smaller;
-    }
-    p {
-      font-size: $font-size-smaller;
-      font-weight: $font-weight-light;
-      line-height: 1.4;
-
-      strong {
-        font-weight: $font-weight-bold;
-      }
-    }
   }
 }
 

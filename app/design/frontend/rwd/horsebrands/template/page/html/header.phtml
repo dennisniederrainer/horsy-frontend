@@ -27,12 +27,7 @@
       </div>
       <div id="mobile-search-wrapper" class="search-wrapper small-7 hide-for-medium-up">
         <div class="mobile-search-wrapper">
-          <div class="input-group">
-            <input id="search-input" type="text" class="input-group-field" placeholder="Suche..." />
-            <div class="input-group-button">
-              <a class="submit-button"><i class="fa fa-search"></i></a>
-            </div>
-          </div>
+          <?php echo $this->getChildHtml('topSearch'); ?>
         </div>
       </div>
     </div>
@@ -105,12 +100,7 @@
         <li><a href="#">Magazin</a></li> -->
       </ul>
       <div class="global-search">
-        <div class="input-group">
-          <input class="global-search-x input-group-field" placeholder="Suche..." />
-          <div class="global-search-x input-group-button">
-            <a class="submit-button"><i class="fa fa-search"></i></a>
-          </div>
-        </div>
+        <?php echo $this->getChildHtml('topSearch'); ?>
       </div>
     </div>
   <?php endif; ?>
@@ -119,10 +109,10 @@
   //<![CDATA[
 
     jQuery(document).ready(function($) {
-      $('#search-input').focusin(function(e) {
+      $('#mobile-search-wrapper #search').focusin(function(e) {
         $('#mobile-search-wrapper').addClass('spread');
       });
-      $('#search-input').focusout(function(e) {
+      $('#mobile-search-wrapper #search').focusout(function(e) {
         $('#mobile-search-wrapper').removeClass('spread');
       });
     });

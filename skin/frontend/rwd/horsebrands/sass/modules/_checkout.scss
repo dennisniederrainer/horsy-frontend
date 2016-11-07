@@ -102,31 +102,12 @@
     padding-top: 75px;
   }
 
-  .box {
-    h2.title { color: $font-color-default; }
-  }
-  // table {
-  //   margin-top: 20px;
-  //   tr {
-  //     td {
-  //       padding-top: 0;
-  //       padding-bottom: 15px;
-  //
-  //       &.small-spacing {
-  //         padding-bottom: 5px;
-  //       }
-  //     }
-  //     &.input-block {
-  //       td {
-  //         padding-top: 10px
-  //       }
-  //     }
-  //   }
-  // }
-
+	div.kv {
+		font-weight: $font-weight-light;
+	}
   label {
-    font-size: rem-calc(16);
-    font-weight: $font-weight-light;
+    font-size: 1rem;
+		font-weight: $font-weight-light;
 
     &.note {
       line-height: 1.2;
@@ -153,9 +134,9 @@
     }
   }
 
-  input[type="text"], input[type="password"] {
-    @extend .full-width;
-  }
+  // input[type="text"], input[type="password"] {
+  //   @extend .full-width;
+  // }
 
   p.note {
     margin: 0;
@@ -281,6 +262,20 @@ span.count {
   }
 }
 
+.same-as-billing-container {
+	input {
+		margin-left: 10px;
+		margin-right: 5px;
+	}
+	label {
+		display: inline-block;
+	}
+}
+
+#same-as-billing-text {
+	margin: 0;
+}
+
 #cart-sidebar {
   @extend .unstyled;
 
@@ -343,4 +338,79 @@ span.count {
       }
     }
   }
+}
+
+#checkoutSteps {
+	.checkout-payment-method-wrapper {
+		@include box-shadow(0 0 2px $gray-lighter-3);
+		margin: 10px 0;
+		padding: 10px;
+
+		input[type="radio"] {
+			margin-right: 10px;
+		}
+		label.method-title {
+			display: inline-block;
+			font-weight: 700;
+			font-size: $font-size-medium;
+			line-height: 24px;
+			min-width: 175px;
+		}
+		.icon-paymentmethod img {
+			max-width: 80px;
+		}
+
+		ul {
+			list-style: none;
+		}
+	}
+}
+.payment-method-input-wrapper {
+	margin-top: 10px;
+}
+
+#dd_method_ops_cc,
+#dd_method_ops_directDebit {
+	@include clearfix;
+
+	fieldset {
+		border: none;
+	}
+}
+
+#dd_method_ops_cc li.insert_payment_details,
+#dd_method_ops_directDebit li {
+	@include clearfix;
+
+	border: none;
+	background-color: $white-base;
+	margin-bottom: 10px;
+
+	label {
+		float: left;
+		clear: left;
+		width: 12%;
+		min-width: 130px;
+	}
+	select,
+	input {
+		float: left;
+		width: 30%;
+		min-width: 260px;
+		background-color: $white-base;
+	}
+
+	#ops_cc_loader {
+		clear: both;
+		text-align: left;
+	}
+}
+
+#ops_iframe_ops_cc {
+	#payment-container,
+	#payment-form-container,
+	#payment-data-container {
+		margin: 0;
+		padding: 0;
+	}
 }

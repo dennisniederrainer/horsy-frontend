@@ -10,16 +10,16 @@
         <dl id="narrow-by-list2">
             <dt class="title"><?php echo $this->__('Category') ?></dt>
             <dd>
-                <ul>
+                <ul class="first-level">
                 <?php foreach ($_categories as $_category): ?>
                     <?php if($_category->getIsActive()): ?>
                     <?php $subCatHtml = $this->getNextLayerHtml($_category) ?>
-                    <li class="cat-nav-element<?php echo ($subCatHtml ? ' hasSubcategories' : '') ?>">
-                        <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="first <?php if ($this->isCategoryActive($_category)): ?> current<?php endif; ?>">
-                          <?php echo $this->escapeHtml($_category->getName()) ?><?php if($subCatHtml): ?><i class="fa fa-chevron-right"></i><?php endif; ?>
+                    <li>
+                        <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="childcategory-header first <?php if ($this->isCategoryActive($_category)): ?> current<?php endif; ?>">
+                          <?php echo $this->escapeHtml($_category->getName()) ?><i class="fa fa-chevron-right"></i>
                         </a>
                         <?php if( $subCatHtml && $subCatHtml != '' ): ?>
-                          <ul class="subcat-layer" style="display:none;">
+                          <ul class="subcat-layer hide">
                             <?php echo $subCatHtml; ?>
                           </ul>
                         <?php endif; ?>
@@ -32,28 +32,25 @@
         <script type="text/javascript">decorateDataList('narrow-by-list2')</script>
     </div>
 </div>
-<script>
-  jQuery(document).ready(function($j) {
-    $j('.cat-nav-element').on('click', function(e) {
-      e.preventDefault();
+<script type="text/javascript">
+//<![CDATA[
+jQuery(document).ready(function($) {
+  $('.childcategory-header').click(function(e) {
+    e.preventDefault();
 
-      if($j(this).hasClass('hasSubcategories')) {
-        var $icon = $j(this).find('a i.fa');
-
-        if($icon.hasClass('fa-chevron-right')) {
-          $icon.removeClass('fa-chevron-right');
-          $icon.addClass('fa-chevron-down');
-        } else if ($icon.hasClass('fa-chevron-down')) {
-          $icon.removeClass('fa-chevron-down');
-          $icon.addClass('fa-chevron-right');
-        }
-
-        $j(this).find('.subcat-layer').toggle();
-      } else {
-        window.location = $j(this).find('a').attr('href');
-      }
-    });
+    var $this = $(this);
+    if( $this.hasClass('expanded') ) {
+      $this.removeClass('expanded');
+      $this.children('.fa').removeClass('fa-chevron-down').addClass('fa-chevron-right');
+      $this.siblings('.subcat-layer').addClass('hide');
+    } else {
+      $this.addClass('expanded');
+      $this.children('.fa').removeClass('fa-chevron-right').addClass('fa-chevron-down');
+      $this.siblings('.subcat-layer').removeClass('hide');
+    }
   });
+});
+//]]>
 </script>
 <?php endif; ?>
 <div class="seo-text">

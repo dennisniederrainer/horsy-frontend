@@ -1,11 +1,11 @@
-app/code/local/Horsebrands/Rewrites           app/code/local/Horsebrands/Rewrites
-app/etc/modules/Horsebrands_Rewrites.xml      app/etc/modules/Horsebrands_Rewrites.xml
+app/code/local/Horsebrands/Rewrites    /app/code/local/Horsebrands/Rewrites
+app/etc/modules/Horsebrands_Rewrites.xml   /app/etc/modules/Horsebrands_Rewrites.xml
 
-app/code/local/Horsebrands/Deinverein         app/code/local/Horsebrands/Deinverein
-app/etc/modules/Horsebrands_Deinverein.xml    app/etc/modules/Horsebrands_Deinverein.xml
+app/code/local/Horsebrands/Deinverein    /app/code/local/Horsebrands/Deinverein
+app/etc/modules/Horsebrands_Deinverein.xml   /app/etc/modules/Horsebrands_Deinverein.xml
 
-app/design/adminhtml/default/default/template/horsebrands/   app/design/adminhtml/default/default/template/horsebrands/
-app/design/frontend/rwd/horsebrands/          app/design/frontend/rwd/horsebrands/
-app/design/frontend/rwd/deinverein/           app/design/frontend/rwd/deinverein/
+app/design/adminhtml/default/default/template/horsebrands/   /app/design/adminhtml/default/default/template/horsebrands/
+app/design/frontend/rwd/horsebrands/   /app/design/frontend/rwd/horsebrands/
+app/design/frontend/rwd/deinverein/   /app/design/frontend/rwd/deinverein/
 
-skin/frontend/rwd/horsebrands/                skin/frontend/rwd/horsebrands/
+skin/frontend/rwd/horsebrands/         /skin/frontend/rwd/horsebrands/

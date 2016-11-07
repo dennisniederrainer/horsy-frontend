@@ -1,4 +1,6 @@
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
+
 <header class="deinverein-header">
   <div class="fixed-top hide-for-small-down">
     <div class="container">
@@ -7,7 +9,7 @@
   </div>
   <div class="top-header container clearfix">
     <div class="top-header-element top-header-left store-select" style="bottom: 30px;">
-      <a href="<?php echo $this->getBaseUrl(); ?>">
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>">
         <i class="fa fa-long-arrow-left"></i> <?php echo $this->__('Zum Horsebrands Shop') ?>
       </a>
     </div>

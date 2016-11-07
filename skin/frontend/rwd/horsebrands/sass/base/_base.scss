@@ -1,3 +1,11 @@
+html, body {
+	font-size: 14px;
+}
+
+body {
+	@include tondo-light;
+}
+
 
 .clearfix {
 	@include clearfix;
@@ -30,7 +38,6 @@ table.unstyled {
 .new-inner-row {
 	padding-left: 0 !important;
 }
-
 
 ul.check-items {
 	li:before {
@@ -68,6 +75,7 @@ ul.messages {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	margin-bottom: 20px;
 
 	li {
 		border: 1px solid transparent;
@@ -198,3 +206,104 @@ a {
 		background-color: $white-base;
 	}
 }
+
+
+ul {
+	margin-left: .2rem;
+
+	li ul {
+		margin-left: .2rem;
+	}
+}
+
+section {
+  margin-bottom: $section-margin-bottom;
+  h5.section-title {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: normal;
+
+    border-bottom: 1px solid $gray-lighter-2;
+    margin-bottom: 1rem;
+    padding-bottom: $title-padding-bottom;
+  }
+}
+
+.btn {
+	margin-bottom: 10px;
+
+	&.link-wishlist {
+		font-weight: $font-weight-bold;
+		padding: .75em 0;
+	}
+	&.link-addtocart {
+		font-size: $font-size-medium;
+		font-weight: $font-weight-bold;
+		padding: .875em 0;
+	}
+}
+
+@include media('>=phone','<tablet') {
+
+	table, thead, tbody, tfoot, th, td, tr {
+    display: block;
+  }
+
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		// border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+
+	td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+};
+
+.inline-block {
+	display: inline-block;
+}
+
+.show-small {
+	display: block;
+
+	@include media('>=tablet') {
+		display: none;
+	};
+}
+
+@include media('<tablet') {
+	.hide-small {
+		display: none;
+	}
+};
+
+.hide-medium-up {
+	display: none;
+}
+@include media('>=tablet') {
+	td.hide-medium-up {
+		display: table-cell;
+	}
+	div.hide-medium-up {
+		display: block;
+	}
+	span.hide-medium-up {
+		display: inline;
+	}
+};

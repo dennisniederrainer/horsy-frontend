@@ -305,7 +305,6 @@ article.teaser-element {
 table {
 	width: 100%;
 	border: 2px solid $gray-lighter-6;
-	border-top: none;
 	border-collapse: separate;
 
 	thead {
@@ -373,6 +372,10 @@ table {
 			}
 		}
 	}
+
+	@include media('>=tablet') {
+		border-top: none;
+	};
 }
 
 p.note {

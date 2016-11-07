@@ -29,3 +29,19 @@
 @mixin btn-size-default {
   line-height: 32px;
 }
+
+// Mixins
+@mixin tondo-light {
+  font-family: $font-family-base;
+  font-weight: $font-weight-light;
+}
+
+@mixin tondo-regular {
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+}
+
+@mixin tondo-bold {
+  font-family: $font-family-base;
+  font-weight: $font-weight-bold;
+}

@@ -6,25 +6,20 @@
     var lastPrice;
 //]]>
 </script>
-<div class="box">
-  <h2 class="title"><?php echo $this->__('Available Payment Methods'); ?></h2>
-  <div class="content clearfix">
-    <form action="" id="co-payment-form">
-        <div class="fieldset">
-            <?php echo $this->getChildChildHtml('methods_additional', '', true, true) ?>
-            <?php echo $this->getChildHtml('methods') ?>
-        </div>
-        <span class="please-wait" id="payment-please-wait" style="display:none;">
-            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
-        </span>
-    </form>
-    <div class="tool-tip" id="payment-tool-tip" style="display:none;">
-        <div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Close')) ?>"><?php echo $this->__('Close') ?></a></div>
-        <div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Card Verification Number Visual Reference')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Card Verification Number Visual Reference')) ?>" /></div>
+<form action="" id="co-payment-form">
+    <div class="fieldset">
+        <?php echo $this->getChildChildHtml('methods_additional', '', true, true) ?>
+        <?php echo $this->getChildHtml('methods') ?>
     </div>
-    <?php echo $this->getChildChildHtml('additional') ?>
-  </div>
+    <span class="please-wait" id="payment-please-wait" style="display:none;">
+        <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
+    </span>
+</form>
+<div class="tool-tip" id="payment-tool-tip" style="display:none;">
+    <div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Close')) ?>"><?php echo $this->__('Close') ?></a></div>
+    <div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Card Verification Number Visual Reference')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Card Verification Number Visual Reference')) ?>" /></div>
 </div>
+<?php echo $this->getChildChildHtml('additional') ?>
 <div class="buttons-set clearfix" id="payment-buttons-container">
   <button class="left" onclick="checkout.back();"><i class="fa fa-angle-double-left"></i> <?php echo $this->__('Back'); ?></button>
   <button class="gold right" onclick="payment.save();"><?php echo $this->__('Continue'); ?> <i class="fa fa-angle-double-right"></i></button>

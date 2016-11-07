@@ -21,20 +21,25 @@ class Horsebrands_Rewrites_Block_Checkout_Cart extends Mage_Checkout_Block_Cart 
   );
 
   public function getEstimatedShippingText($storeId) {
-    $interval = $this->getLongestShippingInterval($storeId);
+    $items = $this->getItemsByStoreId($storeId);
 
-    $today = Mage::getModel('core/date')->date('l, d.m.Y');
-    $earliest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[0]." day");
-    $latest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[1]." day");
+    if($items && count($items)) {
+      $interval = $this->getLongestShippingInterval($storeId, $items);
 
-    $earliestText = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
-    $latestText = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
+      $today = Mage::getModel('core/date')->date('l, d.m.Y');
+      $earliest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[0]." day");
+      $latest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[1]." day");
 
-    return $earliestText . ' - ' . $latestText;
+      $earliestText = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
+      $latestText = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
+
+      return $earliestText . ' - ' . $latestText;
+    }
+
+    return null;
   }
 
-  protected function getLongestShippingInterval($storeId) {
-    $items = $this->getItems();
+  protected function getLongestShippingInterval($storeId, $items) {
     $highestIndex = 0;
 
     foreach ($items as $item) {

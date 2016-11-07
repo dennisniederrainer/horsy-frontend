@@ -17,8 +17,8 @@
   .block-title {
     display: none;
   }
-  .block-content {
-    font-size: $font-size-smaller;
+  .block-content dl {
+    font-size: $font-size-medium;
 
     dt.title {
       border-bottom: 1px solid $gray-base;
@@ -31,28 +31,30 @@
         list-style: none;
         padding: 0;
 
+        &.first-level li {
+          margin-top: 5px;
+        }
+
         li {
           i.fa {
             padding-left: 4px;
-            font-size: 12px;
+            font-size: $font-size-small;
           }
 
           a {
             @include same-link-style($gray-base);
             &:hover {
-              font-weight: 700;
+              font-weight: $font-weight-bold;
             }
             &.first {
               font-weight: 700;
               color: $black-base;
+
+              &:hover {
+                text-decoration: underline;
+              }
             }
           }
-
-
-        }
-
-        &.subcat-layer {
-          padding-left: 10px;
         }
       }
     }
@@ -84,9 +86,13 @@
 }
 
 .swatch-link {
-  border: 1px solid #cccccc;
+  border: 1px solid transparent;
+  padding: 2px;
   margin: 0 0 3px;
 }
+
+li.selected
+
 .swatch-link img {
   border-radius: 2px;
 }
@@ -128,9 +134,9 @@
   -webkit-transform: translateZ(0px);
 }
 .configurable-swatch-list li {
-  float: left;
+  display: inline-block;
   zoom: 1;
-  margin: 0 0 0 3px;
+  margin: 0 5px 3px;
 }
 .products-grid .configurable-swatch-list li {
   display: inline-block;
@@ -142,7 +148,7 @@
   display: block;
 }
 .configurable-swatch-list .not-available .swatch-link {
-  border-color: #ededed;
+  // border-color: #ededed;
   position: relative;
 }
 .configurable-swatch-list .not-available .swatch-link.has-image img {
@@ -227,7 +233,7 @@
 .configurable-swatch-list .hover .swatch-link,
 .configurable-swatch-list .selected .swatch-link,
 .swatch-link:hover {
-  border-color: #3399cc;
+  border-color: $gold-base;
 }
 
 .configurable-swatch-box {
@@ -273,7 +279,7 @@
 .configurable-swatch-list {
   list-style: none;
   padding-left: 0;
-  margin-top: 0;
+  margin: 0;
 
   .swatch-link {
     width: 32px;

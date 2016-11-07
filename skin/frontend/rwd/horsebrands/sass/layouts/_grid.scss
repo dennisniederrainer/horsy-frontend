@@ -67,3 +67,28 @@
 .col-main {
 	margin-top: 20px;
 }
+
+.col2-left-layout {
+	.col-left,
+	.col-main {
+		float: left;
+	}
+	.col-left {
+		width: 25%;
+	}
+	.col-main {
+		width: 75%;
+	}
+
+	@include media('>=phone','<tablet') {
+		.col-left,
+		.col-main {
+			float: none;
+			width: 100%;
+		}
+
+		.col-left {
+			display: none;
+		}
+  };
+}

@@ -1,7 +1,7 @@
 
 .cart {
-  .page-title.title-buttons {
-    h1{float:left;}
+  .page-title.title-buttons h1{
+    float: left;
   }
 
   h1 {
@@ -12,53 +12,70 @@
   }
 
   .cart-title {
-    margin-bottom: 0.67em;
-  }
-
-  table {
-    td {
-      div {
-        line-height: 18px;
-        &.product-cart-manufacturer {
-          font-weight: $font-weight-bold;
-          color: $black-base;
-        }
-        &.product-name a {
-          @include same-link-style($gray-base);
-        }
-        &.product-cart-deliverytime {
-          margin-bottom: 8px;
-        }
-      }
-
-      &.product-cart-info {
-        text-align: left;
-        position: relative;
-
-        a.btn-remove {
-          position: absolute;
-          bottom: 10px;
-        }
-      }
-      &.product-cart-image img {
-        min-width: 100px;
-      }
-      &.product-cart-actions {
-        input {
-          display: block;
-          width: 35%;
-          text-align: center;
-          margin: 0 auto 5px;
-        }
-      }
-      &.product-cart-total {
-        font-weight: $font-weight-bold;
-      }
-    }
+    margin: 15px 0;
   }
 
   a.btn-remove {
     @include same-link-style($gray-lighter-2);
+  }
+}
+
+.cart-table {
+  td {
+    div {
+      line-height: 18px;
+      &.product-cart-manufacturer {
+        font-weight: $font-weight-bold;
+        color: $black-base;
+      }
+      &.product-name a {
+        @include same-link-style($gray-base);
+      }
+      &.product-cart-deliverytime {
+        margin-bottom: 8px;
+      }
+    }
+
+    &.product-cart-info {
+      text-align: left;
+      position: relative;
+
+      .btn-remove {
+        position: absolute;
+        bottom: 10px;
+      }
+    }
+    &.product-cart-image img {
+      min-width: 100px;
+    }
+    &.product-cart-actions {
+      input {
+        display: block;
+        width: 35%;
+        text-align: center;
+        margin: 0 auto 5px;
+      }
+    }
+    &.product-cart-total {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  dl.item-options {
+    @include clearfix;
+
+    dt,
+    dd {
+      float: left;
+      width: 50%;
+      margin-bottom: 0;
+      text-align: left;
+    }
+    dt {
+      clear: left;
+      padding-right: 10px;
+      text-align: right;
+    }
   }
 }
 
@@ -80,12 +97,18 @@
 
     dl.totals-block {
       margin-bottom: 0;
+      padding-top: 10px;
+
       dd {
         p.note {
           font-size: 9px;
         }
       }
     }
+  }
+
+  p.empty {
+    margin: 10px 0;
   }
 }
 .shipping-estimate-wrapper {
@@ -98,6 +121,10 @@
     font-weight: $weight-bold;
     // margin-bottom: 5px;
   }
+
+  @include media('>=phone', '<tablet') {
+    text-align: center;
+  };
 }
 
 .summary-wrapper {
@@ -119,8 +146,9 @@
 
     .icon-container {
       float: left;
-      width: 110px;
+      width: 120px;
       text-align: center;
+      padding-top: 10px;
     }
     .shipping-estimate-wrapper {
       float: left;
@@ -162,6 +190,81 @@ ul.checkout-types{
   }
 }
 
+@include media('>=phone','<tablet') {
+  .page-title h1 {
+    display: none;
+  }
+
+  ul.checkout-types {
+    float: none;
+    margin-left: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 0;
+      width: 48%;
+
+      button {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
+
+      &:last-child {
+        width: 50%;
+      }
+    }
+
+    &.bottom li {
+      width: 100%;
+    }
+  }
+
+  .cart-title {
+    text-align: center;
+  }
+
+  .cart-table {
+    td {
+      &.product-cart-info {
+        text-align: center;
+
+        .btn-remove {
+          position: relative;
+        }
+      }
+    }
+
+    tfoot {
+      padding-bottom: 10px;
+    }
+  }
+
+  .shipping-estimate-wrapper {
+    margin-bottom: 20px;
+    p strong {
+      display: block;
+    }
+  }
+
+  .summary-wrapper {
+    .summary-shipping,
+    .cart-totals-wrapper {
+      float: none;
+    }
+    .summary-shipping {
+      @include clearfix;
+
+      .shipping-estimate-wrapper {
+        text-align: left;
+      }
+    }
+    .method-checkout-cart-methods-onepage-bottom {
+      width: 100%;
+    }
+  }
+};
+
 dl.totals-block {
   @include clearfix;
   float: right;
@@ -172,6 +275,7 @@ dl.totals-block {
     width: 130px;
     text-align: right;
     line-height: 1.4;
+    margin: 3px 0;
 
     &.totals-strong {
       font-weight: $weight-bold;

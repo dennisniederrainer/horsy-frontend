@@ -1,20 +1,17 @@
+<?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
 <header>
-  <div class="fixed-top">
+  <div class="fixed-top hide-for-small-down">
     <div class="container">
-      <span>Kostenlose Hotline</span>
-      <span>service@horsebrands.de</span>
-      <span>14 Tage Rückgaberecht</span>
-      <span>Versandkostenfrei ab einem Bestellwert von 30€</span>
+      <?php echo $this->getChildHtml('topline.content'); ?>
     </div>
   </div>
   <div class="top-header container clearfix">
-    <div class="top-header-element top-header-left store-select" style="display:none;">
-    </div>
     <div class="top-header-element top-header-center brand">
-      <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
-        <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" class="img-responsive">
-      </a>
+      <div class="logo-wrapper checkout small-12">
+        <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
+          <img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" class="img-responsive">
+        </a>
+      </div>
     </div>
-    <div class="top-header-element top-header-right customer-nav" style="display:none;">
-    </div>
+  </div>
 </header>

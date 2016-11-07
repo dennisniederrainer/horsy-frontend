@@ -3,7 +3,7 @@ $grid-padding-columns-horizontal: .9375rem;
 
 $breakpoints:(
   'phone': 320px,
-  'tablet': 640px,
+  'tablet': 768px,
   'desktop': 1024px
 );
 
@@ -66,8 +66,8 @@ $btn-font-size-large: 1.5rem;
 $font-size-big: rem-calc(22);
 $font-size-medium: rem-calc(16);
 $font-size-normal: rem-calc(14);
-$font-size-smaller: rem-calc(14);
-$font-size-small: rem-calc(12);
+$font-size-smaller: rem-calc(12);
+$font-size-small: rem-calc(10);
 
 $padding-height-medium: .85rem;
 $padding-height-small: .3rem;
@@ -84,3 +84,9 @@ $box-content-font-size: rem-calc(13);
 
 // TABLES
 $table-border-color-default: $gray-lighter-3;
+
+
+$font-family-base: "tondo", Arial, "Helvetica Neue", Helvetica, sans-serif !default;
+$font-weight-light: 300;
+$font-weight-base: 400;
+$font-weight-bold: 700;

@@ -2,11 +2,13 @@
   $_helper = $this->helper('catalog/output');
   $skus = explode(",", $this->getData('product_skus'));
   $products = null;
+  $category = Mage::getModel('catalog/category')->load(114);
 
   if($skus && count($skus)>0) {
     $products = Mage::getResourceModel('catalog/product_collection')
                   ->addAttributeToSelect('*')
                   ->addAttributeToFilter('sku', array( 'in' => $skus ))
+                  ->addCategoryFilter($category)
                   ->load();
   }
 ?>
@@ -31,7 +33,6 @@
           </div>
           <div class="bottom-row">
             <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
-            <span class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></span>
           </div>
         </div>
           <?php /*

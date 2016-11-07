@@ -1,7 +1,7 @@
 
 div.kv {
   @include clearfix;
-  font-size: $font-size-small;
+  font-size: 1rem;
   font-weight: $font-weight-base;
   margin-bottom: 10px;
 
@@ -20,28 +20,11 @@ p.required {
   font-size: $font-size-small !important;
 }
 
-// .buttons-set {
-//   margin-top: 25px;
-//   p.back-link {
-//     float: left;
-//     a {
-//       @include same-link-style($font-color-default, $orange-base);
-//     }
-//   }
-//   button {
-//     float: right;
-//     min-width: 220px;
-//     @extend .btn;
-//     @extend .btn.black;
-//     @extend .btn.medium;
-//   }
-// }
-
 label {
   display: block;
-  margin: 0 0 rem-calc(6px);
+  margin: 0 0 5px;
   font-weight: 400;
-  @include fs-normal;
+  font-size: 1rem;
 
   > * {
     font-weight: 300;
@@ -72,4 +55,46 @@ input[type="email"],
 input[type="tel"],
 textarea {
   width: 100%;
+}
+
+.input-container {
+  &.label-aside {
+    .input-block {
+      @include clearfix;
+
+      label,
+      input {
+        float: left;
+      }
+
+      label {
+        width: 25%;
+      }
+      input {
+        width: 75%;
+      }
+
+      &.checkbox {
+        .right-col {
+          width: 75%;
+          float: right;
+        }
+        label {
+          width: 92%;
+        }
+        input {
+          width: 8%;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+
+  .buttons-container {
+    margin-top: 10px;
+  }
+}
+
+.smaller {
+  font-size: $font-size-smaller !important;
 }

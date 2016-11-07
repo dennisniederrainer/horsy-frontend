@@ -99,6 +99,9 @@ var ConfigurableMediaImages = {
             return null; //bail
         }
 
+        // horsebrands: no fallback swatch image!
+        return null;
+
         //second, get any product which is compatible with currently selected option(s)
         $j.each(fallback['option_labels'], function(key, value) {
             var image = value['configurable_product'][ConfigurableMediaImages.imageType];
@@ -117,10 +120,10 @@ var ConfigurableMediaImages = {
         var childSwatchImage = null;
         var childProductImages = fallback[ConfigurableMediaImages.imageType];
         compatibleProducts.each(function(productId) {
-          console.log(ConfigurableMediaImages.imageType);
             if(childProductImages[productId] && ConfigurableMediaImages.isValidImage(childProductImages[productId])) {
                 childSwatchImage = childProductImages[productId];
-                return false; //break "loop"
+                // return false; //break "loop"
+                throw $break;
             }
         });
         if (childSwatchImage) {
