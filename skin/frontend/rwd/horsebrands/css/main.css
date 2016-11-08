@@ -10965,71 +10965,75 @@ ul.checkout-types li button::after {
   content: ">";
   padding-left: 3px;
 }
-/* line 188, ../sass/components/_cart.scss */
+/* line 187, ../sass/components/_cart.scss */
+ul.checkout-types li.method-checkout-cart-methods-multishipping {
+  display: none;
+}
+/* line 192, ../sass/components/_cart.scss */
 ul.checkout-types.bottom {
   clear: both;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-  /* line 194, ../sass/components/_cart.scss */
+  /* line 198, ../sass/components/_cart.scss */
   .page-title h1 {
     display: none;
   }
 
-  /* line 198, ../sass/components/_cart.scss */
+  /* line 202, ../sass/components/_cart.scss */
   ul.checkout-types {
     float: none;
     margin-left: 0;
   }
-  /* line 202, ../sass/components/_cart.scss */
+  /* line 206, ../sass/components/_cart.scss */
   ul.checkout-types li {
     display: inline-block;
     margin-right: 0;
     width: 48%;
   }
-  /* line 207, ../sass/components/_cart.scss */
+  /* line 211, ../sass/components/_cart.scss */
   ul.checkout-types li button {
     padding-left: 0;
     padding-right: 0;
     width: 100%;
   }
-  /* line 213, ../sass/components/_cart.scss */
+  /* line 217, ../sass/components/_cart.scss */
   ul.checkout-types li:last-child {
     width: 50%;
   }
-  /* line 218, ../sass/components/_cart.scss */
+  /* line 222, ../sass/components/_cart.scss */
   ul.checkout-types.bottom li {
     width: 100%;
   }
 
-  /* line 223, ../sass/components/_cart.scss */
+  /* line 227, ../sass/components/_cart.scss */
   .cart-title {
     text-align: center;
   }
 
-  /* line 229, ../sass/components/_cart.scss */
+  /* line 233, ../sass/components/_cart.scss */
   .cart-table td.product-cart-info {
     text-align: center;
   }
-  /* line 232, ../sass/components/_cart.scss */
+  /* line 236, ../sass/components/_cart.scss */
   .cart-table td.product-cart-info .btn-remove {
     position: relative;
   }
-  /* line 238, ../sass/components/_cart.scss */
+  /* line 242, ../sass/components/_cart.scss */
   .cart-table tfoot {
     padding-bottom: 10px;
   }
 
-  /* line 243, ../sass/components/_cart.scss */
+  /* line 247, ../sass/components/_cart.scss */
   .shipping-estimate-wrapper {
     margin-bottom: 20px;
   }
-  /* line 245, ../sass/components/_cart.scss */
+  /* line 249, ../sass/components/_cart.scss */
   .shipping-estimate-wrapper p strong {
     display: block;
   }
 
-  /* line 251, ../sass/components/_cart.scss */
+  /* line 255, ../sass/components/_cart.scss */
   .summary-wrapper .summary-shipping,
   .summary-wrapper .cart-totals-wrapper {
     float: none;
@@ -11043,16 +11047,16 @@ ul.checkout-types.bottom {
   .summary-wrapper .summary-shipping:after {
     clear: both;
   }
-  /* line 258, ../sass/components/_cart.scss */
+  /* line 262, ../sass/components/_cart.scss */
   .summary-wrapper .summary-shipping .shipping-estimate-wrapper {
     text-align: left;
   }
-  /* line 262, ../sass/components/_cart.scss */
+  /* line 266, ../sass/components/_cart.scss */
   .summary-wrapper .method-checkout-cart-methods-onepage-bottom {
     width: 100%;
   }
 }
-/* line 268, ../sass/components/_cart.scss */
+/* line 272, ../sass/components/_cart.scss */
 dl.totals-block {
   float: right;
   margin-top: 0;
@@ -11066,7 +11070,7 @@ dl.totals-block:before, dl.totals-block:after {
 dl.totals-block:after {
   clear: both;
 }
-/* line 273, ../sass/components/_cart.scss */
+/* line 277, ../sass/components/_cart.scss */
 dl.totals-block dt, dl.totals-block dd {
   float: left;
   width: 130px;
@@ -11074,11 +11078,11 @@ dl.totals-block dt, dl.totals-block dd {
   line-height: 1.4;
   margin: 3px 0;
 }
-/* line 280, ../sass/components/_cart.scss */
+/* line 284, ../sass/components/_cart.scss */
 dl.totals-block dt.totals-strong, dl.totals-block dd.totals-strong {
   font-weight: 700;
 }
-/* line 284, ../sass/components/_cart.scss */
+/* line 288, ../sass/components/_cart.scss */
 dl.totals-block dt {
   clear: left;
 }

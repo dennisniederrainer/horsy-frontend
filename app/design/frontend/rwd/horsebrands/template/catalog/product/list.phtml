@@ -59,6 +59,7 @@
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $i=0; foreach ($_productCollection as $_product): ?>
       <?php $i++ ?>
+      <!-- if($_item->getProduct()->getData('manufacturer')) { $manufacturer = $_item->getProduct()->getAttributeText('manufacturer'); } -->
       <?php $manufacturer = $_product->getAttributeText('manufacturer'); ?>
 
       <?php $firstInRow = ($i % $gridSize == 1) ?>
@@ -157,7 +158,7 @@
     <?php endif; ?>
 
     <div class="toolbar-bottom">
-        <?php //echo $this->getToolbarHtml() ?>
+        <?php echo $this->getToolbarHtml() ?>
     </div>
 <?php endif; ?>
 </div>

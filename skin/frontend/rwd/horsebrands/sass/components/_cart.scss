@@ -183,6 +183,10 @@ ul.checkout-types{
         padding-left: 3px;
       }
     }
+
+    &.method-checkout-cart-methods-multishipping {
+    	display: none;
+    }
   }
 
   &.bottom {

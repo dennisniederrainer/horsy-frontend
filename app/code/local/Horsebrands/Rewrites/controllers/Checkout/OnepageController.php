@@ -14,66 +14,56 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
      * horsebrands: neue saveBillingAction Methode, die Billing und Shipping-Daten beachtet
      */
     public function saveAddressAction() {
-        //Ajax-Session expired?
-        if ($this->_expireAjax()) {
-            return;
+      //Ajax-Session expired?
+      if ($this->_expireAjax()) {
+          return;
+      }
+      //Post-Data available
+      if ($this->getRequest()->isPost()) {
+        //get billing data
+        $data = $this->getRequest()->getPost('billing', array());
+        $billingAddressId = $data['address_id']; //$this->getRequest()->getPost('billing[address_id]', false);
+
+        if (isset($data['email'])) {
+            $data['email'] = trim($data['email']);
         }
-        //Post-Data available
-        if ($this->getRequest()->isPost()) {
-            //get billing data
-            $data = $this->getRequest()->getPost('billing', array());
-            $customerAddressId = $this->getRequest()->getPost('billing[address_id]', false);
-            if (isset($data['email'])) {
-                $data['email'] = trim($data['email']);
-            }
 
-            //save address to current checkout
-            $result = $this->getOnepage()->saveBilling($data, $customerAddressId);
+        //save address to current checkout
+        // $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
 
-            if (!isset($result['error'])) {
-                /* check quote for virtual */
-                if ($this->getOnepage()->getQuote()->isVirtual()) {
-                    $result['goto_section'] = 'payment';
-                    $result['update_section'] = array(
-                        'name' => 'payment-method',
-                        'html' => $this->_getPaymentMethodsHtml()
-                    );
-                /*
-                 * use_for_shipping ist nun eine checkbox, die nur daten mitsendet, wenn sie "checked" ist.
-                 * Deswegen nur abfrage, ob use_for_shipping nicht gesetzt
-                 */
-               } elseif (true || !isset($data['use_for_shipping'])) {
-                    $result = $this->getOnepage()->saveShipping($data, $customerAddressId);
+        if (!isset($result['error'])) {
+          // if (!isset($data['use_for_shipping'])) {
+          //   $result = $this->getOnepage()->saveShipping($data, $billingAddressId);
+          //   $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
+          // } else {
+            $shippingdata = $this->getRequest()->getPost('shipping', array());
+            $shippingAddressId = $shippingdata['address_id']; //$this->getRequest()->getPost('shipping_address_id', false);
+            // Mage::log('FTW', null, 'zong.log');
+            $result = $this->getOnepage()->saveShipping($shippingdata, $shippingAddressId);
 
-                    if (!isset($result['error'])) {
-                      $result['goto_section'] = 'shipping_method';
-                      $result['update_section'] = array(
-                          'name' => 'shipping-method',
-                          'html' => $this->_getShippingMethodsHtml()
-                      );
-                      $result['allow_sections'] = array('billing');
-                    }
+            $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
+          // }
 
-                    $result['duplicateBillingInfo'] = 'true';
-                } else {
-                    //wenn billing != shipping wird von hier die saveShipping aufgerufen.
-                    $data = $this->getRequest()->getPost('shipping', array());
-                    $customerAddressId = $this->getRequest()->getPost('shipping_address_id', false);
-                    $result = $this->getOnepage()->saveShipping($data, $customerAddressId);
+          $method = 'tablerate_bestway';
+          $result = $this->getOnepage()->saveShippingMethod($method);
 
-                    if (!isset($result['error'])) {
-                        $result['goto_section'] = 'shipping_method';
-                        $result['update_section'] = array(
-                            'name' => 'shipping-method',
-                            'html' => $this->_getShippingMethodsHtml()
-                        );
-                    }
-                }
-                $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
-            } else {
-              Mage::log($result['error'], null, 'opcController.log');
-            }
+          if (!isset($result['error'])) {
+            $result['goto_section'] = 'payment';
+            $result['update_section'] = array(
+                'name' => 'payment-method',
+                'html' => $this->_getPaymentMethodsHtml()
+            );
+
+            $result['allow_sections'] = array('payment');
+            // $result['duplicateBillingInfo'] = 'true';
+          }
+
+          $this->getOnepage()->getQuote()->collectTotals()->save();
+          $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
+        } else {
+          Mage::log($result['error'], null, 'opcController.log');
         }
+      }
     }
 
     protected function _saveShipping()

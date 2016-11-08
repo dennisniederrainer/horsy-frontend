@@ -37,6 +37,10 @@ Checkout.prototype.gotoSection = function (section, reloadProgressBlock) {
     sectionElement.addClassName('allow');
     this.accordion.openSection('opc-' + section);
 
+    if(section == 'payment') {
+      this.reloadProgressBlock('shipping_method');
+    }
+
     // Scroll viewport to top of checkout steps for smaller viewports
     if (Modernizr.mq('(max-width: ' + bp.xsmall + 'px)')) {
         $j('html,body').animate({scrollTop: $j('#checkoutSteps').offset().top}, 800);

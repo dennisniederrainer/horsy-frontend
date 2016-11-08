@@ -17,7 +17,7 @@ if($_item->getProduct()->getData('delivery_time')) { $deliveryInfo = $_item->get
     <?php if($manufacturer && $manufacturer != ''): ?><span><strong><?php echo $manufacturer ?></strong></span><?php endif; ?>
     <span><?php echo $this->escapeHtml($this->getProductName()) ?></span>
     <span><?php echo $this->__('SKU'); ?>: <?php echo $this->escapeHtml($_item->getSku()); ?></span>
-    <?php if($deliveryInfo && $deliveryInfo != ''): ?><span><?php echo $deliveryInfo ?></span><?php endif; ?>
+    <?php if($deliveryInfo && $deliveryInfo != ''): ?><span><?php echo $this->__('Delivery Time:') . ' ' . $deliveryInfo ?></span><?php endif; ?>
   </td>
 
   <td class="product-attributes">

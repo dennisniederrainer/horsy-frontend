@@ -1,8 +1,11 @@
 <?php echo $this->getChildHtml('items_before'); ?>
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
 
 <div id="checkout-review-table-wrapper">
   <div class="title-container">
-    <h2><?php echo $this->__('Your Order'); ?><span class="cart-id">Shop</span></h2>
+    <h2><?php echo $this->__('Your Order'); ?></h2>
+    <!-- <span class="cart-id">Shop</span> -->
   </div>
     <?php $_tableClass = $this->helper('tax')->displayCartBothPrices() ? 'linearize-table-large' : 'linearize-table'; ?>
     <table class="data-table <?php echo $_tableClass; ?> checkout-review-table" id="checkout-review-table">
@@ -21,7 +24,9 @@
               <th><?php echo $this->__('Price'); ?>:</th>
             </tr>
         </thead>
-        <?php echo $this->getChildHtml('totals'); ?>
+        <?php // store_id == -1: estimate shipping information for whole order ?>
+        <?php $block = $this->getChild('totals')->setData('store_id', -1); ?>
+        <?php echo $block->toHtml(); ?>
         <tbody>
         <?php foreach($this->getItems() as $_item): ?>
             <?php echo $this->getItemHtml($_item)?>

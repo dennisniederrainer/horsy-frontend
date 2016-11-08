@@ -37,7 +37,7 @@ Checkout.prototype = {
         this.payment = '';
         this.loadWaiting = false;
         // this.steps = ['login', 'billing', 'shipping', 'shipping_method', 'payment', 'review'];
-        this.steps = ['login', 'billing', 'shipping_method', 'payment', 'review'];
+        this.steps = ['login', 'billing', 'payment', 'review'];
         //We use billing as beginning step since progress bar tracks from billing
         this.currentStep = 'billing';
 
@@ -70,6 +70,11 @@ Checkout.prototype = {
         this.reloadStep(toStep);
         if (this.syncBillingShipping) {
             this.syncBillingShipping = false;
+            this.reloadStep('shipping');
+        }
+
+        // horsebrands: force shipping update
+        if (toStep == "billing") {
             this.reloadStep('shipping');
         }
     },
@@ -130,6 +135,7 @@ Checkout.prototype = {
         var sectionElement = $('opc-' + section);
         sectionElement.addClassName('allow');
         this.accordion.openSection('opc-' + section);
+
         if(!reloadProgressBlock) {
             this.resetPreviousSteps();
         }
