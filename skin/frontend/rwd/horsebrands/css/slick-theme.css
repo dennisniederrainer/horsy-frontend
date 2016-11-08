@@ -2,14 +2,14 @@
 /* Slider */
 /* line 45, ../sass/slick-theme.scss */
 .slick-loading .slick-list {
-  background: #fff url('/images/ajax-loader.gif?1477492173') center center no-repeat;
+  background: #fff url('/images/ajax-loader.gif?1478610424') center center no-repeat;
 }
 
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url('/fonts/slick.eot?1477492173');
-  src: url('/fonts/slick.eot?&1477492173#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1477492173') format("woff"), url('/fonts/slick.ttf?1477492173') format("truetype"), url('/fonts/slick.svg?1477492173#slick') format("svg");
+  src: url('/fonts/slick.eot?1478610424');
+  src: url('/fonts/slick.eot?&1478610424#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1478610424') format("woff"), url('/fonts/slick.ttf?1478610424') format("truetype"), url('/fonts/slick.svg?1478610424#slick') format("svg");
   font-weight: normal;
   font-style: normal;
 }
