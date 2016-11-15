@@ -1,21 +1,22 @@
 <?php if ($this->getTotals()): ?>
-  <?php $storeid = $this->getData('store_id'); ?>
-  <?php $delivery_estimate = Mage::helper('horsebrands_rewrites/checkout')->getEstimatedShippingText($storeid) ?>
-  <?php $_totals = $this->getTotals(); ?>
+<?php $delivery_estimate = $this->getData('estimate_shipping'); ?>
+<?php $_totals = $this->getTotals(); ?>
 
   <tfoot>
     <tr>
-      <td class="footer-icon delivery-icon">
+      <!-- <td class="footer-icon delivery-icon">
         &nbsp;
-      </td>
+      </td> -->
       <td class="text-left">
-        <div class="shipping-estimate-wrapper">
-          <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-          <p><?php echo $delivery_estimate; ?></p>
-          <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p>
-        </div>
+        <?php if($delivery_estimate): ?>
+          <div class="shipping-estimate-wrapper">
+            <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+            <p><?php echo $delivery_estimate; ?></p>
+            <?php /* <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p> */ ?>
+          </div>
+        <?php endif; ?>
       </td>
-      <td class="text-right totals" colspan="3">
+      <td class="text-right totals">
         <?php foreach ($_totals as $total): ?>
           <div class="<?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
             <?php echo $total->getTitle() ?>:

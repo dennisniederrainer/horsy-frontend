@@ -1,4 +1,11 @@
+
+
 .checkout-onepage-index {
+	// test
+	.container {
+		max-width: 968px;
+	}
+
 	.col-right.sidebar {
 		display: none;
 	}
@@ -44,7 +51,7 @@
   .step-title {
     position: absolute;
     top: 0;
-    width: 20%;
+    width: 25%;
     background-color: $gray-lighter-6;
     color: $gray-base;
 
@@ -81,20 +88,20 @@
 
   &.opc-firststep-billing {
     #opc-billing .step-title {
-      left: 20%;
+      left: 25%;
     }
     #opc-shipping .step-title {
       left: 20%;
       display: none;
     }
     #opc-shipping_method .step-title {
-      left: 40%;
+      left: -9999px;
     }
     #opc-payment .step-title {
-      left: 60%;
+      left: 50%;
     }
     #opc-review .step-title {
-      left: 80%;
+      left: 75%;
     }
   }
 
@@ -151,19 +158,20 @@
       min-width: 200px;
     }
   }
+
+	@include media('>=phone','<desktop') {
+		.buttons-set button.opc-back-button  {
+	    color: $black-base;
+			background: none;
+			min-width: 0px;
+	  }
+	};
 }
 
 #checkout-step-billing {
   .row {
     position: relative;
   }
-
-  // .btn {
-  //   position: absolute;
-  //   bottom: 0;
-  //   right: 0;
-  //   margin-bottom: 1rem;
-  // }
 }
 
 #checkout-shipping-method-load {
@@ -225,7 +233,8 @@ span.count {
 }
 .minicart-wrapper {
   h2.block-title {
-    font-size: 1rem;
+    font-size: $font-size-medium;
+		font-weight: 500;
     margin: 0 0 15px;
     text-align: center;
   }
@@ -300,7 +309,7 @@ span.count {
       position: relative;
       width: 70%;
       text-align: left;
-      font-size: rem-calc(12);
+      font-size: $font-size-normal;
       line-height: 1.4;
 
       .item-options {
@@ -413,4 +422,57 @@ span.count {
 		margin: 0;
 		padding: 0;
 	}
+}
+
+#checkout-review-table {
+
+	@include media('>=tablet') {
+		td.product-details {
+			text-align: left;
+		}
+	};
+	@include media('>=phone','<tablet') {
+		td {
+			&.product-details {
+				padding-bottom: 0;
+			}
+			&.product-attributes,
+			&.product-qty {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			&.footer-icon {
+				display: none;
+			}
+		}
+	};
+}
+
+.review-container {
+	.opc-sidebar-block,
+	.order-review {
+		padding: 0 10px;
+	}
+
+	.opc-sidebar-block {
+		width: 25%;
+		float: left;
+	}
+	.order-review {
+		width: 75%;
+		float: right;
+	}
+
+	@include media('>=phone','<desktop') {
+		.opc-sidebar-block,
+		.order-review {
+			width: 100%;
+		}
+
+		#review-buttons-container button {
+			width: 100%;
+			margin-top: 20px;
+		}
+	};
 }

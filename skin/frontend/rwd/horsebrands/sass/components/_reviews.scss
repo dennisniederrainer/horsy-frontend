@@ -76,11 +76,13 @@
     margin-top: 0;
     padding: 0 10px;
     margin-bottom: 10px;
+  }
 
-    button {
+  @include media('>=phone','<tablet') {
+    .buttons-set button {
       width: 100%;
     }
-  }
+  };
 }
 
 .star-rating {

@@ -236,3 +236,21 @@
     }
   }
 }
+
+.block {
+  .block-title {
+    font-size: $font-size-medium;
+    border-bottom: 1px solid $black-base;
+  }
+
+  .block-content {
+    ul {
+      @extend .unstyled;
+
+      li {
+        padding: 0;
+        margin-top: 5px;
+      }
+    }
+  }
+}

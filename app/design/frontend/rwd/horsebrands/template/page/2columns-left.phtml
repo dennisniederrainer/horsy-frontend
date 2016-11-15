@@ -29,12 +29,13 @@
         <div class="container col2-left-layout">
           <?php echo $this->getChildHtml('breadcrumbs') ?>
 
-          <?php // This left_first block will display above the main content on smaller viewports ?>
-          <?php if ($_leftContent = $this->getChildHtml('left_first')): ?>
-          <!-- <div class="col-left sidebar col-left-first"><?php //echo $_leftContent;   ?></div> -->
-          <?php endif; ?>
+          <a class="toggle-sidebar hide-for-medium-up" onclick="jQuery('.col-left').show(); return false;"
+            style="margin: 10px 0 20px;"><i class="fa fa-bars"></i></a>
 
-          <div class="col-left medium sidebar"><?php echo $this->getChildHtml('left') ?></div>
+          <div class="col-left medium sidebar">
+            <a class="close-sidebar hide-for-medium-up" onclick="jQuery('.col-left').hide(); return false;"><i class="fa fa-times"></i></a>
+            <?php echo $this->getChildHtml('left') ?>
+          </div>
           <div class="col-main medium">
             <?php echo $this->getChildHtml('global_messages') ?>
             <?php echo $this->getChildHtml('content') ?>

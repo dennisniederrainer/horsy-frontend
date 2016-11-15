@@ -11,6 +11,8 @@
 "Qty","Anzahl"
 "Price","Preis"
 "Wishlist","Wunschzettel"
+"Hello, %s!","Hallo, %s!"
+"From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.","In deinem Kundenkontobereich kannst Du Dich über aktuelle Vorgänge informieren und Du hast die Möglichkeit Deine Kundendaten zu editieren."
 
 "Secure Connection","Sichere Verbindung"
 "Billing Information","Adresse"
@@ -39,6 +41,7 @@
 "Your Shopping Carts","Deine Warenkörbe"
 "You have no items in your shopping cart.","Dein Warenkorb ist leer."
 "Continue Shopping","Weiter einkaufen"
+"Continue","Weiter"
 "Proceed to Checkout","Zur Kasse gehen"
 "Update","Aktualisieren"
 "Remove Item","Artikel entfernen"
@@ -138,3 +141,10 @@
 
 "Search results for '%s'","Suchergebnisse für Deine Suche nach '%s'"
 "Search results for: '%s'","Suchergebnis für '%s'"
+"Thank you for registering with Deals.","Danke, dass Du Dich für die Horsebrands Deals angemeldet hast."
+
+"Private Comment","Privater Kommentar"
+"Update Wishlist","Aktualisieren"
+"Add All to Cart","Gesamte Liste in den Warenkorb"
+"%s was added to your shopping cart.","Gute Wahl! Der Artikel ist jetzt in Deinem Warenkorb."
+"Shipping & Handling (%s)","Versand"

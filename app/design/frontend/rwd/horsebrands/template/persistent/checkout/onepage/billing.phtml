@@ -5,14 +5,6 @@
         <h2 class="title"><?php echo $this->__('Billing Address'); ?></h2>
         <div class="content clearfix">
             <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="billing:address_id" />
-            <?php if (false && $this->customerHasAddresses()): ?>
-                <li class="wide">
-                    <label for="billing-address-select"><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></label>
-                    <div class="input-box">
-                        <?php echo $this->getAddressesHtmlSelect('billing') ?>
-                    </div>
-                </li>
-            <?php endif; ?>
             <div class="customer-address">
               <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress()->getFirstname() ? $this->getAddress() : $this->getQuote()->getCustomer())->setForceUseCustomerRequiredAttributes(!$this->isCustomerLoggedIn())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?>
               <div class="kv">
@@ -62,6 +54,14 @@
               </div>
               <div class="kv">
                 <div class="key">
+                  <label><?php echo $this->__('E-Mail-Address'); ?></label>
+                </div>
+                <div class="value">
+                  <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="billing[email]" id="billing:email" value="<?php echo $this->escapeHtml($this->getAddress()->getEmail()) ?>" title="<?php echo $this->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
+                </div>
+              </div>
+              <div class="kv">
+                <div class="key">
                   <label for="billing:telephone"><?php echo $this->__('Telephone') ?><em>*</em></label>
                 </div>
                 <div class="value">
@@ -91,8 +91,8 @@
   </div>
 </div>
 <div class="buttons-set clearfix" id="billing-buttons-container"><div id="shipping-buttons-container">
-  <button class="left" onclick="checkout.back(); return false;"><i class="fa fa-angle-double-left"></i> <?php echo $this->__('Back'); ?></button>
-  <button class="gold right" id="btnBillingContinue" type='button' onclick="billing.save()"><?php echo $this->__('Continue'); ?> <i class="fa fa-angle-double-right"></i></button>
+  <a class="white left" onclick="checkout.back(); return false;"><?php echo $this->__('Back'); ?></a>
+  <button class="opc-next-button gold right" id="btnBillingContinue" type='button' onclick="billing.save()" style="font-weight: 900;text-transform: uppercase;letter-spacing: .05em;"><?php echo $this->__('Continue'); ?></button>
   <span class="please-wait" id="billing-please-wait" style="display:none;">
     <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
   </span>
@@ -107,8 +107,10 @@
     var billingForm = new VarienForm('co-address-form');
     var shipping = new Shipping('co-address-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveAddress') ?>');
     var shippingForm = new VarienForm('co-address-form');
+
     $('billing-address-select') && billing.newAddress(!$('billing-address-select').value);
     $('shipping-address-select') && shipping.newAddress(!$('shipping-address-select').value);
+
     jQuery(document).ready(function ($j) {
         if($j('#shippingcontent').find('input').hasClass('validation-failed')) {
             $j('input:checkbox[name="billing[use_for_shipping]"]').prop('checked');

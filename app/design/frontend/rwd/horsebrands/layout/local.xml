@@ -123,6 +123,15 @@
     </reference>
 </customer_account_login>
 
+<customer_account_index>
+  <!-- overwrite crconnect dashboard info -->
+  <reference name="customer_account_dashboard_info">
+      <action method="setTemplate">
+          <template>customer/account/dashboard/info.phtml</template>
+      </action>
+  </reference>
+</customer_account_index>
+
 <checkout_cart_index>
   <remove name="checkout.cart.crosssell" />
 </checkout_cart_index>
@@ -163,5 +172,17 @@
       </block>
     </reference>
 </checkout_onepage_index>
+
+  <wishlist_index_index>
+    <reference name="customer.wishlist.items">
+      <remove name="customer.wishlist.item.quantity" />
+      <remove name="customer.wishlist.item.remove" />
+      <reference name="customer.wishlist.item.info">
+        <action method="setTitle" translate="title">
+          <title>Private Comment</title>
+        </action>
+      </reference>
+    </reference>
+  </wishlist_index_index>
 
 </layout>

@@ -38,6 +38,7 @@ Checkout.prototype = {
         this.loadWaiting = false;
         // this.steps = ['login', 'billing', 'shipping', 'shipping_method', 'payment', 'review'];
         this.steps = ['login', 'billing', 'payment', 'review'];
+        // this.steps = ['billing', 'payment', 'review'];
         //We use billing as beginning step since progress bar tracks from billing
         this.currentStep = 'billing';
 
@@ -918,6 +919,7 @@ Review.prototype = {
         this.agreementsForm = agreementsForm;
         this.onSave = this.nextStep.bindAsEventListener(this);
         this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
+        console.log(saveUrl);
     },
 
     save: function(){

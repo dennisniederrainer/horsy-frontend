@@ -152,5 +152,16 @@
 
 			}
 		}
+
+		@include media('>=phone','<tablet') {
+			p.amount {
+				display: none;
+			}
+
+			.pages {
+				float: none;
+				text-align: center;
+			}
+		};
 	}
 }

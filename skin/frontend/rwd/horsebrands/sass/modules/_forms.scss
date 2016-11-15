@@ -61,6 +61,7 @@ textarea {
   &.label-aside {
     .input-block {
       @include clearfix;
+      margin: 5px 0;
 
       label,
       input {
@@ -69,9 +70,18 @@ textarea {
 
       label {
         width: 25%;
+        line-height: 2em;
+
+        &.note {
+          line-height: 1.4em;
+          span {
+            font-size: $font-size-small;
+          }
+        }
       }
       input {
         width: 75%;
+        line-height: 1.6em;
       }
 
       &.checkbox {

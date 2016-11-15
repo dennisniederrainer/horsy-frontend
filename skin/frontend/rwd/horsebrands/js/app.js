@@ -872,7 +872,7 @@ $j(document).ready(function () {
     // ==============================================
     // UI Pattern - Toggle Content (tabs and accordions in one setup)
     // ==============================================
-    
+
     $j('.toggle-content').each(function () {
         var wrapper = jQuery(this);
 
@@ -1012,16 +1012,16 @@ $j(document).ready(function () {
     // OPC - Progress Block
     // ==============================================
 
-    if ($j('body.checkout-onepage-index').length) {
-        enquire.register('(max-width: ' + bp.large + 'px)', {
-            match: function () {
-                $j('#checkout-step-review').prepend($j('#checkout-progress-wrapper'));
-            },
-            unmatch: function () {
-                $j('.col-right').prepend($j('#checkout-progress-wrapper'));
-            }
-        });
-    }
+    // if ($j('body.checkout-onepage-index').length) {
+    //     enquire.register('(max-width: ' + bp.large + 'px)', {
+    //         match: function () {
+    //             $j('#checkout-step-review').prepend($j('#checkout-progress-wrapper'));
+    //         },
+    //         unmatch: function () {
+    //             $j('.col-right').prepend($j('#checkout-progress-wrapper'));
+    //         }
+    //     });
+    // }
 
 
     // ==============================================

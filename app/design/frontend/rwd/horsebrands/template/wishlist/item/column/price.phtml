@@ -1,0 +1,14 @@
+<?php
+/* @var $this Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart */
+/* @var Mage_Wishlist_Model_Item $item */
+$item = $this->getItem();
+$product = $item->getProduct();
+$options = $this->getChild('customer.wishlist.item.options')
+    ->setItem($item)
+    ->getConfiguredOptions();
+?>
+<td>
+  <div class="cart-cell">
+    <?php echo $this->getPriceHtml($product, empty($options));?>
+  </div>
+</td>

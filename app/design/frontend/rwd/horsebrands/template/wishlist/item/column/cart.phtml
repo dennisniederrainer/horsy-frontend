@@ -1,0 +1,24 @@
+<?php
+/* @var $this Mage_Wishlist_Block_Customer_Wishlist_Item_Column_Cart */
+/* @var Mage_Wishlist_Model_Item $item */
+$item = $this->getItem();
+$product = $item->getProduct();
+$options = $this->getChild('customer.wishlist.item.options')
+    ->setItem($item)
+    ->getConfiguredOptions();
+?>
+<td>
+  <div class="cart-cell">
+    <div class="add-to-cart-alt">
+      <?php if ($product->isSaleable()): ?>
+        <button type="button" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Add to Cart')) ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+      <?php else: ?>
+        <?php if ($product->getIsSalable()): ?>
+          <p class="availability in-stock"><span><?php echo $this->__('In stock') ?></span></p>
+        <?php else: ?>
+          <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+        <?php endif; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+</td>

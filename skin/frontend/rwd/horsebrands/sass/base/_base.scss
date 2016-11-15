@@ -115,7 +115,7 @@ ul.messages {
 
 #modal-global {
 	position: fixed;
-	top: 145px; bottom: 0;
+	top: 135px; bottom: 0;
 	left: 0; right: 0;
 	z-index: 99;
 }
@@ -204,6 +204,7 @@ a {
     transform: translateX(-50%);
     padding: 0 15px;
 		background-color: $white-base;
+		white-space: nowrap;
 	}
 }
 

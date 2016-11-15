@@ -18,24 +18,69 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
       return $items;
   }
 
+  public function getItemsByStoreId($items, $storeId = -1) {
+      $storeitems = array();
+
+      foreach ($items as $item) {
+          // quote->getAllVisibleItems with extra store "filter"
+          if (!$item->isDeleted() && !$item->getParentItemId()) {
+            if($storeId > 0 && $item->getStoreId() == $storeId) {
+              $storeitems[] =  $item;
+            } elseif($storeId == -1) {
+              $storeitems[] =  $item;
+            }
+          }
+      }
+
+      return $storeitems;
+  }
+
+  public function getItemsExceptStoreId($items, $storeId = -1) {
+    $storeitems = array();
+
+    foreach ($items as $item) {
+      // quote->getAllVisibleItems with extra store "filter"
+      if (!$item->isDeleted() && !$item->getParentItemId()) {
+        if($item->getStoreId() != $storeId) {
+          $storeitems[] =  $item;
+        }
+      }
+    }
+
+    return $storeitems;
+  }
+
   protected $shippingIntervals = array(
     "2-4 Tage" => array(2,4),
     "5-8 Tage" => array(5,8),
-    "2-3 Wochen nach Aktionsende" => array(14,21)
+    "2-3 Wochen nach Aktionsende" => array(14,21),
+    "2-3 Wochen" => array(14,21)
   );
 
-  public function getEstimatedShippingText($storeId) {
-    $items = $this->getQuoteItemsByStoreId($storeId);
+  public function getEstimatedShippingText($items) {
 
     if($items && count($items)) {
-      $interval = $this->getLongestShippingInterval($storeId, $items);
+      $interval = $this->getLongestShippingInterval($items);
 
       $today = Mage::getModel('core/date')->date('l, d.m.Y');
       $earliest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[0]." day");
       $latest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[1]." day");
+      $latestPlusOne = false;
 
-      $earliestText = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
-      $latestText = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
+      // if($earliest = Mage::getModel('core/date')->date('w', $earliest) == 0) {
+      //   $earliest = Mage::getModel('core/date')->date('l, d.m.Y', strtotime($earliest.' +1 day'));
+      //   $latestPlusOne = true;
+      // }
+      //
+      // if($latest = Mage::getModel('core/date')->date('w', $latest) == 0 || $latestPlusOne) {
+      //   $latest = Mage::getModel('core/date')->date('l, d.m.Y', strtotime($latest.' +1 day'));
+      // }
+
+      $earliest = Mage::getModel('core/date')->date('l, d.m.Y', $earliest.' +1 day');
+      $latest = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
+
+      $earliestText = Mage::helper('core')->formatDate($earliest, 'full', false);
+      $latestText = Mage::helper('core')->formatDate($latest, 'full', false);
 
       return $earliestText . ' - ' . $latestText;
     }
@@ -43,11 +88,11 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     return null;
   }
 
-  protected function getLongestShippingInterval($storeId, $items) {
+  protected function getLongestShippingInterval($items) {
     $highestIndex = 0;
 
     foreach ($items as $item) {
-      if($item->getStoreId() != $storeId || !$item->getProduct()->getDeliveryTime()) {
+      if(!$item->getProduct()->getDeliveryTime()) {
         continue;
       }
       $deliverytime = $item->getProduct()->getAttributeText('delivery_time');
@@ -61,4 +106,48 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     $key = array_keys($this->shippingIntervals)[$highestIndex];
     return $this->shippingIntervals[$key];
   }
+
+  // protected $shippingIntervals = array(
+  //   "2-4 Tage" => array(2,4),
+  //   "5-8 Tage" => array(5,8),
+  //   "2-3 Wochen nach Aktionsende" => array(14,21)
+  // );
+  //
+  // public function getEstimatedShippingText($storeId) {
+  //   $items = $this->getQuoteItemsByStoreId($storeId);
+  //
+  //   if($items && count($items)) {
+  //     $interval = $this->getLongestShippingInterval($storeId, $items);
+  //
+  //     $today = Mage::getModel('core/date')->date('l, d.m.Y');
+  //     $earliest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[0]." day");
+  //     $latest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[1]." day");
+  //
+  //     $earliestText = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
+  //     $latestText = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
+  //
+  //     return $earliestText . ' - ' . $latestText;
+  //   }
+  //
+  //   return null;
+  // }
+  //
+  // protected function getLongestShippingInterval($storeId, $items) {
+  //   $highestIndex = 0;
+  //
+  //   foreach ($items as $item) {
+  //     if($item->getStoreId() != $storeId || !$item->getProduct()->getDeliveryTime()) {
+  //       continue;
+  //     }
+  //     $deliverytime = $item->getProduct()->getAttributeText('delivery_time');
+  //
+  //     $index = array_search($deliverytime, array_keys($this->shippingIntervals));
+  //     if($index > $highestIndex) {
+  //       $highestIndex = $index;
+  //     }
+  //   }
+  //
+  //   $key = array_keys($this->shippingIntervals)[$highestIndex];
+  //   return $this->shippingIntervals[$key];
+  // }
 }

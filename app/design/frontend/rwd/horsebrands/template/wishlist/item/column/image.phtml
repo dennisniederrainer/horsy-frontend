@@ -1,0 +1,26 @@
+<?php
+/* @var Mage_Wishlist_Model_Item $item */
+$item = $this->getItem();
+$product = $item->getProduct();
+
+$manufacturer = "";
+if($product->getManufacturer()) $manufacturer = $product->getAttributeText('manufacturer');
+?>
+<td class="product-cart-image">
+  <a class="product-image" href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>">
+    <img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(113, 113); ?>" width="113" height="113" alt="<?php echo $this->escapeHtml($product->getName()) ?>" />
+  </a>
+</td>
+<td class="product-cart-info">
+  <div class="product-cart-manufacturer">
+    <?php echo $manufacturer; ?>
+  </div>
+  <div class="product-name">
+    <a href="<?php echo $this->getProductUrl($item) ?>" title="<?php echo $this->escapeHtml($product->getName()) ?>">
+      <?php echo $this->escapeHtml($product->getName()) ?>
+    </a>
+  </div>
+  <div class="product-cart-sku">
+    <span class="label"><?php echo $this->__('Sku'); ?>:</span> <?php echo $this->escapeHtml($product->getSku()) ?>
+  </div>
+</td>

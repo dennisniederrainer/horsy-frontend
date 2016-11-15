@@ -132,33 +132,22 @@
   margin-top: 13px;
   padding-right: 30px;
 
-  .block-title {
-    font-size: $font-size-medium;
-    font-weight: $font-weight-bold;
-  }
-
-  .block-content {
-    ul {
-      @extend .unstyled;
-      list-style: none;
-      border-top: 1px solid $font-color-default;
-
-      li {
-        padding-top: 10px;
-        padding-left: 10px;
-        font-size: $font-size-smaller;
-        font-weight: $font-weight-light;
-
-        a {
-          @include same-link-style($font-color-default, $gold-base);
-        }
-
-        &:first-child {
-          padding-top: 15px;
-        }
-      }
-    }
-  }
+  // .block-title {
+  //   font-size: $font-size-medium;
+  //   font-weight: $font-weight-bold;
+  // }
+  //
+  // .block-content {
+  //   ul {
+  //     @extend .unstyled;
+  //
+  //     li {
+  //       a {
+  //         @include same-link-style($font-color-default, $gold-base);
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 .account-login {

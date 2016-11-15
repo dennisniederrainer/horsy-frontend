@@ -1,6 +1,7 @@
 <?php echo $this->getChildHtml('items_before'); ?>
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $estimateShipping = Mage::helper('horsebrands_rewrites/checkout')->getEstimatedShippingText($this->getItems()); ?>
 
 <div id="checkout-review-table-wrapper">
   <div class="title-container">
@@ -10,28 +11,23 @@
     <?php $_tableClass = $this->helper('tax')->displayCartBothPrices() ? 'linearize-table-large' : 'linearize-table'; ?>
     <table class="data-table <?php echo $_tableClass; ?> checkout-review-table" id="checkout-review-table">
       <colgroup>
-        <col width="12.5%" />
-        <col width="42.5%" />
-        <col width="20%" />
-        <col width="12.5%" />
-        <col width="12.5%" />
+        <col width="30%"/>
+        <col width="70%"/>
       </colgroup>
-        <thead>
-            <tr>
-              <th colspan="2" class="text-left-indent"><?php echo $this->__('Product'); ?>:</th>
-              <th>&nbsp;</th>
-              <th><?php echo $this->__('Qty'); ?>:</th>
-              <th><?php echo $this->__('Price'); ?>:</th>
-            </tr>
-        </thead>
-        <?php // store_id == -1: estimate shipping information for whole order ?>
-        <?php $block = $this->getChild('totals')->setData('store_id', -1); ?>
-        <?php echo $block->toHtml(); ?>
-        <tbody>
+      <thead>
+        <tr>
+          <th >&nbsp;</th>
+          <th >&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
         <?php foreach($this->getItems() as $_item): ?>
             <?php echo $this->getItemHtml($_item)?>
         <?php endforeach ?>
-        </tbody>
+      </tbody>
+      <?php // store_id == -1: estimate shipping information for whole order ?>
+      <?php $block = $this->getChild('totals')->setData('estimate_shipping', $estimateShipping); ?>
+      <?php echo $block->toHtml(); ?>
     </table>
 </div>
 <?php echo $this->getChildHtml('items_after'); ?>

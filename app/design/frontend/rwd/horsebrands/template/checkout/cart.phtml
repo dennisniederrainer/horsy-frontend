@@ -1,9 +1,13 @@
 <?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $checkouthelper = $this->helper('horsebrands_rewrites/checkout'); ?>
 
-<?php $delivery_shop = $this->getEstimatedShippingText($_STORE_ID_SHOP) ?>
-<?php $delivery_deals = $this->getEstimatedShippingText($_STORE_ID_DEALS) ?>
+<?php $shopItems = $checkouthelper->getItemsExceptStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); //$this->getItemsByStoreId($_STORE_ID_SHOP); ?>
+<?php $dealsItems = $this->getItemsByStoreId($_STORE_ID_DEALS); ?>
+
+<?php $delivery_shop = $checkouthelper->getEstimatedShippingText($shopItems) ?>
+<?php $delivery_deals = $checkouthelper->getEstimatedShippingText($dealsItems) ?>
 
 <div class="cart <?php echo $_priceDisplay; ?>">
     <?php echo $this->getMessagesBlock()->toHtml() ?>
@@ -12,7 +16,7 @@
       <?php if(!$this->hasError()): ?>
         <ul class="checkout-types top">
           <li>
-            <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>" class="button black height-m width-m">
+            <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>" class="button white height-m width-m" style="color: #000;">
               <?php echo $this->__('Continue Shopping') ?>
             </a>
           </li>
@@ -26,47 +30,23 @@
       <h1 class="strong"><?php echo $this->__('Your Shopping Carts') ?></h1>
     </div>
 
-    <?php $shopItems = $this->getItemsByStoreId($_STORE_ID_SHOP); ?>
     <div class="cart-shop">
       <div class="cart-title">
         <h1 class="with-note"><?php echo $this->__('Shopping Cart ') ?><span class="strong">Shop</span></h1>
-        <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p>
+        <!-- <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p> -->
       </div>
 
       <?php echo $this->getChildHtml('form_before') ?>
       <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
         <?php echo $this->getBlockHtml('formkey'); ?>
         <table id="shopping-cart-table-shop" class="cart-table data-table">
-          <col width="1"/>
-          <col/>
-          <col width="12%" />
-          <col width="12%" />
-          <col width="12%" />
-          <col width="12%" />
+          <col width="30%"/>
+          <col width="70%"/>
           <thead>
             <tr>
-              <th colspan="2"><span class="nobr"><?php echo $this->__('Product') ?>:</span></th>
-              <th class="a-center">
-                <span class="nobr"><?php echo $this->__('Color') ?>:</span>
-              </th>
-              <th class="a-center">
-                <span class="nobr"><?php echo $this->__('Size') ?>:</span>
-              </th>
-              <th class="a-center">
-                <?php echo $this->__('Qty') ?>:
-              </th>
-              <th class="a-center cart-total-head">
-                <?php echo $this->__('Price') ?>:
-              </th>
+              <th >&nbsp;</th>
+              <th >&nbsp;</th>
             </tr>
-            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-              <tr>
-                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
-                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
-                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
-                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
-              </tr>
-            <?php endif; ?>
           </thead>
           <?php if(count($shopItems)>0): ?>
           <tbody>
@@ -78,17 +58,17 @@
           </tbody>
           <tfoot>
             <tr>
-              <td class="shipping-icon hide-small">
-                <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
+              <!-- <td class="shipping-icon hide-small">
+                <img src="<?php //echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
               </td>
               <td class="a-left cart-shipping-info">
                 <div class="shipping-estimate-wrapper">
-                  <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-                  <p><?php echo $delivery_shop; ?></p>
-                  <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p>
+                  <h2><?php //echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+                  <p><?php //echo $delivery_shop; ?></p>
+                  <p><?php //echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p>
                 </div>
-              </td>
-              <td colspan="4" class="a-right cart-part-totals">
+              </td> -->
+              <td colspan="2" class="a-right cart-part-totals">
                 <?php echo $this->getChildHtml('totals'); ?>
               </td>
             </tr>
@@ -109,47 +89,23 @@
       </form>
     </div>
 
-    <?php $dealsItems = $this->getItemsByStoreId($_STORE_ID_DEALS); ?>
     <div class="cart-deals">
       <div class="cart-title">
         <h1 class="with-note"><?php echo $this->__('Shopping Cart ') ?><span class="strong">Deals</span></h1>
-        <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p>
+        <!-- <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p> -->
       </div>
 
       <?php echo $this->getChildHtml('form_before') ?>
       <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
         <?php echo $this->getBlockHtml('formkey'); ?>
         <table id="shopping-cart-table-deals" class="cart-table data-table">
-          <col width="1"/>
-          <col/>
-          <col width="12%" />
-          <col width="12%" />
-          <col width="12%" />
-          <col width="12%" />
+          <col width="30%"/>
+          <col width="70%"/>
           <thead>
             <tr>
-              <th colspan="2"><span class="nobr"><?php echo $this->__('Product') ?>:</span></th>
-              <th class="a-center">
-                <span class="nobr"><?php echo $this->__('Color') ?>:</span>
-              </th>
-              <th class="a-center">
-                <span class="nobr"><?php echo $this->__('Size') ?>:</span>
-              </th>
-              <th class="a-center">
-                <?php echo $this->__('Qty') ?>:
-              </th>
-              <th class="a-center cart-total-head">
-                <?php echo $this->__('Price') ?>:
-              </th>
+              <th >&nbsp;</th>
+              <th >&nbsp;</th>
             </tr>
-            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
-              <tr>
-                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
-                <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
-                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
-                <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
-              </tr>
-            <?php endif; ?>
           </thead>
           <?php if(count($dealsItems)>0): ?>
           <tbody>
@@ -161,17 +117,7 @@
           </tbody>
           <tfoot>
             <tr>
-              <td class="shipping-icon hide-small">
-                <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery.png') ?>" alt="delivery" />
-              </td>
-              <td class="a-left cart-shipping-info">
-                <div class="shipping-estimate-wrapper">
-                  <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-                  <p><?php echo $delivery_deals ?></p>
-                  <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p>
-                </div>
-              </td>
-              <td colspan="4" class="a-right cart-part-totals">
+              <td colspan="2" class="a-right cart-part-totals">
                 <?php echo $this->getChildHtml('totals'); ?>
               </td>
             </tr>

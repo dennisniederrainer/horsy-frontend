@@ -1,0 +1,19 @@
+<?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
+<header class="deinverein-header">
+  <?php /*
+  <div class="fixed-top hide-for-small-down">
+    <div class="container">
+      <?php echo $this->getChildHtml('topline.content'); ?>
+    </div>
+  </div>
+  */ ?>
+  <div class="top-header container clearfix">
+    <div class="top-header-element top-header-center brand">
+      <div class="logo-wrapper checkout small-12">
+        <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
+          <img src="<?php echo $this->getSkinUrl('images/logo_deinverein.jpg') ?>" class="img-responsive">
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

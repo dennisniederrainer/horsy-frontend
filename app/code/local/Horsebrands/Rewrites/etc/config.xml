@@ -18,6 +18,7 @@
         <checkout>
           <rewrite>
             <cart>Horsebrands_Rewrites_Block_Checkout_Cart</cart>
+            <onepage>Horsebrands_Rewrites_Block_Checkout_Onepage</onepage>
             <onepage_billing>Horsebrands_Rewrites_Block_Checkout_Onepage_Billing</onepage_billing>
           </rewrite>
         </checkout>
@@ -47,6 +48,11 @@
           <class>Horsebrands_Rewrites_Model</class>
         </horsebrands_rewrites>
 
+        <checkout>
+          <rewrite>
+            <type_onepage>Horsebrands_Rewrites_Model_Checkout_Type_Onepage</type_onepage>
+          </rewrite>
+        </checkout>
         <customer>
           <rewrite>
             <address_abstract>Horsebrands_Rewrites_Model_Customer_Address_Abstract</address_abstract>

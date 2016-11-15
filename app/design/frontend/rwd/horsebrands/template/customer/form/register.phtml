@@ -1,59 +1,52 @@
 <h2 class="title">Ich bin Neukunde <i class="fa fa-lock"></i></h2>
-<?php echo $this->getChildHtml('form_fields_before')?>
-<?php echo $this->getMessagesBlock()->toHtml() ?>
-<?php echo $this->getChildHtml('customer.form.register.extra')?>
 <div class="content clearfix">
-<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
-  <!-- <?php echo $this->getSuccessUrl() ?> -->
+  <form id="register-form" action="<?php echo $this->getPostActionUrl() ?>" method="post">
     <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
     <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
     <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
-    <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
-    <div class="kv">
-      <div class="key">
-        <label for="email_address" class="required">E-<?php echo $this->__('Email') ?><em>*</em></label>
+    <div class="input-container label-aside">
+      <div class="input-block">
+        <label>Vorname<em>*</em></label>
+        <input type="text" class="input-text required-entry" name="firstname" />
       </div>
-      <div class="value">
-        <input type="text" name="email" id="email_address" value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry full-width" />
+      <div class="input-block">
+        <label>Nachname<em>*</em></label>
+        <input type="text" class="input-text required-entry" name="lastname" />
+      </div>
+      <div class="input-block">
+        <label>E-Mail-Adresse<em>*</em></label>
+        <input type="text" class="input-text required-entry validate-email" name="email" />
+      </div>
+      <div class="input-block">
+        <label>Passwort<em>*</em></label>
+        <input type="password" class="full-width input-text required-entry" name="password" />
+      </div>
+      <div class="input-block">
+        <label class="note">Passwort<em>*</em><span>(Wiederholen)</span></label>
+        <input type="password" class="full-width input-text required-entry" name="confirmation" />
+      </div>
+      <div class="input-block checkbox">
+        <div class="right-col">
+          <input type="checkbox" name="privacy_policy" value="1" title="<?php echo $this->__('Accept the privacy policy') ?>" class="checkbox required-entry">
+          <label class="smaller">Ja, ich stimme den AGB und den Datenschutzbestimmungen von Horsebrands sowie einer Bonitätsprüfung zu.<em>*</em></label>
+        </div>
+      </div>
+      <div class="input-block checkbox">
+        <div class="right-col">
+          <input type="checkbox" name="is_subscribed" title="<?php echo $this->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed" class="checkbox" />
+          <label class="smaller">Ja, ich m&ouml;chte &uuml;ber Trends, Aktionen, & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit m&ouml;glich.</label>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <button type="submit" class="btn gold medium width-l right">Kostenlos registrieren ></button>
       </div>
     </div>
-    <div class="kv">
-      <div class="key">
-        <label for="password" class="required"><?php echo $this->__('Password') ?><em>*</em></label>
-      </div>
-      <div class="value">
-        <input type="password" name="password" id="password" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Password')) ?>" class="input-text required-entry validate-password full-width" />
-      </div>
-    </div>
-    <div class="kv">
-      <div class="key">
-        <label for="confirmation" class="required"><?php echo $this->__('Confirm Password') ?><em>*</em></label>
-      </div>
-      <div class="value">
-        <input type="password" name="confirmation" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Confirm Password')) ?>" id="confirmation" class="input-text required-entry validate-cpassword full-width" />
-      </div>
-    </div>
-    <?php if ($this->isNewsletterEnabled()): ?>
-    <div class="kv">
-      <div class="key" style="width: 100%;">
-        <input type="checkbox" name="is_subscribed" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if($this->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox" />
-        <label for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
-        <?php echo $this->getChildHtml('customer.form.register.newsletter')?>
-      </div>
-    </div>
-    <?php endif ?>
     <?php echo $this->getChildHtml('form.additional.info'); ?>
-    <div class="kv">
-      <p class="note left">
-        <em>*</em>Pflichtangaben
-      </p>
-      <button type="submit" class="btn medium orange right" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Submit')) ?>">Kostenlos registrieren ></button>
-    </div>
-</form>
+  </form>
 </div>
 <script type="text/javascript">
 //<![CDATA[
-    var dataForm = new VarienForm('form-validate', true);
+    var dataForm = new VarienForm('register-form', true);
     <?php if($this->getShowAddressFields()): ?>
     new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
     <?php endif; ?>

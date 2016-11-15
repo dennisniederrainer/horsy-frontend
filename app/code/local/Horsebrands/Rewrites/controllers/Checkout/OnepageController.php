@@ -10,10 +10,46 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
         return $this->_quote;
     }
 
+    public function indexAction()
+    {
+        if (!Mage::helper('checkout')->canOnepageCheckout()) {
+            Mage::getSingleton('checkout/session')->addError($this->__('The onepage checkout is disabled.'));
+            $this->_redirect('checkout/cart');
+            return;
+        }
+
+        $quote = $this->getOnepage()->getQuote();
+        if (!$quote->hasItems() || $quote->getHasError()) {
+            $this->_redirect('checkout/cart');
+            return;
+        }
+
+        if (!$quote->validateMinimumAmount()) {
+            $error = Mage::getStoreConfig('sales/minimum_order/error_message');
+            Mage::getSingleton('checkout/session')->addError($error);
+            $this->_redirect('checkout/cart');
+            return;
+        }
+
+        Mage::getSingleton('checkout/session')->setCartWasUpdated(false);
+        Mage::getSingleton('customer/session')->setBeforeAuthUrl(Mage::getUrl('*/*/*', array('_secure'=>true)));
+
+        $this->getOnepage()->initCheckout();
+        $this->loadLayout();
+        $this->_initLayoutMessages('customer/session');
+        $this->getLayout()->getBlock('head')->setTitle($this->__('Checkout'));
+
+        $method = Mage_Checkout_Model_Type_Onepage::METHOD_GUEST;
+        $this->getOnepage()->saveCheckoutMethod($method);
+
+        $this->renderLayout();
+    }
+
     /**
      * horsebrands: neue saveBillingAction Methode, die Billing und Shipping-Daten beachtet
      */
     public function saveAddressAction() {
+    // public function saveBillingAction() {
       //Ajax-Session expired?
       if ($this->_expireAjax()) {
           return;
@@ -22,27 +58,17 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
       if ($this->getRequest()->isPost()) {
         //get billing data
         $data = $this->getRequest()->getPost('billing', array());
-        $billingAddressId = $data['address_id']; //$this->getRequest()->getPost('billing[address_id]', false);
+        $billingAddressId = $this->getRequest()->getPost('billing_address_id', false); //$data['address_id'];
 
         if (isset($data['email'])) {
             $data['email'] = trim($data['email']);
         }
 
-        //save address to current checkout
-        // $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
-
         if (!isset($result['error'])) {
-          // if (!isset($data['use_for_shipping'])) {
-          //   $result = $this->getOnepage()->saveShipping($data, $billingAddressId);
-          //   $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
-          // } else {
-            $shippingdata = $this->getRequest()->getPost('shipping', array());
-            $shippingAddressId = $shippingdata['address_id']; //$this->getRequest()->getPost('shipping_address_id', false);
-            // Mage::log('FTW', null, 'zong.log');
-            $result = $this->getOnepage()->saveShipping($shippingdata, $shippingAddressId);
-
-            $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
-          // }
+          $shippingdata = $this->getRequest()->getPost('shipping', array());
+          $shippingAddressId = $this->getRequest()->getPost('shipping_address_id', false); //$shippingdata['address_id'];
+          $result = $this->getOnepage()->saveShipping($shippingdata, $shippingAddressId);
+          $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
 
           $method = 'tablerate_bestway';
           $result = $this->getOnepage()->saveShippingMethod($method);
@@ -55,7 +81,6 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
             );
 
             $result['allow_sections'] = array('payment');
-            // $result['duplicateBillingInfo'] = 'true';
           }
 
           $this->getOnepage()->getQuote()->collectTotals()->save();
@@ -66,39 +91,6 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
       }
     }
 
-    protected function _saveShipping()
-    {
-        if ($this->_expireAjax()) {
-            return;
-        }
-        if ($this->getRequest()->isPost()) {
-            $data = $this->getRequest()->getPost('shipping', array());
-            $customerAddressId = $this->getRequest()->getPost('shipping[address_id]', false);
-
-            $result = $this->getOnepage()->saveShipping($data, $customerAddressId);
-            // Mage::dispatchEvent('cart_updateShipping', array());
-
-            if (!isset($result['error'])) {
-                // $method = Mage::getSingleton('checkout/cart')->getQuote()->getShippingAddress()->getShippingMethod();
-                // if($method) {
-                //     $this->getOnepage()->saveShippingMethod($method);
-                //     $this->getOnepage()->getQuote()->collectTotals()->save();
-                //     $result['goto_section'] = 'payment';
-                //     $result['update_section'] = array(
-                //         'name' => 'payment-method',
-                //         'html' => $this->_getPaymentMethodsHtml()
-                //     );
-                // } else {
-                    $result['goto_section'] = 'shipping_method';
-                    $result['update_section'] = array(
-                        'name' => 'shipping-method',
-                        'html' => $this->_getShippingMethodsHtml()
-                    );
-                // }
-            }
-            $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
-        }
-    }
     protected function _getShippingMethodsHtml()
     {
         $layout = $this->getLayout();
@@ -121,5 +113,103 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
         //Encode Result in JSON
         $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
         return $result;
+    }
+
+    public function saveOrderAction()
+    {
+        if (!$this->_validateFormKey()) {
+            $this->_redirect('*/*');
+            return;
+        }
+
+        if ($this->_expireAjax()) {
+            return;
+        }
+
+        $result = array();
+        try {
+            $requiredAgreements = Mage::helper('checkout')->getRequiredAgreementIds();
+            if ($requiredAgreements) {
+                $postedAgreements = array_keys($this->getRequest()->getPost('agreement', array()));
+                $diff = array_diff($requiredAgreements, $postedAgreements);
+                if ($diff) {
+                    $result['success'] = false;
+                    $result['error'] = true;
+                    $result['error_messages'] = $this->__('Please agree to all the terms and conditions before placing the order.');
+                    $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
+                    return;
+                }
+            }
+
+            $data = $this->getRequest()->getPost('payment', array());
+            if ($data) {
+                $data['checks'] = Mage_Payment_Model_Method_Abstract::CHECK_USE_CHECKOUT
+                    | Mage_Payment_Model_Method_Abstract::CHECK_USE_FOR_COUNTRY
+                    | Mage_Payment_Model_Method_Abstract::CHECK_USE_FOR_CURRENCY
+                    | Mage_Payment_Model_Method_Abstract::CHECK_ORDER_TOTAL_MIN_MAX
+                    | Mage_Payment_Model_Method_Abstract::CHECK_ZERO_TOTAL;
+                $this->getOnepage()->getQuote()->getPayment()->importData($data);
+            }
+
+            $orders = $this->getOnepage()->saveOrder();
+            // foreach ($orders as $order) {
+            //   echo count($order->getAllItems()) . '<br /><br />';
+            // }
+            // // var_dump($order->getPayment()->getMethodInstance());
+            // die('PLACED kazong.');
+
+            $redirectUrl = $this->getOnepage()->getCheckout()->getRedirectUrl();
+            $result['success'] = true;
+            $result['error']   = false;
+        } catch (Mage_Payment_Model_Info_Exception $e) {
+            $message = $e->getMessage();
+            if (!empty($message)) {
+                $result['error_messages'] = $message;
+            }
+            $result['goto_section'] = 'payment';
+            $result['update_section'] = array(
+                'name' => 'payment-method',
+                'html' => $this->_getPaymentMethodsHtml()
+            );
+        } catch (Mage_Core_Exception $e) {
+            Mage::logException($e);
+            Mage::helper('checkout')->sendPaymentFailedEmail($this->getOnepage()->getQuote(), $e->getMessage());
+            $result['success'] = false;
+            $result['error'] = true;
+            $result['error_messages'] = $e->getMessage();
+
+            $gotoSection = $this->getOnepage()->getCheckout()->getGotoSection();
+            if ($gotoSection) {
+                $result['goto_section'] = $gotoSection;
+                $this->getOnepage()->getCheckout()->setGotoSection(null);
+            }
+            $updateSection = $this->getOnepage()->getCheckout()->getUpdateSection();
+            if ($updateSection) {
+                if (isset($this->_sectionUpdateFunctions[$updateSection])) {
+                    $updateSectionFunction = $this->_sectionUpdateFunctions[$updateSection];
+                    $result['update_section'] = array(
+                        'name' => $updateSection,
+                        'html' => $this->$updateSectionFunction()
+                    );
+                }
+                $this->getOnepage()->getCheckout()->setUpdateSection(null);
+            }
+        } catch (Exception $e) {
+            Mage::logException($e);
+            Mage::helper('checkout')->sendPaymentFailedEmail($this->getOnepage()->getQuote(), $e->getMessage());
+            $result['success']  = false;
+            $result['error']    = true;
+            $result['error_messages'] = $this->__('There was an error processing your order. Please contact us or try again later.');
+        }
+        $this->getOnepage()->getQuote()->save();
+        /**
+         * when there is redirect to third party, we don't want to save order yet.
+         * we will save the order in return action.
+         */
+        if (isset($redirectUrl)) {
+            $result['redirect'] = $redirectUrl;
+        }
+
+        $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
     }
 }

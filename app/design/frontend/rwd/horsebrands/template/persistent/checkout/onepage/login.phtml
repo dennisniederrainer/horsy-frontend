@@ -1,10 +1,13 @@
+<?php /*
 <div class="row full-width small-margins">
   <div class="columns small-12 medium-6">
     <div class="box">
       <h2 class="title">Ich bin bereits Horsebrands-Kunde <i class="fa fa-lock"></i></h2>
       <div class="content clearfix">
         <form id="login-form" action="<?php echo $this->getPostAction() ?>" method="post">
-          <?php echo $this->getBlockHtml('formkey'); ?>
+          <input type="hidden" name="success_url" value="<?php echo $this->getUrl('checkout/onepage') ?>" />
+          <input type="hidden" name="error_url" value="<?php echo $this->getUrl('checkout/onepage') ?>" />
+          <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
           <div class="input-container label-aside">
             <div class="input-block">
               <label>E-Mail-Adresse</label>
@@ -28,7 +31,9 @@
       <h2 class="title">Ich bin Neukunde <i class="fa fa-lock"></i></h2>
       <div class="content clearfix">
         <form id="register-form" action="<?php echo $this->helper('customer')->getRegisterPostUrl() ?>" method="post">
-          <?php echo $this->getBlockHtml('formkey'); ?>
+          <input type="hidden" name="success_url" value="<?php echo $this->getUrl('checkout/onepage') ?>" />
+          <input type="hidden" name="error_url" value="<?php echo $this->getUrl('checkout/onepage') ?>" />
+          <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
           <div class="input-container label-aside">
             <div class="input-block">
               <label>Vorname<em>*</em></label>
@@ -72,6 +77,12 @@
     </div>
   </div>
 </div>
+*/ ?>
+<input type="hidden" name="checkout_method" id="login:guest" value="guest" checked="checked" />
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+checkout.setMethod();
+});
 <script type="text/javascript">
 //<![CDATA[
     var loginForm = new VarienForm('login-form', true);
