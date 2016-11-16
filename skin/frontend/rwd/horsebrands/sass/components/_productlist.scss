@@ -32,6 +32,7 @@
 			@include clearfix;
 			span.product-name {
 				float: left;
+				max-width: 70%;
 			}
 			span.price {
 				font-weight: 500;

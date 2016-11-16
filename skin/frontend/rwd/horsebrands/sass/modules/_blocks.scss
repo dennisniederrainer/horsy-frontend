@@ -228,7 +228,7 @@
 
     a.progress-change {
       float: right;
-      @include same-link-style($font-color-default);
+      @include same-link-style($black-base);
 
       i.fa {
         margin-right: 5px;

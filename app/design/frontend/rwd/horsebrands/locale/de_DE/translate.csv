@@ -6,6 +6,7 @@
 "Prefix","Anrede"
 "First Name","Vorname"
 "Last Name","Nachname"
+"E-Mail-Address","E-Mail"
 "Product","Artikel"
 "SKU","Artikelnummer"
 "Qty","Anzahl"
@@ -148,3 +149,6 @@
 "Add All to Cart","Gesamte Liste in den Warenkorb"
 "%s was added to your shopping cart.","Gute Wahl! Der Artikel ist jetzt in Deinem Warenkorb."
 "Shipping & Handling (%s)","Versand"
+
+"Shopping Cart is Empty","Keine passenden Produkte?"
+"Click here to continue shopping","Klicke hier, um die weitere Produkte anzusehen"

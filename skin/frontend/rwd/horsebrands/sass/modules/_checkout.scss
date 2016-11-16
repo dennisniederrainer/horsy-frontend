@@ -312,12 +312,20 @@ span.count {
       font-size: $font-size-normal;
       line-height: 1.4;
 
+			.product-manufacturer-name {
+				font-weight: 500;
+			}
       .item-options {
         line-height: 18px;
+				dt, dd {
+					margin: 0;
+					line-height: 1.4;
+				}
         dt {
           float: left;
           clear: left;
           min-width: 75px;
+					font-weight: 500;
         }
         dd {
           float: left;

@@ -61,13 +61,14 @@ button {
 
   &.white {
     border: 1px solid $black-base;
-    color: $black-base;
     background: none;
     background-color: $white-base;
+    color: $black-base;
+    @include same-link-style($black-base, $white-base);
 
     &:hover {
-      background-color: $black-base;
       color: $white-base;
+      background-color: $black-base;
     }
   }
 

@@ -28,8 +28,11 @@
         font-weight: $font-weight-bold;
         color: $black-base;
       }
-      &.product-name a {
-        @include same-link-style($black-base);
+      &.product-name {
+        font-size: $font-size-medium;
+        a {
+          @include same-link-style($black-base);
+        }
       }
       &.product-cart-deliverytime {
         margin-bottom: 8px;
@@ -42,7 +45,7 @@
       vertical-align: middle;
 
       .product-qty {
-        margin: 6px 0;
+        margin: 8px 0;
 
         select {
           width: auto;
@@ -74,13 +77,13 @@
 
   dl.item-options {
     @include clearfix;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 0;
 
     dt,
     dd {
       float: left;
-      // width: 50%;
+      line-height: 1.4;
       margin-bottom: 0;
       text-align: left;
     }
@@ -132,7 +135,7 @@
 }
 .shipping-estimate-wrapper {
   h2, p {
-    color: #6e6e6e;
+    color: $black-base;
     font-size: 12px;
     margin: 0;
   }

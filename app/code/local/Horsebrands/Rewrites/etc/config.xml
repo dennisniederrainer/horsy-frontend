@@ -48,11 +48,12 @@
           <class>Horsebrands_Rewrites_Model</class>
         </horsebrands_rewrites>
 
-        <checkout>
+        <!-- enable for multishipping -->
+        <!-- <checkout>
           <rewrite>
             <type_onepage>Horsebrands_Rewrites_Model_Checkout_Type_Onepage</type_onepage>
           </rewrite>
-        </checkout>
+        </checkout> -->
         <customer>
           <rewrite>
             <address_abstract>Horsebrands_Rewrites_Model_Customer_Address_Abstract</address_abstract>

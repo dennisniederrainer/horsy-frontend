@@ -22,7 +22,8 @@ class Horsebrands_Rewrites_Model_Checkout_Observer {
             $country = 'DE'; // Some country code
             $postcode = ''; // Some postcode
             $regionId = ''; // Some region id
-            $method = 'tablerate_bestway'; // Used shipping method
+            // $method = 'tablerate_bestway'; // Used shipping method
+            $method = 'freeshipping_freeshipping';
             $shippingAddress
                 ->setCountryId($country)
                 ->setRegionId($regionId)
