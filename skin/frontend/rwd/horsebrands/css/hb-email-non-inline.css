@@ -1,0 +1,394 @@
+/* One column layout */
+/* line 3, ../sass/_grid.scss */
+.one-column .contents {
+  text-align: left;
+}
+/* line 8, ../sass/_grid.scss */
+.one-column .header div {
+  width: 24%;
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: center;
+}
+/* line 15, ../sass/_grid.scss */
+.one-column p {
+  font-size: 12px;
+  Margin-bottom: 10px;
+}
+
+/*Two column layout*/
+/* line 22, ../sass/_grid.scss */
+.two-column {
+  text-align: center;
+  font-size: 0;
+}
+/* line 26, ../sass/_grid.scss */
+.two-column .column {
+  width: 100%;
+  max-width: 300px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 32, ../sass/_grid.scss */
+.two-column .column.forty {
+  max-width: 240px;
+}
+/* line 35, ../sass/_grid.scss */
+.two-column .column.sixty {
+  max-width: 360px;
+}
+/* line 39, ../sass/_grid.scss */
+.two-column .contents {
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+}
+/* line 44, ../sass/_grid.scss */
+.two-column img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+/* line 49, ../sass/_grid.scss */
+.two-column .text {
+  padding-top: 10px;
+}
+
+/*Three column layout*/
+/* line 55, ../sass/_grid.scss */
+.three-column {
+  text-align: center;
+  font-size: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 61, ../sass/_grid.scss */
+.three-column.no-pad {
+  padding: 0;
+}
+/* line 65, ../sass/_grid.scss */
+.three-column .column {
+  width: 100%;
+  max-width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 71, ../sass/_grid.scss */
+.three-column .contents {
+  font-size: 12px;
+  text-align: center;
+}
+/* line 75, ../sass/_grid.scss */
+.three-column img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+}
+/* line 80, ../sass/_grid.scss */
+.three-column .text {
+  padding-top: 10px;
+}
+
+/* Basics */
+/* line 15, ../sass/styles.scss */
+body {
+  margin: 0 !important;
+  padding: 0;
+  background-color: #ececec;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+/* line 22, ../sass/styles.scss */
+table {
+  border-spacing: 0;
+  font-family: Arial, sans-serif;
+  color: #1d1d1d;
+}
+
+/* line 27, ../sass/styles.scss */
+td {
+  padding: 0;
+}
+
+/* line 30, ../sass/styles.scss */
+img {
+  border: 0;
+}
+
+/* line 33, ../sass/styles.scss */
+div[style*="margin: 16px 0"] {
+  margin: 0 !important;
+}
+
+/* line 36, ../sass/styles.scss */
+.talign-left {
+  text-align: left !important;
+}
+
+/* line 39, ../sass/styles.scss */
+.wrapper {
+  width: 100%;
+  table-layout: fixed;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 45, ../sass/styles.scss */
+.webkit {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* line 49, ../sass/styles.scss */
+.outer {
+  /* capitalized, so that outlook.com does not strip it */
+  Margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+}
+
+/* line 57, ../sass/styles.scss */
+.inner {
+  padding: 10px 20px;
+}
+/* line 60, ../sass/styles.scss */
+.inner.pad-bot-0 {
+  padding-bottom: 0;
+}
+/* line 63, ../sass/styles.scss */
+.inner.pad-top-0 {
+  padding-top: 0;
+}
+
+/* line 67, ../sass/styles.scss */
+p {
+  Margin: 0;
+}
+/* line 70, ../sass/styles.scss */
+p.title {
+  Margin-bottom: 10px;
+}
+
+/* line 74, ../sass/styles.scss */
+a {
+  color: #cca64b;
+  text-decoration: none;
+}
+
+/* line 78, ../sass/styles.scss */
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* line 82, ../sass/styles.scss */
+h1 {
+  font-size: 14px;
+  font-weight: bold;
+  Margin-bottom: 14px;
+}
+
+/* line 87, ../sass/styles.scss */
+h2 {
+  font-size: 12px;
+  font-weight: bold;
+  Margin-bottom: 12px;
+  padding-bottom: 5px;
+  color: #1d1d1d;
+}
+/* line 94, ../sass/styles.scss */
+h2.order-title {
+  text-transform: uppercase;
+  border-bottom: 2px solid #1d1d1d;
+}
+/* line 98, ../sass/styles.scss */
+h2.order-title.thin-border {
+  border-bottom-width: 1px;
+}
+
+/* line 103, ../sass/styles.scss */
+.order-title-label {
+  width: 200px;
+}
+
+/* line 106, ../sass/styles.scss */
+.bold {
+  font-weight: 600;
+}
+
+/* line 109, ../sass/styles.scss */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* line 112, ../sass/styles.scss */
+.email-img {
+  height: auto !important;
+  max-width: 600px !important;
+  width: 100% !important;
+}
+/* line 117, ../sass/styles.scss */
+.email-img.tracking-button {
+  width: 130px !important;
+}
+
+/* line 123, ../sass/styles.scss */
+.full-width .inner {
+  padding: 0;
+}
+
+/* line 128, ../sass/styles.scss */
+.hello {
+  padding-top: 20px;
+}
+
+/* line 132, ../sass/styles.scss */
+.header {
+  text-align: center;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: 1px solid #1d1d1d;
+}
+/* line 139, ../sass/styles.scss */
+.header a {
+  font-size: 11px;
+  color: #7c796f;
+  text-transform: uppercase;
+}
+/* line 144, ../sass/styles.scss */
+.header a:hover {
+  color: #cca64b;
+  text-decoration: none;
+}
+
+/* line 151, ../sass/styles.scss */
+.footer {
+  margin: 30px 0 20px;
+  text-align: center;
+}
+/* line 156, ../sass/styles.scss */
+.footer .support {
+  margin: 10px 0;
+}
+/* line 158, ../sass/styles.scss */
+.footer .support p {
+  font-size: 12px;
+  Margin: 0;
+}
+/* line 162, ../sass/styles.scss */
+.footer .support p.title {
+  Margin-bottom: 5px;
+}
+/* line 166, ../sass/styles.scss */
+.footer .support p span.telephone {
+  color: #cca64b;
+}
+/* line 171, ../sass/styles.scss */
+.footer .teaser {
+  margin: 30px 0;
+}
+/* line 174, ../sass/styles.scss */
+.footer .teaser h3 {
+  font-size: 16px;
+  color: #cca64b;
+  font-weight: 400;
+}
+/* line 180, ../sass/styles.scss */
+.footer .social {
+  margin: 25px 0 30px;
+}
+/* line 182, ../sass/styles.scss */
+.footer .social a {
+  margin: 10px;
+}
+/* line 185, ../sass/styles.scss */
+.footer .social a .social-link {
+  width: 30px;
+  height: 30px;
+}
+/* line 191, ../sass/styles.scss */
+.footer .legal {
+  margin-top: 20px;
+}
+/* line 193, ../sass/styles.scss */
+.footer .legal p {
+  font-size: 10px;
+}
+/* line 196, ../sass/styles.scss */
+.footer .legal p a.home {
+  margin-top: 25px;
+  font-size: 12px;
+}
+
+/* line 205, ../sass/styles.scss */
+dl.order-details-data dt, dl.order-details-data dd {
+  float: left;
+}
+/* line 208, ../sass/styles.scss */
+dl.order-details-data dt {
+  clear: left;
+  width: 120px;
+}
+/* line 212, ../sass/styles.scss */
+dl.order-details-data dd {
+  margin: 0;
+}
+
+/* line 218, ../sass/styles.scss */
+table.bankpayment_info {
+  margin: 10px 0;
+}
+/* line 221, ../sass/styles.scss */
+table.items {
+  margin-top: 25px;
+  width: 100%;
+}
+/* line 226, ../sass/styles.scss */
+table.items thead th {
+  border-bottom: 1px solid #1d1d1d;
+  font-weight: 600;
+  background: none;
+  font-size: 12px;
+  padding: 0 0 1px;
+  text-transform: uppercase;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+/* line 239, ../sass/styles.scss */
+table.items tbody td {
+  vertical-align: top;
+}
+/* line 241, ../sass/styles.scss */
+table.items tbody td.cell-content {
+  padding: 8px 0;
+  font-size: 11px;
+}
+/* line 247, ../sass/styles.scss */
+table.items tbody .product-name {
+  text-transform: uppercase;
+  color: #1d1d1d;
+}
+/* line 253, ../sass/styles.scss */
+table.items .align-right {
+  text-align: right;
+}
+/* line 256, ../sass/styles.scss */
+table.items .align-center {
+  text-align: center;
+}
+/* line 261, ../sass/styles.scss */
+table.table-totals {
+  font-size: 12px;
+  float: right;
+}
+/* line 265, ../sass/styles.scss */
+table.table-totals tbody td {
+  padding: 2px 0;
+}
+/* line 269, ../sass/styles.scss */
+table.table-totals .padding-totals table tr td:first-child {
+  padding-right: 30px;
+}

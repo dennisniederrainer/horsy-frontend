@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Horsebrands_Rewrites>
-            <version>0.0.0.8</version>
+            <version>0.0.9</version>
         </Horsebrands_Rewrites>
     </modules>
     <global>
@@ -47,6 +47,9 @@
         <horsebrands_rewrites>
           <class>Horsebrands_Rewrites_Model</class>
         </horsebrands_rewrites>
+        <horsebrands_rewrites_resource>
+          <class>Horsebrands_Rewrites_Model_Resource</class>
+        </horsebrands_rewrites_resource>
 
         <!-- enable for multishipping -->
         <!-- <checkout>
@@ -66,6 +69,14 @@
           </rewrite>
         </sales>
       </models>
+
+      <resources>
+        <horsebrands_dbsetup_setup>
+          <setup>
+            <module>Horsebrands_Rewrites</module>
+          </setup>
+        </horsebrands_dbsetup_setup>
+      </resources>
 
       <!-- get access to manufacturer and delivery information -->
       <sales>
