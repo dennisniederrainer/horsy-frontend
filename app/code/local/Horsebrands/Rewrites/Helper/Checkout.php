@@ -61,22 +61,23 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
 
     if($items && count($items)) {
       $interval = $this->getLongestShippingInterval($items);
-
-      $today = Mage::getModel('core/date')->date('l, d.m.Y');
-      $earliest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[0]." day");
-      $latest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[1]." day");
       $latestPlusOne = false;
 
-      // if($earliest = Mage::getModel('core/date')->date('w', $earliest) == 0) {
-      //   $earliest = Mage::getModel('core/date')->date('l, d.m.Y', strtotime($earliest.' +1 day'));
-      //   $latestPlusOne = true;
-      // }
-      //
-      // if($latest = Mage::getModel('core/date')->date('w', $latest) == 0 || $latestPlusOne) {
-      //   $latest = Mage::getModel('core/date')->date('l, d.m.Y', strtotime($latest.' +1 day'));
-      // }
+      $earliest = new Zend_Date(Mage::getModel('core/date')->timestamp());
+      $earliest->addDay($interval[0]);
+      $latest = new Zend_Date(Mage::getModel('core/date')->timestamp());
+      $latest->addDay($interval[1]);
 
-      $earliest = Mage::getModel('core/date')->date('l, d.m.Y', $earliest.' +1 day');
+      if($earliest->get(Zend_Date::WEEKDAY_DIGIT) == 0) {
+        $earliest->addDay('1');
+        $latestPlusOne = true;
+      }
+
+      if($latest->get(Zend_Date::WEEKDAY_DIGIT) == 0 || $latestPlusOne) {
+        $latest->addDay('1');
+      }
+
+      $earliest = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
       $latest = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
 
       $earliestText = Mage::helper('core')->formatDate($earliest, 'full', false);

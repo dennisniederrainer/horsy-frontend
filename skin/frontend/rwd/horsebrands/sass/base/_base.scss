@@ -308,3 +308,11 @@ section {
 		display: inline;
 	}
 };
+
+@include media('>=phone','<tablet') {
+  .line-through-heading h1 {
+		font-size: $font-size-medium;
+		top: -1.15em;
+		padding: 0 10px;
+	}
+};

@@ -3,7 +3,7 @@
 <?php if ($this->getCheckout()->getStepData('billing', 'complete')): ?>
   <address><?php echo $this->getBilling()->format('html') ?></address>
   <a href="#billing" onclick="checkout.changeSection('opc-billing'); return false;" class="progress-change">
-    <i class="fa fa-pencil-square-o"></i><?php echo $this->__('Change') ?>
+    <i class="fa fa-pencil-square-o"></i>
   </a>
 <?php else: ?>
   <p>

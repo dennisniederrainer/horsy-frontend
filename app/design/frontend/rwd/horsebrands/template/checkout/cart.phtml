@@ -149,18 +149,24 @@
         endif; ?>
     </div>
     <div class="summary-wrapper">
-      <div class="summary-shipping">
-        <div class="icon-container hide-small">
-          <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
+      <div class="summary-left-wrapper">
+        <div class="summary-shipping clearfix">
+          <div class="icon-container hide-small">
+            <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
+          </div>
+          <div class="shipping-estimate-wrapper">
+            <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+            <?php if($delivery_shop): ?>
+              <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
+            <?php endif; ?>
+            <?php if($delivery_deals): ?>
+              <p><strong>Lieferung Deals:</strong> <?php echo $delivery_deals ?></p>
+            <?php endif; ?>
+          </div>
         </div>
-        <div class="shipping-estimate-wrapper">
-          <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-          <?php if($delivery_shop): ?>
-            <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
-          <?php endif; ?>
-          <?php if($delivery_deals): ?>
-            <p><strong>Lieferung Deals:</strong> <?php echo $delivery_deals ?></p>
-          <?php endif; ?>
+        <div class="summary-coupon">
+          <p><strong>Du hast einen Gutscheincode?</strong><br />
+          Gutscheincodes können in der Bestellübersicht, am Ende Deines Bestellvorgangs eingelöst werden.</p>
         </div>
       </div>
       <div class="cart-totals-wrapper">

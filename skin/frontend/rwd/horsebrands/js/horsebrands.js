@@ -21,3 +21,14 @@ jQuery(document).ready(function($) {
     }
   }
 });
+
+var updateCoupon = function(requestid) {
+	if(requestid == 2) $('coupon_code').setValue('');
+
+	$('discount-coupon-form').request({
+		method: 'post',
+		onComplete: payment.onComplete,
+		onSuccess: payment.onSave,
+		onFailure: checkout.ajaxFailure.bind(checkout),
+	});
+}

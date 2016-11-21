@@ -6,7 +6,7 @@ class Horsebrands_Rewrites_Block_Checkout_Onepage extends Mage_Checkout_Block_On
     $steps = array();
 
     if (!$this->isCustomerLoggedIn()) {
-      //$steps['login'] = $this->getCheckout()->getStepData('login');
+      $steps['login'] = $this->getCheckout()->getStepData('login');
     }
 
     $stepCodes = array('billing', 'shipping', 'payment', 'review');
@@ -19,7 +19,6 @@ class Horsebrands_Rewrites_Block_Checkout_Onepage extends Mage_Checkout_Block_On
   }
 
   public function getActiveStep() {
-      //return $this->isCustomerLoggedIn() ? 'billing' : 'login';
-      return $this->isCustomerLoggedIn() ? 'billing' : 'billing';
+      return $this->isCustomerLoggedIn() ? 'billing' : 'login';
   }
 }

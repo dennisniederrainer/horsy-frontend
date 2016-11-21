@@ -163,19 +163,8 @@
     padding-top: 20px;
   }
 
-  .summary-shipping {
+  .summary-left-wrapper {
     float: left;
-
-    .icon-container {
-      float: left;
-      width: 120px;
-      text-align: center;
-      padding-top: 10px;
-    }
-    .shipping-estimate-wrapper {
-      float: left;
-      line-height: 18px;
-    }
   }
   .cart-totals-wrapper {
     float: right;
@@ -184,6 +173,27 @@
       @include clearfix;
       text-align: right;
     }
+  }
+}
+
+.summary-coupon {
+  margin-top: 20px;
+
+  p {
+    font-size: $font-size-smaller;
+  }
+}
+
+.summary-shipping {
+  .icon-container {
+    float: left;
+    width: 120px;
+    text-align: center;
+    padding-top: 10px;
+  }
+  .shipping-estimate-wrapper {
+    float: left;
+    line-height: 18px;
   }
 }
 
@@ -213,6 +223,22 @@ ul.checkout-types{
 
   &.bottom {
     clear: both;
+  }
+}
+
+.coupon-review-wrapper {
+  text-align: left;
+
+  input.input-text {
+    width: auto;
+    margin-right: 5px;
+  }
+}
+
+.coupon-review-wrapper {
+  label,
+  .button {
+    font-size: $font-size-smaller !important;
   }
 }
 
@@ -251,6 +277,13 @@ ul.checkout-types{
   }
 
   .cart-table {
+    thead {
+      display: none;
+    }
+    
+    tr {
+      position: relative;
+    }
     td {
       &.product-cart-image {
         border-bottom: none;
@@ -258,6 +291,7 @@ ul.checkout-types{
 
       &.product-cart-info {
         text-align: center;
+        position: initial;
 
         .product-qty {
           margin-top: 10px;
@@ -266,17 +300,16 @@ ul.checkout-types{
         .product-price {
           margin-top: 20px;
         }
+
+        .btn-remove {
+          top: 5px;
+          right: 15px;
+        }
       }
     }
 
     dl.item-options {
-      text-align: center;
-
-      dt, dd {
-        float: none;
-        display: inline-block;
-        padding: 0;
-      }
+      display: inline-block;
     }
 
     tfoot {

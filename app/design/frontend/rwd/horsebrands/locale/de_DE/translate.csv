@@ -24,6 +24,7 @@
 "Subtotal","Zwischensumme"
 "Shipping & Handling","Versand"
 "Grand Total","Gesamtsumme"
+"Discount","Rabatt"
 "Place Order","Kaufen"
 
 "Payment Methods","Zahlungsarten"
@@ -149,6 +150,18 @@
 "Add All to Cart","Gesamte Liste in den Warenkorb"
 "%s was added to your shopping cart.","Gute Wahl! Der Artikel ist jetzt in Deinem Warenkorb."
 "Shipping & Handling (%s)","Versand"
+"Discount (%s)","Rabatt (%s)"
 
 "Shopping Cart is Empty","Keine passenden Produkte?"
 "Click here to continue shopping","Klicke hier, um die weitere Produkte anzusehen"
+
+"Do you have a coupon code?","Du hast einen Gutscheincode?"
+"Remove Coupon","Stornieren"
+"Apply Coupon","Anwenden"
+"Your applied coupon code","Dein angewandter Gutscheincode"
+"Back","Zurück"
+"Continue","Weiter"
+"Please transfer the money to the following bank account","Den Rechnungsbetrag kannst du nach deiner Bestellung an folgendes Konto überweisen"
+"Please transfer the money within %s days to the following bank account","Bitte überweise den Rechnungsbetrag innerhalb von %s Tagen an folgendes Konto"
+"Please transfer the money within %s days","Bitte überweise den Rechnungsbetrag innerhalb der nächsten %s Tage"
+"Yout review has been accepted for moderation","Danke für Deine Bewertung! Wir werden sie schnellstmöglich freigeben."

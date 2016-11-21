@@ -1,34 +1,31 @@
 <?php if ($this->getTotals()): ?>
 <?php $delivery_estimate = $this->getData('estimate_shipping'); ?>
 <?php $_totals = $this->getTotals(); ?>
-
-  <tfoot>
-    <tr>
-      <!-- <td class="footer-icon delivery-icon">
-        &nbsp;
-      </td> -->
-      <td class="text-left">
-        <?php if($delivery_estimate): ?>
-          <div class="shipping-estimate-wrapper">
-            <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-            <p><?php echo $delivery_estimate; ?></p>
-            <?php /* <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p> */ ?>
-          </div>
-        <?php endif; ?>
-      </td>
-      <td class="text-right totals">
-        <?php foreach ($_totals as $total): ?>
-          <div class="<?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
-            <?php echo $total->getTitle() ?>:
-            <span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?></span>
-            <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
-              <p class="note">inkl. MwSt.</p>
-            <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
-              <p class="note">exkl. MwSt.</p>
-            <?php endif; ?>
-          </div>
-        <?php endforeach; ?>
-      </td>
-    </tr>
-  </tfoot>
+  <tr>
+    <!-- <td class="footer-icon delivery-icon">
+      &nbsp;
+    </td> -->
+    <td class="text-left">
+      <?php if($delivery_estimate): ?>
+        <div class="shipping-estimate-wrapper">
+          <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+          <p><?php echo $delivery_estimate; ?></p>
+          <?php /* <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p> */ ?>
+        </div>
+      <?php endif; ?>
+    </td>
+    <td class="text-right totals">
+      <?php foreach ($_totals as $total): ?>
+        <div class="<?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
+          <?php echo $total->getTitle() ?>:
+          <span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?></span>
+          <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
+            <p class="note">inkl. MwSt.</p>
+          <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
+            <p class="note">exkl. MwSt.</p>
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </td>
+  </tr>
 <?php endif; ?>

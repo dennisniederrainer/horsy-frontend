@@ -1,5 +1,3 @@
-
-
 .checkout-onepage-index {
 	// test
 	.container {
@@ -74,14 +72,21 @@
   }
 
   li.section {
+		&.allow {
+			.step-title {
+				background: url('../images/icons/icon-check-green.svg') 90% no-repeat;
+				background-size: 15px;
+				background-color: $gray-lighter-6;
+      }
+
+			a {
+				cursor: pointer !important;
+			}
+		}
     &.active {
       .step-title {
+				background: none;
         background-color: $gray-lighter-4;
-      }
-    }
-    &.allow {
-      a {
-        cursor: pointer !important;
       }
     }
   }
@@ -156,6 +161,13 @@
     button {
       line-height: 32px;
       min-width: 200px;
+
+			&.opc-next-button,
+			&.btn-checkout {
+				font-weight: 900;
+				text-transform: uppercase;
+				letter-spacing: .05em;
+			}
     }
   }
 
@@ -166,6 +178,10 @@
 			min-width: 0px;
 	  }
 	};
+}
+
+#opc-login .step-title {
+	background-image: none !important;
 }
 
 #checkout-step-billing {
@@ -465,11 +481,11 @@ span.count {
 
 	.opc-sidebar-block {
 		width: 25%;
-		float: left;
+		float: right;
 	}
 	.order-review {
 		width: 75%;
-		float: right;
+		float: left;
 	}
 
 	@include media('>=phone','<desktop') {
@@ -483,4 +499,44 @@ span.count {
 			margin-top: 20px;
 		}
 	};
+}
+
+.payment-method-input-wrapper {
+	fieldset {
+		border: none;
+	}
+	p {
+		margin-bottom: 10px;
+	}
+	dt {
+		float: left;
+		min-width: 120px;
+		margin-bottom: 0;
+
+		label {
+			width: 100%;
+			margin-bottom: 0;
+		}
+	}
+	dd {
+		margin-bottom: 0;
+	}
+}
+
+.bankaccount-progress-wrapper {
+	p {
+		font-size: $font-size-smaller;
+	}
+	dl {
+		dt,
+		dt label,
+		dd {
+			font-size: $font-size-smaller;
+			margin: 0;
+		}
+	}
+
+	dd {
+		margin-bottom: 8px;
+	}
 }

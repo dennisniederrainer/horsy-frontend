@@ -1,0 +1,36 @@
+<p><?php echo $this->getMethod()->getTitle(); ?></p>
+<?php $_accounts = $this->getAccounts(); ?>
+<?php foreach($_accounts as $_account): ?>
+  <dl class="bankaccount-info-wrapper infobox">
+    <?php if ($_accountHolder = $_account->getAccountHolder()): ?>
+      <dt><label><?php echo $this->__('Account holder') ?>:</label></dt>
+      <dd><?php echo $_accountHolder ?></dd>
+    <?php endif; ?>
+    <?php if ($_accountNumber = $_account->getAccountNumber()): ?>
+      <dt><label><?php echo $this->__('Account number') ?>:</label></dt>
+      <dd><?php echo $_accountNumber ?></dd>
+    <?php endif; ?>
+    <?php if ($_sortCode = $_account->getSortCode()): ?>
+      <dt><label><?php echo $this->__('Sort code') ?>:</label></dt>
+      <dd><?php echo $_sortCode ?></dd>
+    <?php endif; ?>
+    <?php if ($_bankName = $_account->getBankName()): ?>
+      <dt><label><?php echo $this->__('Bank name') ?>:</label></dt>
+      <dd><?php echo $_bankName ?></dd>
+    <?php endif; ?>
+    <?php if ($_iban = $_account->getIban()): ?>
+      <dt><label><?php echo $this->__('IBAN') ?>:</label></dt>
+      <dd><?php echo $_iban ?></dd>
+    <?php endif; ?>
+    <?php if ($_bic = $_account->getBic()): ?>
+      <dt><label><?php echo $this->__('BIC') ?>:</label></dt>
+      <dd><?php echo $_bic ?></dd>
+    <?php endif; ?>
+  </dl>
+<?php endforeach; ?>
+<?php if($this->getMethod()->getPayWithinXDays() > 0): ?>
+  <p><?php echo $this->__('Please transfer the money within %s days') ?>.</p>
+<?php endif ?>
+<?php if ($_customText = $this->getMethod()->getCustomText()): ?>
+    <p><?php echo $_customText; ?></p>
+<?php endif; ?>

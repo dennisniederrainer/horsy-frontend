@@ -1,5 +1,6 @@
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
+<?php $_category = (mage::registry('current_category') ? mage::registry('current_category') : null); ?>
 
 <header class="deinverein-header">
   <?php /*
@@ -21,7 +22,7 @@
       <?php /*  */ ?>
       <?php /* <div class="logo-wrapper deinverein small-4 medium-12"> */ ?>
       <div class="logo-wrapper deinverein small-12">
-        <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
+        <a href="<?php echo ($_category ? $_category->getUrl($_category) : $this->getBaseUrl()); ?>" class="logo-link">
           <img src="<?php echo $this->getSkinUrl('images/logo_deinverein.jpg') ?>" class="img-responsive">
         </a>
       </div>

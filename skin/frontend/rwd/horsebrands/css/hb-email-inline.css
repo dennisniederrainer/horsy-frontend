@@ -338,15 +338,21 @@ dl.order-details-data dd {
 }
 
 /* line 218, ../sass/styles.scss */
+dl.bankaccount-info-wrapper.infobox dd {
+  margin-left: 0;
+  margin-bottom: 5px;
+}
+
+/* line 225, ../sass/styles.scss */
 table.bankpayment_info {
   margin: 10px 0;
 }
-/* line 221, ../sass/styles.scss */
+/* line 228, ../sass/styles.scss */
 table.items {
   margin-top: 25px;
   width: 100%;
 }
-/* line 226, ../sass/styles.scss */
+/* line 233, ../sass/styles.scss */
 table.items thead th {
   border-bottom: 1px solid #1d1d1d;
   font-weight: 600;
@@ -357,38 +363,38 @@ table.items thead th {
   font-family: Arial, sans-serif;
   text-align: left;
 }
-/* line 239, ../sass/styles.scss */
+/* line 246, ../sass/styles.scss */
 table.items tbody td {
   vertical-align: top;
 }
-/* line 241, ../sass/styles.scss */
+/* line 248, ../sass/styles.scss */
 table.items tbody td.cell-content {
   padding: 8px 0;
   font-size: 11px;
 }
-/* line 247, ../sass/styles.scss */
+/* line 254, ../sass/styles.scss */
 table.items tbody .product-name {
   text-transform: uppercase;
   color: #1d1d1d;
 }
-/* line 253, ../sass/styles.scss */
+/* line 260, ../sass/styles.scss */
 table.items .align-right {
   text-align: right;
 }
-/* line 256, ../sass/styles.scss */
+/* line 263, ../sass/styles.scss */
 table.items .align-center {
   text-align: center;
 }
-/* line 261, ../sass/styles.scss */
+/* line 268, ../sass/styles.scss */
 table.table-totals {
   font-size: 12px;
   float: right;
 }
-/* line 265, ../sass/styles.scss */
+/* line 272, ../sass/styles.scss */
 table.table-totals tbody td {
   padding: 2px 0;
 }
-/* line 269, ../sass/styles.scss */
+/* line 276, ../sass/styles.scss */
 table.table-totals .padding-totals table tr td:first-child {
   padding-right: 30px;
 }

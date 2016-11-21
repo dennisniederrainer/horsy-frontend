@@ -142,3 +142,16 @@ ul.verein-list {
     }
   }
 }
+
+@include media('>=phone','<tablet') {
+  .deinverein-header .top-header {
+    max-height: none;
+    height: auto;
+  }
+
+  .deinverein-container {
+    .usp-column p {
+      text-align: center;
+    }
+  }
+};

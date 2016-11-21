@@ -1,0 +1,58 @@
+<fieldset class="form-list">
+  <ul id="payment_form_<?php echo $this->getMethodCode(); ?>" style="display:none">
+    <li>
+    <?php if ($_cmsPage = $this->getFormCmsUrl()): ?>
+        <div class="input-box">
+            <p><?php echo $this->__('More information on this payment method can be found <a target="_blank" href="%s">here</a>.', $_cmsPage) ?></p>
+        </div>
+    <?php elseif ($_accounts = $this->getAccounts()): ?>
+      <p>
+        <?php if (count($_accounts) == 1): ?>
+          <?php if ($this->getMethod()->getPayWithinXDays() > 0): ?>
+            <?php echo $this->__('Please transfer the money within %s days to the following bank account', $this->getMethod()->getPayWithinXDays()); ?>:
+          <?php else: ?>
+            <?php echo $this->__('Please transfer the money to the following bank account'); ?>:
+          <?php endif; ?>
+        <?php else: ?>
+          <?php if ($this->getMethod()->getPayWithinXDays() > 0): ?>
+            <?php echo $this->__('Please transfer the money within %s days to one of the following bank accounts', $this->getMethod()->getPayWithinXDays()); ?>:
+          <?php else: ?>
+            <?php echo $this->__('Please transfer the money to one of the following bank accounts'); ?>:
+          <?php endif; ?>
+        <?php endif; ?>
+      </p>
+      <?php foreach($_accounts as $_account): ?>
+        <dl class="bankaccount-info-wrapper">
+          <?php if ($_accountHolder = $_account->getAccountHolder()): ?>
+            <dt><label><?php echo $this->__('Account holder') ?>:</label></dt>
+            <dd><?php echo $_accountHolder ?></dd>
+          <?php endif; ?>
+          <?php if ($_accountNumber = $_account->getAccountNumber()): ?>
+            <dt><label><?php echo $this->__('Account number') ?>:</label></dt>
+            <dd><?php echo $_accountNumber ?></dd>
+          <?php endif; ?>
+          <?php if ($_sortCode = $_account->getSortCode()): ?>
+            <dt><label><?php echo $this->__('Sort code') ?>:</label></dt>
+            <dd><?php echo $_sortCode ?></dd>
+          <?php endif; ?>
+          <?php if ($_bankName = $_account->getBankName()): ?>
+            <dt><label><?php echo $this->__('Bank name') ?>:</label></dt>
+            <dd><?php echo $_bankName ?></dd>
+          <?php endif; ?>
+          <?php if ($_iban = $_account->getIban()): ?>
+            <dt><label><?php echo $this->__('IBAN') ?>:</label></dt>
+            <dd><?php echo $_iban ?></dd>
+          <?php endif; ?>
+          <?php if ($_bic = $_account->getBic()): ?>
+            <dt><label><?php echo $this->__('BIC') ?>:</label></dt>
+            <dd><?php echo $_bic ?></dd>
+          <?php endif; ?>
+        </dl>
+      <?php endforeach; ?>
+      <?php if ($_customText = $this->getMethod()->getCustomText()): ?>
+          <p><?php echo $_customText ?></p>
+      <?php endif; ?>
+    <?php endif; ?>
+    </li>
+  </ul>
+</fieldset>

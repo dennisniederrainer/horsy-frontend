@@ -51,8 +51,8 @@
                   <h3><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></h3>
                 </div>
                 <div class="bottom-row">
-                  <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
-                  <?php if($_showProductPrice): ?><span class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></span><?php endif; ?>
+                  <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
+                  <?php if($_showProductPrice): ?><div class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div><?php endif; ?>
                 </div>
               </div>
               <?php

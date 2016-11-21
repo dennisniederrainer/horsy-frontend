@@ -83,12 +83,17 @@
   margin-bottom: 20px;
 
   .more-views {
-    max-width: 75%;
-    margin: 0 auto;
+    // margin: 0 auto;
     overflow: auto;
+    margin-right: 10%;
+    margin-top: 20px;
 
     .product-image-thumbs {
-      white-space: nowrap;
+      display: none;
+
+      &.slick-initialized {
+        display: block;
+      }
     }
   }
 }

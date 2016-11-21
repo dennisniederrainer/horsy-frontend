@@ -214,4 +214,36 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
 
         $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
     }
+
+    public function applyCouponAction() {
+      $this->loadLayout('checkout_onepage_review');
+
+      $this->couponCode = (string) $this->getRequest()->getParam('coupon_code');
+      $codeLength = strlen($this->couponCode);
+      $isCodeLengthValid = $codeLength && $codeLength <= Mage_Checkout_Helper_Cart::COUPON_CODE_MAX_LENGTH;
+
+      Mage::getSingleton('checkout/cart')->getQuote()->getShippingAddress()->setCollectShippingRates(true);
+      Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($isCodeLengthValid ? $this->couponCode : '')->collectTotals()->save();
+
+      // if ($codeLength) {
+      //     if ($isCodeLengthValid && $this->couponCode == $this->_getQuote()->getCouponCode()) {
+      //         Mage::getSingleton('checkout/session')->addSuccess(
+      //             $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($this->couponCode))
+      //         );
+      //     } else {
+      //         Mage::getSingleton('checkout/session')->addError(
+      //             $this->__('Coupon code "%s" is not valid.', Mage::helper('core')->escapeHtml($this->couponCode))
+      //         );
+      //     }
+      // } else {
+      //     Mage::getSingleton('checkout/session')->addSuccess($this->__('Coupon code was canceled.'));
+      // }
+      //
+      // $this->_initLayoutMessages('checkout/session');
+
+      $result['goto_section'] = 'review';
+      $result['update_section'] = array( 'name' => 'review', 'html' => $this->_getReviewHtml() );
+
+      $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
+    }
 }
