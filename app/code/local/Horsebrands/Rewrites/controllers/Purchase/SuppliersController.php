@@ -29,9 +29,10 @@ class Horsebrands_Rewrites_Purchase_SuppliersController extends MDN_Purchase_Sup
         }
 
         $filename = $supplier->getId() . '-' . $_FILES['sup_logo']['name'];
+        mage::log($path . $filename, null, 'suppliercontroller.log');
         $uploader->save($path, $filename);
         $data['sup_logo'] = $filename;
-        
+
       }catch(Exception $e) {
         mage::log($e->getMessage(), null, 'suppliercontroller.log');
       }

@@ -185,4 +185,8 @@
     </reference>
   </wishlist_index_index>
 
+  <sendfriend_product_send translate="label">
+    <remove name="wishlist_sidebar" />
+  </sendfriend_product_send>
+
 </layout>

@@ -106,10 +106,12 @@ ul.messages {
 .progress {
 	background-color: #fff;
 	border-color: $gray-lighter-5;
+	border-radius: $border-radius-default;
 	padding: 0;
 
 	.meter {
 		background: $gold-base;
+		border-radius: $border-radius-default;
 	}
 }
 
@@ -217,6 +219,10 @@ ul {
 	}
 }
 
+.no-display {
+	display: none;
+}
+
 section {
   margin-bottom: $section-margin-bottom;
   h5.section-title {
@@ -316,3 +322,19 @@ section {
 		padding: 0 10px;
 	}
 };
+
+ul.list-style-checkmark {
+	li {
+		list-style: none;
+
+		&:before {
+			content: '';
+			display: inline-block;
+		  height: .875em;
+		  width: .875em;
+		  background: url('../images/icons/icon-check-black.svg') center no-repeat;
+			background-size: contain;
+			margin-right: 5px;
+		}
+	}
+}

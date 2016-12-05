@@ -270,7 +270,7 @@ $black: #1d1d1d;
 		i {
 			position: absolute;
 			right: 5%;
-			top: 50%;
+			top: 48%;
 			transform: translateY(-50%);
 		}
 
@@ -304,17 +304,13 @@ a.store-button {
 	font-weight: 500;
 	text-decoration: none;
 	text-transform: uppercase;
+  border: 1px solid transparent;
   border-radius: $global-border-radius;
-	@include same-link-style($black-base, $white-base);
+	@include same-link-style($black-base);
 
+	&.active,
   &:hover {
-    background-color: $black-base;
-  }
-
-	&.active {
-    color: $white;
-		font-weight: 500;
-    background-color: $black-base;
+    border-color: $black-base;
 	}
 }
 

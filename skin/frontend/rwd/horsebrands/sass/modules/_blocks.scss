@@ -222,10 +222,6 @@
   .box .content {
     @include clearfix;
 
-    address {
-      font-style: normal;
-    }
-
     a.progress-change {
       float: right;
       @include same-link-style($black-base);

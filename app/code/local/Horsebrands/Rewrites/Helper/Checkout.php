@@ -108,6 +108,30 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     return $this->shippingIntervals[$key];
   }
 
+  public function updateAddress($address, $data) {
+    $fields = array('prefix','firstname','lastname','postcode','city','country_id','telephone','company', 'street');
+
+    foreach ($fields as $field) {
+      if(isset($data[$field])) {
+        $address->setData($field, $data[$field]);
+      }
+    }
+
+    return $address;
+  }
+
+  public function duplicateCustomerAddress($address) {
+    $duplicate = Mage::getModel('customer/address')
+      ->setCustomerId($address->getCustomer()->getId())
+      ->setData($address->getData())
+      ->setId(null)
+      ->setSaveInAddressBook('1')
+      ->setIsDuplicate(true)
+      ->save();
+
+    return $duplicate->getId();
+  }
+
   // protected $shippingIntervals = array(
   //   "2-4 Tage" => array(2,4),
   //   "5-8 Tage" => array(5,8),

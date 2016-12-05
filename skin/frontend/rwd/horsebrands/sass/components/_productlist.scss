@@ -182,3 +182,18 @@
 		}
 	}
 };
+
+.top-row {
+	@include clearfix;
+
+	.product-manufacturer,
+	.product-price {
+		font-weight: bold;
+	}
+	.product-manufacturer {
+		float: left;
+	}
+	.product-price {
+		float: right;
+	}
+}

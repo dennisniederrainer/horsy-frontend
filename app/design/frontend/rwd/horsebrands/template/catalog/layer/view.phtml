@@ -1,13 +1,4 @@
 <div class="layered-navigation-wrapper">
-  <?php if ($this->getLayer()->getState()->getFilters()): ?>
-    <div class="selected-filter-wrapper clearfix" style="">
-      <?php echo $this->getStateHtml() ?>
-      <div class="button-wrapper" style="float:right;">
-        <a class="btn btn-transparent gray-light no-radius" href="<?php echo $this->getClearUrl() ?>">Alle Filter l&ouml;schen<?php //echo $this->__('Clear All') ?></a>
-      </div>
-    </div>
-  <?php endif; ?>
-
   <?php if($this->canShowOptions()): ?>
   <div class="available-filter-wrapper">
     <!-- for schleife, 3 spalten -->
@@ -47,10 +38,17 @@
         <?php if($i%$gridSize != 0): ?>
           <div class="columns medium-4 end"></div>
         <?php endif; ?>
-      </div>
+      <!-- </div> -->
     <?php endif; ?>
-
   </div>
+  <?php endif; ?>
+  <?php if ($this->getLayer()->getState()->getFilters()): ?>
+    <div class="selected-filter-wrapper clearfix" style="">
+      <?php echo $this->getStateHtml() ?>
+      <div class="button-wrapper" style="float:right;">
+        <a class="btn btn-transparent gray-light no-radius" href="<?php echo $this->getClearUrl() ?>">Alle Filter l&ouml;schen<?php //echo $this->__('Clear All') ?></a>
+      </div>
+    </div>
   <?php endif; ?>
 
 </div>

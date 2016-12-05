@@ -81,6 +81,14 @@
             <?php endif; ?>
         </div>
 
+        <?php if ($this->canEmailToFriend()): ?>
+        <div class="row">
+          <div class="columns medium-12 tellafriend-wrapper">
+            <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a>
+          </div>
+        </div>
+        <?php endif; ?>
+
         <?php if($_product->isSaleable() && Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), 'delivery_time', $storeId)): ?>
         <div class="row">
           <div class="columns medium-12">
@@ -90,7 +98,7 @@
                 <?php if(Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), $att_code, $storeId)): ?>
                 <li>
                   <?php if($att_code == 'delivery_time'): ?>
-                    Lieferbar innerhalb von
+                    <?php echo $this->__('Delivery during').' ' ?>
                   <?php endif; ?>
                   <?php echo $_product->getAttributeText($att_code); ?>
                 </li>

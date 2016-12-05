@@ -1,7 +1,7 @@
 <?php $catalogSearchHelper =  $this->helper('catalogsearch'); ?>
 <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
   <div class="form-search input-group">
-    <input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="global-search-x input-group-field input-text" placeholder="Suche..." maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength();?>" />
+    <input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="global-search-x input-group-field input-text" placeholder="Lieblingsprodukt suchen..." maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength();?>" />
     <div class="global-search-x input-group-button">
       <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Search')) ?>" class="submit-button"><i class="fa fa-search"></i></button>
     </div>

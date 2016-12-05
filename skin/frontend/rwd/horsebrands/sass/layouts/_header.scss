@@ -4,8 +4,8 @@ $customer-icons-font-size: 1.5rem;
 .fixed-top {
 	height: 1.75em;
 	line-height: 1.75em;
-	background-color: $grey-base;
-	color: $white-base;
+	background-color: $gray-lighter-2;
+	color: $black-base;
 	margin-bottom: 10px;
 
 	div.container {
@@ -26,6 +26,7 @@ $customer-icons-font-size: 1.5rem;
 	border-bottom: 1px $navbar-border-color solid;
 
 	a.logo-link img {
+		width: 100%;
 		max-width: 170px;
 	}
 
@@ -178,7 +179,7 @@ ul.customer-nav-list {
 			right: -1px;
 			z-index: 5;
 			padding: 10px 20px;
-			background-color: rgba($white, .9);
+			background-color: $white-base;
 			border: 1px solid $gray-lighter-2;
 			@include box-shadow(2px 0 1px -2px $gray-lighter-1);
 
@@ -234,17 +235,26 @@ ul.customer-nav-list {
 	.global-search {
 		float: right;
 		width: 30%;
-		height: 35px;
+		height: 40px;
+		padding-top: 5px;
 
 		.input-group {
 			padding: 0;
-			border: none;
-			border-radius: 0;
+			border: 1px solid $gray-lighter-3;
+			background-color: $gray-lighter-5;
+			border-radius: $border-radius-default;
 		}
 
 		.global-search-x {
-			line-height: 35px;
+			line-height: 28px;
 			height: auto;
+			color: $gray-base;
+			font-weight: 400;
+
+			.fa-search {
+				color: $gray-base;
+				font-size: 18px;
+			}
 		}
 
 		.global-search-field, .global-search-button {
@@ -266,9 +276,9 @@ ul.customer-nav-list {
 .icon {
 	position: relative;
 	width: 60px;
-	height: 50px;
+	height: 40px;
 	margin: 0 auto;
-	background-size: 70%;
+	background-size: 52%;
 	background-repeat: no-repeat;
 	background-position: center 0;
 
@@ -306,9 +316,8 @@ ul.customer-nav-list {
 		}
 	}
 	&.wishlist {
-		// background: url('../images/icons/icon-wishlist.svg') no-repeat 0 0;
 		background-image: url('../images/icons/icon-heart.svg');
-		background-size: 60%;
+		background-size: 40%;
 		background-position: center 4px;
 	}
 }

@@ -1,0 +1,22 @@
+<ul class="checkout-progress" id="checkout-progress-state">
+  <li class="progress-step">
+    <h2 class="color-success">
+      <img src="<?php echo $this->getSkinUrl('images/icons/icon-lock-green.svg') ?>" alt=" " style="width: 12px; padding-bottom: 4px; margin-right: 2px;" />
+      <?php echo $this->__('Secure Connection') ?>
+    </h2>
+    <a href="<?php echo $this->getUrl('checkout/cart') ?>">&nbsp;</a>
+  </li>
+
+  <?php $isAfterActive = false; ?>
+  <?php foreach ($this->getSteps() as $_step): ?>
+    <?php if($_step->getIsActive()) $isAfterActive = true; ?>
+
+    <?php if($_step->getLabel() == 'Shipping Information'
+              || $_step->getLabel() == 'Order Success') continue; ?>
+
+    <li title="<?php echo $_step->getLabel() ?>" class="progress-step <?php echo ($_step->getIsActive() ? 'active' : '') ?><?php echo ($isAfterActive ? '' : ' complete') ?>">
+      <h2><?php echo $_step->getLabel() ?></h2>
+    </li>
+  <?php endforeach; ?>
+</ul>
+<script type="text/javascript">decorateGeneric($$('#checkout-progress-state li'), ['first','last']);</script>

@@ -1,0 +1,71 @@
+<div class="multiple-checkout">
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
+  <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="shipping_method_form">
+    <div class="row">
+    <?php foreach ($this->getAddresses() as $_index => $_address): ?>
+      <div class="columns small-12 medium-6">
+        <div class="box">
+          <?php if($_index == 0): ?>
+            <h2 class="title"><?php echo $this->__('Lieferung Shop') ?></h2>
+          <?php else: ?>
+            <h2 class="title"><?php echo $this->__('Lieferung Deals') ?></h2>
+          <?php endif; ?>
+          <div class="content clearfix">
+            <table class="data-table">
+              <tbody>
+                <?php foreach ($this->getAddressItems($_address) as $_item): ?>
+                  <?php echo $this->getItemHtml($_item->getQuoteItem()) ?>
+                <?php endforeach; ?>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">
+                    <?php if (!($_shippingRateGroups = $this->getShippingRates($_address))): ?>
+                        <p><?php echo $this->__('Sorry, no quotes are available for this order at this time.') ?></p>
+                    <?php else: ?>
+                    <dl class="sp-methods">
+                      <?php $_sole = count($_shippingRateGroups) == 1; foreach ($_shippingRateGroups as $code => $_rates): ?>
+                          <dt><?php echo $this->escapeHtml($this->getCarrierName($code)) ?></dt>
+                          <dd>
+                            <ul class="unstyled">
+                            <?php $_sole = $_sole && count($_rates) == 1; foreach ($_rates as $_rate): ?>
+                              <li<?php if ($_rate->getErrorMessage()) echo ' class="error-msg"' ?>>
+                                 <?php if ($_rate->getErrorMessage()): ?>
+                                      <?php echo $this->escapeHtml($_rate->getCarrierTitle()) ?>: <?php echo $this->escapeHtml($_rate->getErrorMessage()) ?>
+                                 <?php else: ?>
+                                  <?php if ($_sole) : ?>
+                                    <span class="no-display"><input type="radio" name="shipping_method[<?php echo $_address->getId() ?>]" value="<?php echo $this->escapeHtml($_rate->getCode()) ?>" id="s_method_<?php echo $_address->getId() ?>_<?php echo $_rate->getCode() ?>" checked="checked"/></span>
+                                    <?php else: ?>
+                                    <input type="radio" name="shipping_method[<?php echo $_address->getId() ?>]" value="<?php echo $_rate->getCode() ?>" id="s_method_<?php echo $_address->getId() ?>_<?php echo $_rate->getCode() ?>"<?php if($_rate->getCode()===$this->getAddressShippingMethod($_address)) echo ' checked="checked"' ?> class="radio" />
+                                    <?php endif; ?>
+                                    <label for="s_method_<?php echo $_address->getId() ?>_<?php echo $_rate->getCode() ?>"><?php echo $this->escapeHtml($_rate->getMethodTitle()) ?>
+                                    <?php $_excl = $this->getShippingPrice($_address, $_rate->getPrice(), $this->helper('tax')->displayShippingPriceIncludingTax()); ?>
+                                    <?php $_incl = $this->getShippingPrice($_address, $_rate->getPrice(), true); ?>
+                                    <?php echo $_excl; ?>
+                                    <?php if ($this->helper('tax')->displayShippingBothPrices() && $_incl != $_excl): ?>
+                                        (<?php echo $this->__('Incl. Tax'); ?> <?php echo $_incl; ?>)
+                                    <?php endif; ?>
+                                    </label>
+                                   <?php endif ?>
+                                </li>
+                            <?php endforeach; ?>
+                            </ul>
+                          </dd>
+                      <?php endforeach; ?>
+                    </dl>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+    <div class="buttons-set">
+      <button class="opc-back-button white left" onclick="window.location='<?php echo $this->getBackUrl() ?>'; return false;"><?php echo $this->__('Back'); ?></button>
+      <button class="opc-next-button gold right" type='submit'><?php echo $this->__('Continue'); ?></button>
+    </div>
+  </form>
+</div>

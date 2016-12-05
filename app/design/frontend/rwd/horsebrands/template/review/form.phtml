@@ -5,7 +5,7 @@
         <?php echo $this->getBlockHtml('formkey'); ?>
         <fieldset>
             <?php echo $this->getChildHtml('form_fields_before')?>
-            <h3><?php echo $this->__("Write a Review for "); ?><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?>:</h3>
+            <h3 style="max-width: 75%;"><?php echo $this->__("Write a Review for "); ?><?php echo $this->escapeHtml($this->getProductInfo()->getName()) ?>:</h3>
 
             <?php if( $this->getRatings() && $this->getRatings()->getSize()): ?>
               <?php foreach ($this->getRatings() as $_rating): ?>

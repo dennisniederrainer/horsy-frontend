@@ -48,11 +48,13 @@
               </a>
               <div class="product-info">
                 <div class="top-row">
-                  <h3><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></h3>
+                  <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
+                  <?php if($_showProductPrice): ?>
+                  <div class="product-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div>
+                  <?php endif; ?>
                 </div>
                 <div class="bottom-row">
                   <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
-                  <?php if($_showProductPrice): ?><div class="price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div><?php endif; ?>
                 </div>
               </div>
               <?php

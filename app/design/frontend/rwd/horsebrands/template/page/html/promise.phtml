@@ -1,70 +1,31 @@
 <section id="promise">
   <h5 class="section-title">&nbsp;</h5>
   <div class="row full-width smaller-margins">
-    <div class="columns medium-8">
-      <div class="row full-width smaller-margins">
-        <div class="columns medium-12 no-padding">
-          <div class="box newsletter-box">
-            <h2 class="title">Horsebrands Newsletter</h2>
-            <div class="content" style="padding: 0;">
-              <div class="newsletter-discount">
-                <div class="circle" style="display: table;">
-                  <div>
-                    <span>5 €</span><br/>Gutschein
-                  </div>
-                </div>
-              </div>
-              <div class="newsletter-text">
-                <table class="unstyled">
-                  <tbody>
-                    <tr>
-                      <td class="title">
-                        Newsletter |
-                      </td>
-                      <td class="desc">
-                        Abonniere unseren Newsletter<br/>
-                        & du erh&auml;lst von uns einen 5€ Gutschein
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <form id="newsletter-subscribe">
-                  <input name="email" type="text" placeholder="Deine E-Mail-Adresse..." />
-                  <a class="button width-l gold">Abonnieren</a>
-                </form>
-              </div>
-            </div>
-          </div>
+    <div class="columns medium-6">
+      <div class="box">
+        <h2 class="title"><?php echo $this->__('Payment Methods'); ?></h2>
+        <div class="content">
+          <ul class="unstyled inline same-width">
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-mc.png') ?>" alt="MC" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-visa.png') ?>" alt="Visa" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-amex.png') ?>" alt="AmEx" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-paypal.png') ?>" alt="Paypal" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-sofort.png') ?>" alt="Sofort" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-banktransfer.png') ?>" alt="Bank" class="img-responsive"/></li>
+          </ul>
         </div>
-        <div class="columns medium-7 new-inner-row">
-          <div class="box">
-            <h2 class="title"><?php echo $this->__('Payment Methods'); ?></h2>
-            <div class="content">
-              <ul class="unstyled inline same-width">
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-mc.png') ?>" alt="MC" class="img-responsive"/></li>
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-visa.png') ?>" alt="Visa" class="img-responsive"/></li>
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-amex.png') ?>" alt="AmEx" class="img-responsive"/></li>
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-paypal.png') ?>" alt="Paypal" class="img-responsive"/></li>
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-sofort.png') ?>" alt="Sofort" class="img-responsive"/></li>
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-banktransfer.png') ?>" alt="Bank" class="img-responsive"/></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="columns medium-5">
-          <div class="box">
-            <h2 class="title"><?php echo $this->__('Shipping Methods'); ?></h2>
-            <div class="content">
-              <ul class="unstyled inline same-width">
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/delivery/i-dhl.png') ?>" alt="DHL" class="img-responsive"/></li>
-                <li><img src="<?php echo $this->getSkinUrl('images/icons/delivery/i-dhlex.png') ?>" alt="DHLex" class="img-responsive"/></li>
-              </ul>
-            </div>
-          </div>
+      </div>
+      <div class="box">
+        <h2 class="title"><?php echo $this->__('Shipping Methods'); ?></h2>
+        <div class="content">
+          <ul class="unstyled inline same-width">
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/delivery/i-dhl.png') ?>" alt="DHL" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/delivery/i-dhlex.png') ?>" alt="DHLex" class="img-responsive"/></li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="columns medium-4">
+    <div class="columns medium-6">
       <div class="box">
         <h2 class="title"><?php echo $this->__('Our Promise'); ?></h2>
         <div class="content">

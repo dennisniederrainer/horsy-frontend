@@ -34,18 +34,23 @@ label {
     display: block;
     font-size: $font-size-smaller;
   }
+}
 
-  select {
-    @include appearance(none);
-    border: 1px solid $gray-lighter-2;
-    border-radius: 0px;
-    height: 2.5rem;
-    background-color: $white;
-    text-indent: 1rem;
+ul {
+  list-style: circle;
+}
 
-    &:hover {
-      border: 1px solid $gray-base;
-    }
+select {
+  @include appearance(none);
+  border: 1px solid $gray-lighter-2;
+  border-radius: $border-radius-default;
+  width: 100%;
+  padding: 2px 15px;
+  background: url('../images/icons/chevron-down.svg') 96% center no-repeat;
+  background-size: 15px;
+
+  &:hover {
+    border: 1px solid $gray-base;
   }
 }
 

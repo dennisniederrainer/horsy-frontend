@@ -12,40 +12,23 @@
 
 <?php foreach ($this->getTotals() as $_code => $_total): ?>
     <?php if ($_total->getBlockName()): ?>
-        <?php echo $this->getChildHtml($_total->getBlockName(), false); ?>
-    <?php else:?>
+      <?php echo $this->getChildHtml($_total->getBlockName(), false); ?>
+    <?php else: ?>
     <tr class="<?php echo $_code?>">
         <td style="padding: 2px 0; padding-right: 40px; text-align: right;">
-            <?php if ($_total->getStrong()):?>
+          <?php if ($_total->getStrong()): ?>
             <strong><?php echo $this->escapeHtml($_total->getLabel());?></strong>
-            <?php else:?>
+          <?php else: ?>
             <?php echo $this->escapeHtml($_total->getLabel());?>
-            <?php endif?>
+          <?php endif; ?>
         </td>
         <td style="padding: 2px 0; text-align: right;">
-            <?php if ($_total->getStrong()):?>
+          <?php if ($_total->getStrong()): ?>
             <strong><?php echo $this->formatValue($_total) ?></strong>
-            <?php else:?>
+          <?php else: ?>
             <?php echo $this->formatValue($_total) ?>
-            <?php endif?>
+          <?php endif; ?>
         </td>
     </tr>
-    <?php endif?>
-<?php endforeach?>
-
-
-<?php/* foreach ($_totals as $total): ?>
-  <?php if ($total->getBlockName()): ?>
-      <?php echo $this->getChildHtml($total->getBlockName(), false); ?>
-  <?php else:?>
-    <div class="totals-line <?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
-      <?php echo $this->escapeHtml($total->getLabel());?>:
-      <span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?></span>
-      <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
-        <p class="note">inkl. MwSt.</p>
-      <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
-        <p class="note">exkl. MwSt.</p>
-      <?php endif; ?>
-    </div>
   <?php endif; ?>
-<?php endforeach; */?>
+<?php endforeach; ?>

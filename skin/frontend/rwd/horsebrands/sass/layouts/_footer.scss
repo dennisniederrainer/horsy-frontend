@@ -1,9 +1,8 @@
-
 footer {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background-color: $grey-base;
+	background-color: $gray-lighter-2;
 	padding: 30px 0;
 	font-size: .7rem;
 
@@ -13,7 +12,7 @@ footer {
 			font-weight: 700;
 			font-size: 1.15em;
 			margin: 0;
-			color: $white-base;
+			color: $black-base;
 		}
 
 		ul {
@@ -22,7 +21,7 @@ footer {
 			li {
 				line-height: 1.8;
 				a {
-					@include same-link-style($white-base);
+					@include same-link-style($black-base);
 					&:hover {
 						font-weight: 700;
 					}
@@ -53,4 +52,8 @@ footer {
 			}
 		};
 	}
+}
+
+.check-items {
+	padding-left: 5px;
 }

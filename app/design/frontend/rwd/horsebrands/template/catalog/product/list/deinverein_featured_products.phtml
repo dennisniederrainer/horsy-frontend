@@ -24,12 +24,13 @@
         </a>
         <div class="product-info">
           <div class="top-row">
-            <h3><?php echo ($_product->getManufacturer() ? $_product->getAttributeText('manufacturer') : '&nbsp;'); ?></h3>
-            <?php $_msrp = $_helper->productAttribute($_product, $_product->getMsrp(), 'msrp') ?>
+            <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
+            <!-- <div class="product-price"><?php// echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div> -->
+            <?php /* $_msrp = $_helper->productAttribute($_product, $_product->getMsrp(), 'msrp') ?>
             <?php $_msrpPrice = $this->helper('core')->currency($_msrp,true,true) ?>
             <?php if($_msrp): ?>
               <span class="msrp"><?php echo $_msrpPrice; ?></span>
-            <?php endif; ?>
+            <?php endif; */ ?>
           </div>
           <div class="bottom-row">
             <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>

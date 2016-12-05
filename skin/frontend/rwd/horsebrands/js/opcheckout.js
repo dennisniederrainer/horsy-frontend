@@ -36,9 +36,8 @@ Checkout.prototype = {
         this.method = '';
         this.payment = '';
         this.loadWaiting = false;
-        // this.steps = ['login', 'billing', 'shipping', 'shipping_method', 'payment', 'review'];
-        this.steps = ['login', 'billing', 'payment', 'review'];
-        // this.steps = ['billing', 'payment', 'review'];
+        this.steps = ['login', 'billing', 'shipping_method', 'payment', 'review'];
+        // this.steps = ['login', 'billing', 'payment', 'review'];
         //We use billing as beginning step since progress bar tracks from billing
         this.currentStep = 'billing';
 
@@ -930,16 +929,17 @@ Review.prototype = {
             params += '&'+Form.serialize(this.agreementsForm);
         }
         params.save = true;
-        var request = new Ajax.Request(
-            this.saveUrl,
-            {
-                method:'post',
-                parameters:params,
-                onComplete: this.onComplete,
-                onSuccess: this.onSave,
-                onFailure: checkout.ajaxFailure.bind(checkout)
-            }
-        );
+        console.log(saveUrl);
+        // var request = new Ajax.Request(
+        //     this.saveUrl,
+        //     {
+        //         method:'post',
+        //         parameters:params,
+        //         onComplete: this.onComplete,
+        //         onSuccess: this.onSave,
+        //         onFailure: checkout.ajaxFailure.bind(checkout)
+        //     }
+        // );
     },
 
     resetLoadWaiting: function(transport){

@@ -32,3 +32,11 @@ var updateCoupon = function(requestid) {
 		onFailure: checkout.ajaxFailure.bind(checkout),
 	});
 }
+
+var proceedToCheckout = function(multishippingUrl, singleshippingUrl) {
+  if(document.getElementById('enable-splitshipping').checked) {
+    window.location= singleshippingUrl;
+  } else {
+    window.location= multishippingUrl;
+  }
+}
