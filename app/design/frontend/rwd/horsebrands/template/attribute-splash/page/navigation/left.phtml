@@ -1,0 +1,23 @@
+<?php $_splashPages = $this->getSplashPages(); ?>
+<?php $_currentPageId = $this->getSplashPage()->getId(); ?>
+<?php if($_splashPages): ?>
+<div class="block block-layered-nav">
+  <div class="block-content">
+    <dl id="narrow-by-list2">
+      <dt class="title"><?php echo $this->__('Brands') ?></dt>
+      <dd>
+        <ul class="first-level">
+        <?php foreach ($_splashPages as $brand): ?>
+          <li>
+            <a href="<?php echo $brand->getUrl() ?>" title="<?php echo $this->escapeHtml($brand->getName()) ?>"<?php echo ($brand->getId() == $_currentPageId ? ' class="current-category"' : '') ?>>
+              <?php echo $this->escapeHtml($brand->getName()) ?>
+            </a>
+          </li>
+        <?php endforeach ?>
+        </ul>
+      </dd>
+    </dl>
+    <script type="text/javascript">decorateDataList('narrow-by-list2')</script>
+  </div>
+</div>
+<?php endif; ?>

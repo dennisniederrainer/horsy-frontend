@@ -17,9 +17,9 @@
 				<?php endif ?>
             <div class="columns small-6 medium-3<?php if($i%$_columnCount==0 || $i==$_collectionSize): ?> end<?php endif; ?>">
               <div class="brand-wrapper">
-                <div class="link-wrapper">
+                <div class="link-wrapper flex-center">
                   <?php if ($splashPage->getThumbnail()): ?>
-                    <a href="<?php echo $splashPage->getUrl() ?>" title="<?php echo $this->escapeHtml($splashPage->getName()) ?>" class="img-responsive">
+                    <a href="<?php echo $splashPage->getUrl() ?>" title="<?php echo $this->escapeHtml($splashPage->getName()) ?>">
                       <img src="<?php echo $this->helper('attributeSplash/image')->init($splashPage, 'thumbnail')->keepFrame(false)->constrainOnly(true)->resize(150, 150) ?>" alt="<?php echo $this->escapeHtml($splashPage->getName()) ?>" />
                     </a>
                   <?php else: ?>

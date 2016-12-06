@@ -13,7 +13,7 @@ $isCustomSubscribed = Mage::getModel('crconnect/newsletter_subscriber')->isSubsc
                 <h3><?php echo $this->__('Contact Information') ?></h3>
                 <a href="<?php echo $this->getUrl('customer/account/edit') ?>"><?php echo $this->__('Edit') ?></a>
             </div>
-            <div class="box-content">
+            <div class="content">
                 <p>
                     <?php echo $this->escapeHtml($this->getCustomer()->getName()) ?><br />
                     <?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?><br />
@@ -29,7 +29,7 @@ $isCustomSubscribed = Mage::getModel('crconnect/newsletter_subscriber')->isSubsc
                 <h3><?php echo $this->__('Newsletters') ?></h3>
                 <a href="<?php echo $this->getUrl('newsletter/manage') ?>"><?php echo $this->__('Edit') ?></a>
             </div>
-            <div class="box-content">
+            <div class="content">
                 <p>
                     <?php if( $isDefaultSubscribed ): ?>
                         <?php echo Mage::helper('crconnect')->__("You are currently subscribed to 'General Subscription'") ?><br>

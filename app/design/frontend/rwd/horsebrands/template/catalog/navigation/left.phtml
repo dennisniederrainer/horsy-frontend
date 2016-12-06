@@ -16,11 +16,12 @@
                 <?php foreach ($_categories as $_category): ?>
                     <?php //if($_category->getIsActive()): ?>
                     <?php $subCatHtml = $this->getNextLayerHtml($_category) ?>
+                    <?php $hasSubs = ($subCatHtml && $subCatHtml != ''); ?>
                     <li>
                         <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="childcategory-header first<?php echo (in_array($_category->getId(), $_path) ? ' expanded' : '' ); ?>">
-                          <?php echo $this->escapeHtml($_category->getName()) ?><i class="fa<?php echo (in_array($_category->getId(), $_path) ? '  fa-chevron-down' : '  fa-chevron-right' ); ?>"></i>
+                          <?php echo $this->escapeHtml($_category->getName()) ?><?php if($hasSubs): ?><i class="fa<?php echo (in_array($_category->getId(), $_path) ? '  fa-chevron-down' : '  fa-chevron-right' ); ?>"></i><?php endif; ?>
                         </a>
-                        <?php if( $subCatHtml && $subCatHtml != '' ): ?>
+                        <?php if($hasSubs): ?>
                           <ul class="subcat-layer<?php echo (in_array($_category->getId(), $_path) ? '' : ' hide' ); ?>">
                             <?php echo $subCatHtml; ?>
                           </ul>

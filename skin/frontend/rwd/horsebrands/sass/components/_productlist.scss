@@ -22,6 +22,11 @@
 			font-weight: bold;
 		}
 
+		.product-price {
+			white-space: nowrap;
+			overflow: visible;
+			// direction: rtl;
+		}
 		.product-price.old {
 			text-decoration: line-through;
 			font-weight: normal;

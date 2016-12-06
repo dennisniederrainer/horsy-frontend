@@ -27,17 +27,12 @@
 
 				> a {
 					display: block;
-					padding: 5px 1.5rem;
+					padding: 5px 1rem;
 					line-height: 30px;
 					color: inherit;
 					text-transform: none;
 					text-decoration: inherit;
-
 					cursor: pointer;
-
-					&:first-child {
-						padding-left: 0;
-					}
 
 					&:hover, &:active, &:link, &:focus {
 						color: inherit;
@@ -45,8 +40,16 @@
 					}
 				}
 
+        &:first-child a {
+          padding-left: 0;
+        }
+
 				> div {
 					display: none;
+
+          ul {
+            font-size: .965em;
+          }
 
 					a:hover {
 						font-weight: bold;
@@ -54,6 +57,8 @@
 				}
 
 				&:hover {
+          border-bottom: 2px solid $black-base;
+
 					> div {
 						display: block;
 						position: absolute;

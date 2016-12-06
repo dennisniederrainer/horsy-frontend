@@ -16,17 +16,15 @@
                   alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
               </a>
               <div class="product-info">
-                <div class="top-row">
+                <div class="product-list-details left">
                   <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
-                  <div class="product-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div>
-                  <?php /* $_msrp = $_helper->productAttribute($_product, $_product->getMsrp(), 'msrp') ?>
-                  <?php $_msrpPrice = $this->helper('core')->currency($_msrp,true,true) ?>
-                  <?php if($_msrp): ?>
-                    <span class="msrp"><?php echo $_msrpPrice; ?></span>
-                  <?php endif; */ ?>
+                  <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
                 </div>
-                <div class="bottom-row">
-                  <span class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+                <div class="product-list-price right">
+                  <?php if($_product->getFinalPrice() != $_product->getPrice()): ?>
+                    <div class="product-price old"><?php echo Mage::helper('core')->currency($_product->getPrice(),true,false); ?></div>
+                  <?php endif; ?>
+                  <div class="product-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div>
                 </div>
               </div>
                 <?php

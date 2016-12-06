@@ -2,14 +2,14 @@
 /* Slider */
 /* line 45, ../sass/slick-theme.scss */
 .slick-loading .slick-list {
-  background: #fff url('/images/ajax-loader.gif?1478610424') center center no-repeat;
+  background: #fff url('/images/ajax-loader.gif?1479723468') center center no-repeat;
 }
 
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url('/fonts/slick.eot?1478610424');
-  src: url('/fonts/slick.eot?&1478610424#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1478610424') format("woff"), url('/fonts/slick.ttf?1478610424') format("truetype"), url('/fonts/slick.svg?1478610424#slick') format("svg");
+  src: url('/fonts/slick.eot?1479723468');
+  src: url('/fonts/slick.eot?&1479723468#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1479723468') format("woff"), url('/fonts/slick.ttf?1479723468') format("truetype"), url('/fonts/slick.svg?1479723468#slick') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -24,7 +24,7 @@
   line-height: 0px;
   font-size: 0px;
   cursor: pointer;
-  background: transparent;
+  background: transparent center no-repeat;
   color: transparent;
   top: 50%;
   -webkit-transform: translate(0, -50%);
@@ -39,7 +39,7 @@
 .slick-next:hover,
 .slick-next:focus {
   outline: none;
-  background: transparent;
+  background-color: #fff;
   color: transparent;
 }
 /* line 85, ../sass/slick-theme.scss */
@@ -67,47 +67,37 @@
 
 /* line 103, ../sass/slick-theme.scss */
 .slick-prev {
+  background-image: url("../images/icons/chevron-left.svg");
   left: -25px;
 }
-/* line 105, ../sass/slick-theme.scss */
-[dir="rtl"] .slick-prev {
-  left: auto;
-  right: -25px;
-}
-/* line 109, ../sass/slick-theme.scss */
-.slick-prev:before {
-  content: "←";
-}
-/* line 111, ../sass/slick-theme.scss */
-[dir="rtl"] .slick-prev:before {
-  content: "→";
+/* line 107, ../sass/slick-theme.scss */
+.slick-prev:hover, .slick-prev:focus, .slick-prev:active {
+  background-image: url("../images/icons/chevron-left.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
-/* line 117, ../sass/slick-theme.scss */
+/* line 115, ../sass/slick-theme.scss */
 .slick-next {
+  background-image: url("../images/icons/chevron-right.svg");
   right: -25px;
 }
 /* line 119, ../sass/slick-theme.scss */
-[dir="rtl"] .slick-next {
-  left: -25px;
-  right: auto;
-}
-/* line 123, ../sass/slick-theme.scss */
-.slick-next:before {
-  content: "→";
-}
-/* line 125, ../sass/slick-theme.scss */
-[dir="rtl"] .slick-next:before {
-  content: "←";
+.slick-next:hover, .slick-next:focus, .slick-next:active {
+  background-image: url("../images/icons/chevron-right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 /* Dots */
-/* line 133, ../sass/slick-theme.scss */
+/* line 129, ../sass/slick-theme.scss */
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 137, ../sass/slick-theme.scss */
+/* line 133, ../sass/slick-theme.scss */
 .slick-dots {
   position: absolute;
   bottom: -25px;
@@ -118,7 +108,7 @@
   margin: 0;
   width: 100%;
 }
-/* line 146, ../sass/slick-theme.scss */
+/* line 142, ../sass/slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -128,7 +118,7 @@
   padding: 0;
   cursor: pointer;
 }
-/* line 154, ../sass/slick-theme.scss */
+/* line 150, ../sass/slick-theme.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -142,15 +132,15 @@
   padding: 5px;
   cursor: pointer;
 }
-/* line 166, ../sass/slick-theme.scss */
+/* line 162, ../sass/slick-theme.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
 }
-/* line 168, ../sass/slick-theme.scss */
+/* line 164, ../sass/slick-theme.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 172, ../sass/slick-theme.scss */
+/* line 168, ../sass/slick-theme.scss */
 .slick-dots li button:before {
   position: absolute;
   top: 0;
@@ -167,7 +157,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 189, ../sass/slick-theme.scss */
+/* line 185, ../sass/slick-theme.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75;

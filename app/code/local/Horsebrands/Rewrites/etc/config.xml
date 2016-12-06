@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Horsebrands_Rewrites>
-            <version>0.0.9</version>
+            <version>0.1.0</version>
         </Horsebrands_Rewrites>
     </modules>
     <global>

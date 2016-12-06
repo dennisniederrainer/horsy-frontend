@@ -333,3 +333,8 @@ dd.swatch-attr {
 a.current-category {
   font-weight: bold;
 }
+
+// Left to Right Mark after price span, so Euro Sign stays behind the amount.
+// span.price::after {
+//   content: '\200E';
+// }

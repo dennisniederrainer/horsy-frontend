@@ -1,96 +1,96 @@
 /* One column layout */
-/* line 3, ../sass/_grid.scss */
+/* line 3, ../sass/email/_grid.scss */
 .one-column .contents {
   text-align: left;
 }
-/* line 8, ../sass/_grid.scss */
+/* line 8, ../sass/email/_grid.scss */
 .one-column .header div {
   width: 24%;
   display: inline-block;
   vertical-align: baseline;
   text-align: center;
 }
-/* line 15, ../sass/_grid.scss */
+/* line 15, ../sass/email/_grid.scss */
 .one-column p {
   font-size: 12px;
   Margin-bottom: 10px;
 }
 
 /*Two column layout*/
-/* line 22, ../sass/_grid.scss */
+/* line 22, ../sass/email/_grid.scss */
 .two-column {
   text-align: center;
   font-size: 0;
 }
-/* line 26, ../sass/_grid.scss */
+/* line 26, ../sass/email/_grid.scss */
 .two-column .column {
   width: 100%;
   max-width: 300px;
   display: inline-block;
   vertical-align: top;
 }
-/* line 32, ../sass/_grid.scss */
+/* line 32, ../sass/email/_grid.scss */
 .two-column .column.forty {
   max-width: 240px;
 }
-/* line 35, ../sass/_grid.scss */
+/* line 35, ../sass/email/_grid.scss */
 .two-column .column.sixty {
   max-width: 360px;
 }
-/* line 39, ../sass/_grid.scss */
+/* line 39, ../sass/email/_grid.scss */
 .two-column .contents {
   width: 100%;
   font-size: 12px;
   text-align: left;
 }
-/* line 44, ../sass/_grid.scss */
+/* line 44, ../sass/email/_grid.scss */
 .two-column img {
   width: 100%;
   max-width: 280px;
   height: auto;
 }
-/* line 49, ../sass/_grid.scss */
+/* line 49, ../sass/email/_grid.scss */
 .two-column .text {
   padding-top: 10px;
 }
 
 /*Three column layout*/
-/* line 55, ../sass/_grid.scss */
+/* line 55, ../sass/email/_grid.scss */
 .three-column {
   text-align: center;
   font-size: 0;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-/* line 61, ../sass/_grid.scss */
+/* line 61, ../sass/email/_grid.scss */
 .three-column.no-pad {
   padding: 0;
 }
-/* line 65, ../sass/_grid.scss */
+/* line 65, ../sass/email/_grid.scss */
 .three-column .column {
   width: 100%;
   max-width: 200px;
   display: inline-block;
   vertical-align: top;
 }
-/* line 71, ../sass/_grid.scss */
+/* line 71, ../sass/email/_grid.scss */
 .three-column .contents {
   font-size: 12px;
   text-align: center;
 }
-/* line 75, ../sass/_grid.scss */
+/* line 75, ../sass/email/_grid.scss */
 .three-column img {
   width: 100%;
   max-width: 180px;
   height: auto;
 }
-/* line 80, ../sass/_grid.scss */
+/* line 80, ../sass/email/_grid.scss */
 .three-column .text {
   padding-top: 10px;
 }
 
 /* Basics */
-/* line 15, ../sass/styles.scss */
+/* line 16, ../sass/hb-email-inline.scss */
 body {
   margin: 0 !important;
   padding: 0;
@@ -99,34 +99,34 @@ body {
   font-size: 12px;
 }
 
-/* line 22, ../sass/styles.scss */
+/* line 23, ../sass/hb-email-inline.scss */
 table {
   border-spacing: 0;
   font-family: Arial, sans-serif;
   color: #1d1d1d;
 }
 
-/* line 27, ../sass/styles.scss */
+/* line 28, ../sass/hb-email-inline.scss */
 td {
   padding: 0;
 }
 
-/* line 30, ../sass/styles.scss */
+/* line 31, ../sass/hb-email-inline.scss */
 img {
   border: 0;
 }
 
-/* line 33, ../sass/styles.scss */
+/* line 34, ../sass/hb-email-inline.scss */
 div[style*="margin: 16px 0"] {
   margin: 0 !important;
 }
 
-/* line 36, ../sass/styles.scss */
+/* line 37, ../sass/hb-email-inline.scss */
 .talign-left {
   text-align: left !important;
 }
 
-/* line 39, ../sass/styles.scss */
+/* line 40, ../sass/hb-email-inline.scss */
 .wrapper {
   width: 100%;
   table-layout: fixed;
@@ -134,13 +134,13 @@ div[style*="margin: 16px 0"] {
   -ms-text-size-adjust: 100%;
 }
 
-/* line 45, ../sass/styles.scss */
+/* line 46, ../sass/hb-email-inline.scss */
 .webkit {
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* line 49, ../sass/styles.scss */
+/* line 50, ../sass/hb-email-inline.scss */
 .outer {
   /* capitalized, so that outlook.com does not strip it */
   Margin: 20px auto;
@@ -149,48 +149,48 @@ div[style*="margin: 16px 0"] {
   background-color: #fff;
 }
 
-/* line 57, ../sass/styles.scss */
+/* line 58, ../sass/hb-email-inline.scss */
 .inner {
   padding: 10px 20px;
 }
-/* line 60, ../sass/styles.scss */
+/* line 61, ../sass/hb-email-inline.scss */
 .inner.pad-bot-0 {
   padding-bottom: 0;
 }
-/* line 63, ../sass/styles.scss */
+/* line 64, ../sass/hb-email-inline.scss */
 .inner.pad-top-0 {
   padding-top: 0;
 }
 
-/* line 67, ../sass/styles.scss */
+/* line 68, ../sass/hb-email-inline.scss */
 p {
   Margin: 0;
 }
-/* line 70, ../sass/styles.scss */
+/* line 71, ../sass/hb-email-inline.scss */
 p.title {
   Margin-bottom: 10px;
 }
 
-/* line 74, ../sass/styles.scss */
+/* line 75, ../sass/hb-email-inline.scss */
 a {
   color: #cca64b;
   text-decoration: none;
 }
 
-/* line 78, ../sass/styles.scss */
+/* line 79, ../sass/hb-email-inline.scss */
 a:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-/* line 82, ../sass/styles.scss */
+/* line 83, ../sass/hb-email-inline.scss */
 h1 {
   font-size: 14px;
   font-weight: bold;
   Margin-bottom: 14px;
 }
 
-/* line 87, ../sass/styles.scss */
+/* line 88, ../sass/hb-email-inline.scss */
 h2 {
   font-size: 12px;
   font-weight: bold;
@@ -198,53 +198,76 @@ h2 {
   padding-bottom: 5px;
   color: #1d1d1d;
 }
-/* line 94, ../sass/styles.scss */
+/* line 95, ../sass/hb-email-inline.scss */
 h2.order-title {
   text-transform: uppercase;
   border-bottom: 2px solid #1d1d1d;
 }
-/* line 98, ../sass/styles.scss */
+/* line 99, ../sass/hb-email-inline.scss */
 h2.order-title.thin-border {
   border-bottom-width: 1px;
 }
 
-/* line 103, ../sass/styles.scss */
+/* line 104, ../sass/hb-email-inline.scss */
 .order-title-label {
   width: 200px;
 }
 
-/* line 106, ../sass/styles.scss */
+/* line 107, ../sass/hb-email-inline.scss */
 .bold {
   font-weight: 600;
 }
 
-/* line 109, ../sass/styles.scss */
+/* line 110, ../sass/hb-email-inline.scss */
 .nowrap {
   white-space: nowrap;
 }
 
-/* line 112, ../sass/styles.scss */
+/* line 113, ../sass/hb-email-inline.scss */
 .email-img {
   height: auto !important;
   max-width: 600px !important;
   width: 100% !important;
 }
-/* line 117, ../sass/styles.scss */
+/* line 118, ../sass/hb-email-inline.scss */
 .email-img.tracking-button {
   width: 130px !important;
 }
 
-/* line 123, ../sass/styles.scss */
+/* line 124, ../sass/hb-email-inline.scss */
 .full-width .inner {
   padding: 0;
 }
 
-/* line 128, ../sass/styles.scss */
+/* line 129, ../sass/hb-email-inline.scss */
+a.button {
+  display: block;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 14px;
+  line-height: 36px;
+  Margin: 0 auto;
+  border-radius: 5px;
+  width: 50%;
+}
+/* line 139, ../sass/hb-email-inline.scss */
+a.button.gold {
+  background-color: #cca64b;
+  color: #fff;
+}
+/* line 144, ../sass/hb-email-inline.scss */
+a.button:hover {
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* line 152, ../sass/hb-email-inline.scss */
 .hello {
   padding-top: 20px;
 }
 
-/* line 132, ../sass/styles.scss */
+/* line 156, ../sass/hb-email-inline.scss */
 .header {
   text-align: center;
   margin: 0 auto;
@@ -252,107 +275,107 @@ h2.order-title.thin-border {
   padding-right: 0;
   border-bottom: 1px solid #1d1d1d;
 }
-/* line 139, ../sass/styles.scss */
+/* line 163, ../sass/hb-email-inline.scss */
 .header a {
   font-size: 11px;
   color: #7c796f;
   text-transform: uppercase;
 }
-/* line 144, ../sass/styles.scss */
+/* line 168, ../sass/hb-email-inline.scss */
 .header a:hover {
   color: #cca64b;
   text-decoration: none;
 }
 
-/* line 151, ../sass/styles.scss */
+/* line 175, ../sass/hb-email-inline.scss */
 .footer {
   margin: 30px 0 20px;
   text-align: center;
 }
-/* line 156, ../sass/styles.scss */
+/* line 180, ../sass/hb-email-inline.scss */
 .footer .support {
   margin: 10px 0;
 }
-/* line 158, ../sass/styles.scss */
+/* line 182, ../sass/hb-email-inline.scss */
 .footer .support p {
   font-size: 12px;
   Margin: 0;
 }
-/* line 162, ../sass/styles.scss */
+/* line 186, ../sass/hb-email-inline.scss */
 .footer .support p.title {
   Margin-bottom: 5px;
 }
-/* line 166, ../sass/styles.scss */
+/* line 190, ../sass/hb-email-inline.scss */
 .footer .support p span.telephone {
   color: #cca64b;
 }
-/* line 171, ../sass/styles.scss */
+/* line 195, ../sass/hb-email-inline.scss */
 .footer .teaser {
   margin: 30px 0;
 }
-/* line 174, ../sass/styles.scss */
+/* line 198, ../sass/hb-email-inline.scss */
 .footer .teaser h3 {
   font-size: 16px;
   color: #cca64b;
   font-weight: 400;
 }
-/* line 180, ../sass/styles.scss */
+/* line 204, ../sass/hb-email-inline.scss */
 .footer .social {
   margin: 25px 0 30px;
 }
-/* line 182, ../sass/styles.scss */
+/* line 206, ../sass/hb-email-inline.scss */
 .footer .social a {
   margin: 10px;
 }
-/* line 185, ../sass/styles.scss */
+/* line 209, ../sass/hb-email-inline.scss */
 .footer .social a .social-link {
   width: 30px;
   height: 30px;
 }
-/* line 191, ../sass/styles.scss */
+/* line 215, ../sass/hb-email-inline.scss */
 .footer .legal {
   margin-top: 20px;
 }
-/* line 193, ../sass/styles.scss */
+/* line 217, ../sass/hb-email-inline.scss */
 .footer .legal p {
   font-size: 10px;
 }
-/* line 196, ../sass/styles.scss */
+/* line 220, ../sass/hb-email-inline.scss */
 .footer .legal p a.home {
   margin-top: 25px;
   font-size: 12px;
 }
 
-/* line 205, ../sass/styles.scss */
+/* line 229, ../sass/hb-email-inline.scss */
 dl.order-details-data dt, dl.order-details-data dd {
   float: left;
 }
-/* line 208, ../sass/styles.scss */
+/* line 232, ../sass/hb-email-inline.scss */
 dl.order-details-data dt {
   clear: left;
   width: 120px;
 }
-/* line 212, ../sass/styles.scss */
+/* line 236, ../sass/hb-email-inline.scss */
 dl.order-details-data dd {
   margin: 0;
 }
 
-/* line 218, ../sass/styles.scss */
+/* line 242, ../sass/hb-email-inline.scss */
 dl.bankaccount-info-wrapper.infobox dd {
   margin-left: 0;
   margin-bottom: 5px;
 }
 
-/* line 225, ../sass/styles.scss */
+/* line 249, ../sass/hb-email-inline.scss */
 table.bankpayment_info {
   margin: 10px 0;
 }
-/* line 228, ../sass/styles.scss */
+/* line 252, ../sass/hb-email-inline.scss */
 table.items {
   margin-top: 25px;
   width: 100%;
 }
-/* line 233, ../sass/styles.scss */
+/* line 257, ../sass/hb-email-inline.scss */
 table.items thead th {
   border-bottom: 1px solid #1d1d1d;
   font-weight: 600;
@@ -363,38 +386,38 @@ table.items thead th {
   font-family: Arial, sans-serif;
   text-align: left;
 }
-/* line 246, ../sass/styles.scss */
+/* line 270, ../sass/hb-email-inline.scss */
 table.items tbody td {
   vertical-align: top;
 }
-/* line 248, ../sass/styles.scss */
+/* line 272, ../sass/hb-email-inline.scss */
 table.items tbody td.cell-content {
   padding: 8px 0;
   font-size: 11px;
 }
-/* line 254, ../sass/styles.scss */
+/* line 278, ../sass/hb-email-inline.scss */
 table.items tbody .product-name {
   text-transform: uppercase;
   color: #1d1d1d;
 }
-/* line 260, ../sass/styles.scss */
+/* line 284, ../sass/hb-email-inline.scss */
 table.items .align-right {
   text-align: right;
 }
-/* line 263, ../sass/styles.scss */
+/* line 287, ../sass/hb-email-inline.scss */
 table.items .align-center {
   text-align: center;
 }
-/* line 268, ../sass/styles.scss */
+/* line 292, ../sass/hb-email-inline.scss */
 table.table-totals {
   font-size: 12px;
   float: right;
 }
-/* line 272, ../sass/styles.scss */
+/* line 296, ../sass/hb-email-inline.scss */
 table.table-totals tbody td {
   padding: 2px 0;
 }
-/* line 276, ../sass/styles.scss */
+/* line 300, ../sass/hb-email-inline.scss */
 table.table-totals .padding-totals table tr td:first-child {
   padding-right: 30px;
 }

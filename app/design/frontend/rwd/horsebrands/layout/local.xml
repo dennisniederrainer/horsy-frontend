@@ -114,6 +114,7 @@
           <action method="addLink" translate="label"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
           <action method="addLink" translate="label"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
           <action method="addLink" translate="label"><name>order_history</name><path>sales/order/history</path><label>My Orders</label></action>
+          <action method="addLink" translate="label"><name>newsletter_subscription</name><path>newsletter/manage/</path><label>My Newsletter</label></action>
       </block>
   </reference>
 </customer_account>
@@ -197,13 +198,9 @@
 		<reference name="left">
 			<remove name="currency" />
 			<remove name="catalog.leftnav" />
-      <block type="catalog/navigation" name="catalog.sidenav" template="catalog/navigation/left.phtml"/>
+      <block type="horsebrands_rewrites/attributeSplash_page_view_navigation" name="catalog.sidenav" template="attribute-splash/page/navigation/left.phtml"/>
 		</reference>
     <reference name="product_list">
-      <!-- <remove name="catalog.filter" /> -->
-      <!-- <block type="catalog/layer_view" name="catalog.filter" template="catalog/layer/view.phtml">
-        <action method="unsetChild"><child>category_filter</child></action>
-      </block> -->
       <block type="attributeSplash/layer_view" name="catalog.filter" template="catalog/layer/view.phtml" />
 		</reference>
 	</attributesplash_page_view>

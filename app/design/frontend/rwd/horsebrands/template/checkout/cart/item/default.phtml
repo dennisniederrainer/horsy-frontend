@@ -108,7 +108,8 @@ if($_childProduct && $_childProduct->getSize()) {
         $stockItem = Mage::getModel('cataloginventory/stock_item')->loadByProduct($_childProduct);
         $min_sale_qty = (int)$stockItem->getData('min_sale_qty');
         $max_sale_qty = (int)$stockItem->getData('max_sale_qty');
-        $total_qty = (int)$stockItem->getQty();
+        // $total_qty = (int)$stockItem->getQty();
+        $total_qty = (int)$stockItem->getAvailableQtyForSale();
 
         $max_qty = 0;
         if($max_sale_qty == 0 || $max_sale_qty >= 5) {

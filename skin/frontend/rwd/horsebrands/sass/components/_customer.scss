@@ -103,19 +103,13 @@
   }
 
   .box {
-    color: $font-color-default;
-
     h2.title {
-      font-size: rem-calc(12);
+      // font-size: rem-calc(12);
 
       span.edit {
         float: right;
         font-size: rem-calc(10);
         font-weight: $font-weight-light;
-        a, a:visited, a:hover, a:active {
-          text-decoration: none;
-          color: inherit;
-        }
       }
     }
   }

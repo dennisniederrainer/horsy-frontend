@@ -7,7 +7,10 @@
 ?>
 <div class="category-products">
   <?php if($_category): ?>
-    <h3><?php echo $_category->getName(); ?> <span class="products-count">/ <?php echo $_toolbar->getTotalNum() ?></span></h3>
+    <h3>
+      <?php echo $_category->getName(); ?>
+      <?php /* <span class="products-count">/ <?php echo $_toolbar->getTotalNum() ?></span> */ ?>
+    </h3>
   <?php endif; ?>
 
 <?php echo $this->getChildHtml('catalog.filter') ?>
@@ -50,10 +53,15 @@
                    <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
                  </div>
                  <div class="product-list-price right">
-                   <div class="product-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div>
                    <?php if($_product->getFinalPrice() != $_product->getPrice()): ?>
-                    <div class="product-price old"><?php echo Mage::helper('core')->currency($_product->getPrice(),true,false); ?></div>
+                     <div class="product-price old">
+                       <?php echo Mage::helper('core')->currency($_product->getPrice(),true,false); ?>
+                     </div>
                    <?php endif; ?>
+                   <div class="product-price">
+                     <?php echo $this->getPriceHtml($_product, true) ?>
+                     <?php //echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?>
+                   </div>
                  </div>
                </div>
               </a>

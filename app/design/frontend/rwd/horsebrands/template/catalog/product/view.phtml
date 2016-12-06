@@ -18,50 +18,52 @@
       </div>
     </div>
     <div class="product-essential-right">
-      <!-- product info -->
-      <div class="row">
-        <div class="manufacturer-logo left">
-          <?php $manufacturerName = $_product->getAttributeText('manufacturer'); ?>
-          <?php $manufacturerId = $_product->getManufacturer(); ?>
-          <?php $manufacturer = Mage::getModel('Purchase/supplier')->load($manufacturerId, 'sup_code'); ?>
-          <?php $imgUrl = $manufacturer->getsup_logo(); ?>
-          <?php if($imgUrl): ?>
-            <?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .DS. 'manufacturer' .DS. 'logos' .DS. $imgUrl; ?>
-            <img src="<?php echo $imgUrl ?>" alt="<?php echo $manufacturerName ?>" class="img-responsive" />
-          <?php else: ?>
-            <?php echo $manufacturerName ?>
-          <?php endif; ?>
-        </div>
-        <div class="review-stars right" style="text-align:right;">
-          <p class="rating overall-rating">
-            <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
-            for ($i=1; $i <= 5 ; $i++) {
-              echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
-            }
-            ?>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="columns medium-12 product-name">
-          <h1 class="thin-weight"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="columns medium-12">
-          <h1 class="normal-weight">
-            <?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?>
-            <span class="note">
-              <?php echo (Mage::helper('tax')->priceIncludesTax() ? 'inkl. MwSt' : 'exkl. MwSt'); ?>
-            </span>
-          </h1>
-        </div>
-      </div>
       <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
         <?php echo $this->getBlockHtml('formkey') ?>
         <div class="no-display">
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+        <!-- product info -->
+        <div class="row">
+          <div class="manufacturer-logo left">
+            <?php $manufacturerName = $_product->getAttributeText('manufacturer'); ?>
+            <?php $manufacturerId = $_product->getManufacturer(); ?>
+            <?php $manufacturer = Mage::getModel('Purchase/supplier')->load($manufacturerId, 'sup_code'); ?>
+            <?php $imgUrl = $manufacturer->getsup_logo(); ?>
+            <?php if($imgUrl): ?>
+              <?php $imgUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .DS. 'manufacturer' .DS. 'logos' .DS. $imgUrl; ?>
+              <img src="<?php echo $imgUrl ?>" alt="<?php echo $manufacturerName ?>" class="img-responsive" />
+            <?php else: ?>
+              <?php echo $manufacturerName ?>
+            <?php endif; ?>
+          </div>
+          <div class="review-stars right" style="text-align:right;">
+            <p class="rating overall-rating">
+              <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
+              for ($i=1; $i <= 5 ; $i++) {
+                echo '<i class="fa fa-star' . ($i>$numStarsTotal ? '-o' : '') . '"></i>';
+              }
+              ?>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns medium-12 product-name">
+            <h1 class="thin-weight"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="columns medium-12">
+              <div class="price-info">
+                  <?php echo $this->getPriceHtml($_product); ?>
+                  <?php echo $this->getChildHtml('bundle_prices') ?>
+                  <?php echo $this->getTierPriceHtml() ?>
+                  <span class="note">
+                  <?php echo (Mage::helper('tax')->priceIncludesTax() ? $this->__('incl. VAT, excl. shipping') : $this->__('excl. VAT and shipping')); ?>
+                  </span>
+              </div>
+          </div>
         </div>
         <div class="row">
             <?php if ($_product->isSaleable() && $this->hasOptions()):?>

@@ -1,0 +1,305 @@
+@import "compass";
+
+$bg-global: #ececec;
+$bg-color: #fff;
+$gold-base: #cca64b;
+
+$color-black: #1d1d1d;
+$color-white: #fff;
+$link-color: $gold-base;
+
+$header-link-color: #7c796f;
+
+@import "email/grid";
+
+/* Basics */
+body {
+    margin: 0 !important;
+    padding: 0;
+    background-color: $bg-global;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+table {
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    color: $color-black;
+}
+td {
+    padding: 0;
+}
+img {
+    border: 0;
+}
+div[style*="margin: 16px 0"] {
+    margin:0 !important;
+}
+.talign-left {
+  text-align: left !important;
+}
+.wrapper {
+    width: 100%;
+    table-layout: fixed;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+.webkit {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.outer {
+  /* capitalized, so that outlook.com does not strip it */
+  Margin: 20px auto;
+  width: 100%;
+  max-width: 600px;
+  background-color: $bg-color;
+}
+
+.inner {
+  padding: 10px 20px;
+
+  &.pad-bot-0 {
+    padding-bottom: 0;
+  }
+  &.pad-top-0 {
+    padding-top: 0;
+  }
+}
+p {
+    Margin: 0;
+
+    &.title {
+      Margin-bottom: 10px;
+    }
+}
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+h1 {
+    font-size: 14px;
+    font-weight: bold;
+    Margin-bottom: 14px;
+}
+h2 {
+    font-size: 12px;
+    font-weight: bold;
+    Margin-bottom: 12px;
+    padding-bottom: 5px;
+    color: $color-black;
+
+    &.order-title {
+      text-transform: uppercase;
+      border-bottom: 2px solid $color-black;
+
+      &.thin-border {
+        border-bottom-width: 1px;
+      }
+    }
+}
+.order-title-label {
+  width: 200px;
+}
+.bold {
+  font-weight: 600;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.email-img {
+  height:auto !important;
+  max-width:600px !important;
+  width: 100% !important;
+
+  &.tracking-button {
+    width: 130px !important;
+  }
+}
+
+.full-width {
+  .inner {
+    padding: 0;
+  }
+}
+
+a.button {
+  display: block;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 14px;
+  line-height: 36px;
+  Margin: 0 auto;
+  border-radius: 5px;
+  width: 50%;
+
+  &.gold {
+    background-color: $gold-base;
+    color: $color-white;
+  }
+
+  &:hover {
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+
+.hello {
+  padding-top: 20px;
+}
+
+.header {
+  text-align: center;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: 1px solid $color-black;
+
+  a {
+    font-size: 11px;
+    color: $header-link-color;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $link-color;
+      text-decoration: none;
+    }
+  }
+}
+
+.footer {
+  // border-top: 2px solid $color-black;
+  margin: 30px 0 20px;
+  text-align: center;
+
+  .support {
+    margin: 10px 0;
+    p {
+      font-size: 12px;
+      Margin: 0;
+
+      &.title {
+        Margin-bottom: 5px;
+      }
+
+      span.telephone {
+        color: $link-color;
+      }
+    }
+  }
+  .teaser {
+    margin: 30px 0;
+
+    h3 {
+      font-size: 16px;
+      color: $link-color;
+      font-weight: 400;
+    }
+  }
+  .social {
+    margin: 25px 0 30px;
+    a {
+      margin: 10px;
+
+      .social-link {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  .legal {
+    margin-top: 20px;
+    p {
+      font-size: 10px;
+
+      a.home {
+        margin-top: 25px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+dl.order-details-data {
+  dt, dd {
+    float: left;
+  }
+  dt {
+    clear: left;
+    width: 120px;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+dl.bankaccount-info-wrapper.infobox {
+  dd {
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+}
+
+table {
+  &.bankpayment_info {
+    margin: 10px 0;
+  }
+  &.items {
+    margin-top: 25px;
+    width: 100%;
+
+    thead {
+      th {
+          border-bottom: 1px solid $color-black;
+          font-weight: 600;
+          background: none;
+          font-size: 12px;
+          padding: 0 0 1px;
+          text-transform: uppercase;
+          font-family: Arial, sans-serif;
+          text-align: left;
+      }
+    }
+
+    tbody {
+      td {
+        vertical-align: top;
+        &.cell-content {
+          padding: 8px 0;
+          font-size: 11px;
+        }
+      }
+
+      .product-name {
+        text-transform: uppercase;
+        color: $color-black;
+      }
+    }
+
+    .align-right {
+      text-align: right;
+    }
+    .align-center {
+      text-align: center;
+    }
+  }
+
+  &.table-totals {
+      font-size: 12px;
+      float: right;
+
+      tbody td {
+        padding: 2px 0;
+      }
+      .padding-totals table tr {
+        td:first-child {
+          padding-right: 30px;
+        }
+      }
+  }
+}
