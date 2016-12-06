@@ -42,7 +42,7 @@ $canvasHeight: 417px;
     .seq-canvas {
       // position: absolute;
       z-index: 1;
-      height: $canvasHeight;
+      // height: $canvasHeight;
       width: 100%;
       white-space: nowrap;
       font-size: 0;
@@ -62,18 +62,6 @@ $canvasHeight: 417px;
       background-size: cover;
       background-position: 50% 50%;
       @include translateZ(0);
-    }
-
-    .step1 {
-      // background-color: #279fe5;
-      background-image: url('../images/teaser/header1.jpg');
-      // background-repeat: no-repeat;
-    }
-    .step2 {
-      background-image: url('../images/teaser/header2.jpg');
-    }
-    .step3 {
-      background-image: url('../images/teaser/header3.jpg');
     }
 
     .content-position {

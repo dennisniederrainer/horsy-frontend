@@ -83,10 +83,9 @@
   margin-bottom: 20px;
 
   .more-views {
-    // margin: 0 auto;
+    width: 60%;
     overflow: auto;
-    margin-right: 10%;
-    margin-top: 20px;
+    margin: 20px auto 0;
 
     .product-image-thumbs {
       display: none;

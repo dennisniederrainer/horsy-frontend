@@ -24,25 +24,19 @@ foreach ($children as $child) {
 
     $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
 
-    if (!empty($childrenWrapClass)) {
-        $html .= '<div class="'. $childrenWrapClass .'">';
-    }
-
     $nextChildLevel = $childLevel + 1;
 
     if (!empty($_hasChildren)) {
+      $html .= '<div>';
         $html .= '<ul class="level'. $childLevel .'">';
-        $html .=     '<li class="level'. $nextChildLevel .' view-all">';
-        $html .=         '<a class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
-        $html .=             $this->__('View All') . ' ' . $this->escapeHtml($this->__($child->getName()));
-        $html .=         '</a>';
-        $html .=     '</li>';
+        // $html .=     '<li class="level'. $nextChildLevel .' view-all">';
+        // $html .=         '<a class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
+        // $html .=             $this->__('View All') . ' ' . $this->escapeHtml($this->__($child->getName()));
+        // $html .=         '</a>';
+        // $html .=     '</li>';
         $html .=     $this->render($child, $childrenWrapClass);
         $html .= '</ul>';
-    }
-
-    if (!empty($childrenWrapClass)) {
-        $html .= '</div>';
+      $html .= '</div>';
     }
 
     $html .= '</li>';

@@ -115,6 +115,7 @@
 "You have logged out and will be redirected to our homepage in 5 seconds.","Du hast die abgemeldet und wirst in 5 Sekunden zurück zur Startseite geleitet."
 "My Account","Mein Konto"
 "My Wishlist","Mein Wunschzettel"
+"My Orders","Meine Bestellungen"
 "My Cart","Warenkorb"
 "My Cart (%s item)","Warenkorb (%s Artikel)"
 "My Cart (%s Items)","Warenkorb (%s Artikel)"
@@ -164,7 +165,7 @@
 "Please transfer the money to the following bank account","Den Rechnungsbetrag kannst du nach deiner Bestellung an folgendes Konto überweisen"
 "Please transfer the money within %s days to the following bank account","Bitte überweise den Rechnungsbetrag innerhalb von %s Tagen an folgendes Konto"
 "Please transfer the money within %s days","Bitte überweise den Rechnungsbetrag innerhalb der nächsten %s Tage"
-"Yout review has been accepted for moderation","Danke für Deine Bewertung! Wir werden sie schnellstmöglich freigeben."
+"Your review has been accepted for moderation","Danke für Deine Bewertung! Wir werden sie schnellstmöglich freigeben."
 
 "Grand Total to pay:","Zu zahlende Gesamtsumme:"
 "Delivery","Lieferung"
@@ -177,3 +178,6 @@
 "Add Recipient","Empfänger hinzufügen"
 "Send Email","E-Mail senden"
 "The link to a friend was sent.","Der Artikel wurde erfolgreich zu deinen Freunden gesendet."
+"You have placed no orders.","Du hast noch keine Bestellungen getätigt."
+"incl. VAT, excl. shipping","inkl. MwSt., zzgl. Versand"
+"excl. VAT and shipping","zzgl. MwSt. und Versand"

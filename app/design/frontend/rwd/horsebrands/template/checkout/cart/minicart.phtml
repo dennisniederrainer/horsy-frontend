@@ -6,7 +6,7 @@
 ?>
 
 <div class="dropdown-tab" style="z-index: 30;">
-  <a href="" onclick="redirectOnMobile('<?php echo $this->getUrl('checkout/cart') ?>'); return false;">
+  <a href="<?php echo ($_cartQty > 0 ? $this->getUrl('checkout/cart') : '') ?>">
   <div class="icon shoppingcart">
     <span class="count">(<?php echo $_cartQty; ?>)</span>
     <span><?php echo $this->__('Warenkorb'); ?></span>

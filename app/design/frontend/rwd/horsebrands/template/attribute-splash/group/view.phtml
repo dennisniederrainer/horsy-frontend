@@ -1,0 +1,44 @@
+<?php if ($splashGroup = $this->getSplashGroup()): ?>
+	<?php $splashPages = $this->getSplashPages() ?>
+	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+	<?php if($this->isContentMode()): ?>
+		<?php echo $this->getCmsBlockHtml() ?>
+	<?php elseif($this->isMixedMode()): ?>
+		<?php echo $this->getCmsBlockHtml() ?>
+	<?php endif; ?>
+	<?php if ($this->isProductMode() || $this->isMixedMode()): ?>
+		<div class="splash-groups">
+			<?php $_columnCount = 4 ?>
+			<?php $_collectionSize = $splashPages->count() ?>
+			<?php $i = 0; foreach($splashPages as $splashPage): ?>
+				<?php if ($i++%$_columnCount==0): ?>
+					<div class="row">
+				<?php endif ?>
+            <div class="columns small-6 medium-3<?php if($i%$_columnCount==0 || $i==$_collectionSize): ?> end<?php endif; ?>">
+              <div class="brand-wrapper">
+                <div class="link-wrapper">
+                  <?php if ($splashPage->getThumbnail()): ?>
+                    <a href="<?php echo $splashPage->getUrl() ?>" title="<?php echo $this->escapeHtml($splashPage->getName()) ?>" class="img-responsive">
+                      <img src="<?php echo $this->helper('attributeSplash/image')->init($splashPage, 'thumbnail')->keepFrame(false)->constrainOnly(true)->resize(150, 150) ?>" alt="<?php echo $this->escapeHtml($splashPage->getName()) ?>" />
+                    </a>
+                  <?php else: ?>
+                    <div class="product-manufacturer">
+                      <a href="<?php echo $splashPage->getUrl() ?>" title="<?php echo $this->escapeHtml($splashPage->getName()) ?>">
+                        <?php echo $this->escapeHtml($splashPage->getName()) ?>
+                      </a>
+                    </div>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+				<?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+					</div>
+				<?php endif ?>
+			<?php endforeach ?>
+      <?php if ($this->hasPagerBlock()): ?>
+      	<?php echo $this->getPagerHtml() ?>
+      <?php endif; ?>
+		</div>
+	<?php endif; ?>
+<?php endif; ?>

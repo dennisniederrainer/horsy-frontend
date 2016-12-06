@@ -1,5 +1,7 @@
-<?php if (!Mage::registry('current_category')) return ?>
-<?php $_categories = $this->getCurrentChildCategories() ?>
+<?php //if (!Mage::registry('current_category')) return ?>
+<?php $this->getCurrentChildCategories(); //$_categories = $this->getCurrentChildCategories() ?>
+<?php $_categories = $this->getRootChildCategories() ?>
+<?php $_path = $this->getCurrentCategoryPath() ?>
 <?php $_count = is_array($_categories)?count($_categories):$_categories->count(); ?>
 <?php if($_count): ?>
 <div class="block block-layered-nav">
@@ -12,19 +14,19 @@
             <dd>
                 <ul class="first-level">
                 <?php foreach ($_categories as $_category): ?>
-                    <?php if($_category->getIsActive()): ?>
+                    <?php //if($_category->getIsActive()): ?>
                     <?php $subCatHtml = $this->getNextLayerHtml($_category) ?>
                     <li>
-                        <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="childcategory-header first <?php if ($this->isCategoryActive($_category)): ?> current<?php endif; ?>">
-                          <?php echo $this->escapeHtml($_category->getName()) ?><i class="fa fa-chevron-right"></i>
+                        <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="childcategory-header first<?php echo (in_array($_category->getId(), $_path) ? ' expanded' : '' ); ?>">
+                          <?php echo $this->escapeHtml($_category->getName()) ?><i class="fa<?php echo (in_array($_category->getId(), $_path) ? '  fa-chevron-down' : '  fa-chevron-right' ); ?>"></i>
                         </a>
                         <?php if( $subCatHtml && $subCatHtml != '' ): ?>
-                          <ul class="subcat-layer hide">
+                          <ul class="subcat-layer<?php echo (in_array($_category->getId(), $_path) ? '' : ' hide' ); ?>">
                             <?php echo $subCatHtml; ?>
                           </ul>
                         <?php endif; ?>
                     </li>
-                    <?php endif; ?>
+                    <?php //endif; ?>
                 <?php endforeach ?>
                 </ul>
             </dd>
@@ -54,5 +56,5 @@ jQuery(document).ready(function($) {
 </script>
 <?php endif; ?>
 <div class="seo-text">
-  <?php echo Mage::registry('current_category')->getDescription(); ?>
+  <?php //echo Mage::registry('current_category')->getDescription(); ?>
 </div>

@@ -1,14 +1,50 @@
 <?php
+  $_items = $this->getTotalItems();
+  $_subtotal = 0;
   $_totals = $this->getTotals();
 
   $label = array(
-              'discount'=>'Rabatt',
-              'shipping'=>'Versand',
-              'subtotal'=>'Zwischensumme',
-              'grand_total'=>'Gesamtsumme',
-            );
+            'discount'=>'Rabatt',
+            'shipping'=>'Versand',
+            'subtotal'=>'Zwischensumme',
+            'grand_total'=>'Gesamtsumme',
+          );
 
+  if($_items){
+    foreach ($_items as $item) {
+      $_subtotal += $item->getPriceInclTax() * $item->getQty();
+    }
+  }
 ?>
+
+<?php if($_items): ?>
+  <dl class="totals-block">
+    <dt>
+      <?php echo $this->__('Subtotal') ?>:
+    </dt>
+    <dd>
+      <?php echo $this->helper('checkout')->formatPrice( $_subtotal ); ?>
+      <p class="note"><?php echo $this->__('incl. VAT, excl. shipping') ?></p>
+    </dd>
+  </dl>
+<?php else: ?>
+  <dl class="totals-block">
+    <?php foreach ($_totals as $total): ?>
+      <?php $isGrandTotal = ($total->getCode() == 'grand_total') ?>
+      <dt<?php echo ($isGrandTotal ? ' class="totals-strong"' : '') ?>><?php echo $label[$total->getCode()] ?>:</dt>
+      <dd class="totals-price<?php echo ($isGrandTotal ? ' totals-strong' : '') ?>">
+        <?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?>
+        <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
+          <p class="note"><?php echo $this->__('incl. VAT, excl. shipping') ?></p>
+        <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
+          <p class="note"><?php echo $this->__('excl. VAT and shipping') ?></p>
+        <?php endif; ?>
+      </dd>
+    <?php endforeach; ?>
+  </dl>
+<?php endif; ?>
+
+<?php $this->setTotalItems(null); ?>
 
 <?php /* foreach ($_totals as $total): ?>
   <!-- <?php echo $total->getValue() ?> -->
@@ -22,18 +58,3 @@
     <?php endif; ?>
   </div>
 <?php endforeach; */ ?>
-
-<dl class="totals-block">
-<?php foreach ($_totals as $total): ?>
-  <?php $isGrandTotal = ($total->getCode() == 'grand_total') ?>
-  <dt<?php echo ($isGrandTotal ? ' class="totals-strong"' : '') ?>><?php echo $label[$total->getCode()] ?>:</dt>
-  <dd class="totals-price<?php echo ($isGrandTotal ? ' totals-strong' : '') ?>">
-    <?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?>
-    <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
-      <p class="note">inkl. MwSt.</p>
-    <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
-      <p class="note">exkl. MwSt.</p>
-    <?php endif; ?>
-  </dd>
-<?php endforeach; ?>
-</dl>

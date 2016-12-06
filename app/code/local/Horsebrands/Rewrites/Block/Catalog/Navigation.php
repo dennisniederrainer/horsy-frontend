@@ -12,16 +12,22 @@ class Horsebrands_Rewrites_Block_Catalog_Navigation extends Mage_Catalog_Block_N
 
     foreach ($categories as $category) {
       $category = Mage::getModel('catalog/category')->load($category->getId());
+      $currentClass = ($this->getCurrentCategory()->getId() == $category->getId() ? ' class="current-category" onclick="return false;"' : '');
 
       if(!$category->getIsActive()){
         continue;
       }
       $html .= '<li>';
-      $html .= '<a href="'.$this->getCategoryUrl($category).'">'.$this->escapeHtml($category->getName()).'</a>';
-      // $html .= '<a href="'.$this->getCategoryUrl($category).'">'.$this->escapeHtml($category->getName()).' ('.$category->getProductCount().')<i class="fa fa-chevron-right"></i></a>';
+      $html .= '<a href="'.$this->getCategoryUrl($category).'"'.$currentClass.'>'.$this->escapeHtml($category->getName()).'</a>';
       $html .= '</li>';
     }
 
     return $html;
+  }
+
+  public function getRootChildCategories() {
+    $rootCategoryId = end($this->getCurrentCategoryPath());
+    $category = Mage::getModel('catalog/category')->load($rootCategoryId);
+    return $category->getChildrenCategories();
   }
 }

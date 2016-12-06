@@ -50,7 +50,8 @@
         select {
           width: auto;
           min-width: 55px;
-          background-position: 90% center; 
+          background-position: 90% center;
+          background-size: 22%;
         }
       }
 
@@ -356,6 +357,7 @@ dl.totals-block {
     text-align: right;
     line-height: 1.4;
     margin: 3px 0;
+    font-weight: normal;
 
     &.totals-strong {
       font-weight: $weight-bold;

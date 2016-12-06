@@ -60,7 +60,9 @@
           <tfoot>
             <tr>
               <td colspan="2" class="a-right cart-part-totals">
-                <?php echo $this->getChildHtml('totals'); ?>
+                <?php //echo $this->getChildHtml('totals'); ?>
+                <?php echo $this->getChild('totals')->setTotalItems($shopItems)->toHtml(); ?>
+
               </td>
             </tr>
           </tfoot>
@@ -109,7 +111,8 @@
           <tfoot>
             <tr>
               <td colspan="2" class="a-right cart-part-totals">
-                <?php echo $this->getChildHtml('totals'); ?>
+                <?php //echo $this->getChildHtml('totals'); ?>
+                <?php echo $this->getChild('totals')->setTotalItems($dealsItems)->toHtml(); ?>
               </td>
             </tr>
           </tfoot>

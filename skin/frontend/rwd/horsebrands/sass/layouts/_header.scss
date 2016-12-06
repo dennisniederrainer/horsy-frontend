@@ -26,7 +26,7 @@ $customer-icons-font-size: 1.5rem;
 	border-bottom: 1px $navbar-border-color solid;
 
 	a.logo-link img {
-		width: 100%;
+		width: 170px;
 		max-width: 170px;
 	}
 
@@ -219,6 +219,7 @@ ul.customer-nav-list {
 	border-right: 0;
 	position: relative;
 	font-size: $font-size-normal;
+	line-height: 0;
 
 	@include media("<desktop") {
 		display: none;
