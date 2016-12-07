@@ -88,8 +88,13 @@ ul.messages {
 		}
 
 		&.success-msg {
-			color: #4F8A10;
-    	background-color: #DFF2BF;
+			color: $green-success;
+    	border-color: $green-success;
+    	// background-color: #DFF2BF;
+		}
+		&.error-msg {
+			color: $red-error;
+    	border-color: $red-error;
 		}
 	}
 }

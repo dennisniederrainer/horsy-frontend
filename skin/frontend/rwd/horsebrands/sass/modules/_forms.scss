@@ -94,6 +94,7 @@ textarea {
           width: 75%;
           float: right;
         }
+
         label {
           width: 92%;
         }
@@ -110,6 +111,29 @@ textarea {
   }
 }
 
+.block-login .input-block.checkbox {
+  @include clearfix;
+  margin: 10px 0;
+
+  label {
+    float: right;
+    width: 92%;
+    margin-top: 0 !important;
+  }
+  input {
+    float: left;
+    width: 8%;
+    margin: 5px 0;
+  }
+}
+
 .smaller {
   font-size: $font-size-smaller !important;
+}
+
+a.condition {
+  font-weight: normal;
+  &:hover {
+    color: $gold-base;
+  }
 }
