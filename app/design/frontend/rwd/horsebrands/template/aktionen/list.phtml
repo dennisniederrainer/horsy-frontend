@@ -9,6 +9,7 @@
   <div class="page-title">
     <h2><?php echo $this->__('Current Campaigns') ?></h2>
   </div>
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
 <?php if($fsCount == 0): ?>
     <p class="no-campaigns">Es existieren leider keine laufenden Aktionen</p>
 <?php else: ?>
@@ -16,6 +17,7 @@
 
     <?php $i = 0; ?>
     <?php foreach ($ongoingFlashsales as $campaign): ?>
+      <?php $daysLeft = intval($this->helper('aktionen')->getCountdownDays($campaign->getFsEndDate())) ?>
       <?php $i++; ?>
 
       <?php // begin row if element is first in row ?>
@@ -28,7 +30,7 @@
             <?php $category = Mage::getModel('catalog/category')->load($campaign->getFsCategoryId()); ?>
             <div class="info-wrapper">
               <div class="info-countdown left">
-                <i class="fa fa-clock-o"></i>Noch: <?php echo $campaign->getFsEndDate(); ?>
+                <i class="fa fa-clock-o"></i><?php echo ($daysLeft > 1 ? $this->__('%s days left', $daysLeft) : ($daysLeft > 0 ? $this->__('Only %s day left', $daysLeft) : $this->__('Last day today!')) ) ?>
               </div>
               <div class="info-description right">
                 <?php echo $campaign->getFsDescription(); ?>
@@ -74,7 +76,7 @@
             <?php $category = Mage::getModel('catalog/category')->load($campaign->getFsCategoryId()); ?>
             <div class="info-wrapper">
               <div class="info-countdown left">
-                <i class="fa fa-clock-o"></i>Startet am <?php echo $campaign->getFsStartDate(); ?>
+                <i class="fa fa-clock-o"></i><?php echo $this->__( "Starts at %s", $this->helper('aktionen')->getEuropeanDateFormat($campaign->getFsStartDate()) ); ?>
               </div>
               <div class="info-description right">
                 <?php echo $campaign->getFsDescription(); ?>

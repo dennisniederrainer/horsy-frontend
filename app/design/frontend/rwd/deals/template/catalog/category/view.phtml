@@ -6,60 +6,27 @@
         $_imgHtml = '<img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" class="img-responsive full-width" />';
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
+    $flashsale = $this->helper('aktionen')->getFlashsaleByCategoryId($_category->getId());
 ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
-  deals kategorie
-  <?php if($_imgUrl): ?>
-    <div class="category-headline">
-      <article class="teaser-element">
-        <div class="canvas">
-          <div class="crop-height">
-            <?php echo $_imgHtml ?>
-          </div>
-        </div>
-        <div class="title">
-          <?php echo $_category->getName(); ?>
-        </div>
-      </article>
-    </div>
-  <?php endif; ?>
-  <?php if(false && $_category->hasChildren()): ?>
-    <?php $subcategories = $_category->getChildrenCategories(); ?>
-    <?php $subcatCount = $subcategories->getSize(); ?>
-    <?php $i = 1; ?>
-    <?php foreach ($_category->getChildrenCategories() as $subcat): ?>
-      <?php $mediumFirst = ($i % 3 == 1 ? true : false)?>
-      <?php $mediumLast = ($i % 3 == 0 ? true : false)?>
-      <?php $last = ($i == $subcatCount ? ' end' : '')?>
 
-      <?php echo ($mediumFirst ? '<div class="row full-width smaller-margins">' : ''); ?>
-
-      <?php $imgHtml = '<img src="'.$subcat->getImageUrl().'" alt="'.$this->escapeHtml($subcat->getName()).'" title="'.$this->escapeHtml($subcat->getName()).'" class="img-responsive" />'; ?>
-      <div class="columns medium-4<?php echo $last ?>">
-        <article class="teaser-element">
-          <div class="canvas">
-            <div class="crop-height">
-              <!-- <?php echo $imgHtml ?>  -->
-              <?php echo ($subcat->getImageUrl() != '' ? $imgHtml : '<img src="http://placehold.it/280x220" class="img-responsive" />'); ?>
-            </div>
-          </div>
-          <div class="btn-container">
-            <a class="btn small-height btn-transparent gray expand"><?php echo $subcat->getName(); ?> &gt;</a>
-          </div>
-        </article>
+<div class="category-headline deals">
+  <?php if($flashsale): ?>
+    <div class="row">
+      <div class="columns small-12 medium-4">
+        <img src="<?php echo $flashsale->getPictureUrl() ?>" alt="<?php echo $flashsale->getFsName() ?>" class="img-responsive" />
       </div>
-
-      <?php echo ($mediumLast ? '</div>' : ''); ?>
-      <?php $i++ ?>
-    <?php endforeach; ?>
+      <div class="columns small-12 medium-8">
+        <p class="fs-description">
+          <?php // eigentlich alles über flashsale ?>
+          <?php echo $_category->getDescription() ?>
+        </p>
+      </div>
     </div>
+  <?php else: ?>
+    <h3><?php echo $_category->getName(); ?></h3>
   <?php endif; ?>
-
-<?php if($_description=$this->getCurrentCategory()->getDescription() && false): ?>
-    <div class="category-description std">
-        <?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?>
-    </div>
-<?php endif; ?>
+</div>
 
 <?php if($this->isContentMode()): ?>
     <?php echo $this->getCmsBlockHtml() ?>

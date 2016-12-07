@@ -1,3 +1,10 @@
+.category-headline {
+  &.deals {
+    margin: 30px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $gray-lighter-2;
+  }
+}
 
 .price-box {
   .price-label {

@@ -10043,55 +10043,62 @@ footer .footer-container .row .columns {
 }
 
 /* COMPONENTS */
-/* line 3, ../sass/components/_catalog.scss */
+/* line 2, ../sass/components/_catalog.scss */
+.category-headline.deals {
+  margin: 30px 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c5c5c5;
+}
+
+/* line 10, ../sass/components/_catalog.scss */
 .price-box .price-label {
   display: none !important;
 }
-/* line 7, ../sass/components/_catalog.scss */
+/* line 14, ../sass/components/_catalog.scss */
 .price-box p {
   margin: 0;
 }
-/* line 10, ../sass/components/_catalog.scss */
+/* line 17, ../sass/components/_catalog.scss */
 .price-box p.old-price span.price {
   text-decoration: line-through;
 }
 
-/* line 17, ../sass/components/_catalog.scss */
+/* line 24, ../sass/components/_catalog.scss */
 .catalog-category-view .col-main {
   margin-top: 0;
 }
-/* line 19, ../sass/components/_catalog.scss */
+/* line 26, ../sass/components/_catalog.scss */
 .catalog-category-view .col-main .category-products {
   padding-top: 0;
 }
 
-/* line 26, ../sass/components/_catalog.scss */
+/* line 33, ../sass/components/_catalog.scss */
 .block-layered-nav .block-title {
   display: none;
 }
-/* line 29, ../sass/components/_catalog.scss */
+/* line 36, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl {
   font-size: 1.14286rem;
 }
-/* line 32, ../sass/components/_catalog.scss */
+/* line 39, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dt.title {
   border-bottom: 1px solid #706f6f;
   max-width: 75%;
 }
-/* line 37, ../sass/components/_catalog.scss */
+/* line 44, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd {
   margin-left: 0;
 }
-/* line 39, ../sass/components/_catalog.scss */
+/* line 46, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd ul {
   list-style: none;
   padding: 0;
 }
-/* line 43, ../sass/components/_catalog.scss */
+/* line 50, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd ul.first-level li {
   margin-top: 5px;
 }
-/* line 48, ../sass/components/_catalog.scss */
+/* line 55, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd ul li i.fa {
   padding-left: 4px;
   font-size: 0.71429rem;
@@ -10106,16 +10113,16 @@ footer .footer-container .row .columns {
   cursor: pointer;
   color: #706f6f;
 }
-/* line 55, ../sass/components/_catalog.scss */
+/* line 62, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd ul li a:hover {
   font-weight: 700;
 }
-/* line 58, ../sass/components/_catalog.scss */
+/* line 65, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd ul li a.first {
   font-weight: 700;
   color: #1d1d1d;
 }
-/* line 62, ../sass/components/_catalog.scss */
+/* line 69, ../sass/components/_catalog.scss */
 .block-layered-nav .block-content dl dd ul li a.first:hover {
   text-decoration: underline;
 }
@@ -10124,7 +10131,7 @@ footer .footer-container .row .columns {
  * Configurable Swatches
  * ============================================ */
 /* Clears */
-/* line 77, ../sass/components/_catalog.scss */
+/* line 84, ../sass/components/_catalog.scss */
 .clearfix:after,
 .configurable-swatch-list:after,
 .product-view .product-options .swatch-attr:after {
@@ -10134,7 +10141,7 @@ footer .footer-container .row .columns {
 }
 
 /* General Swatch Styling */
-/* line 86, ../sass/components/_catalog.scss */
+/* line 93, ../sass/components/_catalog.scss */
 .swatch-link,
 .swatch-label {
   display: block;
@@ -10146,26 +10153,26 @@ footer .footer-container .row .columns {
   box-sizing: content-box;
 }
 
-/* line 97, ../sass/components/_catalog.scss */
+/* line 104, ../sass/components/_catalog.scss */
 .swatch-link {
   border: 1px solid transparent;
   padding: 2px;
   margin: 0 0 3px;
 }
 
-/* line 103, ../sass/components/_catalog.scss */
+/* line 110, ../sass/components/_catalog.scss */
 li.selected
 .swatch-link img {
   border-radius: 2px;
 }
 
-/* line 108, ../sass/components/_catalog.scss */
+/* line 115, ../sass/components/_catalog.scss */
 .swatch-link:hover {
   cursor: pointer;
   text-decoration: none;
 }
 
-/* line 112, ../sass/components/_catalog.scss */
+/* line 119, ../sass/components/_catalog.scss */
 .swatch-link .x {
   display: none;
   text-indent: -999em;
@@ -10178,19 +10185,19 @@ li.selected
   z-index: 10;
 }
 
-/* line 123, ../sass/components/_catalog.scss */
+/* line 130, ../sass/components/_catalog.scss */
 .swatch-link.has-image .swatch-label {
   position: relative;
 }
 
-/* line 126, ../sass/components/_catalog.scss */
+/* line 133, ../sass/components/_catalog.scss */
 .swatch-link.has-image img {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* line 132, ../sass/components/_catalog.scss */
+/* line 139, ../sass/components/_catalog.scss */
 .swatch-label {
   border: 1px solid #fff;
   margin: 0;
@@ -10198,7 +10205,7 @@ li.selected
   background: #f4f4f4;
 }
 
-/* line 139, ../sass/components/_catalog.scss */
+/* line 146, ../sass/components/_catalog.scss */
 .configurable-swatch-list {
   margin-left: -3px;
   zoom: 1;
@@ -10206,14 +10213,14 @@ li.selected
   -webkit-transform: translateZ(0px);
 }
 
-/* line 145, ../sass/components/_catalog.scss */
+/* line 152, ../sass/components/_catalog.scss */
 .configurable-swatch-list li {
   display: inline-block;
   zoom: 1;
   margin: 0 5px 3px;
 }
 
-/* line 150, ../sass/components/_catalog.scss */
+/* line 157, ../sass/components/_catalog.scss */
 .products-grid .configurable-swatch-list li {
   display: inline-block;
   float: none;
@@ -10221,45 +10228,45 @@ li.selected
   vertical-align: top;
 }
 
-/* line 156, ../sass/components/_catalog.scss */
+/* line 163, ../sass/components/_catalog.scss */
 .configurable-swatch-list .not-available .x {
   display: block;
 }
 
-/* line 159, ../sass/components/_catalog.scss */
+/* line 166, ../sass/components/_catalog.scss */
 .configurable-swatch-list .not-available .swatch-link {
   position: relative;
 }
 
-/* line 163, ../sass/components/_catalog.scss */
+/* line 170, ../sass/components/_catalog.scss */
 .configurable-swatch-list .not-available .swatch-link.has-image img {
   opacity: 0.4;
   filter: alpha(opacity=40);
 }
 
-/* line 167, ../sass/components/_catalog.scss */
+/* line 174, ../sass/components/_catalog.scss */
 .configurable-swatch-list .not-available .swatch-label {
   color: #aaa;
   background: #fff;
 }
 
-/* line 171, ../sass/components/_catalog.scss */
+/* line 178, ../sass/components/_catalog.scss */
 .configurable-swatch-list .wide-swatch .swatch-label {
   padding: 0 6px;
 }
 
-/* line 174, ../sass/components/_catalog.scss */
+/* line 181, ../sass/components/_catalog.scss */
 .configurable-swatch-list .not-available a:focus {
   outline: 0;
 }
 
-/* line 178, ../sass/components/_catalog.scss */
+/* line 185, ../sass/components/_catalog.scss */
 #narrow-by-list dd .configurable-swatch-list li {
   margin: 0 0 0 3px;
   width: 47%;
 }
 
-/* line 182, ../sass/components/_catalog.scss */
+/* line 189, ../sass/components/_catalog.scss */
 #narrow-by-list dd .swatch-link {
   border: none;
   line-height: 25px;
@@ -10267,17 +10274,17 @@ li.selected
   text-align: left;
 }
 
-/* line 188, ../sass/components/_catalog.scss */
+/* line 195, ../sass/components/_catalog.scss */
 #narrow-by-list dd .swatch-link.has-image {
   line-height: inherit;
 }
 
-/* line 191, ../sass/components/_catalog.scss */
+/* line 198, ../sass/components/_catalog.scss */
 #narrow-by-list dd .swatch-link:hover .swatch-label {
   border-color: #3399cc;
 }
 
-/* line 194, ../sass/components/_catalog.scss */
+/* line 201, ../sass/components/_catalog.scss */
 #narrow-by-list dd .swatch-label {
   background: #f4f4f4;
   border: 1px solid #cccccc;
@@ -10290,30 +10297,30 @@ li.selected
   white-space: nowrap;
 }
 
-/* line 205, ../sass/components/_catalog.scss */
+/* line 212, ../sass/components/_catalog.scss */
 #narrow-by-list dd .swatch-label img {
   border: 1px solid #fff;
   border-radius: 3px;
   box-sizing: content-box;
 }
 
-/* line 210, ../sass/components/_catalog.scss */
+/* line 217, ../sass/components/_catalog.scss */
 #narrow-by-list dd .has-image .swatch-label {
   padding: 0;
 }
 
 @media only screen and (max-width: 770px) {
-  /* line 215, ../sass/components/_catalog.scss */
+  /* line 222, ../sass/components/_catalog.scss */
   #narrow-by-list dd .configurable-swatch-list li:nth-child(odd) {
     clear: left;
   }
 }
-/* line 219, ../sass/components/_catalog.scss */
+/* line 226, ../sass/components/_catalog.scss */
 .currently .swatch-current {
   position: relative;
 }
 
-/* line 222, ../sass/components/_catalog.scss */
+/* line 229, ../sass/components/_catalog.scss */
 .currently .swatch-current .btn-remove {
   margin-top: -10px;
   position: absolute;
@@ -10321,43 +10328,43 @@ li.selected
   top: 50%;
 }
 
-/* line 228, ../sass/components/_catalog.scss */
+/* line 235, ../sass/components/_catalog.scss */
 .currently .swatch-current span {
   display: block;
   float: left;
 }
 
-/* line 232, ../sass/components/_catalog.scss */
+/* line 239, ../sass/components/_catalog.scss */
 .currently .swatch-link {
   display: inline-block;
   margin: 0 0 0 3px;
 }
 
-/* line 236, ../sass/components/_catalog.scss */
+/* line 243, ../sass/components/_catalog.scss */
 .currently .swatch-link:hover {
   border-color: #cccccc;
   cursor: default;
 }
 
 /* Other Swatch States */
-/* line 242, ../sass/components/_catalog.scss */
+/* line 249, ../sass/components/_catalog.scss */
 .configurable-swatch-list .hover .swatch-link,
 .configurable-swatch-list .selected .swatch-link,
 .swatch-link:hover {
   border-color: #cca64b;
 }
 
-/* line 248, ../sass/components/_catalog.scss */
+/* line 255, ../sass/components/_catalog.scss */
 .configurable-swatch-box {
   background: none !important;
 }
 
-/* line 251, ../sass/components/_catalog.scss */
+/* line 258, ../sass/components/_catalog.scss */
 .configurable-swatch-box select.swatch-select {
   display: none;
 }
 
-/* line 254, ../sass/components/_catalog.scss */
+/* line 261, ../sass/components/_catalog.scss */
 .configurable-swatch-box .validation-advice {
   margin: 0 0 5px;
   background: #df280a;
@@ -10369,92 +10376,92 @@ li.selected
   border-radius: 3px;
 }
 
-/* line 264, ../sass/components/_catalog.scss */
+/* line 271, ../sass/components/_catalog.scss */
 .product-view .product-img-box .product-image img {
   max-width: 100%;
   max-height: 750px;
   margin: 0px auto;
 }
 
-/* line 269, ../sass/components/_catalog.scss */
+/* line 276, ../sass/components/_catalog.scss */
 .product-view .product-img-box .product-image-zoom {
   z-index: 0;
 }
 
-/* line 272, ../sass/components/_catalog.scss */
+/* line 279, ../sass/components/_catalog.scss */
 .product-view .product-image-thumbs img {
   max-width: 100%;
   max-height: 100%;
 }
 
-/* line 279, ../sass/components/_catalog.scss */
+/* line 286, ../sass/components/_catalog.scss */
 .product-view ul.product-image-thumbs li {
   display: inline-block;
 }
 
-/* line 285, ../sass/components/_catalog.scss */
+/* line 292, ../sass/components/_catalog.scss */
 .super-attribute-select.no-display {
   display: none;
 }
 
-/* line 288, ../sass/components/_catalog.scss */
+/* line 295, ../sass/components/_catalog.scss */
 .configurable-swatch-list {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-/* line 293, ../sass/components/_catalog.scss */
+/* line 300, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link {
   width: 32px;
   height: 32px;
 }
-/* line 297, ../sass/components/_catalog.scss */
+/* line 304, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link span {
   width: 30px;
   height: 30px;
   line-height: 30px;
 }
-/* line 303, ../sass/components/_catalog.scss */
+/* line 310, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link.has-image {
   width: 60px;
   height: 60px;
 }
-/* line 307, ../sass/components/_catalog.scss */
+/* line 314, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link.has-image span {
   width: 60px;
   height: 60px;
 }
-/* line 313, ../sass/components/_catalog.scss */
+/* line 320, ../sass/components/_catalog.scss */
 .configurable-swatch-list .swatch-link img {
   width: 60px;
   height: 60px;
 }
 
-/* line 320, ../sass/components/_catalog.scss */
+/* line 327, ../sass/components/_catalog.scss */
 dt.swatch-attr label span.select-label {
   display: inline-block;
   font-size: 1em;
   padding-left: 5px;
 }
 
-/* line 326, ../sass/components/_catalog.scss */
+/* line 333, ../sass/components/_catalog.scss */
 dd.swatch-attr {
   margin-left: 0;
 }
 
 @media (max-width: 767px) {
-  /* line 330, ../sass/components/_catalog.scss */
+  /* line 337, ../sass/components/_catalog.scss */
   .layered-navigation-wrapper {
     display: none;
   }
 }
 
-/* line 337, ../sass/components/_catalog.scss */
+/* line 344, ../sass/components/_catalog.scss */
 .add-to-cart .button, .add-to-cart .store-select-button, .add-to-cart .btn {
   font-weight: 700;
 }
 
-/* line 342, ../sass/components/_catalog.scss */
+/* line 349, ../sass/components/_catalog.scss */
 a.current-category {
   font-weight: bold;
 }
