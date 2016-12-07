@@ -4,9 +4,10 @@
 <?php $manufacturerSwatchesBaseUrl = mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/swatches/manufacturer/'; ?>
 <?php $summaryData = Mage::getModel('review/review_summary')->setStoreId($storeId)->load($_product->getId()); ?>
 
-
 <script type="text/javascript">
-    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+  //<![CDATA[
+  var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+  //]]>
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
 <div class="product-view">
@@ -82,14 +83,6 @@
                 </div>
             <?php endif; ?>
         </div>
-
-        <?php if ($this->canEmailToFriend()): ?>
-        <div class="row">
-          <div class="columns medium-12 tellafriend-wrapper">
-            <a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a>
-          </div>
-        </div>
-        <?php endif; ?>
 
         <?php if($_product->isSaleable() && Mage::getResourceModel('catalog/product')->getAttributeRawValue($_product->getId(), 'delivery_time', $storeId)): ?>
         <div class="row">

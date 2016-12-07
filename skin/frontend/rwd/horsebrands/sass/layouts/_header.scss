@@ -15,6 +15,10 @@ $customer-icons-font-size: 1.5rem;
 			width: 25%;
 			font-weight: 100;
 			font-size: .75em;
+
+			&:last-child {
+				text-align: right;
+			}
 		}
 	}
 }

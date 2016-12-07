@@ -28,10 +28,9 @@
             <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
           </div>
           <div class="product-list-price right">
-            <?php if($_product->getFinalPrice() != $_product->getPrice()): ?>
-              <div class="product-price old"><?php echo Mage::helper('core')->currency($_product->getPrice(),true,false); ?></div>
-            <?php endif; ?>
-            <div class="product-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div>
+            <div class="product-price">
+              <?php echo $this->getPriceHtml($_product, true) ?>
+            </div>
           </div>
         </div>
           <?php /*

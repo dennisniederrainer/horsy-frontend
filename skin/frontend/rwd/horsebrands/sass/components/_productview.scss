@@ -22,21 +22,25 @@
   };
 }
 
-#product-options-wrapper {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
 .price-info {
-  .price-box {
+  .price-box .price{
     font-weight: 400;
     font-size: rem-calc(18);
+  }
+
+  .price-box .old-price span.price {
+      font-size: $font-size-normal;
   }
 
   .note {
     font-size: $font-size-smaller;
   }
+}
+
+#product-options-wrapper {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .product-view {

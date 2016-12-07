@@ -1,6 +1,15 @@
-.product-options-bottom {
-  .price-box {
-    display: none;
+
+.price-box {
+  .price-label {
+    display: none !important;
+  }
+
+  p {
+    margin: 0;
+
+    &.old-price span.price {
+      text-decoration: line-through;
+    }
   }
 }
 

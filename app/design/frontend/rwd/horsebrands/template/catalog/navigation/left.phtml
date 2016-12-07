@@ -18,7 +18,7 @@
                     <?php $subCatHtml = $this->getNextLayerHtml($_category) ?>
                     <?php $hasSubs = ($subCatHtml && $subCatHtml != ''); ?>
                     <li>
-                        <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="childcategory-header first<?php echo (in_array($_category->getId(), $_path) ? ' expanded' : '' ); ?>">
+                        <a href="<?php echo $this->getCategoryUrl($_category) ?>" class="childcategory-header first<?php echo (in_array($_category->getId(), $_path) ? ' expanded' : '' ); ?><?php echo ($hasSubs ? '' : ' follow-link' ); ?>">
                           <?php echo $this->escapeHtml($_category->getName()) ?><?php if($hasSubs): ?><i class="fa<?php echo (in_array($_category->getId(), $_path) ? '  fa-chevron-down' : '  fa-chevron-right' ); ?>"></i><?php endif; ?>
                         </a>
                         <?php if($hasSubs): ?>
@@ -39,9 +39,14 @@
 //<![CDATA[
 jQuery(document).ready(function($) {
   $('.childcategory-header').click(function(e) {
+    var $this = $(this);
+
+    if( $this.hasClass('follow-link') ) {
+      return;
+    }
+    
     e.preventDefault();
 
-    var $this = $(this);
     if( $this.hasClass('expanded') ) {
       $this.removeClass('expanded');
       $this.children('.fa').removeClass('fa-chevron-down').addClass('fa-chevron-right');
