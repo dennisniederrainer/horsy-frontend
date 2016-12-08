@@ -26,7 +26,8 @@ class Horsebrands_Rewrites_Block_Catalog_Navigation extends Mage_Catalog_Block_N
   }
 
   public function getRootChildCategories() {
-    $rootCategoryId = end($this->getCurrentCategoryPath());
+    $path = $this->getCurrentCategoryPath();
+    $rootCategoryId = $path[count($path)-1];
     $category = Mage::getModel('catalog/category')->load($rootCategoryId);
     return $category->getChildrenCategories();
   }
