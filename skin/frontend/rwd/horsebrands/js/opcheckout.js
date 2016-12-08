@@ -918,7 +918,6 @@ Review.prototype = {
         this.agreementsForm = agreementsForm;
         this.onSave = this.nextStep.bindAsEventListener(this);
         this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
-        console.log(saveUrl);
     },
 
     save: function(){
@@ -929,17 +928,17 @@ Review.prototype = {
             params += '&'+Form.serialize(this.agreementsForm);
         }
         params.save = true;
-        console.log(saveUrl);
-        // var request = new Ajax.Request(
-        //     this.saveUrl,
-        //     {
-        //         method:'post',
-        //         parameters:params,
-        //         onComplete: this.onComplete,
-        //         onSuccess: this.onSave,
-        //         onFailure: checkout.ajaxFailure.bind(checkout)
-        //     }
-        // );
+
+        var request = new Ajax.Request(
+            this.saveUrl,
+            {
+                method:'post',
+                parameters:params,
+                onComplete: this.onComplete,
+                onSuccess: this.onSave,
+                onFailure: checkout.ajaxFailure.bind(checkout)
+            }
+        );
     },
 
     resetLoadWaiting: function(transport){

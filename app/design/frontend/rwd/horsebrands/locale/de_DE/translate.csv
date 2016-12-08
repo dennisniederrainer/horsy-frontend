@@ -77,6 +77,8 @@
 "Login with Facebook","Mit Facebook einloggen"
 "Your E-Mail Address","Deine E-Mail Adresse"
 "Your Password","Dein Password"
+"Email:","E-Mail-Adresse:"
+"Password:","Passwort:"
 "Forgot Password","Passwort vergessen"
 "Stay logged in","Angemeldet bleiben"
 
@@ -180,8 +182,10 @@
 "Send Email","E-Mail senden"
 "The link to a friend was sent.","Der Artikel wurde erfolgreich zu deinen Freunden gesendet."
 "You have placed no orders.","Du hast noch keine Bestellungen getätigt."
-"incl. VAT, excl. shipping","inkl. MwSt., zzgl. Versand"
-"excl. VAT and shipping","zzgl. MwSt. und Versand"
+"incl. VAT, excl. shipping","inkl. MwSt., zzgl. Versandkosten"
+"incl. VAT, %sexcl. shipping%s","inkl. MwSt., %szzgl. Versandkosten%s"
+"excl. VAT and shipping","zzgl. MwSt. und Versandkosten"
+"excl. VAT and %sshipping%s","zzgl. MwSt. und %sVersandkosten%s"
 "Newsletter Subscription","Newsletter Anmeldungen"
 "The address has been deleted.","Die Adresse wurde entfernt."
 "Additional Address Entries","Weitere Adresseinträge"
@@ -195,3 +199,6 @@
 "Only %s day left","Nur noch %s Tag"
 "Last day today!","Letzter Tag!"
 "Starts at %s","Startet am %s"
+
+"Create New Customer Account","Kundenkonto"
+"Our Service for Horsebrands Shop","Unsere Leistungen im Shop"

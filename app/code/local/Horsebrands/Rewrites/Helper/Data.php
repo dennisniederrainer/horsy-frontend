@@ -17,4 +17,19 @@ class Horsebrands_Rewrites_Helper_Data extends Mage_Core_Helper_Abstract {
 
     return false;
   }
+
+  public function getShortProductname($productname) {
+    if(strlen($productname) > 22) {
+      $html = '<span class="productname-short">';
+        $html .= substr($productname, 0, 20).'...';
+      $html .= '</span>';
+      $html .= '<span class="productname-long hide">';
+        $html .= $productname;
+      $html .= '</span>';
+
+      return $html;
+    } else {
+      return $productname;
+    }
+  }
 }

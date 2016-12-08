@@ -21,16 +21,10 @@
 			font-weight: bold;
 		}
 
+		.product-name .productname-long {
+				display: none;
+		}
 		.product-list-details {
-			.product-name {
-				white-space: nowrap;
-				overflow: hidden;
-				z-index: 2;
-
-				&:hover {
-					overflow: visible;
-				}
-			}
 
 			&.left {
 				max-width: 70%;
@@ -114,8 +108,13 @@
 			border-top-color: $white;
 		}
 
-		.product-list-details .product-name {
-			overflow: visible;
+		.product-name {
+			.productname-short {
+				display: none;
+			}
+			.productname-long {
+				display: inline;
+			}
 		}
 	}
 
@@ -200,14 +199,12 @@
 @include media('>=phone','<tablet') {
 	.productlist-element,
 	.featured-product	{
-		.product-info .bottom-row {
-			min-height: 4em;
-
-			.product-name {
-				max-width: none;
+		.product-name {
+			.productname-short {
+				display: none;
 			}
-			.price {
-				margin-top: 5px;
+			.productname-long {
+				display: inline;
 			}
 		}
 	}

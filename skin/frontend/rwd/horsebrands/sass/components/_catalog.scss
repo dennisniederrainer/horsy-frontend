@@ -15,7 +15,11 @@
     margin: 0;
 
     &.old-price span.price {
+      color: $red-specialprice;
       text-decoration: line-through;
+    }
+    &.special-price span.price {
+      color: $red-specialprice;
     }
   }
 }

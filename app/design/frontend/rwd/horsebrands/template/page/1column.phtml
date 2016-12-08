@@ -33,13 +33,11 @@
                 </div>
                 <div id='modal-global' class="hide"></div>
               </div>
-            <?php echo $this->getChildHtml('footer_before') ?>
-            <?php echo $this->getChildHtml('footer') ?>
-            <?php echo $this->getChildHtml('global_cookie_notice') ?>
-            <?php echo $this->getChildHtml('before_body_end') ?>
         </div>
     </div>
     <?php echo $this->getChildHtml('jsfooter') ?>
+    <?php echo $this->getChildHtml('footer_before') ?>
+    <?php echo $this->getChildHtml('footer') ?>
     <?php echo $this->getAbsoluteFooter() ?>
 
     <aside id="offcanvas-left-wrapper">
@@ -50,5 +48,7 @@
     </aside>
   </div>
 </div>
+<?php echo $this->getChildHtml('global_cookie_notice') ?>
+<?php echo $this->getChildHtml('before_body_end') ?>
 </body>
 </html>

@@ -61,7 +61,10 @@
                   <?php echo $this->getChildHtml('bundle_prices') ?>
                   <?php echo $this->getTierPriceHtml() ?>
                   <span class="note">
-                  <?php echo (Mage::helper('tax')->priceIncludesTax() ? $this->__('incl. VAT, excl. shipping') : $this->__('excl. VAT and shipping')); ?>
+                  <?php echo
+                    (Mage::helper('tax')->priceIncludesTax() ?
+                      $this->__('incl. VAT, %sexcl. shipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>')
+                      : $this->__('excl. VAT and %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>')); ?>
                   </span>
               </div>
           </div>
@@ -116,8 +119,8 @@
           <div class="columns medium-12">
             <ul class="unstyled">
               <li class="promotion-element expand return-icon">14 Tage R&uuml;ckgaberecht</li>
-              <li class="promotion-element expand phone-icon">Hotline 0251/67448555</li>
-              <li class="promotion-element expand delivery-icon">Versandkostenfrei</li>
+              <li class="promotion-element expand phone-icon">Hotline <?php echo Mage::getStoreConfig('general/store_information/phone') ?></li>
+              <?php /* <li class="promotion-element expand delivery-icon">Versandkostenfrei</li> */ ?>
             </ul>
           </div>
         </div>
