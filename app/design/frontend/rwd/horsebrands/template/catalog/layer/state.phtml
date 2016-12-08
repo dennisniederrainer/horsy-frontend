@@ -11,7 +11,7 @@
   <ul class="unstyled inline selected-filter" style="float: left;">
     <?php foreach ($_filters as $_filter): ?>
         <li>
-          <a href="<?php echo $_filter->getRemoveUrl() ?>" class="btn btn-transparent gray-light no-radius">
+          <a href="<?php echo $_filter->getRemoveUrl() ?>" class="button button-transparent">
             <?php echo $this->stripTags($_filter->getLabel()) ?> <i class="fa fa-times"></i>
           </a>
         </li>

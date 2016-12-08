@@ -34,9 +34,9 @@ var updateCoupon = function(requestid) {
 }
 
 var proceedToCheckout = function(multishippingUrl, singleshippingUrl) {
-  if(document.getElementById('enable-splitshipping').checked) {
+  // if(document.getElementById('enable-splitshipping').checked) {
     window.location= singleshippingUrl;
-  } else {
-    window.location= multishippingUrl;
-  }
+  // } else {
+  //   window.location= multishippingUrl;
+  // }
 }

@@ -1,3 +1,4 @@
+"Customer Login","Anmeldung"
 "%s and above","%s und höher"
 "Default Shipping Address","Lieferadresse"
 "Default Billing Address","Rechnungsadresse"
@@ -202,3 +203,4 @@
 
 "Create New Customer Account","Kundenkonto"
 "Our Service for Horsebrands Shop","Unsere Leistungen im Shop"
+"Invalid login or password.","Anmeldung fehlgeschlagen: Ungültige E-Mail-Adresse oder Passwort."

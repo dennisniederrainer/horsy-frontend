@@ -125,9 +125,10 @@
 </customer_account>
 
 <customer_account_login>
-    <reference name="customer_form_login">
-        <block type="customer/form_register" name="customer_form_register" as="registration" template="customer/form/register.phtml" />
-    </reference>
+  <remove name="inchoo_socialconnect_login" />
+  <reference name="customer_form_login">
+    <block type="customer/form_register" name="customer_form_register" as="registration" template="customer/form/register.phtml" />
+  </reference>
 </customer_account_login>
 
 <customer_account_index>
@@ -151,33 +152,37 @@
     <action method="setTemplate"><template>checkout/onepage/header.phtml</template></action>
   </reference>
   <reference name="checkout.onepage.login">
-      <block type="customer/form_register" name="customer_form_register" as="registration" template="customer/form/register.phtml">
-        <action method="setData">
-          <name>success_url</name>
-          <value>{{baseUrl}}checkout/onepage</value>
-        </action>
-      </block>
+    <action method="setTemplate" >
+        <template>persistent/checkout/onepage/login.phtml</template>
+    </action>
+    <remove name="inchoo_socialconnect_checkout" />
+    <block type="customer/form_register" name="customer_form_register" as="registration" template="customer/form/register.phtml">
+      <action method="setData">
+        <name>success_url</name>
+        <value>{{baseUrl}}checkout/onepage</value>
+      </action>
+    </block>
   </reference>
 
-    <reference name="checkout.onepage.billing">
-        <action method="setTemplate"><template>persistent/checkout/onepage/billing.phtml</template></action>
-        <remove name="persistent.remember.me" />
-        <remove name="persistent.remember.me.tooltip" />
-        <block type="checkout/onepage_shipping" name="address.shipping" template="checkout/onepage/shipping.phtml"/>
-    </reference>
+  <reference name="checkout.onepage.billing">
+    <action method="setTemplate"><template>persistent/checkout/onepage/billing.phtml</template></action>
+    <remove name="persistent.remember.me" />
+    <remove name="persistent.remember.me.tooltip" />
+    <block type="checkout/onepage_shipping" name="address.shipping" template="checkout/onepage/shipping.phtml"/>
+  </reference>
 
-    <reference name="checkout.onepage.review">
-      <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
-          <label>Checkout Progress Wrapper</label>
-          <action method="setElementId"><value>checkout-progress-wrapper</value></action>
-          <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
-              <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"></block>
-              <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"></block>
-              <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
-              <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
-          </block>
+  <reference name="checkout.onepage.review">
+    <block type="page/html_wrapper" name="checkout.progress.wrapper" translate="label">
+      <label>Checkout Progress Wrapper</label>
+      <action method="setElementId"><value>checkout-progress-wrapper</value></action>
+      <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
+          <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"></block>
+          <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"></block>
+          <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
+          <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
       </block>
-    </reference>
+    </block>
+  </reference>
 </checkout_onepage_index>
 
   <wishlist_index_index>

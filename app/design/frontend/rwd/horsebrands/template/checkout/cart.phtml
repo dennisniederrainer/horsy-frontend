@@ -5,7 +5,7 @@
 
 <?php $shopItems = $checkouthelper->getItemsExceptStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
 <?php $dealsItems = $checkouthelper->getItemsByStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
-<?php $isMultiShippingPossible = (count($shopItems) > 0 && count($dealsItems) > 0) ?>
+<?php $isMultiShippingPossible = false; //(count($shopItems) > 0 && count($dealsItems) > 0) ?>
 
 <?php $delivery_shop = $checkouthelper->getEstimatedShippingText($shopItems) ?>
 <?php $delivery_deals = $checkouthelper->getEstimatedShippingText($dealsItems) ?>
@@ -34,7 +34,6 @@
     <div class="cart-shop">
       <div class="cart-title">
         <h1 class="with-note"><?php echo $this->__('Delivery').' ' ?><span class="strong">Shop</span></h1>
-        <!-- <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p> -->
       </div>
 
       <?php echo $this->getChildHtml('form_before') ?>
@@ -52,18 +51,14 @@
           <?php if(count($shopItems)>0): ?>
           <tbody>
             <?php foreach($shopItems as $_item): ?>
-              <?php //if($_item->getStoreId() == $_STORE_ID_SHOP): ?>
-                <?php echo $this->getItemHtml($_item) ?>
-              <?php //endif; ?>
+              <?php echo $this->getItemHtml($_item) ?>
             <?php endforeach ?>
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="2" class="a-right cart-part-totals">
-                <?php //echo $this->getChildHtml('totals'); ?>
-                <?php echo $this->getChild('totals')->setTotalItems($shopItems)->toHtml(); ?>
-
-              </td>
+            <td colspan="2" class="a-right cart-part-totals">
+              <?php echo $this->getChild('totals')->setTotalItems($shopItems)->toHtml(); ?>
+            </td>
             </tr>
           </tfoot>
           <?php else: ?>
@@ -85,7 +80,6 @@
     <div class="cart-deals">
       <div class="cart-title">
         <h1 class="with-note"><?php echo $this->__('Delivery').' ' ?><span class="strong">Deals</span></h1>
-        <!-- <p class="note"><?php echo $this->__('Products in Shopping Cart will not be reserved.') ?></p> -->
       </div>
 
       <?php echo $this->getChildHtml('form_before') ?>
@@ -103,15 +97,12 @@
           <?php if(count($dealsItems)>0): ?>
           <tbody>
             <?php foreach($dealsItems as $_item): ?>
-              <?php //if($_item->getStoreId() == $_STORE_ID_DEALS): ?>
-                <?php echo $this->getItemHtml($_item) ?>
-              <?php //endif; ?>
+              <?php echo $this->getItemHtml($_item) ?>
             <?php endforeach ?>
           </tbody>
           <tfoot>
             <tr>
               <td colspan="2" class="a-right cart-part-totals">
-                <?php //echo $this->getChildHtml('totals'); ?>
                 <?php echo $this->getChild('totals')->setTotalItems($dealsItems)->toHtml(); ?>
               </td>
             </tr>

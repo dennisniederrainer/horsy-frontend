@@ -39,6 +39,7 @@
               <?php echo $manufacturerName ?>
             <?php endif; ?>
           </div>
+          <?php if($summaryData->getReviewsCount() > 0): ?>
           <div class="review-stars right" style="text-align:right;">
             <p class="rating overall-rating">
               <?php $numStarsTotal = intval($summaryData->getRatingSummary()/20);
@@ -48,6 +49,7 @@
               ?>
             </p>
           </div>
+          <?php endif; ?>
         </div>
         <div class="row">
           <div class="columns medium-12 product-name">

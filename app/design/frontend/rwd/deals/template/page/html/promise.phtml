@@ -1,0 +1,37 @@
+<section id="promise" class="hide">
+  <h5 class="section-title">&nbsp;</h5>
+  <div class="row full-width smaller-margins">
+    <div class="columns medium-6">
+      <div class="box">
+        <h2 class="title"><?php echo $this->__('Payment Methods'); ?></h2>
+        <div class="content">
+          <ul class="unstyled inline same-width">
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-mc.png') ?>" alt="MC" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-visa.png') ?>" alt="Visa" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-amex.png') ?>" alt="AmEx" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-paypal.png') ?>" alt="Paypal" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-sofort.png') ?>" alt="Sofort" class="img-responsive"/></li>
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/payment/i-banktransfer.png') ?>" alt="Bank" class="img-responsive"/></li>
+          </ul>
+        </div>
+      </div>
+      <div class="box">
+        <h2 class="title"><?php echo $this->__('Shipping Methods'); ?></h2>
+        <div class="content">
+          <ul class="unstyled inline same-width">
+            <li><img src="<?php echo $this->getSkinUrl('images/icons/delivery/i-dhl.png') ?>" alt="DHL" class="img-responsive"/></li>
+            <?php /* <li><img src="<?php echo $this->getSkinUrl('images/icons/delivery/i-dhlex.png') ?>" alt="DHLex" class="img-responsive"/></li> */ ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="columns medium-6">
+      <div class="box">
+        <h2 class="title"><?php echo $this->__('Our Service for the Horsebrands Shop'); ?></h2>
+        <div class="content">
+          <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('service_shop')->toHtml(); ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

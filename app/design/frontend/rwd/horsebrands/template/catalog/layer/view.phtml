@@ -19,10 +19,10 @@
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
-            <div class="btn filter-dropdown medium expand no-radius" href="#">
+            <button class="filter-dropdown expand" onclick="toggleFilter(this);">
               <?php echo $this->__($_filter->getName()) ?> <i class="fa fa-angle-down"></i>
               <div class="filter-dropdown-content"><?php echo $_filter->getHtml() ?></div>
-            </div>
+            </button>
           </div>
       <?php // close row? ?>
       <?php if ($lastInRow || $lastInCollection): ?>
@@ -46,7 +46,7 @@
     <div class="selected-filter-wrapper clearfix" style="">
       <?php echo $this->getStateHtml() ?>
       <div class="button-wrapper" style="float:right;">
-        <a class="btn btn-transparent gray-light no-radius" href="<?php echo $this->getClearUrl() ?>">Alle Filter l&ouml;schen<?php //echo $this->__('Clear All') ?></a>
+        <a class="button button-transparent" href="<?php echo $this->getClearUrl() ?>">Alle Filter l&ouml;schen<?php //echo $this->__('Clear All') ?></a>
       </div>
     </div>
   <?php endif; ?>
@@ -54,6 +54,14 @@
 </div>
 
 <script>
+  function toggleFilter(button) {
+    if($j(button).children('div.filter-dropdown-content').is(':visible')) {
+      $j(button).css('z-index', 0);
+    } else {
+      $j(button).css('z-index', 100);
+    }
+    $j(button).children('div.filter-dropdown-content').toggle();
+  }
   $j(window).load(function() {
     $j("div.btn.filter-dropdown").click(function(e) {
       if($j(this).children('div.filter-dropdown-content').is(':visible')) {

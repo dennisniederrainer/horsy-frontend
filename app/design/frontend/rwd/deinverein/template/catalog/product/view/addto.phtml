@@ -3,7 +3,7 @@
 <?php $_isSaleableCategory = !($this->helper('horsebrands_rewrites')->isProductInCategory($_product, 114)); ?>
 
 <?php if ($this->helper('wishlist')->isAllow() && $_isSaleableCategory) : ?>
-  <a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="btn btn-gray-light expand link-wishlist">
+  <a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="button expand link-wishlist">
     <?php echo $this->__('Add to Wishlist') ?>
   </a>
 <?php endif; ?>
@@ -11,5 +11,5 @@
     $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
 ?>
 <?php if($_compareUrl && false) : ?>
-    <a href="<?php echo $_compareUrl ?>" class="btn gray-light link-compare"><?php echo $this->__('Add to Compare') ?></a>
+    <a href="<?php echo $_compareUrl ?>" class="button link-compare"><?php echo $this->__('Add to Compare') ?></a>
 <?php endif; ?>

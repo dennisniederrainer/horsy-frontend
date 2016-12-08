@@ -1,22 +1,23 @@
 <?php
   $_helper = $this->helper('catalog/output');
+
   $skus = explode(",", $this->getData('product_skus'));
   $products = null;
-  $category = Mage::getModel('catalog/category')->load(114);
 
   if($skus && count($skus)>0) {
     $products = Mage::getResourceModel('catalog/product_collection')
                   ->addAttributeToSelect('*')
                   ->addAttributeToFilter('sku', array( 'in' => $skus ))
-                  ->addCategoryFilter($category)
                   ->load();
   }
 ?>
 <?php if(count($products)): ?>
 <div class="box-collateral">
-  <div id="featured-products">
+  <div id="bestselling-products">
     <?php foreach ($products as $_product): ?>
-      <div class="featured-product">
+      <?php $manufacturer = $_product->getAttributeText('manufacturer'); ?>
+
+      <div class="bestseller-product productlist-element">
         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
           <img id="product-collection-image-<?php echo $_product->getId(); ?>"
             src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(232,245); ?>" width="232" height="245"
@@ -36,7 +37,7 @@
             </div>
           </div>
         </div>
-          <?php /*
+          <?php
           // Provides extra blocks on which to hang some features for products in the list
           // Features providing UI elements targeting this block will display directly below the product name
           if ($this->getChild('name.after')) {
@@ -49,21 +50,6 @@
               }
           }
           ?>
-          <div class="offcanvas offcanvas-bottom">
-            foundation badges <?php echo 'saleable: ' . ($_product->isSaleable() ? 'true' : 'false') ?>
-            <?php
-            // Provides extra blocks on which to hang some features for products in the list
-            // Features providing UI elements targeting this block will display directly below the product name
-            if (false && $this->getChild('name.after')) {
-                $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
-                foreach ($_nameAfterChildren as $_nameAfterChildName) {
-                    $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
-                    $_nameAfterChild->setProduct($_product);
-                    echo $_nameAfterChild->toHtml();
-                }
-            }
-          </div>
-          */ ?>
       </div>
     <?php endforeach; ?>
   </div>
@@ -72,7 +58,7 @@
 <script type="text/javascript">
 //<![CDATA[
 
-  jQuery('#featured-products').slick({
+  jQuery('#bestselling-products').slick({
     dots: false,
     infinite: true,
     slidesToShow: 4,

@@ -210,8 +210,8 @@ ul.checkout-types{
 
     button {
       @extend button.gold;
-      @extend button.height-m;
-      @extend button.width-l;
+      // @extend button.height-m;
+      // @extend button.width-l;
       &::after {
         content: ">";
         padding-left: 3px;

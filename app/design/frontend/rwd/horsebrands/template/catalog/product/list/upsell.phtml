@@ -18,7 +18,10 @@
               <div class="product-info">
                 <div class="product-list-details left">
                   <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
-                  <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
+                  <div class="product-name">
+                    <?php $productname = $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                    <?php echo Mage::helper("horsebrands_rewrites")->getShortProductname($productname); ?>
+                  </div>
                 </div>
                 <div class="product-list-price right">
                   <div class="product-price">

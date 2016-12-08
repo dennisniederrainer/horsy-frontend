@@ -6,6 +6,7 @@
           <title>Horsebrands Deals</title>
       </action>
 
-    <remove name="promise" />
+      <remove name="promise" />
+    </reference>
   </default>
 </layout>

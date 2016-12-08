@@ -17,7 +17,10 @@
         <div class="product-info">
           <div class="product-list-details left">
             <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
-            <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
+            <div class="product-name">
+              <?php $productname = $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+              <?php echo Mage::helper("horsebrands_rewrites")->getShortProductname($productname); ?>
+            </div>
           </div>
           <div class="product-list-price right">
             <div class="product-price">
@@ -38,22 +41,6 @@
               }
           }
           ?>
-          <?php /*
-          <div class="offcanvas offcanvas-bottom">
-            foundation badges <?php echo 'saleable: ' . ($_product->isSaleable() ? 'true' : 'false') ?>
-            <?php
-            // Provides extra blocks on which to hang some features for products in the list
-            // Features providing UI elements targeting this block will display directly below the product name
-            if (false && $this->getChild('name.after')) {
-                $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
-                foreach ($_nameAfterChildren as $_nameAfterChildName) {
-                    $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
-                    $_nameAfterChild->setProduct($_product);
-                    echo $_nameAfterChild->toHtml();
-                }
-            }
-          </div>
-          */ ?>
       </div>
     <?php endforeach; ?>
   </div>
