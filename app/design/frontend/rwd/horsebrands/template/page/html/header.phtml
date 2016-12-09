@@ -46,40 +46,40 @@
           </li>
           <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
           <li class="customer-nav-element">
-            <div class="dropdown-tab" style="z-index: 10;">
+            <div class="dropdown-tab">
               <a href="" onclick="redirectOnMobile('<?php echo $this->getUrl('customer/account') ?>'); return false;">
                 <div class="icon customeraccount">
                   <span><?php echo $this->__('Anmelden'); ?></span>
                 </div>
               </a>
             </div>
-            <div class="dropdown-content" style="z-index: 5;">
+            <div class="dropdown-content">
               <?php echo $this->getChildHtml('customer.login') ?>
             </div>
           </li>
           <?php else: ?>
             <li class="customer-nav-element">
-              <div class="dropdown-tab" style="z-index: 10;">
+              <div class="dropdown-tab">
                 <a href="<?php echo $this->getUrl('customer/account') ?>">
                   <div class="icon customeraccount loggedin">
                     <span><?php echo $this->__('Mein Konto'); ?></span>
                   </div>
                 </a>
               </div>
-              <div class="dropdown-content" style="z-index: 5;">
+              <div class="dropdown-content">
                 <?php echo $this->getChildHtml('topLinks') ?>
               </div>
             </li>
           <?php endif; ?>
           <li class="customer-nav-element">
-            <div class="dropdown-tab" style="z-index: 20;">
+            <div class="dropdown-tab">
               <a href="<?php echo $this->getUrl('wishlist') ?>">
                 <div class="icon wishlist">
                   <span><?php echo $this->__('Wishlist'); ?></span>
                 </div>
               </a>
             </div>
-            <div class="dropdown-content" style="z-index: 15;display:none;">
+            <div class="dropdown-content" style="display:none;">
               Wunschzettelinhalte
             </div>
           </li>

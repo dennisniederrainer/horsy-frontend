@@ -338,11 +338,11 @@ dd.swatch-attr {
   margin-left: 0;
 }
 
-.layered-navigation-wrapper {
-  @include media('<tablet') {
-    display: none;
-  };
-}
+@include media('<tablet') {
+  .layered-navigation-wrapper {
+    // display: none;
+  }
+};
 
 .add-to-cart {
   .button, .btn {

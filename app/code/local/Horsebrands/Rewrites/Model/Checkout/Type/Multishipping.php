@@ -388,9 +388,6 @@ class Horsebrands_Rewrites_Model_Checkout_Type_Multishipping extends Mage_Checko
 
       $order->setPayment($convertQuote->paymentToOrderPayment($quote->getPayment()));
 
-      mage::log($quote->getPayment()->getGrandTotal(), null, 'zong.log');
-      mage::log($quote->getPayment()->getOrderPlaceRedirectUrl(), null, 'zong.log');
-
       if (Mage::app()->getStore()->roundPrice($address->getGrandTotal()) == 0) {
           $order->getPayment()->setMethod('free');
       }

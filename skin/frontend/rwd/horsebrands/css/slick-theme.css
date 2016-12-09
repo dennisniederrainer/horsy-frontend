@@ -1,26 +1,27 @@
 @charset "UTF-8";
 /* Slider */
-/* line 45, ../sass/slick-theme.scss */
+/* line 47, ../sass/slick-theme.scss */
 .slick-loading .slick-list {
-  background: #fff url('/images/ajax-loader.gif?1479723468') center center no-repeat;
+  background: #fff url('/images/ajax-loader.gif?1481245893') center center no-repeat;
 }
 
 /* Icons */
 @font-face {
   font-family: "slick";
-  src: url('/fonts/slick.eot?1479723468');
-  src: url('/fonts/slick.eot?&1479723468#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1479723468') format("woff"), url('/fonts/slick.ttf?1479723468') format("truetype"), url('/fonts/slick.svg?1479723468#slick') format("svg");
+  src: url('/fonts/slick.eot?1481245893');
+  src: url('/fonts/slick.eot?&1481245893#iefix') format("embedded-opentype"), url('/fonts/slick.woff?1481245893') format("woff"), url('/fonts/slick.ttf?1481245893') format("truetype"), url('/fonts/slick.svg?1481245893#slick') format("svg");
   font-weight: normal;
   font-style: normal;
 }
 /* Arrows */
-/* line 63, ../sass/slick-theme.scss */
+/* line 65, ../sass/slick-theme.scss */
 .slick-prev,
 .slick-next {
   position: absolute;
   display: block;
   height: 20px;
   width: 20px;
+  min-width: 0px;
   line-height: 0px;
   font-size: 0px;
   cursor: pointer;
@@ -33,8 +34,9 @@
   padding: 0;
   border: none;
   outline: none;
+  z-index: 10;
 }
-/* line 81, ../sass/slick-theme.scss */
+/* line 86, ../sass/slick-theme.scss */
 .slick-prev:hover, .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
@@ -42,18 +44,18 @@
   background-color: #fff;
   color: transparent;
 }
-/* line 85, ../sass/slick-theme.scss */
+/* line 90, ../sass/slick-theme.scss */
 .slick-prev:hover:before, .slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before {
   opacity: 1;
 }
-/* line 89, ../sass/slick-theme.scss */
+/* line 94, ../sass/slick-theme.scss */
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {
   opacity: 0.25;
 }
-/* line 92, ../sass/slick-theme.scss */
+/* line 97, ../sass/slick-theme.scss */
 .slick-prev:before,
 .slick-next:before {
   font-family: "slick";
@@ -65,12 +67,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 103, ../sass/slick-theme.scss */
+/* line 108, ../sass/slick-theme.scss */
 .slick-prev {
   background-image: url("../images/icons/chevron-left.svg");
   left: -25px;
 }
-/* line 107, ../sass/slick-theme.scss */
+/* line 112, ../sass/slick-theme.scss */
 .slick-prev:hover, .slick-prev:focus, .slick-prev:active {
   background-image: url("../images/icons/chevron-left.svg");
   background-repeat: no-repeat;
@@ -78,12 +80,12 @@
   background-size: contain;
 }
 
-/* line 115, ../sass/slick-theme.scss */
+/* line 120, ../sass/slick-theme.scss */
 .slick-next {
   background-image: url("../images/icons/chevron-right.svg");
   right: -25px;
 }
-/* line 119, ../sass/slick-theme.scss */
+/* line 124, ../sass/slick-theme.scss */
 .slick-next:hover, .slick-next:focus, .slick-next:active {
   background-image: url("../images/icons/chevron-right.svg");
   background-repeat: no-repeat;
@@ -91,13 +93,24 @@
   background-size: contain;
 }
 
+@media (min-width: 320px) and (max-width: 767px) {
+  /* line 133, ../sass/slick-theme.scss */
+  .slick-prev {
+    left: 0;
+  }
+
+  /* line 136, ../sass/slick-theme.scss */
+  .slick-next {
+    right: 0;
+  }
+}
 /* Dots */
-/* line 129, ../sass/slick-theme.scss */
+/* line 143, ../sass/slick-theme.scss */
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 133, ../sass/slick-theme.scss */
+/* line 147, ../sass/slick-theme.scss */
 .slick-dots {
   position: absolute;
   bottom: -25px;
@@ -108,7 +121,7 @@
   margin: 0;
   width: 100%;
 }
-/* line 142, ../sass/slick-theme.scss */
+/* line 156, ../sass/slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -118,7 +131,7 @@
   padding: 0;
   cursor: pointer;
 }
-/* line 150, ../sass/slick-theme.scss */
+/* line 164, ../sass/slick-theme.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -132,15 +145,15 @@
   padding: 5px;
   cursor: pointer;
 }
-/* line 162, ../sass/slick-theme.scss */
+/* line 176, ../sass/slick-theme.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
 }
-/* line 164, ../sass/slick-theme.scss */
+/* line 178, ../sass/slick-theme.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 168, ../sass/slick-theme.scss */
+/* line 182, ../sass/slick-theme.scss */
 .slick-dots li button:before {
   position: absolute;
   top: 0;
@@ -157,7 +170,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 185, ../sass/slick-theme.scss */
+/* line 199, ../sass/slick-theme.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75;

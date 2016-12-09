@@ -43,8 +43,9 @@
 	}
 
 	.price-box {
+		white-space: nowrap;
 		.regular-price, .special-price, .old-price {
-			white-space: nowrap;
+			// white-space: nowrap;
 			overflow: visible;
 			line-height: 1.3;
 		}
@@ -199,7 +200,7 @@
 @include media('>=phone','<tablet') {
 	.productlist-element,
 	.featured-product	{
-		.product-name {
+		.product-info .product-name {
 			.productname-short {
 				display: none;
 			}
@@ -209,3 +210,7 @@
 		}
 	}
 };
+
+.available-filter-wrapper {
+	margin-top: 2em;
+}

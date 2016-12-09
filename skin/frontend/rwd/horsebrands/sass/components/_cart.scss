@@ -250,7 +250,7 @@ ul.checkout-types{
   }
 
   ul.checkout-types {
-    float: none;
+    // float: none;
     margin-left: 0;
 
     li {
@@ -344,6 +344,19 @@ ul.checkout-types{
       width: 100%;
     }
   }
+
+  .coupon-review-wrapper {
+    input.input-text {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+
+  #discount-coupon-form button {
+    width: 100%;
+    margin: 10px 0 20px;
+  }
+
 };
 
 dl.totals-block {
@@ -396,4 +409,13 @@ dl.totals-block {
     float: right;
     margin-top: 8px;
   }
+}
+
+.minicart-wrapper p.empty {
+  margin-bottom: 0;
+}
+
+#cart-sidebar {
+  max-height: 290px;
+  overflow: auto;
 }

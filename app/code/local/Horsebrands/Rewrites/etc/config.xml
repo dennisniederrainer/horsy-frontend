@@ -65,6 +65,7 @@
           <rewrite>
             <quote>Horsebrands_Rewrites_Model_Sales_Quote</quote>
             <quote_address>Horsebrands_Rewrites_Model_Sales_Quote_Address</quote_address>
+            <quote_address_total_shipping>Horsebrands_Rewrites_Model_Sales_Quote_Address_Total_Shipping</quote_address_total_shipping>
           </rewrite>
         </sales>
       </models>

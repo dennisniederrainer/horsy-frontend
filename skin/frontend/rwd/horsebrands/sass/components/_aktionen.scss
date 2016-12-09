@@ -214,7 +214,7 @@
 }
 
 #signup input {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 #reg-step-two {
   input {
@@ -297,4 +297,8 @@ p.note.registration-terms {
       display: none;
     }
   };
+}
+
+#upcoming-fs-slider .aktion {
+  margin: 0 10px;
 }

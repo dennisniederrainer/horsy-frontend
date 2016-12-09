@@ -62,46 +62,63 @@
       <h2><?php echo $this->__('Upcoming Campaigns') ?></h2>
     </div>
 
-    <?php $i = 0; ?>
-    <?php foreach ($upcomingFlashsales as $campaign): ?>
-      <?php $i++; ?>
-
-      <?php // begin row if element is first in row ?>
-      <?php if($i % 2 == 1): ?>
-      <div class="row">
-      <?php endif; ?>
-
-        <div class="columns small-12 medium-6<?php echo ($i == $upcomingFsCount ? ' end' : '') ?>">
-          <div class="aktion<?php echo ($i % 2 == 1 ? ' odd' : ' even') ?>">
-            <?php $category = Mage::getModel('catalog/category')->load($campaign->getFsCategoryId()); ?>
-            <div class="info-wrapper">
-              <div class="info-countdown left">
-                <i class="fa fa-clock-o"></i><?php echo $this->__( "Starts at %s", $this->helper('aktionen')->getEuropeanDateFormat($campaign->getFsStartDate()) ); ?>
-              </div>
-              <div class="info-description right">
-                <?php echo $campaign->getFsDescription(); ?>
-              </div>
+    <div id="upcoming-fs-slider">
+      <?php foreach ($upcomingFlashsales as $campaign): ?>
+        <div class="aktion<?php echo ($i % 2 == 1 ? ' odd' : ' even') ?>">
+          <?php $category = Mage::getModel('catalog/category')->load($campaign->getFsCategoryId()); ?>
+          <div class="info-wrapper">
+            <div class="info-countdown left">
+              <i class="fa fa-clock-o"></i><?php echo $this->__( "Starts at %s", $this->helper('aktionen')->getEuropeanDateFormat($campaign->getFsStartDate()) ); ?>
             </div>
-            <!-- <a href="<?php echo $category->getUrl(); ?>"> -->
-            <div class="image-wrapper">
-              <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $campaign->getFsPicture(); ?>" title="<?php echo $campaign->getFsName(); ?>" alt="<?php echo $campaign->getFsName(); ?>" class="img-responsive" />
+            <div class="info-description right">
+              <?php echo $campaign->getFsDescription(); ?>
             </div>
-            <div class="aktion-action">
-              <span>&nbsp;</span>
-            </div>
-            <!-- </a> -->
           </div>
+          <!-- <a href="<?php echo $category->getUrl(); ?>"> -->
+          <div class="image-wrapper">
+            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $campaign->getFsPicture(); ?>" title="<?php echo $campaign->getFsName(); ?>" alt="<?php echo $campaign->getFsName(); ?>" class="img-responsive" />
+          </div>
+          <div class="aktion-action">
+            <span>&nbsp;</span>
+          </div>
+          <!-- </a> -->
         </div>
+      <?php endforeach; ?>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+      jQuery(document).ready(function($) {
+        $('#upcoming-fs-slider').slick({
+          dots: false,
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
+    //]]>
+    </script>
 
-        <?php // close row if lastelement in collection or in row ?>
-        <?php if($i % 2 == 0 || $i == $upcomingFsCount): ?>
-        </div>
-        <?php endif; ?>
-
-    <?php endforeach; ?>
 <?php endif; ?>
 <div id='deals-modal' class="hide"></div>
 </div>
+
+<?php // if disableLinks is set, the customer is about to login. the seo text will be displayed there...  ?>
+<?php if(!$disableLinks): ?>
 <div class="seo-section-wrapper">
   <?php echo Mage::getBlockSingleton('cms/block')->setBlockId('deals_seo_block')->toHtml(); ?>
 </div>
+<?php endif; ?>

@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import "vendor/include-media";
+
 // Default Variables
 
 // Slick icon entity codes outputs the following
@@ -66,6 +68,7 @@ $slick-opacity-not-active: 0.25 !default;
     display: block;
     height: 20px;
     width: 20px;
+    min-width: 0px;
     line-height: 0px;
     font-size: 0px;
     cursor: pointer;
@@ -78,6 +81,8 @@ $slick-opacity-not-active: 0.25 !default;
     padding: 0;
     border: none;
     outline: none;
+    z-index: 10;
+    
     &:hover, &:focus {
         outline: none;
         background-color: #fff;
@@ -123,6 +128,15 @@ $slick-opacity-not-active: 0.25 !default;
     background-size: contain;
   }
 }
+
+@include media('>=phone', '<tablet') {
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
+};
 
 /* Dots */
 

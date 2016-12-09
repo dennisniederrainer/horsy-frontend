@@ -52,14 +52,14 @@
                   <?php echo $this->getCountryHtmlSelect('billing') ?>
                 </div>
               </div>
-              <div class="kv">
+              <?php /* <div class="kv">
                 <div class="key">
                   <label><?php echo $this->__('E-Mail-Address'); ?><em>*</em></label>
                 </div>
                 <div class="value">
                   <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="billing[email]" id="billing:email" value="<?php echo $this->escapeHtml($this->getAddress()->getEmail()) ?>" title="<?php echo $this->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
                 </div>
-              </div>
+              </div> */ ?>
               <div class="kv">
                 <div class="key">
                   <label for="billing:telephone"><?php echo $this->__('Telephone') ?><em>*</em></label>

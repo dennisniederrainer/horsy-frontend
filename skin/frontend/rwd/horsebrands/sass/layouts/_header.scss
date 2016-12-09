@@ -12,12 +12,18 @@ $customer-icons-font-size: 1.5rem;
 		span {
 			display: block;
 			float: left;
+			text-align: center;
 			width: 25%;
 			font-weight: 100;
 			font-size: .75em;
 
+			&:first-child {
+				text-align: left;
+				padding-left: 2em;
+			}
 			&:last-child {
 				text-align: right;
+				padding-right: 2em;
 			}
 		}
 	}
@@ -132,6 +138,11 @@ $customer-icons-font-size: 1.5rem;
     .logo-wrapper a.logo-link img {
       max-width: 130px;
     }
+
+		.top-header {
+			max-height: 160px;
+			height: 156px;
+		}
   }
 };
 
@@ -195,6 +206,12 @@ ul.customer-nav-list {
 		}
 
 		@include media('>=desktop') {
+			.dropdown-tab {
+				z-index: 15;
+			}
+			.dropdown-content {
+				z-index: 10;
+			}
 			&:hover {
 				padding: 4px 19px 0;
 				border: 1px solid $gray-lighter-2;
@@ -301,7 +318,7 @@ ul.customer-nav-list {
 
 	&.mobile-menu {
 		background-image: url('../images/icons/icon-menu.svg');
-		background-size: 60%;
+		background-size: 45%;
 
 		span {
 			left: -2px;
