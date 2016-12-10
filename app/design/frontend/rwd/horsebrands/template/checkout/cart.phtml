@@ -7,8 +7,9 @@
 <?php $dealsItems = $checkouthelper->getItemsByStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
 <?php $isMultiShippingPossible = false; //(count($shopItems) > 0 && count($dealsItems) > 0) ?>
 
-<?php $delivery_shop = $checkouthelper->getEstimatedShippingText($shopItems) ?>
-<?php $delivery_deals = $checkouthelper->getEstimatedShippingText($dealsItems) ?>
+<?php $delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
+<?php $delivery_shop = null; //$checkouthelper->getEstimatedShippingText($shopItems) ?>
+<?php $delivery_deals = null; //$checkouthelper->getEstimatedShippingText($dealsItems) ?>
 
 <div class="cart <?php echo $_priceDisplay; ?>">
     <?php echo $this->getMessagesBlock()->toHtml() ?>
@@ -141,6 +142,9 @@
           </div>
           <div class="shipping-estimate-wrapper">
             <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+            <?php if($delivery_bundle): ?>
+              <p><?php echo $delivery_bundle ?></p>
+            <?php endif; ?>
             <?php if($delivery_shop): ?>
               <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
             <?php endif; ?>
