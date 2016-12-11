@@ -1,5 +1,6 @@
 app/code/local/Horsebrands/Rewrites    /app/code/local/Horsebrands/Rewrites
 app/code/local/Mage/Checkout/Block/Onepage/Abstract.php    app/code/local/Mage/Checkout/Block/Onepage/Abstract.php
+app/code/local/Mage/Customer/Model/Address/Abstract.php    app/code/local/Mage/Customer/Model/Address/Abstract.php
 app/etc/modules/Horsebrands_Rewrites.xml   /app/etc/modules/Horsebrands_Rewrites.xml
 
 app/code/local/Horsebrands/Deinverein    /app/code/local/Horsebrands/Deinverein

@@ -9,10 +9,14 @@
   <div class="page-title">
     <h2><?php echo $this->__('Current Campaigns') ?></h2>
   </div>
-  <?php echo $this->getMessagesBlock()->toHtml() ?>
-<?php if($fsCount == 0): ?>
+
+  <?php if(!$disableLinks): ?>
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
+  <?php endif; ?>
+
+  <?php if($fsCount == 0): ?>
     <p class="no-campaigns">Es existieren leider keine laufenden Aktionen</p>
-<?php else: ?>
+  <?php else: ?>
 
 
     <?php $i = 0; ?>

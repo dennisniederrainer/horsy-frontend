@@ -1,3 +1,4 @@
+<?php $newsletterTypes = $this->getNewsletterTypes(); ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <?php echo $this->getChildHtml('form_before')?>
 <form action="<?php echo $this->getAction() ?>" method="post" id="form-validate">
@@ -17,6 +18,9 @@
   <div class="buttons-set">
     <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save')) ?>" class="button right gold medium"><span><span><?php echo $this->__('Save') ?></span></span></button>
   </div>
+  <?php foreach ($newsletterTypes as $newsletterType): ?>
+    <?php echo $newsletterType->getTypeName() ?>
+  <?php endforeach; ?>
 </form>
 <?php /* Extensions placeholder */ ?>
 <?php echo $this->getChildHtml('customer.form.newsletter.extra2')?>

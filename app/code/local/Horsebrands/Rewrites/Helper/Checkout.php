@@ -68,20 +68,21 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
       $latest = new Zend_Date(Mage::getModel('core/date')->timestamp());
       $latest->addDay($interval[1]);
 
-      if($earliest->get(Zend_Date::WEEKDAY_DIGIT) == 0) {
+      if($earliest->get(Zend_Date::WEEKDAY_DIGIT) == 0 || $earliest->get(Zend_Date::WEEKDAY_DIGIT) == 6) {
         $earliest->addDay('1');
         $latestPlusOne = true;
       }
 
-      if($latest->get(Zend_Date::WEEKDAY_DIGIT) == 0 || $latestPlusOne) {
+      if($latest->get(Zend_Date::WEEKDAY_DIGIT) == 0
+        || $earliest->get(Zend_Date::WEEKDAY_DIGIT) == 6 || $latestPlusOne) {
         $latest->addDay('1');
       }
 
-      $earliest = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
-      $latest = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
+      $earliest = Mage::getModel('core/date')->date('d.m.Y', $earliest);
+      $latest = Mage::getModel('core/date')->date('d.m.Y', $latest);
 
-      $earliestText = Mage::helper('core')->formatDate($earliest, 'full', false);
-      $latestText = Mage::helper('core')->formatDate($latest, 'full', false);
+      $earliestText = Mage::helper('core')->formatDate($earliest, 'short', false);
+      $latestText = Mage::helper('core')->formatDate($latest, 'short', false);
 
       return $earliestText . ' - ' . $latestText;
     }

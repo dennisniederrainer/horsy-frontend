@@ -6,6 +6,7 @@
         <li id="switch-login"><?php echo $this->__('Login') ?></li>
       </ul>
     </div>
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
     <div class="content-wrapper">
       <div id="signup">
         <form id="registration-form" action="<?php echo $this->getActionUrl('registration'); ?>" method="post">
@@ -53,7 +54,7 @@
           <input type="hidden" name="aktionenlogin" value='true' />
           <h1>Anmelden</h1>
           <input class="required-entry input-text" type="text" name="login[username]" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
-          <input class="required-entry input-text" type="password" name="login[password]" placeholder="<?php echo $this->__('Your Password') ?>"/>
+          <input id="login-password" class="required-entry input-text" type="password" name="login[password]" placeholder="<?php echo $this->__('Your Password') ?>"/>
           <div class="persistend-forgot-wrapper">
             <div class="persistent-login">
               <label>
@@ -62,11 +63,19 @@
               </label>
             </div>
             <div class="forgot-password">
-              <a href="#newPassword"><?php echo $this->__("Forgot Password") ?>?</a>
+              <a id="forgotpassword-link" href="#newPassword"><?php echo $this->__("Forgot Password") ?>?</a>
             </div>
           </div>
           <button class="gold expand" type="button" onclick="loginForm.submit();"><?php echo $this->__('Log In'); ?></button>
           <?php /*  <button class="black expand"><?php echo $this->__('Login with Facebook'); ?></button> */ ?>
+        </form>
+      </div>
+      <div id="forgotpassword" class="hide">
+        <form action="<?php echo $this->getUrl('customer/account/forgotpasswordpost') ?>" method="post" id="forgottpassword-form">
+          <p class="form-instructions"><?php echo $this->__('Please enter your email address below. You will receive a link to reset your password.') ?></p>
+          <input class="required-entry input-text" type="text" name="email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+          <button type="submit" class="gold expand" style="margin-top: 1em;">Passwort anfordern</button>
+          <a id="forgotpassword-back-link"><?php echo '< '.$this->__('Back') ?></a>
         </form>
       </div>
     </div>
@@ -74,20 +83,42 @@
 <script type="text/javascript">
 //<![CDATA[
 
+  jQuery('#login-password').keyup(function(e) {
+    if(e.keyCode == 13) {
+      jQuery('#login-form').submit();
+    }
+  });
+
   var $j = jQuery;
   $j("ul.switch li").click(function(ev) {
     if($j(this).is('#switch-signup') && !$j(this).hasClass('active')) {
       $j('#signup').removeClass('hide');
       $j('#login').addClass('hide');
+      $j('#forgotpassword').addClass('hide');
       $j('#switch-signup').addClass('active');
       $j('#switch-login').removeClass('active');
     }
     if($j(this).is('#switch-login') && !$j(this).hasClass('active')) {
       $j('#login').removeClass('hide');
       $j('#signup').addClass('hide');
+      $j('#forgotpassword').addClass('hide');
       $j('#switch-signup').removeClass('active');
       $j('#switch-login').addClass('active');
     }
+  });
+
+  $j('#forgotpassword-link').click(function(e) {
+    e.preventDefault();
+    $j('#login').addClass('hide');
+    $j('#signup').addClass('hide');
+    $j('#forgotpassword').removeClass('hide');
+  });
+
+  $j('#forgotpassword-back-link').click(function(e) {
+    e.preventDefault();
+    $j('#login').removeClass('hide');
+    $j('#signup').addClass('hide');
+    $j('#forgotpassword').addClass('hide');
   });
 
   $j("#registration-form button.reg-continue").on('click', function(ev) {
@@ -100,6 +131,7 @@
 
   var loginForm = new VarienForm('login-form', true);
   var signupForm = new VarienForm('registration-form', true);
+  var forgottpasswordForm = new VarienForm('forgottpassword-form', true);
 
 //]]>
 </script>

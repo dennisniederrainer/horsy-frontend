@@ -10848,6 +10848,17 @@ a.current-category {
   font-size: 0.85714rem;
 }
 
+/* line 202, ../sass/components/_customer.scss */
+.forgotpassword-container {
+  width: 60%;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  /* line 202, ../sass/components/_customer.scss */
+  .forgotpassword-container {
+    width: 100%;
+  }
+}
+
 /* line 4, ../sass/components/_homepage.scss */
 section.topics article.topic-element {
   position: relative;
@@ -11865,6 +11876,15 @@ dl.totals-block dd {
   color: #000;
   font-weight: 500;
 }
+/* line 104, ../sass/components/_aktionen.scss */
+.grayout .registration-container ul.messages {
+  margin: 1em;
+  margin-bottom: 0;
+}
+/* line 108, ../sass/components/_aktionen.scss */
+.grayout .registration-container ul.messages li {
+  font-size: 0.85714rem;
+}
 /* line 3, ../sass/base/_mixins.scss */
 .grayout .registration-container .content-wrapper:before, .grayout .registration-container .content-wrapper:after {
   content: " ";
@@ -11874,159 +11894,159 @@ dl.totals-block dd {
 .grayout .registration-container .content-wrapper:after {
   clear: both;
 }
-/* line 107, ../sass/components/_aktionen.scss */
+/* line 116, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .content-left, .grayout .registration-container .content-wrapper .content-right {
   float: left;
   width: 50%;
   padding: 25px;
 }
-/* line 113, ../sass/components/_aktionen.scss */
+/* line 122, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .logo-wrapper {
   width: 75%;
   margin: 0 auto;
 }
-/* line 118, ../sass/components/_aktionen.scss */
+/* line 127, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .usp-wrapper {
   margin: 10px 0 30px;
 }
-/* line 121, ../sass/components/_aktionen.scss */
+/* line 130, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .usp-wrapper ul {
   margin: 0;
 }
-/* line 124, ../sass/components/_aktionen.scss */
+/* line 133, ../sass/components/_aktionen.scss */
 .grayout .registration-container .content-wrapper .usp-wrapper ul li {
   font-size: 13px;
   line-height: 2em;
 }
-/* line 132, ../sass/components/_aktionen.scss */
+/* line 141, ../sass/components/_aktionen.scss */
 .grayout .registration-container .registration-footer {
   background-color: #9c9c9c;
   padding: 20px 25px;
 }
-/* line 136, ../sass/components/_aktionen.scss */
+/* line 145, ../sass/components/_aktionen.scss */
 .grayout .registration-container .registration-footer ul.known-from {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 141, ../sass/components/_aktionen.scss */
+/* line 150, ../sass/components/_aktionen.scss */
 .grayout .registration-container .registration-footer ul.known-from li {
   font-size: 12px;
   line-height: 14px;
   color: #fff;
 }
 
-/* line 152, ../sass/components/_aktionen.scss */
-#signup h1, #login h1 {
+/* line 161, ../sass/components/_aktionen.scss */
+#signup h1, #login h1, #forgotpassword h1 {
   font-size: 23px;
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-/* line 160, ../sass/components/_aktionen.scss */
-#signup#login h1, #login#login h1 {
+/* line 169, ../sass/components/_aktionen.scss */
+#signup#login h1, #login#login h1, #forgotpassword#login h1 {
   font-weight: 300;
 }
-/* line 164, ../sass/components/_aktionen.scss */
-#signup input, #login input {
+/* line 173, ../sass/components/_aktionen.scss */
+#signup input, #login input, #forgotpassword input {
   line-height: 16px;
   padding: 12px;
   margin-bottom: 10px;
 }
 /* line 61, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-#signup input:-moz-placeholder, #login input:-moz-placeholder {
+#signup input:-moz-placeholder, #login input:-moz-placeholder, #forgotpassword input:-moz-placeholder {
   font-weight: 300;
 }
 /* line 64, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-#signup input::-moz-placeholder, #login input::-moz-placeholder {
+#signup input::-moz-placeholder, #login input::-moz-placeholder, #forgotpassword input::-moz-placeholder {
   font-weight: 300;
 }
 /* line 67, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-#signup input:-ms-input-placeholder, #login input:-ms-input-placeholder {
+#signup input:-ms-input-placeholder, #login input:-ms-input-placeholder, #forgotpassword input:-ms-input-placeholder {
   font-weight: 300;
 }
 /* line 56, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
-#signup input::-webkit-input-placeholder, #login input::-webkit-input-placeholder {
+#signup input::-webkit-input-placeholder, #login input::-webkit-input-placeholder, #forgotpassword input::-webkit-input-placeholder {
   font-weight: 300;
 }
-/* line 173, ../sass/components/_aktionen.scss */
-#signup input.validation-failed, #login input.validation-failed {
+/* line 182, ../sass/components/_aktionen.scss */
+#signup input.validation-failed, #login input.validation-failed, #forgotpassword input.validation-failed {
   margin-bottom: 0;
 }
-/* line 177, ../sass/components/_aktionen.scss */
-#signup button.btn, #login button.btn {
+/* line 186, ../sass/components/_aktionen.scss */
+#signup button.btn, #login button.btn, #forgotpassword button.btn {
   font-size: 15px;
   line-height: 40px;
   margin: 20px 0;
 }
-/* line 182, ../sass/components/_aktionen.scss */
-#signup button.btn:last-child, #login button.btn:last-child {
+/* line 191, ../sass/components/_aktionen.scss */
+#signup button.btn:last-child, #login button.btn:last-child, #forgotpassword button.btn:last-child {
   margin-bottom: 0;
 }
-/* line 186, ../sass/components/_aktionen.scss */
-#signup .persistend-forgot-wrapper, #login .persistend-forgot-wrapper {
+/* line 195, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper, #login .persistend-forgot-wrapper, #forgotpassword .persistend-forgot-wrapper {
   color: #000;
 }
-/* line 188, ../sass/components/_aktionen.scss */
-#signup .persistend-forgot-wrapper .persistent-login, #signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .forgot-password {
+/* line 197, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .persistent-login, #signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .forgot-password, #forgotpassword .persistend-forgot-wrapper .persistent-login, #forgotpassword .persistend-forgot-wrapper .forgot-password {
   width: 50%;
 }
-/* line 190, ../sass/components/_aktionen.scss */
-#signup .persistend-forgot-wrapper .persistent-login > *, #signup .persistend-forgot-wrapper .forgot-password > *, #login .persistend-forgot-wrapper .persistent-login > *, #login .persistend-forgot-wrapper .forgot-password > * {
+/* line 199, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .persistent-login > *, #signup .persistend-forgot-wrapper .forgot-password > *, #login .persistend-forgot-wrapper .persistent-login > *, #login .persistend-forgot-wrapper .forgot-password > *, #forgotpassword .persistend-forgot-wrapper .persistent-login > *, #forgotpassword .persistend-forgot-wrapper .forgot-password > * {
   font-size: 12px;
   font-weight: 300;
 }
-/* line 195, ../sass/components/_aktionen.scss */
-#signup .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .persistent-login {
+/* line 204, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .persistent-login, #login .persistend-forgot-wrapper .persistent-login, #forgotpassword .persistend-forgot-wrapper .persistent-login {
   float: left;
 }
-/* line 198, ../sass/components/_aktionen.scss */
-#signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .forgot-password {
+/* line 207, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .forgot-password, #login .persistend-forgot-wrapper .forgot-password, #forgotpassword .persistend-forgot-wrapper .forgot-password {
   float: right;
   text-align: right;
 }
-/* line 201, ../sass/components/_aktionen.scss */
-#signup .persistend-forgot-wrapper .forgot-password a, #login .persistend-forgot-wrapper .forgot-password a {
+/* line 210, ../sass/components/_aktionen.scss */
+#signup .persistend-forgot-wrapper .forgot-password a, #login .persistend-forgot-wrapper .forgot-password a, #forgotpassword .persistend-forgot-wrapper .forgot-password a {
   color: #706f6f;
   text-decoration: underline !important;
 }
 /* line 19, ../sass/base/_mixins.scss */
-#signup .persistend-forgot-wrapper .forgot-password a:hover, #signup .persistend-forgot-wrapper .forgot-password a:active, #signup .persistend-forgot-wrapper .forgot-password a:link, #signup .persistend-forgot-wrapper .forgot-password a:visited, #login .persistend-forgot-wrapper .forgot-password a:hover, #login .persistend-forgot-wrapper .forgot-password a:active, #login .persistend-forgot-wrapper .forgot-password a:link, #login .persistend-forgot-wrapper .forgot-password a:visited {
+#signup .persistend-forgot-wrapper .forgot-password a:hover, #signup .persistend-forgot-wrapper .forgot-password a:active, #signup .persistend-forgot-wrapper .forgot-password a:link, #signup .persistend-forgot-wrapper .forgot-password a:visited, #login .persistend-forgot-wrapper .forgot-password a:hover, #login .persistend-forgot-wrapper .forgot-password a:active, #login .persistend-forgot-wrapper .forgot-password a:link, #login .persistend-forgot-wrapper .forgot-password a:visited, #forgotpassword .persistend-forgot-wrapper .forgot-password a:hover, #forgotpassword .persistend-forgot-wrapper .forgot-password a:active, #forgotpassword .persistend-forgot-wrapper .forgot-password a:link, #forgotpassword .persistend-forgot-wrapper .forgot-password a:visited {
   color: #706f6f;
   text-decoration: none;
 }
 /* line 23, ../sass/base/_mixins.scss */
-#signup .persistend-forgot-wrapper .forgot-password a:hover, #login .persistend-forgot-wrapper .forgot-password a:hover {
+#signup .persistend-forgot-wrapper .forgot-password a:hover, #login .persistend-forgot-wrapper .forgot-password a:hover, #forgotpassword .persistend-forgot-wrapper .forgot-password a:hover {
   cursor: pointer;
   color: #706f6f;
 }
 @media (max-width: 1023px) {
-  /* line 210, ../sass/components/_aktionen.scss */
-  #signup h1, #login h1 {
+  /* line 219, ../sass/components/_aktionen.scss */
+  #signup h1, #login h1, #forgotpassword h1 {
     font-size: 1.125em;
   }
 }
 
-/* line 216, ../sass/components/_aktionen.scss */
+/* line 225, ../sass/components/_aktionen.scss */
 #signup input {
   margin-bottom: 20px;
 }
 
-/* line 220, ../sass/components/_aktionen.scss */
+/* line 229, ../sass/components/_aktionen.scss */
 #reg-step-two input {
   margin-bottom: 5px;
 }
-/* line 223, ../sass/components/_aktionen.scss */
+/* line 232, ../sass/components/_aktionen.scss */
 #reg-step-two input:last-child {
   margin-bottom: 0;
 }
-/* line 228, ../sass/components/_aktionen.scss */
+/* line 237, ../sass/components/_aktionen.scss */
 #reg-step-two button.btn {
   margin-top: 15px;
 }
 
-/* line 233, ../sass/components/_aktionen.scss */
+/* line 242, ../sass/components/_aktionen.scss */
 p.note.registration-terms {
   color: #706f6f;
   font-size: 10px;
@@ -12042,13 +12062,13 @@ p.note.registration-terms {
 .switch-wrapper:after {
   clear: both;
 }
-/* line 242, ../sass/components/_aktionen.scss */
+/* line 251, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 247, ../sass/components/_aktionen.scss */
+/* line 256, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch li {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2RmZGZkZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyZTJlMyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
   background-size: 100%;
@@ -12063,52 +12083,52 @@ p.note.registration-terms {
   line-height: 45px;
   text-transform: uppercase;
 }
-/* line 256, ../sass/components/_aktionen.scss */
+/* line 265, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch li:hover {
   cursor: pointer;
 }
-/* line 261, ../sass/components/_aktionen.scss */
+/* line 270, ../sass/components/_aktionen.scss */
 .switch-wrapper ul.switch li.active {
   background: none;
   background-color: #fff;
 }
 
-/* line 270, ../sass/components/_aktionen.scss */
+/* line 279, ../sass/components/_aktionen.scss */
 .registration-container .content-wrapper {
   padding: 30px;
 }
-/* line 274, ../sass/components/_aktionen.scss */
+/* line 283, ../sass/components/_aktionen.scss */
 .registration-container .content-bottom {
   padding-top: 10px;
 }
 @media (max-width: 1023px) {
-  /* line 269, ../sass/components/_aktionen.scss */
+  /* line 278, ../sass/components/_aktionen.scss */
   .registration-container {
     border: 1px solid #706f6f;
   }
-  /* line 283, ../sass/components/_aktionen.scss */
+  /* line 292, ../sass/components/_aktionen.scss */
   .registration-container .switch-wrapper ul.switch li {
     -moz-box-shadow: inset 0 0 10px #cca64b;
     -webkit-box-shadow: inset 0 0 10px #cca64b;
     box-shadow: inset 0 0 10px #cca64b;
   }
-  /* line 286, ../sass/components/_aktionen.scss */
+  /* line 295, ../sass/components/_aktionen.scss */
   .registration-container .switch-wrapper ul.switch li.active {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
-  /* line 290, ../sass/components/_aktionen.scss */
+  /* line 299, ../sass/components/_aktionen.scss */
   .registration-container .switch-wrapper ul.switch li:last-child {
     border-right: none;
   }
-  /* line 296, ../sass/components/_aktionen.scss */
+  /* line 305, ../sass/components/_aktionen.scss */
   .registration-container .known-from {
     display: none;
   }
 }
 
-/* line 302, ../sass/components/_aktionen.scss */
+/* line 311, ../sass/components/_aktionen.scss */
 #upcoming-fs-slider .aktion {
   margin: 0 10px;
 }
