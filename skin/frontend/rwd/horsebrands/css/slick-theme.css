@@ -93,7 +93,7 @@
   background-size: contain;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 133, ../sass/slick-theme.scss */
   .slick-prev {
     left: 0;

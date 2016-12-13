@@ -78,6 +78,8 @@
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
                         <?php echo $this->getChildHtml('addtocart') ?>
+                    <?php else: ?>
+                    <p><strong>Zur Zeit nicht verfügbar.</strong></p>
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>

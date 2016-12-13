@@ -1,3 +1,6 @@
+.checkout-cart-index .fixed-top div.container span {
+  display: none !important;
+}
 
 .cart {
   .page-title.title-buttons h1{
@@ -146,7 +149,7 @@
     // margin-bottom: 5px;
   }
 
-  @include media('>=phone', '<tablet') {
+  @include media('>=phone', '<=tablet') {
     text-align: center;
   };
 }
@@ -244,29 +247,26 @@ ul.checkout-types{
   }
 }
 
-@include media('>=phone','<tablet') {
+@include media('>=phone','<=tablet') {
   .page-title h1 {
     display: none;
   }
 
   ul.checkout-types {
-    // float: none;
+    float: none;
+    text-align: center;
     margin-left: 0;
 
     li {
-      display: inline-block;
+      display: block;
       margin-right: 0;
-      width: 48%;
+      // width: 48%;
 
-      button {
-        padding-left: 0;
-        padding-right: 0;
-        width: 100%;
-      }
-
-      &:last-child {
-        width: 50%;
-      }
+      // button {
+      //   padding-left: 0;
+      //   padding-right: 0;
+      //   width: 100%;
+      // }
     }
 
     &.bottom li {
@@ -318,7 +318,6 @@ ul.checkout-types{
       padding-bottom: 10px;
     }
   }
-
 
   .shipping-estimate-wrapper {
     margin-bottom: 20px;

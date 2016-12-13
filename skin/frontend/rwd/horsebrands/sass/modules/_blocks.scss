@@ -187,7 +187,7 @@
         }
 
         &.totals {
-          font-weight: $font-weight-bold;
+          // font-weight: $font-weight-bold;
           padding-right: 35px;
 
           span.totals-price {
@@ -196,6 +196,7 @@
           }
 
           .totals-strong {
+            font-weight: 600;
             font-size: rem-calc(14);
             margin: 5px 0;
           }

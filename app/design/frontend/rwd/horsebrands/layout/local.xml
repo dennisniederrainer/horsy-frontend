@@ -215,4 +215,17 @@
 		</reference>
 	</attributesplash_page_view>
 
+  <sales_order_printinvoice>
+    <reference name="invoice_totals">
+      <action method="setTemplate">
+        <template>sales/order/print/totals.phtml</template>
+      </action>
+    </reference>
+    <reference name="tax">
+      <action method="setTemplate">
+        <template>tax/order/print/tax.phtml</template>
+      </action>
+    </reference>
+  </sales_order_printinvoice>
+
 </layout>

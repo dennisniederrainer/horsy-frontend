@@ -23,7 +23,7 @@
 	margin-right: auto;
 
 
-	@include media('<tablet') {
+	@include media('<=tablet') {
 		padding: 0 10px;
 	};
 }
@@ -70,7 +70,7 @@
 		width: 75%;
 	}
 
-	@include media('>=phone','<tablet') {
+	@include media('>=phone','<=tablet') {
 		.col-left,
 		.col-main {
 			float: none;
@@ -107,7 +107,7 @@
 	right: 6%;
 }
 
-@include media('>=phone', '<tablet') {
+@include media('>=phone', '<=tablet') {
 	.sidebar .block {
 		display: inline-block;
 		position: relative;

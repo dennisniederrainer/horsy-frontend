@@ -133,7 +133,7 @@ $customer-icons-font-size: 1.5rem;
 	}
 }
 
-@include media('>=phone','<tablet') {
+@include media('>=phone','<=tablet') {
   header {
     .logo-wrapper a.logo-link img {
       max-width: 130px;

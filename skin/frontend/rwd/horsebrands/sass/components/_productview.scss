@@ -13,7 +13,7 @@
     width: 35%;
   }
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     .product-essential-left,
     .product-essential-right {
       float: none;

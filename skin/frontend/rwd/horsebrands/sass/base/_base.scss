@@ -255,7 +255,7 @@ section {
 	}
 }
 
-@include media('>=phone','<tablet') {
+@include media('>=phone','<=tablet') {
 
 	table, thead, tbody, tfoot, th, td, tr {
     display: block;
@@ -299,7 +299,7 @@ section {
 	};
 }
 
-@include media('<tablet') {
+@include media('<=tablet') {
 	.hide-small {
 		display: none;
 	}
@@ -320,7 +320,7 @@ section {
 	}
 };
 
-@include media('>=phone','<tablet') {
+@include media('>=phone','<=tablet') {
   .line-through-heading h1 {
 		font-size: $font-size-medium;
 		top: -1.15em;

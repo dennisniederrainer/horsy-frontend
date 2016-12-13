@@ -3,17 +3,8 @@
     $_helper = $this->helper('catalog/output');
     $_category = (mage::registry('current_category') ? mage::registry('current_category') : null);
 
-    $advHelper = Mage::helper('horsebrands_rewrites/adventskalender');
-    $_isAdvCategory = false;
-
-    if($_category) {
-      $productpositions = $_category->getProductsPosition();
-      $_isAdvCategory = $advHelper->isAdvEnabled($_category->getId());
-    }
-
     $_toolbar = $this->getToolbarBlock();
 ?>
-<!-- <?php echo 'isadv: ' . $_isAdvCategory; ?> -->
 <div class="category-products">
   <?php if(false && $_category): ?>
     <h3>
@@ -49,15 +40,12 @@
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
-            <?php if($_isAdvCategory): ?>
-              <?php $position = $productpositions[$_product->getId()]; ?>
-              <?php if($advHelper->isAdvDoorClosed($position)): ?>
-                <div class="out-of-stock-overlay" style="background-color: #fff;">
-                  <div <?php echo $advHelper->getDoorClosedStyle($position) ?>>&nbsp;</div>
+            <div class="productlist-element item <?php echo $_product->getTypeId() ?>">
+              <?php if(!$_product->isSaleable()): ?>
+                <div class="out-of-stock-overlay">
+                  <div class="out-of-stock-text">Ausverkauft</div>
                 </div>
               <?php endif; ?>
-            <?php endif; ?>
-            <div class="productlist-element item <?php echo $_product->getTypeId() ?>">
               <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                 <?php $_imgSize = 210; ?>
                 <img id="product-collection-image-<?php echo $_product->getId(); ?>"
@@ -73,7 +61,9 @@
                  </div>
                  <div class="product-list-price right">
                    <div class="product-price">
-                     <?php echo $this->getPriceHtml($_product, true) ?>
+                     <?php if($_product->isSaleable()): ?>
+                      <?php echo $this->getPriceHtml($_product, true) ?>
+                     <?php endif; ?>
                    </div>
                  </div>
                </div>
@@ -123,12 +113,6 @@
 </div>
 
 <script>
-  // jQuery(document).ready(function($) {
-  //   var parent = $('div.offcanvas.offcanvas-left').parent('.productlist-element');
-  //   var element = $('div.offcanvas.offcanvas-left');
-  //
-  //   element.height(parent.height() - 2);
-  // });
   $j(window).load(function() {
     var parent = $j('div.offcanvas.offcanvas-left').parent('.productlist-element');
     var element = $j('div.offcanvas.offcanvas-left');

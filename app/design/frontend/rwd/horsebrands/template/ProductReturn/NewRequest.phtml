@@ -1,0 +1,199 @@
+<?php /* @var $this MDN_ProductReturn_Block_Front_NewRequest */ ?>
+
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $requestenabled = false; ?>
+
+<div class="page-title">
+    <h5 style="text-transform: none;">Artikel ausw&auml;hlen</h5>
+    <p class="page-description">
+        <?php echo $this->getChildHtml('description'); ?>
+    </p>
+</div>
+
+<form method="POST" id="edit_form" name="edit_form" action="<?php echo $this->getSubmitUrl(); ?>">
+<input type="hidden" id="data[rma_id]" name="data[rma_id]" value="<?php echo $this->getRma()->getId(); ?>">
+<input type="hidden" id="data[rma_order_id]" name="data[rma_order_id]"
+       value="<?php echo $this->getRma()->getSalesOrder()->getId(); ?>">
+<input type="hidden" id="data[rma_customer_id]" name="data[rma_customer_id]"
+       value="<?php echo $this->getRma()->getrma_customer_id(); ?>">
+<input type="hidden" id="data[rma_ref]" name="data[rma_ref]" value="<?php echo $this->getRma()->getrma_ref(); ?>">
+<input name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>"/>
+
+<div class="row box">
+    <!-- bestelldetails + kontakt -->
+    <div class="columns small-12 medium-6">
+        <label>Bestellnummer
+            <input type="text" name="orderId" value="<?php echo $this->getSalesOrder()->getIncrementId() ?>" readonly />
+        </label>
+    </div>
+    <div class="columns small-12 medium-6">
+        <label>Bestelldatum
+            <input type="text" name="orderCreatedAt"
+                value="<?php echo $this->getSalesOrder()->getCreatedAtStoreDate()->toString('dd.MM.yyyy') ?>" readonly />
+        </label>
+    </div>
+    <div class="columns small-12 medium-6">
+        <label>E-Mail-Adresse
+            <input type="text" name="data[rma_customer_email]" id="data[rma_customer_email]"
+                value="<?php echo $this->getRma()->getrma_customer_email(); ?>">
+        </label>
+    </div>
+    <div class="columns small-12 medium-6">
+        <label>Telefon (optional)
+            <input type="text" name="data[rma_customer_phone]" id="data[rma_customer_phone]"
+                value="<?php echo $this->getRma()->getrma_customer_phone(); ?>">
+        </label>
+    </div>
+    <div class="columns small-12">
+        <label>Absenderadresse
+            <?php echo $this->getCustomerAddressesAsCombo('data[rma_address_id]', $this->getRma()->getrma_address_id()); ?>
+        </label>
+    </div>
+</div>
+
+<div class="row box">
+    <!-- Artikel wählen -->
+    <?php foreach ($this->getRma()->getProducts() as $item): ?>
+        <?php $product = $item->getProduct(); ?>
+        <?php if ($this->displayProduct($item)): ?>
+            <?php $qtyinrma = (int)mage::helper('ProductReturn')->getIsalreadyInRma($item); ?>
+            <?php $notReturnable = ($qtyinrma >= $item->getqty_invoiced()); ?>
+            <?php if(!$notReturnable) $requestenabled=true; ?>
+
+            <table class="return-order-items" style="width: 100%;">
+                <col width="5%" />
+                <col width="20%" />
+                <col width="60%" />
+                <col width="15%" />
+                <tbody>
+                    <tr class="triggerCheckbox">
+                        <td class="small-full-width">
+                            <input type="checkbox" name="check-product" id="check-<?php echo $item->getitem_id() ?>" onchange="return false;"
+                                <?php echo ($notReturnable ? 'disabled="disabled"' : '') ?> />
+                        </td>
+                        <td class="small-full-width center">
+                            <img src="<?php echo Mage::helper('catalog/image')->init($product, 'small_image')->resize(75); ?>"  alt="Produktbild" class="image-cart" />
+                        </td>
+                        <td class="small-full-width">
+                            <h5 class="product-name"><?php echo $this->getProductName($product) ?></h5>
+                            <div class="manufacturer-name">
+                                <?php $manufacturer = nl2br($product->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($product)); ?>
+                                <?php echo $manufacturer; ?>
+                            </div>
+                            <!-- OPTIONS -->
+                        </td>
+                        <td class="small-full-width">
+                            <span class="show-for-small-only">Einzelpreis: </span>
+                            <?php if ($this->helper('tax')->displayCartPriceInclTax()): ?>
+                                <?php $_incl = $this->helper('checkout')->getPriceInclTax($item); ?>
+                                <?php echo $this->helper('checkout')->formatPrice($_incl); ?>
+                            <?php else: ?>
+                                <?php echo $this->helper('checkout')->formatPrice($item->getCalculationPrice()) ?>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                </tbody>
+                <?php if($notReturnable): ?>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="center">
+                            <h5 style="text-transform:none; font-style:italic;"><?php echo $this->__('Artikel bereits retourniert.'); ?></h5>
+                        </td>
+                    </tr>
+                </tfoot>
+                <?php endif; ?>
+            </table>
+
+            <div id="returndetails-container-<?php echo $item->getitem_id() ?>" class="returndetails-container hide">
+                <div class="row">
+                    <div class="columns small-12">
+                        <label>Anzahl zu retournierender Artikel
+                            <?php echo $this->getQtySelect('data[rp_qty_'.$item->getitem_id().']',($item->getqty_invoiced()-$qtyinrma)); ?>
+                        </label>
+                    </div>
+                    <div class="columns small-12">
+                        <label>Retourengrund
+                            <?php echo $this->getReasonSelect('data[rp_reason_' . $item->getitem_id() . ']'); ?>
+                        </label>
+                    </div>
+                    <div class="columns small-12 hide other-<?php echo $item->getitem_id() ?>">
+                        <label>Sonstiger Grund (optional)
+                            <textarea cols="40" rows="2" name="data[rp_description_<?php echo $item->getitem_id(); ?>]"
+                                id="data[rp_description_<?php echo $item->getitem_id(); ?>]"><?php echo $item->getrp_description(); ?></textarea>
+                        </label>
+                    </div>
+                    <div class="columns small-12 hide">
+                        <label>Erstattungstyp
+                            <?php echo $this->getRequesttypeSelect('data[rp_request_type_' . $item->getitem_id() . ']'); ?>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+
+<div class="row last">
+    <div class="columns small-6 medium-4">
+        <a href="<?php echo $this->getUrl('sales/order/view', array('order_id' => $this->getSalesOrder()->getId())); ?>"
+            class="button hobra-button expand continue-shopping">
+          <?php echo $this->__('Zur&uuml;ck'); ?>
+        </a>
+    </div>
+    <div class="columns small-6 medium-4 end <?php echo ($requestenabled ? '' : 'hide') ?> right">
+        <a href="#" class="button hobra-button" style="float: right;" onclick="$j('#edit_form').submit(); return false;">
+          <?php echo $this->__('Artikel zurückgeben'); ?>
+        </a>
+    </div>
+</div>
+</form>
+
+<script type="text/javascript">
+    var rowClicked = false;
+
+    $j(document).ready(function() {
+        var toggleRMA = function(checkbox) {
+            var snippetCheckbox = "check-";
+            var snippetContainer = "returndetails-container-";
+
+            var checkboxId = checkbox.id;
+            var itemid = checkboxId.replace(snippetCheckbox, "");
+
+            if(checkbox.checked) {
+                // set qty input to 1
+                $j('select[id="data[rp_qty_' + itemid + ']"]').val("1");
+                // show container
+                $j("#" + snippetContainer + itemid).removeClass('hide');
+            } else {
+                // reset qty input
+                $j('select[id="data[rp_qty_' + itemid + ']"]').val("0");
+                // hide container
+                $j("#" + snippetContainer + itemid).addClass('hide');
+            }
+        };
+
+        $j('tr.triggerCheckbox').click(function(event) {
+            // console.log($j(this).find('input[type="checkbox"]')[0]);
+            // toggleRMA($j(this).find('input[type="checkbox"]')[0], null);
+        });
+
+        $j('input[name="check-product"]').click(function(event) {
+            toggleRMA(this);
+        });
+
+        $j('select.select-reason').change(function() {
+            var snippet = "data[rp_reason_";
+            var itemid = $j(this).attr('id').substring($j(this).attr('id').lastIndexOf("_") + 1, $j(this).attr('id').length - 1);
+
+            var thisId = "select[id='" + $j(this).attr('id') + "']";
+            var optionCount = $j(thisId + ' option').size() - 1;
+
+            if($j(thisId).prop("selectedIndex") === optionCount) {
+                $j(".returndetails-container div.other-" + itemid).removeClass("hide");
+            } else {
+                $j(".returndetails-container div.other-" + itemid).addClass("hide");
+            }
+        });
+    });
+</script>

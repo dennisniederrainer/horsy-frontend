@@ -202,7 +202,7 @@ i.fa {
 .forgotpassword-container {
   width: 60%;
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     width: 100%;
   };
 }

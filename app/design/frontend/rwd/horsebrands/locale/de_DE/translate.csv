@@ -109,6 +109,8 @@
 
 "Items %s to %s of %s total","Artikel %s bis %s von insgesamt %s"
 "%s Item(s)","%s Artikel"
+"Item","Artikel"
+"Items","Artikel"
 
 "There are no reviews for the product, yet.","Noch wurde keine Bewertung abgegeben"
 "Your name...","Dein Name..."
@@ -203,5 +205,9 @@
 "Starts at %s","Startet am %s"
 
 "Create New Customer Account","Kundenkonto"
-"Our Service for Horsebrands Shop","Unsere Leistungen im Shop"
+"Our Service for the Horsebrands Shop","Unsere Leistungen im Shop"
 "Invalid login or password.","Anmeldung fehlgeschlagen: Ungültige E-Mail-Adresse oder Passwort."
+"DHL Shipment Tracking","DHL Sendungsverfolgung"
+
+"Sum","Summe"
+"Delivery Status","Status"

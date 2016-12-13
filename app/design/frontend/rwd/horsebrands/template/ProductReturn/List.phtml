@@ -1,0 +1,52 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="productreturns-container">
+    
+    <?php if ($this->canRequestForProductReturn()): ?>
+    <!-- <div class="row"> -->
+        <div class="columns small-12 medium-offset-6 medium-6">
+            <a href="<?php echo $this->getProductReturnRequestUrl(); ?>" class="button hobra-button" style="float: right;">
+              <?php echo $this->__('Request a new Product Return'); ?>
+            </a>
+        </div>
+    <!-- </div> -->
+    <?php endif; ?>
+
+    <!-- <div class="row"> -->
+        <div class="columns small-12">
+            
+            <?php if ($this->getList()->getSize()): ?>
+            <table cellspacing="0" class="data-table" id="my-productreturn-table" style="width: 100%;">
+                <thead>
+                <tr>
+                    <th><?php echo $this->__('Reference Number') ?></th>
+                    <th><?php echo $this->__('Date') ?></th>
+                    <th><?php echo $this->__('Order') ?></th>
+                    <th><?php echo $this->__('Status') ?></th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php $_odd = ''; ?>
+                <?php foreach ($this->getList() as $_productReturn): ?>
+                    <tr>
+                        <td><?php echo $_productReturn->getrma_ref(); ?></td>
+                        <td><?php echo $this->formatDate($_productReturn->getrma_created_at(), 'medium'); ?></td>
+                        <td><?php echo $_productReturn->getSalesOrder()->getIncrementId(); ?></td>
+                        <td><?php echo $this->__(str_replace('_', ' ', $_productReturn->getrma_status())); ?></td>
+                        <td class="a-center">
+                            <a href="<?php echo $this->getViewUrl($_productReturn) ?>"><?php echo $this->__('View') ?></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <script type="text/javascript">//decorateTable('my-productreturn-table')</script>
+            <?php else: ?>
+                <h4><?php echo $this->__('You have no active product returns.') ?></h4>
+            <?php endif ?>
+        </div>
+    <!-- </div> -->
+
+
+</div>

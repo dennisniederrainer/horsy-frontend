@@ -6867,7 +6867,7 @@ section h5.section-title {
   padding: .875em 0;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 260, ../sass/base/_base.scss */
   table, thead, tbody, tfoot, th, td, tr {
     display: block;
@@ -6916,7 +6916,7 @@ section h5.section-title {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* line 303, ../sass/base/_base.scss */
   .hide-small {
     display: none;
@@ -6943,7 +6943,7 @@ section h5.section-title {
     display: inline;
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 324, ../sass/base/_base.scss */
   .line-through-heading h1 {
     font-size: 1.14286rem;
@@ -7240,7 +7240,6 @@ h3 {
 #shopping-cart-container .data-table tfoot td.totals,
 #checkout-review-table-wrapper .cart-table tfoot td.totals,
 #checkout-review-table-wrapper .data-table tfoot td.totals {
-  font-weight: 700;
   padding-right: 35px;
 }
 /* line 193, ../sass/modules/_blocks.scss */
@@ -7256,15 +7255,16 @@ h3 {
 #shopping-cart-container .data-table tfoot td.totals .totals-strong,
 #checkout-review-table-wrapper .cart-table tfoot td.totals .totals-strong,
 #checkout-review-table-wrapper .data-table tfoot td.totals .totals-strong {
+  font-weight: 600;
   font-size: 1rem;
   margin: 5px 0;
 }
-/* line 207, ../sass/modules/_blocks.scss */
+/* line 208, ../sass/modules/_blocks.scss */
 #shopping-cart-container .buttons-set,
 #checkout-review-table-wrapper .buttons-set {
   margin-bottom: 20px;
 }
-/* line 209, ../sass/modules/_blocks.scss */
+/* line 210, ../sass/modules/_blocks.scss */
 #shopping-cart-container .buttons-set button, #shopping-cart-container .buttons-set a.button, #shopping-cart-container .buttons-set a.store-select-button,
 #checkout-review-table-wrapper .buttons-set button,
 #checkout-review-table-wrapper .buttons-set a.button,
@@ -7273,12 +7273,12 @@ h3 {
   min-width: 200px;
 }
 
-/* line 216, ../sass/modules/_blocks.scss */
+/* line 217, ../sass/modules/_blocks.scss */
 #checkout-review-table-wrapper .title-container h2 {
   margin: 0;
 }
 
-/* line 220, ../sass/modules/_blocks.scss */
+/* line 221, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper {
   padding-top: 35px;
 }
@@ -7291,7 +7291,7 @@ h3 {
 #checkout-progress-wrapper .box .content:after {
   clear: both;
 }
-/* line 225, ../sass/modules/_blocks.scss */
+/* line 226, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper .box .content a.progress-change {
   float: right;
 }
@@ -7305,18 +7305,18 @@ h3 {
   cursor: pointer;
   color: #1d1d1d;
 }
-/* line 229, ../sass/modules/_blocks.scss */
+/* line 230, ../sass/modules/_blocks.scss */
 #checkout-progress-wrapper .box .content a.progress-change i.fa {
   margin-right: 5px;
   font-size: 1.14286rem;
 }
 
-/* line 238, ../sass/modules/_blocks.scss */
+/* line 239, ../sass/modules/_blocks.scss */
 .block .block-title {
   font-size: 1.14286rem;
   border-bottom: 1px solid #1d1d1d;
 }
-/* line 247, ../sass/modules/_blocks.scss */
+/* line 248, ../sass/modules/_blocks.scss */
 .block .block-content ul li {
   padding: 0;
   margin-top: 5px;
@@ -9119,7 +9119,7 @@ tfoot.multi-totals tr td {
     text-align: left;
   }
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 549, ../sass/modules/_checkout.scss */
   #checkout-review-table td.product-details {
     padding-bottom: 0;
@@ -9241,7 +9241,7 @@ tfoot.multi-totals tr td {
 .container:after {
   clear: both;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* line 18, ../sass/layouts/_grid.scss */
   .container {
     padding: 0 10px;
@@ -9294,7 +9294,7 @@ tfoot.multi-totals tr td {
 .col2-left-layout .col-main {
   width: 75%;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 74, ../sass/layouts/_grid.scss */
   .col2-left-layout .col-left,
   .col2-left-layout .col-main {
@@ -9331,7 +9331,7 @@ tfoot.multi-totals tr td {
   right: 6%;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 111, ../sass/layouts/_grid.scss */
   .sidebar .block {
     display: inline-block;
@@ -9525,7 +9525,7 @@ tfoot.multi-totals tr td {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 138, ../sass/layouts/_header.scss */
   header .logo-wrapper a.logo-link img {
     max-width: 130px;
@@ -9870,7 +9870,7 @@ footer .footer-container .row {
 footer .footer-container .row .columns {
   padding: 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* line 41, ../sass/layouts/_footer.scss */
   footer .footer-container ul li {
     line-height: 2;
@@ -10313,6 +10313,28 @@ a.current-category {
   font-weight: bold;
 }
 
+/* line 357, ../sass/components/_catalog.scss */
+.out-of-stock-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 1;
+}
+
+/* line 367, ../sass/components/_catalog.scss */
+.out-of-stock-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+}
+
 /* line 1, ../sass/components/_productlist.scss */
 .productlist-element,
 .featured-product {
@@ -10535,7 +10557,7 @@ a.current-category {
 .toolbar .pager .pages ol li a.previous {
   border: none;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 188, ../sass/components/_productlist.scss */
   .toolbar .pager p.amount {
     display: none;
@@ -10547,7 +10569,7 @@ a.current-category {
   }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 204, ../sass/components/_productlist.scss */
   .productlist-element .product-info .product-name .productname-short,
   .featured-product .product-info .product-name .productname-short {
@@ -10581,7 +10603,7 @@ a.current-category {
 .product-essential .product-essential-right {
   width: 35%;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 17, ../sass/components/_productview.scss */
   .product-essential .product-essential-left,
   .product-essential .product-essential-right {
@@ -10852,7 +10874,7 @@ a.current-category {
 .forgotpassword-container {
   width: 60%;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 202, ../sass/components/_customer.scss */
   .forgotpassword-container {
     width: 100%;
@@ -11005,7 +11027,7 @@ section.topics article.topic-element .button-container .btn {
 .review-form-box fieldset .width-25 {
   width: 25%;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 38, ../sass/components/_reviews.scss */
   .review-form-box {
     margin-bottom: 15px;
@@ -11036,7 +11058,7 @@ section.topics article.topic-element .button-container .btn {
 .review-form-box .buttons-set:after {
   clear: both;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 82, ../sass/components/_reviews.scss */
   .review-form-box .buttons-set button {
     width: 100%;
@@ -11101,7 +11123,7 @@ section.topics article.topic-element .button-container .btn {
 .star-rating div.validation-advice {
   display: none !important;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* line 88, ../sass/components/_reviews.scss */
   .star-rating {
     position: relative;
@@ -11140,7 +11162,7 @@ section.topics article.topic-element .button-container .btn {
 .rating.star-small i.fa {
   font-size: 1.28571rem;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 182, ../sass/components/_reviews.scss */
   .rating.overall-rating {
     text-align: center;
@@ -11157,7 +11179,7 @@ section.topics article.topic-element .button-container .btn {
   padding: 0 10px;
   text-align: left;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 188, ../sass/components/_reviews.scss */
   #rating-total-overview {
     margin-bottom: 15px;
@@ -11209,7 +11231,7 @@ section.topics article.topic-element .button-container .btn {
 .box-reviews .box-reviews-right {
   width: 65%;
 }
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 240, ../sass/components/_reviews.scss */
   .box-reviews .box-reviews-left,
   .box-reviews .box-reviews-right {
@@ -11218,40 +11240,45 @@ section.topics article.topic-element .button-container .btn {
   }
 }
 
-/* line 3, ../sass/components/_cart.scss */
+/* line 1, ../sass/components/_cart.scss */
+.checkout-cart-index .fixed-top div.container span {
+  display: none !important;
+}
+
+/* line 6, ../sass/components/_cart.scss */
 .cart .page-title.title-buttons h1 {
   float: left;
 }
-/* line 8, ../sass/components/_cart.scss */
+/* line 11, ../sass/components/_cart.scss */
 .cart h1 span.strong {
   color: #cca64b;
   text-transform: uppercase;
 }
-/* line 14, ../sass/components/_cart.scss */
+/* line 17, ../sass/components/_cart.scss */
 .cart .cart-title {
   margin: 15px 0;
 }
 
-/* line 22, ../sass/components/_cart.scss */
+/* line 25, ../sass/components/_cart.scss */
 .cart-table td,
 #wishlist-table td,
 .data-table td {
   font-size: 1rem;
 }
-/* line 25, ../sass/components/_cart.scss */
+/* line 28, ../sass/components/_cart.scss */
 .cart-table td div,
 #wishlist-table td div,
 .data-table td div {
   line-height: 18px;
 }
-/* line 27, ../sass/components/_cart.scss */
+/* line 30, ../sass/components/_cart.scss */
 .cart-table td div.product-cart-manufacturer,
 #wishlist-table td div.product-cart-manufacturer,
 .data-table td div.product-cart-manufacturer {
   font-weight: 700;
   color: #1d1d1d;
 }
-/* line 31, ../sass/components/_cart.scss */
+/* line 34, ../sass/components/_cart.scss */
 .cart-table td div.product-name,
 #wishlist-table td div.product-name,
 .data-table td div.product-name {
@@ -11277,13 +11304,13 @@ section.topics article.topic-element .button-container .btn {
   cursor: pointer;
   color: #1d1d1d;
 }
-/* line 37, ../sass/components/_cart.scss */
+/* line 40, ../sass/components/_cart.scss */
 .cart-table td div.product-cart-deliverytime,
 #wishlist-table td div.product-cart-deliverytime,
 .data-table td div.product-cart-deliverytime {
   margin-bottom: 8px;
 }
-/* line 42, ../sass/components/_cart.scss */
+/* line 45, ../sass/components/_cart.scss */
 .cart-table td.product-cart-info,
 #wishlist-table td.product-cart-info,
 .data-table td.product-cart-info {
@@ -11291,13 +11318,13 @@ section.topics article.topic-element .button-container .btn {
   position: relative;
   vertical-align: middle;
 }
-/* line 47, ../sass/components/_cart.scss */
+/* line 50, ../sass/components/_cart.scss */
 .cart-table td.product-cart-info .product-qty,
 #wishlist-table td.product-cart-info .product-qty,
 .data-table td.product-cart-info .product-qty {
   margin: 8px 0;
 }
-/* line 50, ../sass/components/_cart.scss */
+/* line 53, ../sass/components/_cart.scss */
 .cart-table td.product-cart-info .product-qty select,
 #wishlist-table td.product-cart-info .product-qty select,
 .data-table td.product-cart-info .product-qty select {
@@ -11306,7 +11333,7 @@ section.topics article.topic-element .button-container .btn {
   background-position: 90% center;
   background-size: 22%;
 }
-/* line 58, ../sass/components/_cart.scss */
+/* line 61, ../sass/components/_cart.scss */
 .cart-table td.product-cart-info .btn-remove,
 #wishlist-table td.product-cart-info .btn-remove,
 .data-table td.product-cart-info .btn-remove {
@@ -11334,13 +11361,13 @@ section.topics article.topic-element .button-container .btn {
   cursor: pointer;
   color: #1d1d1d;
 }
-/* line 64, ../sass/components/_cart.scss */
+/* line 67, ../sass/components/_cart.scss */
 .cart-table td.product-cart-image img,
 #wishlist-table td.product-cart-image img,
 .data-table td.product-cart-image img {
   min-width: 100px;
 }
-/* line 68, ../sass/components/_cart.scss */
+/* line 71, ../sass/components/_cart.scss */
 .cart-table td.product-cart-actions input,
 #wishlist-table td.product-cart-actions input,
 .data-table td.product-cart-actions input {
@@ -11349,13 +11376,13 @@ section.topics article.topic-element .button-container .btn {
   text-align: center;
   margin: 0 auto 5px;
 }
-/* line 75, ../sass/components/_cart.scss */
+/* line 78, ../sass/components/_cart.scss */
 .cart-table td.product-cart-total,
 #wishlist-table td.product-cart-total,
 .data-table td.product-cart-total {
   font-weight: 700;
 }
-/* line 80, ../sass/components/_cart.scss */
+/* line 83, ../sass/components/_cart.scss */
 .cart-table dl.item-options,
 #wishlist-table dl.item-options,
 .data-table dl.item-options {
@@ -11377,7 +11404,7 @@ section.topics article.topic-element .button-container .btn {
 .data-table dl.item-options:after {
   clear: both;
 }
-/* line 85, ../sass/components/_cart.scss */
+/* line 88, ../sass/components/_cart.scss */
 .cart-table dl.item-options dt,
 .cart-table dl.item-options dd,
 #wishlist-table dl.item-options dt,
@@ -11389,7 +11416,7 @@ section.topics article.topic-element .button-container .btn {
   margin-bottom: 0;
   text-align: left;
 }
-/* line 92, ../sass/components/_cart.scss */
+/* line 95, ../sass/components/_cart.scss */
 .cart-table dl.item-options dt,
 #wishlist-table dl.item-options dt,
 .data-table dl.item-options dt {
@@ -11398,7 +11425,7 @@ section.topics article.topic-element .button-container .btn {
   text-align: right;
   font-weight: normal;
 }
-/* line 100, ../sass/components/_cart.scss */
+/* line 103, ../sass/components/_cart.scss */
 .cart-table .product-price,
 #wishlist-table .product-price,
 .data-table .product-price {
@@ -11406,50 +11433,50 @@ section.topics article.topic-element .button-container .btn {
   font-weight: bold;
 }
 
-/* line 109, ../sass/components/_cart.scss */
+/* line 112, ../sass/components/_cart.scss */
 .cart-table tfoot td.a-left {
   text-align: left;
 }
-/* line 112, ../sass/components/_cart.scss */
+/* line 115, ../sass/components/_cart.scss */
 .cart-table tfoot td.a-right {
   text-align: right;
 }
-/* line 115, ../sass/components/_cart.scss */
+/* line 118, ../sass/components/_cart.scss */
 .cart-table tfoot td.shipping-icon, .cart-table tfoot td.cart-shipping-info, .cart-table tfoot td.cart-part-totals {
   vertical-align: middle;
 }
-/* line 122, ../sass/components/_cart.scss */
+/* line 125, ../sass/components/_cart.scss */
 .cart-table tfoot dl.totals-block {
   margin-bottom: 0;
   padding-top: 10px;
 }
-/* line 127, ../sass/components/_cart.scss */
+/* line 130, ../sass/components/_cart.scss */
 .cart-table tfoot dl.totals-block dd p.note {
   font-size: 9px;
 }
-/* line 134, ../sass/components/_cart.scss */
+/* line 137, ../sass/components/_cart.scss */
 .cart-table p.empty {
   margin: 10px 0;
 }
 
-/* line 139, ../sass/components/_cart.scss */
+/* line 142, ../sass/components/_cart.scss */
 .shipping-estimate-wrapper h2, .shipping-estimate-wrapper p {
   color: #1d1d1d;
   font-size: 12px;
   margin: 0;
 }
-/* line 144, ../sass/components/_cart.scss */
+/* line 147, ../sass/components/_cart.scss */
 .shipping-estimate-wrapper h2 {
   font-weight: 700;
 }
-@media (min-width: 320px) and (max-width: 767px) {
-  /* line 138, ../sass/components/_cart.scss */
+@media (min-width: 320px) and (max-width: 768px) {
+  /* line 141, ../sass/components/_cart.scss */
   .shipping-estimate-wrapper {
     text-align: center;
   }
 }
 
-/* line 154, ../sass/components/_cart.scss */
+/* line 157, ../sass/components/_cart.scss */
 .summary-wrapper {
   margin-top: 40px;
   padding-top: 5px;
@@ -11464,7 +11491,7 @@ section.topics article.topic-element .button-container .btn {
 .summary-wrapper:after {
   clear: both;
 }
-/* line 160, ../sass/components/_cart.scss */
+/* line 163, ../sass/components/_cart.scss */
 .summary-wrapper:before {
   content: ' ';
   border-top: 1px solid #706f6f;
@@ -11472,15 +11499,15 @@ section.topics article.topic-element .button-container .btn {
   width: 100%;
   padding-top: 20px;
 }
-/* line 168, ../sass/components/_cart.scss */
+/* line 171, ../sass/components/_cart.scss */
 .summary-wrapper .summary-left-wrapper {
   float: left;
 }
-/* line 171, ../sass/components/_cart.scss */
+/* line 174, ../sass/components/_cart.scss */
 .summary-wrapper .cart-totals-wrapper {
   float: right;
 }
-/* line 174, ../sass/components/_cart.scss */
+/* line 177, ../sass/components/_cart.scss */
 .summary-wrapper .cart-totals-wrapper .cart-totals {
   text-align: right;
 }
@@ -11494,97 +11521,88 @@ section.topics article.topic-element .button-container .btn {
   clear: both;
 }
 
-/* line 181, ../sass/components/_cart.scss */
+/* line 184, ../sass/components/_cart.scss */
 .summary-coupon {
   margin-top: 20px;
 }
-/* line 184, ../sass/components/_cart.scss */
+/* line 187, ../sass/components/_cart.scss */
 .summary-coupon p {
   font-size: 0.85714rem;
 }
 
-/* line 190, ../sass/components/_cart.scss */
+/* line 193, ../sass/components/_cart.scss */
 .summary-shipping .icon-container {
   float: left;
   width: 120px;
   text-align: center;
   padding-top: 10px;
 }
-/* line 196, ../sass/components/_cart.scss */
+/* line 199, ../sass/components/_cart.scss */
 .summary-shipping .shipping-estimate-wrapper {
   float: left;
   line-height: 18px;
 }
 
-/* line 202, ../sass/components/_cart.scss */
+/* line 205, ../sass/components/_cart.scss */
 ul.checkout-types {
   float: right;
 }
-/* line 205, ../sass/components/_cart.scss */
+/* line 208, ../sass/components/_cart.scss */
 ul.checkout-types li {
   display: inline;
   margin-right: 8px;
 }
-/* line 209, ../sass/components/_cart.scss */
+/* line 212, ../sass/components/_cart.scss */
 ul.checkout-types li:last {
   margin-right: 0;
 }
-/* line 215, ../sass/components/_cart.scss */
+/* line 218, ../sass/components/_cart.scss */
 ul.checkout-types li button::after {
   content: ">";
   padding-left: 3px;
 }
-/* line 221, ../sass/components/_cart.scss */
+/* line 224, ../sass/components/_cart.scss */
 ul.checkout-types li.method-checkout-cart-methods-multishipping {
   display: none;
 }
-/* line 226, ../sass/components/_cart.scss */
+/* line 229, ../sass/components/_cart.scss */
 ul.checkout-types.bottom {
   clear: both;
 }
 
-/* line 231, ../sass/components/_cart.scss */
+/* line 234, ../sass/components/_cart.scss */
 .coupon-review-wrapper {
   text-align: left;
 }
-/* line 234, ../sass/components/_cart.scss */
+/* line 237, ../sass/components/_cart.scss */
 .coupon-review-wrapper input.input-text {
   width: auto;
   margin-right: 5px;
 }
 
-/* line 241, ../sass/components/_cart.scss */
+/* line 244, ../sass/components/_cart.scss */
 .coupon-review-wrapper label,
 .coupon-review-wrapper .button,
 .coupon-review-wrapper .store-select-button {
   font-size: 0.85714rem !important;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-  /* line 248, ../sass/components/_cart.scss */
+@media (min-width: 320px) and (max-width: 768px) {
+  /* line 251, ../sass/components/_cart.scss */
   .page-title h1 {
     display: none;
   }
 
-  /* line 252, ../sass/components/_cart.scss */
+  /* line 255, ../sass/components/_cart.scss */
   ul.checkout-types {
+    float: none;
+    text-align: center;
     margin-left: 0;
   }
-  /* line 256, ../sass/components/_cart.scss */
+  /* line 260, ../sass/components/_cart.scss */
   ul.checkout-types li {
-    display: inline-block;
+    display: block;
     margin-right: 0;
-    width: 48%;
-  }
-  /* line 261, ../sass/components/_cart.scss */
-  ul.checkout-types li button {
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-  }
-  /* line 267, ../sass/components/_cart.scss */
-  ul.checkout-types li:last-child {
-    width: 50%;
   }
   /* line 272, ../sass/components/_cart.scss */
   ul.checkout-types.bottom li {
@@ -11635,16 +11653,16 @@ ul.checkout-types.bottom {
     padding-bottom: 10px;
   }
 
-  /* line 323, ../sass/components/_cart.scss */
+  /* line 322, ../sass/components/_cart.scss */
   .shipping-estimate-wrapper {
     margin-bottom: 20px;
   }
-  /* line 325, ../sass/components/_cart.scss */
+  /* line 324, ../sass/components/_cart.scss */
   .shipping-estimate-wrapper p strong {
     display: block;
   }
 
-  /* line 331, ../sass/components/_cart.scss */
+  /* line 330, ../sass/components/_cart.scss */
   .summary-wrapper .summary-shipping,
   .summary-wrapper .cart-totals-wrapper {
     float: none;
@@ -11658,28 +11676,28 @@ ul.checkout-types.bottom {
   .summary-wrapper .summary-shipping:after {
     clear: both;
   }
-  /* line 338, ../sass/components/_cart.scss */
+  /* line 337, ../sass/components/_cart.scss */
   .summary-wrapper .summary-shipping .shipping-estimate-wrapper {
     float: none;
   }
-  /* line 343, ../sass/components/_cart.scss */
+  /* line 342, ../sass/components/_cart.scss */
   .summary-wrapper .method-checkout-cart-methods-onepage-bottom {
     width: 100%;
   }
 
-  /* line 349, ../sass/components/_cart.scss */
+  /* line 348, ../sass/components/_cart.scss */
   .coupon-review-wrapper input.input-text {
     width: 100%;
     margin: 10px 0;
   }
 
-  /* line 355, ../sass/components/_cart.scss */
+  /* line 354, ../sass/components/_cart.scss */
   #discount-coupon-form button {
     width: 100%;
     margin: 10px 0 20px;
   }
 }
-/* line 362, ../sass/components/_cart.scss */
+/* line 361, ../sass/components/_cart.scss */
 dl.totals-block {
   float: right;
   margin-top: 0;
@@ -11693,7 +11711,7 @@ dl.totals-block:before, dl.totals-block:after {
 dl.totals-block:after {
   clear: both;
 }
-/* line 367, ../sass/components/_cart.scss */
+/* line 366, ../sass/components/_cart.scss */
 dl.totals-block dt, dl.totals-block dd {
   float: left;
   width: 130px;
@@ -11702,50 +11720,50 @@ dl.totals-block dt, dl.totals-block dd {
   margin: 3px 0;
   font-weight: normal;
 }
-/* line 375, ../sass/components/_cart.scss */
+/* line 374, ../sass/components/_cart.scss */
 dl.totals-block dt.totals-strong, dl.totals-block dd.totals-strong {
   font-weight: 700;
 }
-/* line 379, ../sass/components/_cart.scss */
+/* line 378, ../sass/components/_cart.scss */
 dl.totals-block dt {
   clear: left;
 }
-/* line 382, ../sass/components/_cart.scss */
+/* line 381, ../sass/components/_cart.scss */
 dl.totals-block dd {
   width: 180px;
 }
 
-/* line 388, ../sass/components/_cart.scss */
+/* line 387, ../sass/components/_cart.scss */
 #wishlist-table td.wishlist-comment .btn-update {
   background: none;
   border: 1px solid #1d1d1d;
   color: #1d1d1d;
 }
-/* line 393, ../sass/components/_cart.scss */
+/* line 392, ../sass/components/_cart.scss */
 #wishlist-table td.wishlist-comment .btn-update:hover {
   cursor: pointer;
   background-color: #1d1d1d;
   color: #fff;
 }
 
-/* line 402, ../sass/components/_cart.scss */
+/* line 401, ../sass/components/_cart.scss */
 #wishlist-view-form fieldset {
   border: none;
   margin: 0;
   padding: 0;
 }
-/* line 408, ../sass/components/_cart.scss */
+/* line 407, ../sass/components/_cart.scss */
 #wishlist-view-form .buttons-set {
   float: right;
   margin-top: 8px;
 }
 
-/* line 414, ../sass/components/_cart.scss */
+/* line 413, ../sass/components/_cart.scss */
 .minicart-wrapper p.empty {
   margin-bottom: 0;
 }
 
-/* line 418, ../sass/components/_cart.scss */
+/* line 417, ../sass/components/_cart.scss */
 #cart-sidebar {
   max-height: 290px;
   overflow: auto;
@@ -12297,7 +12315,7 @@ ul.verein-list li a:hover {
   padding-left: 1%;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* line 147, ../sass/components/_deinverein.scss */
   .deinverein-header .top-header {
     max-height: none;
@@ -12521,7 +12539,7 @@ ul.verein-list li a:hover {
   color: #706f6f;
   text-decoration: none;
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   /* line 140, ../sass/vendor/sequencejs/_sequence-theme.showcase.scss */
   .seq .content-position {
     background-color: rgba(255, 255, 255, 0.6);
