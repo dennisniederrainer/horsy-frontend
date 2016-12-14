@@ -31,34 +31,23 @@
 <script type="text/javascript">
 //<![CDATA[
 jQuery(document).ready(function($) {
-  $('a.level-top').click(function(e) {
+  $('a.level0').click(function(e) {
 
-    if( $(this).hasClass('follow-link') ) {
+    if( !$(this).hasClass('has-children') ) {
       return;
     }
     e.preventDefault();
 
-    var $parent = $(this).parent('.level-top.parent');
+    var $parent = $(this).parent('.level0.parent');
     if( $parent.hasClass('expanded') ) {
       $parent.removeClass('expanded');
-      $parent.children('ul.level0').removeClass('show');
+      $parent.find('ul.level0').removeClass('show');
     } else {
       $parent.addClass('expanded');
-      $parent.children('ul.level0').addClass('show');
+      $parent.find('ul.level0').addClass('show');
     }
   });
 
-  // $('.level-top.parent').click(function(e) {
-  //   var $this = $(this);
-  //
-  //   if( $this.hasClass('expanded') ) {
-  //     $this.removeClass('expanded');
-  //     $this.children('ul.level0').removeClass('show');
-  //   } else {
-  //     $this.addClass('expanded');
-  //     $this.children('ul.level0').addClass('show');
-  //   }
-  // });
 });
 //]]>
 </script>

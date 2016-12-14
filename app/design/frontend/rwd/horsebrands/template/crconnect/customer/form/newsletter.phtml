@@ -1,0 +1,71 @@
+<?php $newsletterTypes = $this->getNewsletterTypes(); ?>
+<?php $newsletterShop = $newsletterTypes->getLastItem(); ?>
+<?php $customerSubscribed = $this->getIsSubscribed(); ?>
+
+<?php echo $this->getMessagesBlock()->toHtml() ?>
+<?php echo $this->getChildHtml('form_before')?>
+
+<div class="page-title">
+  <h1><?php echo $this->__('My Newsletter') ?></h1>
+</div>
+<form action="<?php echo $this->getAction() ?>" method="post" id="form-validate">
+  <?php echo $this->getBlockHtml('formkey')?>
+  <div class="row">
+    <div class="columns small-12 medium-6">
+      <div class="box">
+        <div class="box-title">
+          <h3><?php echo $this->__('Shop Newsletter') ?></h3>
+        </div>
+        <div class="content">
+          <?php if($newsletterShop): ?>
+          <label>
+            <input type="checkbox" name="newsletter_types[]" id="NewsletterType_<?php echo $newsletterShop->getTypeId() ?>" value="<?php echo $newsletterShop->getTypeId(); ?>" <?php echo ($this->isSubscribedToType($newsletterShop) ? "checked" : "") ?> class="checkbox besides" />
+            <?php echo $this->__('Erhalte Informationen über Trends und Gutscheine im Horsebrands Shop') ?>
+          </label>
+          <?php endif ?>
+        </div>
+      </div>
+    </div>
+    <div class="columns small-12 medium-6">
+      <div class="box">
+        <div class="box-title">
+          <h3><?php echo $this->__('Deals Newsletter') ?></h3>
+        </div>
+        <div class="content">
+          <p>
+            Bestimme wie häufig Du einen Newsletter für die Horsebrands Deals bekommst.
+          </p>
+          <ul class="account-newsletter-list unstyled">
+            <?php foreach ($newsletterTypes as $newsletterType): ?>
+              <?php if($newsletterType->getTypeId() == 4) continue; ?>
+              <li>
+                <label>
+                  <input type="checkbox" name="newsletter_types[]" id="NewsletterType_<?php echo $newsletterType->getTypeId() ?>" value="<?php echo $newsletterType->getTypeId(); ?>" <?php echo ($this->isSubscribedToType($newsletterType) ? "checked" : "") ?> />
+                  <?php echo $newsletterType->getTypeName() ?>
+                  <?php if ($newsletterType->getTypeFrequency() != ""): ?>
+                    <span>(<?php echo $newsletterType->getTypeFrequency() ?>)</span>
+                  <?php endif; ?>
+                </label>
+              </li>
+            <?php endforeach; ?>
+            <?php /* ?><li>
+              <label>
+                <input type="radio" name="newsletter_type" id="unsubscribe" value="0" title="<?php echo $this->__('General Subscription') ?>" <?php echo ((!$customerSubscribed) ? "checked" : "") ?> />
+                Hiermit meldest du dich von allen Horsebrands Newslettern ab.
+              </label>
+            </li><?php */ ?>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buttons-set">
+    <button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Save')) ?>" class="button right gold medium"><span><span><?php echo $this->__('Save') ?></span></span></button>
+  </div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>

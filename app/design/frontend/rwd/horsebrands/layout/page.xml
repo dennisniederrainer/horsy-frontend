@@ -124,7 +124,7 @@
                 <action method="setElementClass"><value>footer-before-container</value></action>
             </block>
 
-            <block type="page/html_footer" name="promise" as="promise" template="page/html/promise.phtml" />
+            <block type="core/template" name="promise" as="promise" template="page/html/promise.phtml" />
 
             <block type="page/html_footer" name="footer" as="footer" template="page/html/footer.phtml">
                 <block type="page/html_wrapper" name="bottom.container" as="bottomContainer" translate="label">

@@ -8422,18 +8422,26 @@ ul.level1 {
   margin-left: 5px;
 }
 
-/* line 103, ../sass/modules/_menu.scss */
-.offcanvas-menu-wrapper ul.level0 {
-  margin: 1em 0;
+/* line 104, ../sass/modules/_menu.scss */
+.offcanvas-menu-wrapper li.level0 > div {
+  padding: 0;
 }
-/* line 106, ../sass/modules/_menu.scss */
+/* line 108, ../sass/modules/_menu.scss */
+.offcanvas-menu-wrapper a.level1 {
+  font-weight: 400;
+}
+/* line 112, ../sass/modules/_menu.scss */
+.offcanvas-menu-wrapper ul.level0 {
+  margin: .5em 0;
+}
+/* line 115, ../sass/modules/_menu.scss */
 .offcanvas-menu-wrapper ul.level0 li {
-  font-size: 1em;
+  font-size: 1.125em;
   float: none;
   width: 100%;
-  padding-left: 1em;
+  padding-left: .75em;
 }
-/* line 113, ../sass/modules/_menu.scss */
+/* line 122, ../sass/modules/_menu.scss */
 .offcanvas-menu-wrapper ul.level0.show {
   display: block;
 }
@@ -9781,7 +9789,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
 /* line 364, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li {
   font-size: 1.25em;
-  margin-bottom: .5em;
+  margin-bottom: .75em;
 }
 /* line 367, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li a {
