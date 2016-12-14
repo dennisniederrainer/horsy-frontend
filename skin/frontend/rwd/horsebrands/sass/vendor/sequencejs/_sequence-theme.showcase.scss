@@ -136,7 +136,7 @@ $canvasHeight: 417px;
       }
     }
 
-    @include media('<tablet'){
+    @include media('<=tablet'){
       .content-position {
         background-color: rgba($white, .6);
         width: 100%;

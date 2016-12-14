@@ -1,14 +1,4 @@
-<?php
-  $_totals = $this->getTotals();
-
-  $label = array(
-              'discount'=>'Rabatt',
-              'shipping'=>'Versand',
-              'subtotal'=>'Zwischensumme',
-              'grand_total'=>'Gesamtsumme',
-            );
-
-?>
+<?php $_totals = $this->getTotals(); ?>
 
 <?php foreach ($this->getTotals() as $_code => $_total): ?>
     <?php if ($_total->getBlockName()): ?>

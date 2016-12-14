@@ -58,7 +58,7 @@
 
   }
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     margin-bottom: 15px;
 
     h3 {
@@ -78,7 +78,7 @@
     margin-bottom: 10px;
   }
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     .buttons-set button {
       width: 100%;
     }
@@ -142,7 +142,7 @@
     display: none !important;
   }
 
-  @include media('<tablet') {
+  @include media('<=tablet') {
     position: relative;
     top: auto;
     right: auto;
@@ -178,7 +178,7 @@
     }
   }
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     &.overall-rating {
       text-align: center;
     }
@@ -194,7 +194,7 @@
     text-align: left;
   }
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     @include clearfix;
     margin-bottom: 15px;
 
@@ -236,7 +236,7 @@
     width: 65%;
   }
 
-  @include media('>=phone','<tablet') {
+  @include media('>=phone','<=tablet') {
     .box-reviews-left,
     .box-reviews-right {
       float: none;

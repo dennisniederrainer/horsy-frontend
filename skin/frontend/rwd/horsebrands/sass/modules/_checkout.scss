@@ -544,7 +544,7 @@ tfoot.multi-totals {
 			text-align: left;
 		}
 	};
-	@include media('>=phone','<tablet') {
+	@include media('>=phone','<=tablet') {
 		td {
 			&.product-details {
 				padding-bottom: 0;

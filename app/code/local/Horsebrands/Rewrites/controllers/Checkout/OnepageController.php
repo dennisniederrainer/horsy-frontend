@@ -31,8 +31,12 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
         if (!isset($result['error'])) {
           $shippingdata = $this->getRequest()->getPost('shipping', array());
           $shippingAddressId = $this->getRequest()->getPost('shipping_address_id', false); //$shippingdata['address_id'];
-          $result = $this->getOnepage()->saveShipping($shippingdata, $shippingAddressId);
 
+          if( $data['use_for_shipping']==0 ) {
+            $result = $this->getOnepage()->saveShipping($shippingdata, $shippingAddressId);
+          } else {
+            $result = $this->getOnepage()->saveShipping($data, $billingAddressId);
+          }
           $result = $this->getOnepage()->saveBilling($data, $billingAddressId);
 
           $method = 'tablerate_bestway';

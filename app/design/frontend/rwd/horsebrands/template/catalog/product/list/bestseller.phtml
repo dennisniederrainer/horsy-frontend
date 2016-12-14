@@ -2,7 +2,7 @@
   $_helper = $this->helper('catalog/output');
   $products = $this->getProductCollection();
 ?>
-<?php if(count($products)): ?>
+<?php if($products && count($products)): ?>
 <div class="box-collateral">
   <div id="bestselling-products">
     <?php foreach ($products as $_product): ?>

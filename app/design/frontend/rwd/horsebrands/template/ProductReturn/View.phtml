@@ -1,0 +1,143 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="page-title">
+    <h5 style="text-transform: none;"><?php echo $this->__('Product Return #%s', $this->getRma()->getrma_ref()) ?></h5>
+    <?php if(mage::helper('ProductReturn')->IsOrderAvailable($this->getRma()->getSalesOrder())) : ?>
+    <p class="page-description">
+        Im Folgenden findest du einen Link, mit dem du dir dein Retourenlabel ganz einfach selber erstellen kannst.
+        Klicke den Link an und eine Eingabemaske von DHL erscheint. Gib deine Adressdaten ein und drucke das Label aus. Klebe es deutlich sichtbar auf dein zu retournierendes Paket.<br/>
+        <span style="display: block; text-align: center; width: 100%;">
+            <a href="https://amsel.dpwn.net/abholportal/gw/lp/portal/horsebrands/customer/RpOrder.action?delivery=RetourenPortal01" style="color:#e83968;">
+                    > DHL Retourenlabel erstellen <
+            </a>
+        </span>
+    </p>
+    <?php endif; ?>
+</div>
+
+<form method="POST" id="edit_form" name="edit_form" action="<?php echo $this->getSubmitUrl(); ?>">
+<input type="hidden" id="data[rma_id]" name="data[rma_id]" value="<?php echo $this->getRma()->getId(); ?>">
+<input type="hidden" id="data[rma_order_id]" name="data[rma_order_id]"
+       value="<?php echo $this->getRma()->getSalesOrder()->getId(); ?>">
+<input type="hidden" id="data[rma_customer_id]" name="data[rma_customer_id]"
+       value="<?php echo $this->getRma()->getrma_customer_id(); ?>">
+<input type="hidden" id="data[rma_ref]" name="data[rma_ref]"
+       value="<?php echo $this->getRma()->getrma_ref(); ?>">
+<input name="form_key" type="hidden" value="<?php echo $this->getFormKey() ?>"/>
+
+<div class="row box">
+    <!-- kontakt -->
+    <div class="columns small-12 medium-6">
+        <label>E-Mail-Adresse
+            <input type="text" name="data[rma_customer_email]" id="data[rma_customer_email]"
+                value="<?php echo $this->getRma()->getrma_customer_email(); ?>" readonly />
+        </label>
+    </div>
+    <div class="columns small-12 medium-6">
+        <label>Telefon (optional)
+            <input type="text" name="data[rma_customer_phone]" id="data[rma_customer_phone]"
+                value="<?php echo $this->getRma()->getrma_customer_phone(); ?>" readonly />
+        </label>
+    </div>
+    <div class="columns small-12">
+        <label>Absenderadresse
+            <input type="text" name="data[rma_customer_phone]" id="data[rma_customer_phone]"
+                value="<?php echo $this->getCustomerAddresses($this->getRma()->getrma_address_id()); ?>" readonly />
+        </label>
+    </div>
+    <div class="columns small-12 show-for-small-only">
+        <label>Retourenstatus
+            <input type="text" name="data[rma_status]" id="data[rma_status]"
+                value="<?php echo $this->__($this->getRma()->getrma_status()); ?>" readonly />
+        </label>
+    </div>
+</div>
+
+<div class="row box">
+    <!-- Artikel wählen -->
+    <?php foreach ($this->getRma()->getProducts() as $item): ?>
+        <?php $product = $item->getProduct(); ?>
+        <?php if($item->getrp_qty() > 0): ?>
+            <table class="return-order-items order-items-table" style="width:100%;">
+                <col width="15%" />
+                <col width="40%" />
+                <col width="5%" />
+                <col width="10%" />
+                <col width="30%" />
+                <tbody>
+                    <tr>
+                        <td class="small-full-width center">
+                            <img src="<?php echo Mage::helper('catalog/image')->init($product, 'small_image')->resize(75); ?>"  alt="<?php echo $this->getProductName($product) ?>" class="image-cart" />
+                        </td>
+                        <td class="small-full-width">
+                            <h5 class="product-name"><?php echo $this->getProductName($product) ?></h5>
+                            <div class="manufacturer-name">
+                                <?php $manufacturer = nl2br($product->getResource()->getAttribute('manufacturer')->getFrontend()->getValue($product)); ?>
+                                <?php echo $manufacturer; ?>
+                            </div>
+                        </td>
+                        <!-- OPTIONS -->
+                        <td class="small-full-width center">
+                            <span class="show-for-small-only">Menge: </span>
+                            <?php echo $item->getrp_qty(); ?>
+                        </td>
+                        <td class="small-full-width center">
+                            <span class="show-for-small-only">Einzelpreis: </span>
+                            <?php if ($this->helper('tax')->displayCartPriceInclTax()): ?>
+                                <?php $_incl = $this->helper('checkout')->getPriceInclTax($item); ?>
+                                <?php echo $this->helper('checkout')->formatPrice($_incl); ?>
+                            <?php else: ?>
+                                <?php echo $this->helper('checkout')->formatPrice($item->getCalculationPrice()) ?>
+                            <?php endif; ?>
+                        </td>
+                        <td class="small-full-width">
+                            <span class="show-for-small-only">Grund: </span>
+                            <?php echo $this->__($item->getrp_reason()); ?>
+                        </td>
+                    </tr>
+                </tbody>
+                <?php $desc = trim($item->getrp_description()); ?>
+                <?php if($desc !== ''): ?>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <h5 style="text-transform: none;">Anderer Grund:</h5>
+                            <p style="font-style:italic;"><?php echo $desc; ?></p>
+                        </td>
+                    </tr>
+                </tfoot>
+                <?php endif; ?>
+            </table>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+
+<div class="row" style="margin: 1rem 0; <?php echo ($this->getRma()->getrma_public_description() == '' ? 'display:none;' : '')?>">
+    <div class="columns small-12">
+        <h5 style="text-transform: none;">Kommentar vom Horsebrands-Team:</h5>
+        <p><?php echo $this->getRma()->getrma_public_description(); ?></p>
+    </div>
+</div>
+
+<div class="row last">
+    <div class="columns small-12 medium-4">
+        <a href="<?php echo mage::getUrl('sales/order/view/order_id/', array('order_id' => $this->getRma()->getSalesOrder()->getId())) ?>" class="button hobra-button expand continue-shopping">
+          <?php echo $this->__('Zur Bestellung'); ?>
+        </a>
+    </div>
+</div>
+</form>
+
+<!-- <center>
+    <?php if (Mage::helper('ProductReturn/Returnlabel')->isExists($this->getRma())): ?>
+        <?php $filelabel = Mage::helper('ProductReturn/Returnlabel')->getReturnlabelUrl($this->getRma()); ?>
+        <button type="button" class="button a-center" onclick="setLocation('<?php echo $filelabel; ?>')"
+                target="_blank"><span><span><?php echo $this->__('Download return label'); ?></span></span></button>
+    <?php endif; ?>
+    &nbsp;
+    <?php if ($this->getRma()->getrma_status() == 'product_return_accepted'): ?>
+        <button type="button" class="button a-center"
+                onclick="setLocation('<?php echo $this->getReturnCGVUrl(); ?>');">
+            <span><span><?php echo $this->__('Print Product Return Form'); ?></span></span></button>
+    <?php endif; ?>
+</center> -->

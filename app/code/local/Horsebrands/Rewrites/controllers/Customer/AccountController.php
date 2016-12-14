@@ -4,6 +4,12 @@ require_once 'Mage/Customer/controllers/AccountController.php';
 
 class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_AccountController {
 
+  public function setProcessingAction() {
+    $order = Mage::getModel('sales/order')->loadByIncrementId('200000017');
+    $order->setState(Mage_Sales_Model_Order::STATE_CANCELED, true)->save();
+    die('done.');
+  }
+
   public function loginPostAction() {
     if (!$this->_validateFormKey()) {
       $this->_redirect('*/*/');

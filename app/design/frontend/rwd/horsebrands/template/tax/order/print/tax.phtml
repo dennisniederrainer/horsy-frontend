@@ -1,0 +1,12 @@
+<?php
+  $_order  = $this->getOrder();
+  $_source = $this->getSource();
+?>
+<tr class="tax">
+  <td style="text-align: right;" colspan="3">
+    <?php echo $this->__('Tax'); ?>:
+  </td>
+  <td style="text-align: right;" colspan="2">
+    <span class="totals-price"><?php echo $_order->formatPrice($_source->getTaxAmount()) ?></span>
+  </td>
+</tr>

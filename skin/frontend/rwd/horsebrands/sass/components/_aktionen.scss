@@ -101,6 +101,15 @@
     color: #000;
     font-weight: 500;
 
+    ul.messages {
+      margin: 1em;
+      margin-bottom: 0;
+
+      li {
+        font-size: $font-size-smaller;
+      }
+    }
+
     .content-wrapper {
       @include clearfix;
 
@@ -148,7 +157,7 @@
   }
 }
 
-#signup, #login {
+#signup, #login, #forgotpassword {
   h1 {
     font-size: 23px;
     font-weight: 500;

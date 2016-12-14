@@ -41,9 +41,9 @@
                 <?php endif; ?>
                 <input type="text" id='coupon_code' name='coupon_code' value='<?php echo $couponCode; ?>' class="input-text required-entry"/>
                 <?php if(strlen($couponCode)):?>
-                  <button type='button' class="button white" onclick='updateCoupon(2);' value='<?php echo $this->__("Remove Coupon")?>'><span><?php echo $this->__("Remove Coupon")?></span></button>
+                  <button type='button' id="apply-coupon" class="button white" onclick='updateCoupon(2);' value='<?php echo $this->__("Remove Coupon")?>'><span><?php echo $this->__("Remove Coupon")?></span></button>
                 <?php else: ?>
-                  <button type='button' class="button white" onclick='updateCoupon(1);' value='<?php echo $this->__("Apply Coupon")?>'><span><?php echo $this->__("Apply Coupon")?></span></button>
+                  <button type='button' id="apply-coupon" class="button white" onclick='updateCoupon(1);' value='<?php echo $this->__("Apply Coupon")?>'><span><?php echo $this->__("Apply Coupon")?></span></button>
                 <?php endif; ?>
               </form>
             </div>
@@ -57,6 +57,15 @@
 //<![CDATA[
     decorateTable('checkout-review-table');
     truncateOptions();
+
+    jQuery(document).ready(function($) {
+      $('#coupon_code').keyup(function(e) {
+        if(e.keyCode == 13) {
+          e.preventDefault();
+          jQuery('#apply-coupon').click();
+        }
+      });
+    })
 //]]>
 </script>
 <div id="checkout-review-submit">

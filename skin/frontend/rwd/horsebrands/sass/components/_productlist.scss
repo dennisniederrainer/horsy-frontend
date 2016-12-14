@@ -184,7 +184,7 @@
 			}
 		}
 
-		@include media('>=phone','<tablet') {
+		@include media('>=phone','<=tablet') {
 			p.amount {
 				display: none;
 			}
@@ -197,7 +197,7 @@
 	}
 }
 
-@include media('>=phone','<tablet') {
+@include media('>=phone','<=tablet') {
 	.productlist-element,
 	.featured-product	{
 		.product-info .product-name {

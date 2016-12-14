@@ -9,19 +9,25 @@
           <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
           <div class="input-container label-aside">
             <div class="input-block">
-              <label>E-Mail-Adresse</label>
+              <label><?php echo $this->__('E-Mail-Address') ?><em>*</em></label>
               <input type="text" class="full-width input-text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" />
             </div>
             <div class="input-block">
-              <label>Passwort</label>
+              <label><?php echo $this->__('Password') ?><em>*</em></label>
               <input type="password" class="full-width input-text required-entry" id="login-password" name="login[password]" />
             </div>
-            <div class="input-block checkbox">
+            <div class="input-block">
+              <label>&nbsp;</label>
+              <a style="width:75%; line-height: 1.6" href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>">
+                <?php echo $this->__('Forgot Password') ?>?
+              </a>
+            </div>
+            <?php /* <div class="input-block checkbox">
               <div class="right-col">
                 <input type="checkbox" name="privacy_policy" value="1" title="<?php echo $this->__('Accept the privacy policy') ?>" class="checkbox required-entry">
                 <label class="smaller">Ja, ich stimme den <a class="condition" href="<?php echo $this->getUrl('agb'); ?>" target="_blank">AGB</a> und den <a class="condition" href="<?php echo $this->getUrl('datenschutz'); ?>" target="_blank">Datenschutzbestimmungen</a> von Horsebrands zu.</label>
               </div>
-            </div>
+            </div> */ ?>
             <div class="buttons-container" style="text-align: right;">
               <button class="gold" onclick="onepageLogin(this);return false;">Einloggen ></button>
               <?php echo $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml(); ?>

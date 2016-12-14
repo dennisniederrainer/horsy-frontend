@@ -1,16 +1,13 @@
 <?php if ($this->getTotals()): ?>
-<?php $delivery_estimate = $this->getData('estimate_shipping'); ?>
-<?php $_totals = $this->getTotals(); ?>
+  <?php $delivery_estimate = $this->getData('estimate_shipping'); ?>
+  <?php $_totals = $this->getTotals(); ?>
   <tr>
-    <!-- <td class="footer-icon delivery-icon">
-      &nbsp;
-    </td> -->
     <td class="text-left">
-      <?php if($delivery_estimate): ?>
+      &nbsp;
+      <?php if(false && $delivery_estimate): ?>
         <div class="shipping-estimate-wrapper">
           <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
           <p><?php echo $delivery_estimate; ?></p>
-          <?php /* <p><?php echo $this->__('Bei Vorkasse 2-4 Werktage nach Zahlungseingang') ?></p> */ ?>
         </div>
       <?php endif; ?>
     </td>

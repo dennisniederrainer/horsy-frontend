@@ -1,8 +1,23 @@
 <?php echo $this->getMessagesBlock()->toHtml() ?>
 <?php $_orders = $this->getOrders(); ?>
 <div class="page-title">
-    <h1><?php echo $this->__('My Orders') ?></h1>
+  <h1><?php echo $this->__('My Orders') ?></h1>
 </div>
+<ul class="messages">
+  <li class="success-msg" style="color:#1d1d1d; border-color: #cca64b">
+    <ul>
+      <li>
+        <span>
+          Du möchtest einen Artikel zurücksenden, aber findest deine Bestellung nicht?<br />
+          Durch das Aufsetzen des neuen Systems kann es vereinzelt dazu kommen, dass Kunden ihre vorherigen Bestellungen nicht einsehen können.<br />
+          Natürlich kannst du trotzdem eine Retoure anmelden. Wende dich bitte per E-Mail an <a href="mailto:service@horsebrands.de" style="color: #cca64b;">service@horsebrands.de</a> unter der Angabe der Bestellnummer und des Artikels, den du zurücksenden möchtest.<br />
+          Wir erstellen die Retoure und du wirst benachrichtigt, sobald du dir dein Retourenlabel erstellen und ausdrucken kannst.<br />
+          Vielen Dank für dein Verständnis.
+        </span>
+      </li>
+    </ul>
+  </li>
+</ul>
 <span style="display:none;"><?php echo $this->getPagerHtml(); ?></span>
 <?php if($_orders->getSize()): ?>
 <?php foreach ($_orders as $_order): ?>

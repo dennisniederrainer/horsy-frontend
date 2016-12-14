@@ -1,11 +1,12 @@
 app/code/local/Horsebrands/Rewrites    /app/code/local/Horsebrands/Rewrites
 app/code/local/Mage/Checkout/Block/Onepage/Abstract.php    app/code/local/Mage/Checkout/Block/Onepage/Abstract.php
+app/code/local/Mage/Customer/Model/Address/Abstract.php    app/code/local/Mage/Customer/Model/Address/Abstract.php
 app/etc/modules/Horsebrands_Rewrites.xml   /app/etc/modules/Horsebrands_Rewrites.xml
 
 app/code/local/Horsebrands/Deinverein    /app/code/local/Horsebrands/Deinverein
 app/etc/modules/Horsebrands_Deinverein.xml   /app/etc/modules/Horsebrands_Deinverein.xml
 
-app/design/adminhtml/default/default/template/horsebrands/   /app/design/adminhtml/default/default/template/horsebrands/
+app/design/adminhtml/default/default/template/horsebrands/purchase/supplier/   /app/design/adminhtml/default/default/template/horsebrands/purchase/supplier/
 app/design/frontend/rwd/horsebrands/   /app/design/frontend/rwd/horsebrands/
 app/design/frontend/rwd/deinverein/   /app/design/frontend/rwd/deinverein/
 app/design/frontend/rwd/deals/   /app/design/frontend/rwd/deals/

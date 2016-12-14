@@ -37,7 +37,7 @@ footer {
 			}
 		}
 
-		@include media('<tablet') {
+		@include media('<=tablet') {
 			ul li {
 				line-height: 2;
 			}

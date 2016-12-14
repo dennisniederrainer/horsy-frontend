@@ -67,6 +67,7 @@ Checkout.prototype = {
     },
 
     reloadProgressBlock: function(toStep) {
+        console.log(toStep);
         this.reloadStep(toStep);
         if (this.syncBillingShipping) {
             this.syncBillingShipping = false;

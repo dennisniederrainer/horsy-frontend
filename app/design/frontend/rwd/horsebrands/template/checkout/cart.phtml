@@ -7,8 +7,9 @@
 <?php $dealsItems = $checkouthelper->getItemsByStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
 <?php $isMultiShippingPossible = false; //(count($shopItems) > 0 && count($dealsItems) > 0) ?>
 
-<?php $delivery_shop = $checkouthelper->getEstimatedShippingText($shopItems) ?>
-<?php $delivery_deals = $checkouthelper->getEstimatedShippingText($dealsItems) ?>
+<?php $delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
+<?php $delivery_shop = null; //$checkouthelper->getEstimatedShippingText($shopItems) ?>
+<?php $delivery_deals = null; //$checkouthelper->getEstimatedShippingText($dealsItems) ?>
 
 <div class="cart <?php echo $_priceDisplay; ?>">
     <?php echo $this->getMessagesBlock()->toHtml() ?>
@@ -22,7 +23,7 @@
             </a>
           </li>
           <?php foreach ($this->getMethods('top_methods') as $method): ?>
-            <?php if (false && $methodHtml = $this->getMethodHtml($method)): ?>
+            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
               <li><?php echo $methodHtml; ?></li>
             <?php endif; ?>
           <?php endforeach; ?>
@@ -136,18 +137,21 @@
     <div class="summary-wrapper">
       <div class="summary-left-wrapper">
         <div class="summary-shipping clearfix">
-          <div class="icon-container hide-small">
+          <?php /* <div class="icon-container hide-small">
             <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
           </div>
           <div class="shipping-estimate-wrapper">
             <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+            <?php if($delivery_bundle): ?>
+              <p><?php echo $delivery_bundle ?></p>
+            <?php endif; ?>
             <?php if($delivery_shop): ?>
               <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
             <?php endif; ?>
             <?php if($delivery_deals): ?>
               <p><strong>Lieferung Deals:</strong> <?php echo $delivery_deals ?></p>
             <?php endif; ?>
-          </div>
+          </div> */ ?>
         </div>
         <div class="summary-coupon">
           <p><strong>Du hast einen Gutscheincode?</strong><br />
