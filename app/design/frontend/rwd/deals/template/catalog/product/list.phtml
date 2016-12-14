@@ -3,6 +3,14 @@
     $_helper = $this->helper('catalog/output');
     $_category = (mage::registry('current_category') ? mage::registry('current_category') : null);
 
+    $advHelper = Mage::helper('horsebrands_rewrites/adventskalender');
+    $_isAdvCategory = false;
+
+    if($_category) {
+      $productpositions = $_category->getProductsPosition();
+      $_isAdvCategory = $advHelper->isAdvEnabled($_category->getId());
+    }
+
     $_toolbar = $this->getToolbarBlock();
 ?>
 <div class="category-products">
@@ -41,7 +49,18 @@
       <?php endif ?>
           <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
             <div class="productlist-element item <?php echo $_product->getTypeId() ?>">
-              <?php if(!$_product->isSaleable()): ?>
+              <?php if($_isAdvCategory): ?>
+                <?php $position = $productpositions[$_product->getId()]; ?>
+                <?php if($advHelper->isAdvDoorClosed($position)): ?>
+                  <div class="out-of-stock-overlay" style="background-color: #fff;">
+                    <div <?php echo $advHelper->getDoorClosedStyle($position) ?>>&nbsp;</div>
+                  </div>
+                <?php elseif(!$_product->isSaleable()): ?>
+                  <div class="out-of-stock-overlay">
+                    <div class="out-of-stock-text">Ausverkauft</div>
+                  </div>
+                <?php endif; ?>
+              <?php elseif(!$_product->isSaleable()): ?>
                 <div class="out-of-stock-overlay">
                   <div class="out-of-stock-text">Ausverkauft</div>
                 </div>

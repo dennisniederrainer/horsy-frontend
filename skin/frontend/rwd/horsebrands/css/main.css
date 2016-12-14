@@ -8422,18 +8422,26 @@ ul.level1 {
   margin-left: 5px;
 }
 
-/* line 103, ../sass/modules/_menu.scss */
-.offcanvas-menu-wrapper ul.level0 {
-  margin: 1em 0;
+/* line 104, ../sass/modules/_menu.scss */
+.offcanvas-menu-wrapper li.level0 > div {
+  padding: 0;
 }
-/* line 106, ../sass/modules/_menu.scss */
+/* line 108, ../sass/modules/_menu.scss */
+.offcanvas-menu-wrapper a.level1 {
+  font-weight: 400;
+}
+/* line 112, ../sass/modules/_menu.scss */
+.offcanvas-menu-wrapper ul.level0 {
+  margin: .5em 0;
+}
+/* line 115, ../sass/modules/_menu.scss */
 .offcanvas-menu-wrapper ul.level0 li {
-  font-size: 1em;
+  font-size: 1.125em;
   float: none;
   width: 100%;
-  padding-left: 1em;
+  padding-left: .75em;
 }
-/* line 113, ../sass/modules/_menu.scss */
+/* line 122, ../sass/modules/_menu.scss */
 .offcanvas-menu-wrapper ul.level0.show {
   display: block;
 }
@@ -9525,7 +9533,7 @@ tfoot.multi-totals tr td {
   }
 }
 
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 767px) {
   /* line 138, ../sass/layouts/_header.scss */
   header .logo-wrapper a.logo-link img {
     max-width: 130px;
@@ -9781,9 +9789,10 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
 /* line 364, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li {
   font-size: 1.25em;
-  margin-bottom: .5em;
+  font-weight: 400;
+  margin-bottom: .75em;
 }
-/* line 367, ../sass/layouts/_header.scss */
+/* line 368, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li a {
   color: #fff;
 }
@@ -9797,21 +9806,21 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   cursor: pointer;
   color: #fff;
 }
-/* line 371, ../sass/layouts/_header.scss */
+/* line 372, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li:last-child {
   margin-bottom: 0;
 }
-/* line 375, ../sass/layouts/_header.scss */
+/* line 376, ../sass/layouts/_header.scss */
 .offcanvas-menu-wrapper ul li ul {
   display: none;
 }
 
-/* line 382, ../sass/layouts/_header.scss */
+/* line 383, ../sass/layouts/_header.scss */
 .store-button {
   display: inline-block;
   position: relative;
 }
-/* line 386, ../sass/layouts/_header.scss */
+/* line 387, ../sass/layouts/_header.scss */
 .store-button .ic-deals-fahne {
   display: inline-block;
   background: url("../images/icons/deals_fahne.png") center no-repeat;
@@ -9822,7 +9831,7 @@ ul.customer-nav-list li.customer-nav-element .dropdown-content .links ul {
   top: -20px;
   right: -60px;
 }
-/* line 399, ../sass/layouts/_header.scss */
+/* line 400, ../sass/layouts/_header.scss */
 .store-button:hover .ic-deals-fahne, .store-button.active .ic-deals-fahne {
   right: -70px;
 }

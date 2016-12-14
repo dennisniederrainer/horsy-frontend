@@ -133,7 +133,7 @@ $customer-icons-font-size: 1.5rem;
 	}
 }
 
-@include media('>=phone','<=tablet') {
+@include media('>=phone','<tablet') {
   header {
     .logo-wrapper a.logo-link img {
       max-width: 130px;
@@ -363,7 +363,8 @@ ul.customer-nav-list {
 
 		li {
 			font-size: 1.25em;
-			margin-bottom: .5em;
+			font-weight: 400;
+			margin-bottom: .75em;
 			a {
 				color: $white-base;
 				@include same-link-style($white-base);
