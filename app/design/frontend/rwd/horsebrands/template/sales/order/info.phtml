@@ -1,9 +1,18 @@
-<?php /** @var $this Mage_Sales_Block_Order_Info */ ?>
-
 <?php $_order = $this->getOrder() ?>
+<?php $returnHelper = mage::helper('ProductReturn'); ?>
+<?php $returnAvailable = $returnHelper->IsOrderAvailable($_order); ?>
+
 <?php echo $this->getMessagesBlock()->toHtml() ?>
+
 <div class="buttons-set">
   <p class="back-link"><a href="<?php echo $this->getUrl('sales/order/history') ?>"><small>&laquo; </small><?php echo $this->__('Back to my orders') ?></a></p>
+  <?php if(is_bool($returnAvailable) && $returnAvailable): ?>
+    <a href="<?php echo $returnHelper->getSelectUrl($_order); ?>" class="button right">
+      <?php echo "Retoure beantragen"; ?>
+    </a>
+  <?php else: ?>
+    <strong><?php echo $returnAvailable; ?></strong>
+  <?php endif; ?>
 </div>
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h1>
@@ -91,4 +100,9 @@
         </div>
     </div>
   </div>
+</div>
+
+<div class="row">
+  <?php //$this->getChild('productreturn_list')->setOrder($_order); ?>
+  <?php //echo $this->getChildHtml('productreturn_list') ?>
 </div>

@@ -22,7 +22,7 @@
             <input type="checkbox" name="newsletter_types[]" id="NewsletterType_<?php echo $newsletterShop->getTypeId() ?>" value="<?php echo $newsletterShop->getTypeId(); ?>" <?php echo ($this->isSubscribedToType($newsletterShop) ? "checked" : "") ?> class="checkbox besides" />
             <?php echo $this->__('Erhalte Informationen über Trends und Gutscheine im Horsebrands Shop') ?>
           </label>
-          <?php endif ?>
+          <?php endif; ?>
         </div>
       </div>
     </div>
