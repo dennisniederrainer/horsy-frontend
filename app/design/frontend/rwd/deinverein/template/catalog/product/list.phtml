@@ -43,20 +43,23 @@
               <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
                 <?php $_imgSize = 210; ?>
                 <img id="product-collection-image-<?php echo $_product->getId(); ?>"
-                   src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(232,245); ?>" width="232" height="245"
+                   src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(480,510); ?>" width="100%" height="255"
                    alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+               <div class="product-info">
+                 <div class="product-list-details left">
+                   <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
+                   <div class="product-name">
+                     <?php $productname = $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                     <?php echo Mage::helper("horsebrands_rewrites")->getShortProductname($productname); ?>
+                   </div>
+                 </div>
+                 <div class="product-list-price right">
+                   <div class="product-price">
+                     <?php echo $this->getPriceHtml($_product, true) ?>
+                   </div>
+                 </div>
+               </div>
               </a>
-              <div class="product-info">
-                <div class="top-row">
-                  <div class="product-manufacturer"><?php echo ($manufacturer != '' ? $manufacturer : '&nbsp;'); ?></div>
-                  <?php if($_showProductPrice): ?>
-                  <div class="product-price"><?php echo Mage::helper('core')->currency($_product->getFinalPrice(),true,false); ?></div>
-                  <?php endif; ?>
-                </div>
-                <div class="bottom-row">
-                  <div class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></div>
-                </div>
-              </div>
               <?php
               if (false && $this->getChild('name.after')) {
                   $_nameAfterChildName = 'product_list.swatches';

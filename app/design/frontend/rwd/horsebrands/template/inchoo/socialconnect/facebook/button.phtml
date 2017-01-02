@@ -1,3 +1,4 @@
-<?php if(Mage::getStoreConfig('inchoo_socialconnect_facebook/enabled')): ?>
-  <a class="button facebook" href="<?php echo $this->escapeUrl($this->_getButtonUrl()); ?>"><?php echo $this->_getButtonText(); ?></a>
+<?php $text = $this->getButtonText(); ?>
+<?php if(true || Mage::getStoreConfig('inchoo_socialconnect_facebook/enabled')): ?>
+  <a class="button facebook" href="<?php echo $this->escapeUrl($this->_getButtonUrl()); ?>"><?php echo $text; ?></a>
 <?php endif; ?>

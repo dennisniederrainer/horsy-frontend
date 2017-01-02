@@ -37,8 +37,14 @@
           <label class="smaller">Ja, ich m&ouml;chte &uuml;ber Trends, Aktionen, & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit m&ouml;glich.</label>
         </div>
       </div>
-      <div class="buttons-container">
-        <button type="submit" class="gold right">Kostenlos registrieren ></button>
+      <div class="buttons-container" style="text-align: right;">
+        <button type="submit" class="gold">Kostenlos registrieren</button>
+        <div>
+          <?php
+          $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook registrieren');
+          echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
+          ?>
+        </div>
       </div>
     </div>
     <?php echo $this->getChildHtml('form.additional.info'); ?>

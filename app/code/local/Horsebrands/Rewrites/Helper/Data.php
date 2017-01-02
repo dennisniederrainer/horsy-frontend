@@ -19,9 +19,9 @@ class Horsebrands_Rewrites_Helper_Data extends Mage_Core_Helper_Abstract {
   }
 
   public function getShortProductname($productname) {
-    if(strlen($productname) > 22) {
+    if(strlen($productname) > 20) {
       $html = '<span class="productname-short">';
-        $html .= substr($productname, 0, 20).'...';
+        $html .= substr($productname, 0, 18).'...';
       $html .= '</span>';
       $html .= '<span class="productname-long hide">';
         $html .= $productname;

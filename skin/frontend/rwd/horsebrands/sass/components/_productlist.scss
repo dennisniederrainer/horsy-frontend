@@ -21,8 +21,13 @@
 			font-weight: bold;
 		}
 
-		.product-name .productname-long {
+		.product-name {
+			.productname-short {
+				white-space: nowrap;
+			}
+			.productname-long {
 				display: none;
+			}
 		}
 		.product-list-details {
 

@@ -2,11 +2,14 @@
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
 <header>
+  <?php $toplineblock = $this->getChild('topline.content'); ?>
+  <?php if($toplineblock->getIsActive()): ?>
   <div class="fixed-top hide-for-small-down">
     <div class="container">
-      <?php echo $this->getChildHtml('topline.content'); ?>
+      <?php echo $toplineblock->toHtml(); ?>
     </div>
   </div>
+  <?php endif; ?>
   <div class="top-header container clearfix">
     <div class="top-header-element top-header-left store-select">
       <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
@@ -103,10 +106,6 @@
 
   <script type="text/javascript">
   //<![CDATA[
-
-    console.log("storeid shop: " + <?php echo $_STORE_ID_SHOP ?>);
-    console.log("storeid deals: " + <?php echo $_STORE_ID_DEALS ?>);
-
     jQuery(document).ready(function($) {
       $('#mobile-search-wrapper #search').focusin(function(e) {
         $('#mobile-search-wrapper').addClass('spread');

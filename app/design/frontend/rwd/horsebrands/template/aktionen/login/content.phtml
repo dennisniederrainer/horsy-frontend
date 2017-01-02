@@ -32,6 +32,10 @@
 
             <input type="text" name="email" id="reg-email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
             <button type="button" class="gold expand reg-continue"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+            <?php
+            $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook registrieren');
+            echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
+            ?>
             <?php /* <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button> */ ?>
           </div>
           <div id="reg-step-two" class="hide">
@@ -67,7 +71,10 @@
             </div>
           </div>
           <button class="gold expand" type="button" onclick="loginForm.submit();"><?php echo $this->__('Log In'); ?></button>
-          <?php /*  <button class="black expand"><?php echo $this->__('Login with Facebook'); ?></button> */ ?>
+          <?php
+          $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook anmelden');
+          echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
+          ?>
         </form>
       </div>
       <div id="forgotpassword" class="hide">

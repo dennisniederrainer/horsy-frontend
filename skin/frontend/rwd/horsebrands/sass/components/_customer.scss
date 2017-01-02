@@ -206,3 +206,37 @@ i.fa {
     width: 100%;
   };
 }
+
+#my-orders-table.data-table  {
+  tbody td {
+    vertical-align: middle;
+  }
+  .product-qty dl {
+    margin: 0;
+
+    dt, dd {
+      display: inline-block;
+      font-weight: 400;
+      margin-bottom: .125rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    dt {
+      clear: left;
+      text-align: left;
+      min-width: 50%;
+    }
+  }
+
+  tfoot td {
+    height: auto;
+    padding: .275rem;
+
+    &.totals-label {
+      text-align: right;
+      padding-right: .5rem;
+    }
+  }
+}

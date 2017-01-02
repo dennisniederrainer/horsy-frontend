@@ -2,11 +2,14 @@
 
 <?php $_order = $this->getOrder() ?>
 <?php echo $this->getMessagesBlock()->toHtml() ?>
+<div class="buttons-set">
+  <p class="back-link"><a href="<?php echo $this->getUrl('sales/order/history') ?>"><small>&laquo; </small><?php echo $this->__('Back to my orders') ?></a></p>
+</div>
 <div class="page-title title-buttons">
     <h1><?php echo $this->__('Order #%s - %s', $_order->getRealOrderId(), $_order->getStatusLabel()) ?></h1>
-    <?php //echo $this->getChildHtml('buttons') ?>
 </div>
-<?php echo $this->getStatusHistoryRssUrl($_order) ?>
+
+<?php //echo $this->getStatusHistoryRssUrl($_order) ?>
 <!-- Defintiely to enable: Gets customer the chance to see invoice, shipment, creditmemo, returns -->
 <dl class="order-info" style="display: none;">
     <dt><?php echo $this->__('About This Order:') ?></dt>
@@ -27,10 +30,14 @@
 <!-- .end TO ENABLE -->
 
 <div class="order-essentials">
-  <p class="order-date"><?php echo $this->__('Order Date: %s', $this->formatDate($_order->getCreatedAtStoreDate(), 'long')) ?></p>
-  <p class="customer-no"><?php echo $this->__('Customer Number: %s', $_order->getCustomerId()); ?></p>
-  <p class="order-status"><?php echo $this->__('Order Status: %s', $_order->getInvoiceCollection()->getFirstItem()->getState()) ?></p>
-  <p class="delivery-status"><?php echo $this->__('Delivery Status: %s', $_order->getStatusLabel()) ?></p>
+  <dl>
+    <dt><?php echo $this->__('Order Date') ?>:</dt>
+    <dd><?php echo $this->formatDate($_order->getCreatedAtStoreDate(), 'long') ?></dd>
+    <dt><?php echo $this->__('Customer Account Number') ?>:</dt>
+    <dd><?php echo $_order->getCustomerId() ?></dd>
+    <dt><?php echo $this->__('Order Status') ?>:</dt>
+    <dd><?php echo $_order->getStatusLabel() ?></dd>
+  </dl>
 </div>
 
 <?php echo $this->getChildHtml('sales.order.view'); ?>
@@ -84,7 +91,4 @@
         </div>
     </div>
   </div>
-</div>
-<div class="buttons-set">
-    <p class="back-link"><a href="<?php echo $this->getUrl('sales/order/history') ?>"><small>&laquo; </small><?php echo $this->__('Back to my orders') ?></a></p>
 </div>

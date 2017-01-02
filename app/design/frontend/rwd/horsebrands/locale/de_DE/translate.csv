@@ -105,7 +105,9 @@
 "Post Code","Postleitzahl"
 "City","Ort"
 "Country","Land"
+"country","Land"
 "Telephone","Telefon"
+"--Please Select--","Bitte wählen..."
 
 "Items %s to %s of %s total","Artikel %s bis %s von insgesamt %s"
 "%s Item(s)","%s Artikel"
@@ -211,3 +213,7 @@
 
 "Sum","Summe"
 "Delivery Status","Status"
+"Your Facebook account is now connected to your new user account at our store. Now you can login using our Facebook Login button.","Dein Kundenkonto wurde erstellt. In Kürze erhälst du eine Bestätigungsemail mit der Du Dein Konto aktivieren kannst."
+"Mage_Sales::Order Status","Bestellstatus"
+"Customer Account Number","Kundennummer"
+"Back to my orders","Zurück zur Bestellungen-Übersicht"

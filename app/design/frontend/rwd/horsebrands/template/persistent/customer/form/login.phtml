@@ -33,8 +33,13 @@
                 </div>
               </div> */ ?>
               <div class="buttons-container" style="text-align: right;">
-                <button type="submit" class="btn gold medium width-l">Einloggen ></button>
-                <?php echo $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml(); ?>
+                <button type="submit" class="gold medium width-l">Einloggen</button>
+                <div>
+                  <?php
+                  $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook anmelden');
+                  echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
+                  ?>
+                </div>
               </div>
             </div>
             <?php echo $this->getChildHtml('form.additional.info'); ?>

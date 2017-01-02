@@ -1,24 +1,18 @@
 <?php  $_order = $this->getOrder() ?>
 <table class="data-table" id="my-orders-table" summary="<?php echo Mage::helper('core')->quoteEscape($this->__('Items Ordered')) ?>">
-    <col width="120px" />
-    <col />
-    <col width="200px" />
-    <col width="120px" />
-    <col width="120px" />
+    <col width="10%" />
+    <col width="1" />
+    <col width="20%" />
+    <col width="20%" />
     <thead>
         <tr>
-            <th colspan="2" class="a-left"><?php echo $this->__('Product') ?>:</th>
-            <th>&nbsp;</th>
+            <th class="a-left" colspan="2"><?php echo $this->__('Product') ?>:</th>
             <th class="a-center"><?php echo $this->__('Qty') ?>:</th>
             <th class="a-center"><?php echo $this->__('Price') ?>:</th>
         </tr>
     </thead>
     <tfoot>
-      <tr>
-        <td colspan="5">
-          <?php echo $this->getChildHtml('order_totals') ?>
-        </td>
-      </tr>
+      <?php echo $this->getChildHtml('order_totals') ?>
     </tfoot>
         <?php $_items = $_order->getItemsCollection(); ?>
         <?php $_index = 0; ?>

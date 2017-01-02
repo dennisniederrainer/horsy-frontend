@@ -5,9 +5,11 @@ require_once 'Mage/Customer/controllers/AccountController.php';
 class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_AccountController {
 
   public function setProcessingAction() {
-    $order = Mage::getModel('sales/order')->loadByIncrementId('200000017');
-    $order->setState(Mage_Sales_Model_Order::STATE_CANCELED, true)->save();
-    die('done.');
+    // $order = Mage::getModel('sales/order')->loadByIncrementId('200000162');
+    // $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING)
+    //     ->setStatus(Mage_Sales_Model_Order::STATE_PROCESSING)
+    //     ->save();
+    // die('done.');
   }
 
   public function loginPostAction() {
@@ -41,7 +43,7 @@ class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_Acco
             default:
             $message = $e->getMessage();
           }
-          $session->addError($message);
+          Mage::getSingleton('core/session')->addError($message);
           $session->setUsername($login['username']);
         } catch (Exception $e) {
           // Mage::logException($e); // PA DSS violation: this exception log can disclose customer password

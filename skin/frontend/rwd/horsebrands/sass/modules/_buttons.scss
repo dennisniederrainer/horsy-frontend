@@ -63,6 +63,11 @@ button {
 		@include button-states-color($gray-base, $gray-lighter-1);
 	}
 
+  &.facebook {
+    background: none;
+    background-color: #3B5998;
+  }
+
   &.white {
     border: 1px solid $black-base;
     background: none;

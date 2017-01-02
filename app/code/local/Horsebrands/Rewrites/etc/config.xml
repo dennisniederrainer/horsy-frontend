@@ -121,6 +121,17 @@
           </args>
         </checkout>
       </routers>
+      <events>
+        <payment_method_is_active>
+          <observers>
+            <horsebrands_rewrites_observer>
+              <type>singleton</type>
+              <class>horsebrands_rewrites/observer</class>
+              <method>paymentMethodIsActive</method>
+            </horsebrands_rewrites_observer>
+          </observers>
+        </payment_method_is_active>
+      </events>
     </frontend>
     <admin>
       <routers>
