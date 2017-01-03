@@ -11,4 +11,5 @@ app/design/frontend/rwd/horsebrands/   /app/design/frontend/rwd/horsebrands/
 app/design/frontend/rwd/deinverein/   /app/design/frontend/rwd/deinverein/
 app/design/frontend/rwd/deals/   /app/design/frontend/rwd/deals/
 
+skin/adminhtml/default/default/css/hb-email-inline.css         /skin/adminhtml/default/default/css/hb-email-inline.css
 skin/frontend/rwd/horsebrands/         /skin/frontend/rwd/horsebrands/

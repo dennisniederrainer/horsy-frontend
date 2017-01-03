@@ -5,10 +5,17 @@ require_once 'Mage/Customer/controllers/AccountController.php';
 class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_AccountController {
 
   public function setProcessingAction() {
-    // $order = Mage::getModel('sales/order')->loadByIncrementId('200000162');
+    // $order = Mage::getModel('sales/order')->loadByIncrementId('200000307');
     // $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING)
     //     ->setStatus(Mage_Sales_Model_Order::STATE_PROCESSING)
     //     ->save();
+
+    // uncancel items
+    // foreach ($order->getAllItems() as $item) {
+    //   $item->setQtyCanceled(0);
+    //   $item->save();
+    // }
+
     // die('done.');
   }
 
