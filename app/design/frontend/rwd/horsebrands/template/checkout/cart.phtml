@@ -7,7 +7,7 @@
 <?php $dealsItems = $checkouthelper->getItemsByStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
 <?php $isMultiShippingPossible = false; //(count($shopItems) > 0 && count($dealsItems) > 0) ?>
 
-<?php $delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
+<?php //$delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
 <?php $delivery_shop = null; //$checkouthelper->getEstimatedShippingText($shopItems) ?>
 <?php $delivery_deals = null; //$checkouthelper->getEstimatedShippingText($dealsItems) ?>
 

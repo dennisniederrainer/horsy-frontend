@@ -1,22 +1,23 @@
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
-<header class="lala">
+<?php $_category = (mage::registry('current_category') ? mage::registry('current_category') : null); ?>
+
+<header class="deinverein-header">
+  <?php /*
   <div class="fixed-top hide-for-small-down">
     <div class="container">
       <?php echo $this->getChildHtml('topline.content'); ?>
     </div>
   </div>
+  */ ?>
   <div class="top-header container clearfix">
-    <div class="top-header-element top-header-left store-select" style="bottom: 30px;">
-      <a href="<?php echo $this->getBaseUrl(); ?>">
-        <i class="fa fa-long-arrow-left"></i> <?php echo $this->__('Zum Horsebrands Shop') ?>
-      </a>
-    </div>
-    <div class="top-header-element top-header-center brand">
-      <div class="logo-wrapper small-5 medium-12">
-        <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
-          <img src="<?php echo $this->getSkinUrl('images/logo_deinverein.jpg') ?>" class="img-responsive">
+    <div class="top-header-element top-header-center brand" style="bottom: -5px;">
+      <div class="logo-wrapper deinverein small-12">
+        <a href="<?php echo ($_category ? $_category->getUrl($_category) : $this->getBaseUrl()); ?>" class="logo-link">
+          <img src="<?php echo $this->getLogoSrc() ?>" class="img-responsive">
         </a>
       </div>
+      <?php /*
       <div id="mobile-search-wrapper" class="search-wrapper small-7 hide-for-medium-up">
         <div class="mobile-search-wrapper">
           <div class="input-group">
@@ -27,6 +28,7 @@
           </div>
         </div>
       </div>
+      */ ?>
     </div>
     <div class="top-header-element top-header-right customer-nav">
       <div class="customer-nav-container">

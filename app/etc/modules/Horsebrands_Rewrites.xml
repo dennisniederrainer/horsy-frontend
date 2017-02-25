@@ -4,6 +4,7 @@
       <active>true</active>
       <codePool>local</codePool>
       <depends>
+        <MDN_AdvancedStock />
         <MDN_Purchase />
       </depends>
     </Horsebrands_Rewrites>

@@ -217,3 +217,7 @@
 "Mage_Sales::Order Status","Bestellstatus"
 "Customer Account Number","Kundennummer"
 "Back to my orders","Zurück zur Bestellungen-Übersicht"
+"You will be redirected to Paypal when you place an order.","Du wirst zu Paypal weitergeleitet, um die Bestellung abzuschließen."
+"You will be redirected to Ingenico ePayments website when you place an order.","Du wirst auf die Ingenico ePayments Webseite weitergeleitet, um die Bestellung abzuschließen."
+"We are sorry, but the campaign of %s has expired. It was removed from your Shopping Cart","Es tut uns leid, aber die Aktion für %s ist ausgelaufen. Das Produkt wurde aus Deinem Warenkorb entfernt."
+"You are currently subscribed to 'General Subscription'","Du bist aktuell zu einem Newsletter angemeldet."

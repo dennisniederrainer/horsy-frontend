@@ -27,6 +27,9 @@
     <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name></action>
     <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
   </reference>
+  <reference name="after_body_start">
+
+  </reference>
   <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
      <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
      <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
@@ -66,9 +69,9 @@
     <block type="catalog/navigation" name="catalog.sidenav" template="catalog/navigation/left.phtml"/>
   </reference>
   <reference name="product_list">
-      <block type="catalog/layer_view" name="catalog.filter" template="catalog/layer/view.phtml">
-        <action method="unsetChild"><child>category_filter</child></action>
-      </block>
+    <block type="catalog/layer_view" name="catalog.filter" template="catalog/layer/view.phtml">
+      <action method="unsetChild"><child>category_filter</child></action>
+    </block>
   </reference>
 </catalog_category_layered>
 

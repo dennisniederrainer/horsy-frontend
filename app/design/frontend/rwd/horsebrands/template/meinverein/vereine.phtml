@@ -1,0 +1,19 @@
+<?php $rootId = (int)$this->getData('root_category_id'); ?>
+<?php $subcategories = Mage::getModel('catalog/category')->getCategories($rootId); ?>
+<?php $first = true; ?>
+
+<?php if($subcategories && count($subcategories) > 0): ?>
+  <ul class="verein-list">
+    <?php foreach ($subcategories as $category): ?>
+      <?php if($first) { $first = false; continue; } ?>
+      <?php $category = Mage::getModel('catalog/category')->load($category->getId()); ?>
+      <?php if($category->getIsActive() && $category->getProductCount() > 0): ?>
+        <li>
+          <a href="<?php echo $category->getURL(); ?>">
+            <?php echo $category->getName(); ?>
+          </a>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </ul>
+<?php endif; ?>

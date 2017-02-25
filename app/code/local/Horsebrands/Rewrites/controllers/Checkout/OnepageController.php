@@ -4,6 +4,17 @@ require_once(Mage::getModuleDir('controllers','Mage_Checkout').DS.'OnepageContro
 class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_OnepageController {
     private $_quote = null;
 
+    public function indexAction() {
+      // check if deals items have an active flashsale
+      $helper = Mage::helper('horsebrands_rewrites/checkout');
+
+      if($helper->removeInactiveDealsItems()) {
+        return $this->_redirect('checkout/cart');
+      }
+
+      return parent::indexAction();
+    }
+
     public function getQuote() {
         if (empty($this->_quote)) {
             $this->_quote = Mage::getSingleton('checkout/session')->getQuote();
@@ -34,6 +45,10 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
 
           if( $data['use_for_shipping']==0 ) {
             $result = $this->getOnepage()->saveShipping($shippingdata, $shippingAddressId);
+            // double save postcode - no better solution yet
+            $shippingaddress = $this->getOnepage()->getQuote()->getShippingAddress();
+            $shippingaddress->setPostcode($shippingdata['postcode']);
+            $shippingaddress->save();
           } else {
             $result = $this->getOnepage()->saveShipping($data, $billingAddressId);
           }
@@ -63,28 +78,28 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
     public function applyCouponAction() {
       $this->loadLayout('checkout_onepage_review');
 
-      $this->couponCode = (string) $this->getRequest()->getParam('coupon_code');
-      $codeLength = strlen($this->couponCode);
+      $couponCode = trim((string)$this->getRequest()->getParam('coupon_code'));
+      $codeLength = strlen($couponCode);
       $isCodeLengthValid = $codeLength && $codeLength <= Mage_Checkout_Helper_Cart::COUPON_CODE_MAX_LENGTH;
 
       Mage::getSingleton('checkout/cart')->getQuote()->getShippingAddress()->setCollectShippingRates(true);
-      Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($isCodeLengthValid ? $this->couponCode : '')->collectTotals()->save();
+      Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($isCodeLengthValid ? $couponCode : '')->collectTotals()->save();
 
-      // if ($codeLength) {
-      //     if ($isCodeLengthValid && $this->couponCode == $this->_getQuote()->getCouponCode()) {
-      //         Mage::getSingleton('checkout/session')->addSuccess(
-      //             $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($this->couponCode))
-      //         );
-      //     } else {
-      //         Mage::getSingleton('checkout/session')->addError(
-      //             $this->__('Coupon code "%s" is not valid.', Mage::helper('core')->escapeHtml($this->couponCode))
-      //         );
-      //     }
-      // } else {
-      //     Mage::getSingleton('checkout/session')->addSuccess($this->__('Coupon code was canceled.'));
-      // }
-      //
-      // $this->_initLayoutMessages('checkout/session');
+      if ($codeLength) {
+          if ($isCodeLengthValid && $couponCode == $this->getQuote()->getCouponCode()) {
+              Mage::getSingleton('checkout/session')->addSuccess(
+                  $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($couponCode))
+              );
+          } else {
+              Mage::getSingleton('checkout/session')->addError(
+                  $this->__('Coupon code "%s" is not valid.', Mage::helper('core')->escapeHtml($couponCode))
+              );
+          }
+      } else {
+          Mage::getSingleton('checkout/session')->addSuccess($this->__('Coupon code was canceled.'));
+      }
+
+      $this->_initLayoutMessages('checkout/session');
 
       $result['goto_section'] = 'review';
       $result['update_section'] = array( 'name' => 'review', 'html' => $this->_getReviewHtml() );

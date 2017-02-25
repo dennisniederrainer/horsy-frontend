@@ -110,6 +110,7 @@ if($_childProduct && $_childProduct->getSize()) {
         $max_sale_qty = (int)$stockItem->getData('max_sale_qty');
         // $total_qty = (int)$stockItem->getQty();
         $total_qty = (int)$stockItem->getAvailableQtyForSale();
+        if($stockItem->getBackorders() == 1 || $stockItem->getBackorders() == 2) { $total_qty = 5; }
 
         $max_qty = 0;
         if($max_sale_qty == 0 || $max_sale_qty >= 5) {
@@ -119,7 +120,9 @@ if($_childProduct && $_childProduct->getSize()) {
         }
 
         if($max_qty > $total_qty) $max_qty = $total_qty;
+        if($min_sale_qty == 0) $min_sale_qty = 1;
         ?>
+        <!-- <?php echo $min_sale_qty . ' >> ' . $max_qty ?> -->
         <select name="cart[<?php echo $_item->getId() ?>][qty]" onchange="this.form.submit();">
           <?php for($i = $min_sale_qty; $i <= $max_qty; $i = $i + $min_sale_qty) : ?>
             <option value="<?php echo $i?>" <?php echo ($i == $this->getQty())? "selected=selected": ""; ?>>

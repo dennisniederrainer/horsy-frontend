@@ -90,11 +90,14 @@ ul.messages {
 		&.success-msg {
 			color: $green-success;
     	border-color: $green-success;
-    	// background-color: #DFF2BF;
 		}
 		&.error-msg {
 			color: $red-error;
     	border-color: $red-error;
+		}
+		&.notice-msg {
+			color: $gold-base;
+			border-color: $gold-base;
 		}
 	}
 }

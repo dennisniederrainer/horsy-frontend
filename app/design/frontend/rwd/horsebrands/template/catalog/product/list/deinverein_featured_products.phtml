@@ -16,6 +16,7 @@
 <div class="box-collateral">
   <div id="featured-products">
     <?php foreach ($products as $_product): ?>
+      <?php $manufacturer = $_product->getAttributeText('manufacturer'); ?>
       <div class="featured-product">
         <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
           <img id="product-collection-image-<?php echo $_product->getId(); ?>"
@@ -30,7 +31,7 @@
               <?php echo Mage::helper("horsebrands_rewrites")->getShortProductname($productname); ?>
             </div>
           </div>
-          <div class="product-list-price right">
+          <div class="product-list-price right" style="display: none;">
             <div class="product-price">
               <?php echo $this->getPriceHtml($_product, true) ?>
             </div>

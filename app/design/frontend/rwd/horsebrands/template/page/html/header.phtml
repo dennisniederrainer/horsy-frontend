@@ -1,6 +1,7 @@
 <?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $hideStorenavigation = $this->getHideStorenavigation(); ?>
 <header>
   <?php $toplineblock = $this->getChild('topline.content'); ?>
   <?php if($toplineblock->getIsActive()): ?>
@@ -11,6 +12,7 @@
   </div>
   <?php endif; ?>
   <div class="top-header container clearfix">
+    <?php if(!$hideStorenavigation): ?>
     <div class="top-header-element top-header-left store-select">
       <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
         Shop
@@ -22,7 +24,8 @@
         </span>
       </a>
     </div>
-    <div class="top-header-element top-header-center brand">
+    <?php endif; ?>
+    <div class="top-header-element top-header-center brand" <?php echo ($hideStorenavigation ? 'style="bottom:-5px;"' : ''); ?>>
       <div class="logo-wrapper small-5 medium-12">
         <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
           <img src="<?php echo $this->getLogoSrc() ?>" class="img-responsive">
