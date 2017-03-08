@@ -13,6 +13,7 @@
     </td>
     <td class="text-right totals">
       <?php foreach ($_totals as $total): ?>
+        <?php if($total->getCode() == 'tax') { continue; } ?>
         <div class="<?php echo ($total->getCode() == 'grand_total' ? 'totals-strong' : '') ?>">
           <?php echo $total->getTitle() ?>:
           <span class="totals-price"><?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?></span>

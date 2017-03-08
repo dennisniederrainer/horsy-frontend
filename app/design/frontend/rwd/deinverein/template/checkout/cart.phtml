@@ -7,7 +7,7 @@
 <?php $dealsItems = $checkouthelper->getItemsByStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
 <?php $isMultiShippingPossible = false; //(count($shopItems) > 0 && count($dealsItems) > 0) ?>
 
-<?php //$delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
+<?php $delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
 <?php $delivery_shop = null; //$checkouthelper->getEstimatedShippingText($shopItems) ?>
 <?php $delivery_deals = null; //$checkouthelper->getEstimatedShippingText($dealsItems) ?>
 
@@ -127,7 +127,7 @@
 
     <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
     <div class="cart-forms">
-        <?php /* Extensions placeholder */ ?>
+        <?php /* Extensions placeholder * / ?>
         <?php //echo $this->getChildHtml('checkout_cart_widget') ?>
         <?php //echo $this->getChildHtml('coupon') ?>
         <?php //echo $this->getChildHtml('checkout.cart.extra') ?>

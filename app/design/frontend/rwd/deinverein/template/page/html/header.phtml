@@ -18,12 +18,12 @@
       </a>
       */ ?>
     </div>
-    <div class="top-header-element top-header-center brand">
+    <div class="top-header-element top-header-center brand" style="bottom: 0;">
       <?php /*  */ ?>
       <?php /* <div class="logo-wrapper deinverein small-4 medium-12"> */ ?>
       <div class="logo-wrapper deinverein small-12">
         <a href="<?php echo ($_category ? $_category->getUrl($_category) : $this->getBaseUrl()); ?>" class="logo-link">
-          <img src="<?php echo $this->getSkinUrl('images/logo_deinverein.jpg') ?>" class="img-responsive">
+          <img src="<?php echo $this->getLogoSrc() ?>" class="img-responsive">
         </a>
       </div>
       <?php /*

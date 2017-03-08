@@ -65,6 +65,10 @@ $isUserRegistering = $this->isUserRegistering();
                 </select>
             </li>
         <?php endif; ?>
+    <?php elseif ($_code == 'ops_paypal') : ?>
+      <li>
+        <?php echo $this->__('You will be redirected to Paypal when you place an order.') ?>
+      </li>
     <?php else : ?>
       <li>
         <?php echo $this->__('You will be redirected to Ingenico ePayments website when you place an order.') ?>

@@ -48,7 +48,7 @@
       <?php if($firstInRow): ?>
         <div class="row full-width smaller-margins products-row">
       <?php endif ?>
-          <div class="columns medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
+          <div class="columns small-6 medium-4<?php echo ($lastInCollection ? ' end' : ''); ?>">
             <?php if($_isAdvCategory): ?>
               <?php $position = $productpositions[$_product->getId()]; ?>
               <?php if($advHelper->isAdvDoorClosed($position)): ?>

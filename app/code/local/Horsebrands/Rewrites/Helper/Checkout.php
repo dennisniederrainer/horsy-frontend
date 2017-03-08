@@ -23,12 +23,16 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
 
       foreach ($items as $item) {
           // quote->getAllVisibleItems with extra store "filter"
-          if (!$item->isDeleted() && !$item->getParentItemId()) {
-            if($storeId > 0 && $item->getStoreId() == $storeId) {
-              $storeitems[] =  $item;
-            } elseif($storeId == -1) {
-              $storeitems[] =  $item;
+          try {
+            if (!$item->isDeleted() && !$item->getParentItemId()) {
+              if($storeId > 0 && $item->getStoreId() == $storeId) {
+                $storeitems[] =  $item;
+              } elseif($storeId == -1) {
+                $storeitems[] =  $item;
+              }
             }
+          } catch (Exception $e) {
+            mage::log($e->getMessage(), null, 'CHECKOUThelper.log');
           }
       }
 
@@ -40,10 +44,14 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
 
     foreach ($items as $item) {
       // quote->getAllVisibleItems with extra store "filter"
-      if (!$item->isDeleted() && !$item->getParentItemId()) {
-        if($item->getStoreId() != $storeId) {
-          $storeitems[] =  $item;
+      try {
+        if (!$item->isDeleted() && !$item->getParentItemId()) {
+          if($item->getStoreId() != $storeId) {
+            $storeitems[] =  $item;
+          }
         }
+      } catch (Exception $e) {
+        mage::log($e->getMessage(), null, 'CHECKOUThelper.log');
       }
     }
 
@@ -133,47 +141,24 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     return $duplicate->getId();
   }
 
-  // protected $shippingIntervals = array(
-  //   "2-4 Tage" => array(2,4),
-  //   "5-8 Tage" => array(5,8),
-  //   "2-3 Wochen nach Aktionsende" => array(14,21)
-  // );
-  //
-  // public function getEstimatedShippingText($storeId) {
-  //   $items = $this->getQuoteItemsByStoreId($storeId);
-  //
-  //   if($items && count($items)) {
-  //     $interval = $this->getLongestShippingInterval($storeId, $items);
-  //
-  //     $today = Mage::getModel('core/date')->date('l, d.m.Y');
-  //     $earliest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[0]." day");
-  //     $latest = strtotime(date("Y-m-d", strtotime($today)) . " +".$interval[1]." day");
-  //
-  //     $earliestText = Mage::getModel('core/date')->date('l, d.m.Y', $earliest);
-  //     $latestText = Mage::getModel('core/date')->date('l, d.m.Y', $latest);
-  //
-  //     return $earliestText . ' - ' . $latestText;
-  //   }
-  //
-  //   return null;
-  // }
-  //
-  // protected function getLongestShippingInterval($storeId, $items) {
-  //   $highestIndex = 0;
-  //
-  //   foreach ($items as $item) {
-  //     if($item->getStoreId() != $storeId || !$item->getProduct()->getDeliveryTime()) {
-  //       continue;
-  //     }
-  //     $deliverytime = $item->getProduct()->getAttributeText('delivery_time');
-  //
-  //     $index = array_search($deliverytime, array_keys($this->shippingIntervals));
-  //     if($index > $highestIndex) {
-  //       $highestIndex = $index;
-  //     }
-  //   }
-  //
-  //   $key = array_keys($this->shippingIntervals)[$highestIndex];
-  //   return $this->shippingIntervals[$key];
-  // }
+  public function removeInactiveDealsItems() {
+    $cartHelper = Mage::helper('checkout/cart');
+    $storeId = Mage::app()->getStore('deals_de')->getId();
+    $dealsItems = $this->getItemsByStoreId($cartHelper->getCart()->getItems(), $storeId);
+    $hasInactiveItems = false;
+
+    foreach ($dealsItems as $item) {
+      if(!mage::helper('aktionen')->hasProductCurrentFlashsale($item->getProduct())) {
+        $cartHelper->getCart()->removeItem($item->getId());
+        Mage::getSingleton('core/session')->addNotice($this->__('We are sorry, but the campaign of %s has expired. It was removed from your Shopping Cart', $item->getProduct()->getName()));
+        $hasInactiveItems = true;
+      }
+    }
+
+    if($hasInactiveItems) {
+      $cartHelper->getCart()->save();
+    }
+
+    return $hasInactiveItems;
+  }
 }

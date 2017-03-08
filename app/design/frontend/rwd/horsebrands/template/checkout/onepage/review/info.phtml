@@ -5,6 +5,7 @@
 <?php $couponCode = Mage::getSingleton('checkout/cart')->getQuote()->getCouponCode(); ?>
 
 <div id="checkout-review-table-wrapper">
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
   <div class="title-container">
     <h2><?php echo $this->__('Your Order'); ?></h2>
     <!-- <span class="cart-id">Shop</span> -->
@@ -59,7 +60,7 @@
     truncateOptions();
 
     jQuery(document).ready(function($) {
-      $('#coupon_code').keyup(function(e) {
+      $('#coupon_code').keydown(function(e) {
         if(e.keyCode == 13) {
           e.preventDefault();
           jQuery('#apply-coupon').click();

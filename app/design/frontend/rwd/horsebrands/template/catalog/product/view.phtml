@@ -3,6 +3,7 @@
 <?php $storeId = Mage::app()->getStore()->getStoreId(); ?>
 <?php $manufacturerSwatchesBaseUrl = mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'wysiwyg/swatches/manufacturer/'; ?>
 <?php $summaryData = Mage::getModel('review/review_summary')->setStoreId($storeId)->load($_product->getId()); ?>
+<?php $isHideUsps = $this->getHideUsps(); ?>
 
 <script type="text/javascript">
   //<![CDATA[
@@ -119,6 +120,7 @@
         </div>
         <?php endif;?>
 
+        <?php if(!$isHideUsps): ?>
         <div class="row">
           <div class="columns medium-12">
             <ul class="unstyled">
@@ -128,6 +130,7 @@
             </ul>
           </div>
         </div>
+        <?php endif; ?>
       </form>
     </div>
     <script type="text/javascript">

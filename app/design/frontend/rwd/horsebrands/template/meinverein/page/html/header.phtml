@@ -1,41 +1,34 @@
-<?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
-<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
-<?php $hideStorenavigation = $this->getHideStorenavigation(); ?>
-<header>
-  <?php $toplineblock = $this->getChild('topline.content'); ?>
-  <?php if($toplineblock->getIsActive()): ?>
+<?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
+<?php $_category = (mage::registry('current_category') ? mage::registry('current_category') : null); ?>
+
+<header class="deinverein-header">
+  <?php /*
   <div class="fixed-top hide-for-small-down">
     <div class="container">
-      <?php echo $toplineblock->toHtml(); ?>
+      <?php echo $this->getChildHtml('topline.content'); ?>
     </div>
   </div>
-  <?php endif; ?>
+  */ ?>
   <div class="top-header container clearfix">
-    <?php if(!$hideStorenavigation): ?>
-    <div class="top-header-element top-header-left store-select">
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
-        Shop
-      </a>
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
-        Deals
-        <span class="ic-deals-fahne" style="<?php echo ($currentStoreId == $_STORE_ID_DEALS ? 'display: none;' : '') ?>">
-          &nbsp;
-        </span>
-      </a>
-    </div>
-    <?php endif; ?>
-    <div class="top-header-element top-header-center brand" <?php echo ($hideStorenavigation ? 'style="bottom:-5px;"' : ''); ?>>
-      <div class="logo-wrapper small-5 medium-12">
-        <a href="<?php echo $this->getBaseUrl() ?>" class="logo-link">
+    <div class="top-header-element top-header-center brand" style="bottom: -5px;">
+      <div class="logo-wrapper deinverein small-12">
+        <a href="<?php echo ($_category ? $_category->getUrl($_category) : $this->getBaseUrl()); ?>" class="logo-link">
           <img src="<?php echo $this->getLogoSrc() ?>" class="img-responsive">
         </a>
       </div>
+      <?php /*
       <div id="mobile-search-wrapper" class="search-wrapper small-7 hide-for-medium-up">
         <div class="mobile-search-wrapper">
-          <?php echo $this->getChildHtml('topSearch'); ?>
+          <div class="input-group">
+            <input id="search-input" type="text" class="input-group-field" placeholder="Suche..." />
+            <div class="input-group-button">
+              <a class="submit-button"><i class="fa fa-search"></i></a>
+            </div>
+          </div>
         </div>
       </div>
+      */ ?>
     </div>
     <div class="top-header-element top-header-right customer-nav">
       <div class="customer-nav-container">
@@ -52,40 +45,40 @@
           </li>
           <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
           <li class="customer-nav-element">
-            <div class="dropdown-tab">
+            <div class="dropdown-tab" style="z-index: 10;">
               <a href="" onclick="redirectOnMobile('<?php echo $this->getUrl('customer/account') ?>'); return false;">
                 <div class="icon customeraccount">
                   <span><?php echo $this->__('Anmelden'); ?></span>
                 </div>
               </a>
             </div>
-            <div class="dropdown-content">
+            <div class="dropdown-content" style="z-index: 5;">
               <?php echo $this->getChildHtml('customer.login') ?>
             </div>
           </li>
           <?php else: ?>
             <li class="customer-nav-element">
-              <div class="dropdown-tab">
+              <div class="dropdown-tab" style="z-index: 10;">
                 <a href="<?php echo $this->getUrl('customer/account') ?>">
                   <div class="icon customeraccount loggedin">
                     <span><?php echo $this->__('Mein Konto'); ?></span>
                   </div>
                 </a>
               </div>
-              <div class="dropdown-content">
+              <div class="dropdown-content" style="z-index: 5;">
                 <?php echo $this->getChildHtml('topLinks') ?>
               </div>
             </li>
           <?php endif; ?>
           <li class="customer-nav-element">
-            <div class="dropdown-tab">
+            <div class="dropdown-tab" style="z-index: 20;">
               <a href="<?php echo $this->getUrl('wishlist') ?>">
                 <div class="icon wishlist">
                   <span><?php echo $this->__('Wishlist'); ?></span>
                 </div>
               </a>
             </div>
-            <div class="dropdown-content" style="display:none;">
+            <div class="dropdown-content" style="z-index: 15;display:none;">
               Wunschzettelinhalte
             </div>
           </li>
@@ -96,28 +89,7 @@
       </div>
     </div>
   </div>
-  <?php if($currentStoreId == $_STORE_ID_SHOP): ?>
-    <div class="navbar container clearfix">
-      <ul class="nav">
-        <?php echo $this->getChildHtml('topMenu'); ?>
-      </ul>
-      <div class="global-search">
-        <?php echo $this->getChildHtml('topSearch'); ?>
-      </div>
-    </div>
-  <?php endif; ?>
-
-  <script type="text/javascript">
-  //<![CDATA[
-    jQuery(document).ready(function($) {
-      $('#mobile-search-wrapper #search').focusin(function(e) {
-        $('#mobile-search-wrapper').addClass('spread');
-      });
-      $('#mobile-search-wrapper #search').focusout(function(e) {
-        $('#mobile-search-wrapper').removeClass('spread');
-      });
-    });
-
-  //]]>
-  </script>
+  <div class="navbar container clearfix">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('deinverein-navigation')->toHtml(); ?>
+  </div>
 </header>
