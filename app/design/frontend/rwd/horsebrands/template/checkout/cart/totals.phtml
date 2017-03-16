@@ -25,7 +25,7 @@
     </dt>
     <dd>
       <?php echo $this->helper('checkout')->formatPrice( $_subtotal ); ?>
-      <p class="note"><?php echo $this->__('incl. VAT, %sexcl. shipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>') ?></p>
+      <p class="note"><?php echo $this->__('incl. VAT, excl. %sshipping%s','<a class="text-underline" target="_blank" href="'.$this->getUrl('faq').'#lieferungversand">','</a>') ?></p>
     </dd>
   </dl>
 <?php else: ?>
@@ -38,7 +38,7 @@
       <dd class="totals-price<?php echo ($isGrandTotal ? ' totals-strong' : '') ?>">
         <?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?>
         <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
-          <p class="note"><?php echo $this->__('incl. VAT, %sexcl. shipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>') ?></p>
+          <p class="note"><?php echo $this->__('incl. VAT, excl. %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>') ?></p>
         <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
           <p class="note"><?php echo $this->__('excl. VAT and %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>') ?></p>
         <?php endif; ?>

@@ -10761,6 +10761,14 @@ a.current-category {
 }
 
 /* line 28, ../sass/components/_customer.scss */
+a.forgot-password {
+  color: #706f6f;
+  text-decoration: underline;
+  font-size: .75rem;
+  padding: .5rem 0 1rem;
+}
+
+/* line 34, ../sass/components/_customer.scss */
 .mini-registration-link {
   margin-top: 10px;
   float: right;
@@ -10768,29 +10776,29 @@ a.current-category {
   font-size: 0.85714rem;
 }
 
-/* line 35, ../sass/components/_customer.scss */
+/* line 41, ../sass/components/_customer.scss */
 .welcome-msg {
   margin-bottom: 15px;
 }
 
-/* line 44, ../sass/components/_customer.scss */
+/* line 50, ../sass/components/_customer.scss */
 .login-container table tbody td label {
   margin: 0;
 }
-/* line 47, ../sass/components/_customer.scss */
+/* line 53, ../sass/components/_customer.scss */
 .login-container table tbody td input {
   width: 100%;
   min-width: 170px;
 }
-/* line 55, ../sass/components/_customer.scss */
+/* line 61, ../sass/components/_customer.scss */
 .login-container table tfoot td {
   height: auto;
 }
-/* line 58, ../sass/components/_customer.scss */
+/* line 64, ../sass/components/_customer.scss */
 .login-container table tfoot td.no-padding-bottom {
   padding-bottom: 0;
 }
-/* line 62, ../sass/components/_customer.scss */
+/* line 68, ../sass/components/_customer.scss */
 .login-container table tfoot td a.signup {
   white-space: nowrap;
   padding-top: 10px;
@@ -10798,59 +10806,59 @@ a.current-category {
   font-weight: 300;
 }
 
-/* line 74, ../sass/components/_customer.scss */
+/* line 80, ../sass/components/_customer.scss */
 .my-account .page-title {
   margin-bottom: 25px;
 }
-/* line 77, ../sass/components/_customer.scss */
+/* line 83, ../sass/components/_customer.scss */
 .my-account .page-title h1 {
   font-size: 1.14286rem;
   line-height: 2rem;
   font-weight: 700;
 }
-/* line 83, ../sass/components/_customer.scss */
+/* line 89, ../sass/components/_customer.scss */
 .my-account p {
   margin: 0;
   font-size: 1rem;
   line-height: 1.57143rem;
   font-weight: 300;
 }
-/* line 88, ../sass/components/_customer.scss */
+/* line 94, ../sass/components/_customer.scss */
 .my-account p .hello {
   font-weight: 700;
 }
-/* line 94, ../sass/components/_customer.scss */
+/* line 100, ../sass/components/_customer.scss */
 .my-account .box-account .box-head {
   display: none;
 }
-/* line 100, ../sass/components/_customer.scss */
+/* line 106, ../sass/components/_customer.scss */
 .my-account form h2.legend {
   display: none;
 }
-/* line 109, ../sass/components/_customer.scss */
+/* line 115, ../sass/components/_customer.scss */
 .my-account .box h2.title span.edit {
   float: right;
   font-size: 0.71429rem;
   font-weight: 300;
 }
-/* line 117, ../sass/components/_customer.scss */
+/* line 123, ../sass/components/_customer.scss */
 .my-account .box-account .row {
   margin-bottom: 0;
 }
 
 /* ## Customer Account Navigation ## */
-/* line 131, ../sass/components/_customer.scss */
+/* line 137, ../sass/components/_customer.scss */
 .block.block-account {
   margin-top: 13px;
   padding-right: 30px;
 }
 
-/* line 155, ../sass/components/_customer.scss */
+/* line 161, ../sass/components/_customer.scss */
 .account-login .btn.medium {
   min-width: 220px;
 }
 
-/* line 164, ../sass/components/_customer.scss */
+/* line 170, ../sass/components/_customer.scss */
 .orders-table {
   margin-bottom: 15px;
 }
@@ -10865,77 +10873,77 @@ a.current-category {
   color: #f7aa4e;
 }
 
-/* line 172, ../sass/components/_customer.scss */
+/* line 178, ../sass/components/_customer.scss */
 .order-items.order-details {
   margin-bottom: 20px;
 }
 
-/* line 177, ../sass/components/_customer.scss */
+/* line 183, ../sass/components/_customer.scss */
 #my-orders-table div.product-name {
   margin-top: 10px;
 }
-/* line 181, ../sass/components/_customer.scss */
+/* line 187, ../sass/components/_customer.scss */
 #my-orders-table td.totals-line {
   text-align: right;
   padding-right: 25px;
 }
-/* line 186, ../sass/components/_customer.scss */
+/* line 192, ../sass/components/_customer.scss */
 #my-orders-table .totals-line {
   text-align: right;
 }
-/* line 189, ../sass/components/_customer.scss */
+/* line 195, ../sass/components/_customer.scss */
 #my-orders-table .totals-line span.totals-price {
   display: inline-block;
   width: 120px;
   padding-right: 25px;
 }
-/* line 195, ../sass/components/_customer.scss */
+/* line 201, ../sass/components/_customer.scss */
 #my-orders-table .totals-line p.note {
   padding-right: 25px;
   font-size: 0.85714rem;
 }
 
-/* line 202, ../sass/components/_customer.scss */
+/* line 208, ../sass/components/_customer.scss */
 .forgotpassword-container {
   width: 60%;
 }
 @media (min-width: 320px) and (max-width: 768px) {
-  /* line 202, ../sass/components/_customer.scss */
+  /* line 208, ../sass/components/_customer.scss */
   .forgotpassword-container {
     width: 100%;
   }
 }
 
-/* line 211, ../sass/components/_customer.scss */
+/* line 217, ../sass/components/_customer.scss */
 #my-orders-table.data-table tbody td {
   vertical-align: middle;
 }
-/* line 214, ../sass/components/_customer.scss */
+/* line 220, ../sass/components/_customer.scss */
 #my-orders-table.data-table .product-qty dl {
   margin: 0;
 }
-/* line 217, ../sass/components/_customer.scss */
+/* line 223, ../sass/components/_customer.scss */
 #my-orders-table.data-table .product-qty dl dt, #my-orders-table.data-table .product-qty dl dd {
   display: inline-block;
   font-weight: 400;
   margin-bottom: .125rem;
 }
-/* line 222, ../sass/components/_customer.scss */
+/* line 228, ../sass/components/_customer.scss */
 #my-orders-table.data-table .product-qty dl dt:last-child, #my-orders-table.data-table .product-qty dl dd:last-child {
   margin-bottom: 0;
 }
-/* line 226, ../sass/components/_customer.scss */
+/* line 232, ../sass/components/_customer.scss */
 #my-orders-table.data-table .product-qty dl dt {
   clear: left;
   text-align: left;
   min-width: 50%;
 }
-/* line 233, ../sass/components/_customer.scss */
+/* line 239, ../sass/components/_customer.scss */
 #my-orders-table.data-table tfoot td {
   height: auto;
   padding: .275rem;
 }
-/* line 237, ../sass/components/_customer.scss */
+/* line 243, ../sass/components/_customer.scss */
 #my-orders-table.data-table tfoot td.totals-label {
   text-align: right;
   padding-right: .5rem;
@@ -12303,7 +12311,7 @@ p.note.registration-terms {
 }
 /* line 82, ../sass/components/_deinverein.scss */
 .deinverein-category-banner img {
-  max-width: 200px;
+  max-height: 200px;
 }
 /* line 85, ../sass/components/_deinverein.scss */
 .deinverein-category-banner .banner-overlay {

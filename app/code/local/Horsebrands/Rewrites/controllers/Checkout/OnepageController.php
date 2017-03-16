@@ -81,20 +81,35 @@ class Horsebrands_Rewrites_Checkout_OnepageController extends Mage_Checkout_Onep
       $couponCode = trim((string)$this->getRequest()->getParam('coupon_code'));
       $codeLength = strlen($couponCode);
       $isCodeLengthValid = $codeLength && $codeLength <= Mage_Checkout_Helper_Cart::COUPON_CODE_MAX_LENGTH;
+      $invitefriendsValid = true;
 
-      Mage::getSingleton('checkout/cart')->getQuote()->getShippingAddress()->setCollectShippingRates(true);
-      Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($isCodeLengthValid ? $couponCode : '')->collectTotals()->save();
+      if(Mage::helper('core')->isModuleEnabled('Horsebrands_Invitefriends')) {
+        $valid = Mage::helper('invitefriends/coupon')->validateCouponcode($couponCode, Mage::getSingleton('customer/session')->getCustomer());
+        if(is_string($valid) && $valid == 'expired') {
+          $invitefriendsValid = false;
+          Mage::getSingleton('checkout/session')->addError($this->__('Unfortunately this Couponcode is expired.'));
+        } elseif(is_string($valid) && $valid == 'nocustomer') {
+          $invitefriendsValid = false;
+          Mage::getSingleton('checkout/session')->addError($this->__('This Couponcode is not assigned to your Customer Account.'));
+        }
+      }
+
+      if($invitefriendsValid) {
+        Mage::getSingleton('checkout/cart')->getQuote()->getShippingAddress()->setCollectShippingRates(true);
+        Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($isCodeLengthValid ? $couponCode : '')->collectTotals()->save();
+      }
 
       if ($codeLength) {
-          if ($isCodeLengthValid && $couponCode == $this->getQuote()->getCouponCode()) {
-              Mage::getSingleton('checkout/session')->addSuccess(
-                  $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($couponCode))
-              );
-          } else {
-              Mage::getSingleton('checkout/session')->addError(
-                  $this->__('Coupon code "%s" is not valid.', Mage::helper('core')->escapeHtml($couponCode))
-              );
-          }
+
+        if ($isCodeLengthValid && $couponCode == $this->getQuote()->getCouponCode()) {
+            Mage::getSingleton('checkout/session')->addSuccess(
+                $this->__('Coupon code "%s" was applied.', Mage::helper('core')->escapeHtml($couponCode))
+            );
+        } else {
+            Mage::getSingleton('checkout/session')->addError(
+                $this->__('Coupon code "%s" is not valid.', Mage::helper('core')->escapeHtml($couponCode))
+            );
+        }
       } else {
           Mage::getSingleton('checkout/session')->addSuccess($this->__('Coupon code was canceled.'));
       }

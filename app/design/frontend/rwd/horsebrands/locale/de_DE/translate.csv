@@ -62,7 +62,7 @@
 "Change","Bearbeiten"
 
 // AKTIONEN -- CAMPAIGNS
-"Current Campaigns","Aktuelle Aktionen"
+"Current Deals","Aktuelle Deals"
 "Upcoming Campaigns","Kommende Aktionen"
 
 // Vorschaltseite
@@ -189,7 +189,7 @@
 "The link to a friend was sent.","Der Artikel wurde erfolgreich zu deinen Freunden gesendet."
 "You have placed no orders.","Du hast noch keine Bestellungen getätigt."
 "incl. VAT, excl. shipping","inkl. MwSt., zzgl. Versandkosten"
-"incl. VAT, %sexcl. shipping%s","inkl. MwSt., %szzgl. Versandkosten%s"
+"incl. VAT, excl. %sshipping%s","inkl. MwSt., zzgl. %sVersandkosten%s"
 "excl. VAT and shipping","zzgl. MwSt. und Versandkosten"
 "excl. VAT and %sshipping%s","zzgl. MwSt. und %sVersandkosten%s"
 "Newsletter Subscription","Newsletter Anmeldungen"

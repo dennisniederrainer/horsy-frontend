@@ -74,6 +74,11 @@
           <quote_address_total_shipping>Horsebrands_Rewrites_Model_Sales_Quote_Address_Total_Shipping</quote_address_total_shipping>
         </rewrite>
       </sales>
+      <salesrule>
+        <rewrite>
+          <validator>Horsebrands_Rewrites_Model_SalesRule_Validator</validator>
+        </rewrite>
+      </salesrule>
     </models>
 
     <!-- get access to manufacturer and delivery information -->
