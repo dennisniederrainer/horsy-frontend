@@ -1,0 +1,17 @@
+<?php $customer = $this->getCustomer(); ?>
+<section class="invitefriends__register">
+  <div class="invitefriends__info">
+    <h1>Herzlich willkommen bei Horsebrands,</h1>
+    <p>
+      <?php echo $customer->getFirstname() ?> hat dich eingeladen.<br />
+      Erstelle nachfolgend ein Kundenkonto und sichere dir 10 Euro<em>*</em> auf deine erste Bestellung.
+    </p>
+    <p>
+      Beachte bitte, dass du dem Einladungslink folgst und die Gutscheinregel nur greifen kann, wenn du zur Registrierung das unten stehende Formular benutzt.
+    </p>
+    <div class="form-wrapper">
+      <h3 class="form-title">Kundenkonto erstellen</h3>
+      <?php echo $this->getChildHtml('customer_form_register') ?>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+<?php $customer = Mage::getSingleton('customer/session')->getCustomer(); ?>
+
+<section class="invitefriends">
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
+  <h1>Freunde einladen und 10-Euro-Gutschein* sichern.</h1>
+  <h3 class="sub">Weil gemeinsam Shoppen am schönsten ist</h3>
+  <p>Wenn du uns genauso magst wie wir dich, dann empfiehl uns doch weiter. Erzähle auch deinen Freunden von uns und wir schenken euch jeweils 10 Euro*:</p>
+  <ul class="indent">
+    <li>Deinen Freunden schreiben wir bei Neuanmeldung 10 Euro* für die erste Bestellung gut.</li>
+    <li>Du bekommst 10 Euro* gutgeschrieben, sobald die erste Bestellung deiner Freunde getätigt wurde.</li>
+  </ul>
+
+  <div class="form-wrapper">
+    <h3 class="form-title">Manuell einladen:</h3>
+
+    <form id="invitefriends__form" action="<?php echo $this->getUrl('invitefriends/invite/invitePost') ?>" method="post">
+      <?php echo $this->getBlockHtml('formkey') ?>
+      <ul class="unstyled">
+        <li>
+          <input type="text" class="input-text validate-email" name="email[]" placeholder="<?php echo $this->__('Your Friends E-Mail Address') ?>" />
+        </li>
+        <li>
+          <input type="text" class="input-text validate-email" name="email[]" placeholder="<?php echo $this->__('Your Friends E-Mail Address') ?>" />
+        </li>
+        <li>
+          <input type="text" class="input-text validate-email" name="email[]" placeholder="<?php echo $this->__('Your Friends E-Mail Address') ?>" />
+        </li>
+      </ul>
+      <div class="form__buttons">
+        <button class="button right" onclick="invitefriendsForm.submit()">Jetzt einladen</button>
+      </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+    var invitefriendsForm = new VarienForm('invitefriends__form');
+    invitefriendsForm.submit = function() {
+      if(this.validator.validate()) {
+        this.form.submit();
+      }
+    };
+    //]]>
+    </script>
+  </div>
+
+  <div class="form-wrapper">
+    <h3 class="form-title">Einladungslink:</h3>
+    <p>
+      In die E-Mail-Signatur kopieren, auf deiner Webseite, in deinem Facebook- oder Instagram-Profil posten: Mit dem Einladungs-Link kannst du machen, was du willst.<br />
+      Wann immer sich ein Freund von dir über diesen Link anmeldet und bei uns das erste Mal einkauft, erhältst du einen 10 € Gutschein* auf dein Konto gutgeschrieben.
+    </p>
+    <dl>
+      <dt>Dein persönlicher Einladungslink:</dt>
+      <dd><?php echo $this->getUrl('invitefriends/front/link', array('key' => $customer->getId()) ); ?></dd>
+    </dl>
+  </div>
+
+  <div class="invitefriends__info">
+    <h3>Einladen lohnt sich für alle:</h3>
+    <p>
+      Je mehr Pferdefreunde wir sind, desto bessere Angebote und exklusivere Marken können wir anbieten.
+    </p>
+    <p class="fineprint">
+      <em>*</em> Für dich je ein 10€ Gutschein beim 1. Kauf deiner Freunde (30 Tage gültig). Für deine Freunde: 10€ Gutschein sofort bei Neuanmeldung (30 Tage gültig). Mindestwarenbestellwert 70 Euro. Nicht gültig für individualisierte Artikel, nicht übertragbar, nicht mit anderen Gutscheinen oder Rabattaktionen kombinierbar. Keine Eigenwerbung.
+    </p>
+  </div>
+</section>
