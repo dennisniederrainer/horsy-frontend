@@ -1,0 +1,95 @@
+<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
+<?php $_category = (mage::registry('current_category') ? mage::registry('current_category') : null); ?>
+
+<header class="deinverein-header">
+  <?php /*
+  <div class="fixed-top hide-for-small-down">
+    <div class="container">
+      <?php echo $this->getChildHtml('topline.content'); ?>
+    </div>
+  </div>
+  */ ?>
+  <div class="top-header container clearfix">
+    <div class="top-header-element top-header-center brand" style="bottom: -5px;">
+      <div class="logo-wrapper deinverein small-12">
+        <a href="<?php echo ($_category ? $_category->getUrl($_category) : $this->getBaseUrl()); ?>" class="logo-link">
+          <img src="<?php echo $this->getLogoSrc() ?>" class="img-responsive">
+        </a>
+      </div>
+      <?php /*
+      <div id="mobile-search-wrapper" class="search-wrapper small-7 hide-for-medium-up">
+        <div class="mobile-search-wrapper">
+          <div class="input-group">
+            <input id="search-input" type="text" class="input-group-field" placeholder="Suche..." />
+            <div class="input-group-button">
+              <a class="submit-button"><i class="fa fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      */ ?>
+    </div>
+    <div class="top-header-element top-header-right customer-nav">
+      <div class="customer-nav-container">
+        <ul class="customer-nav-list offcanvas-elements">
+          <li class="customer-nav-element hide-for-medium-up">
+            <div class="dropdown-tab">
+              <a class="toggle-nav" id="mobile-menu-button">
+                <div class="icon mobile-menu">
+                  <span><?php echo $this->__('Menu'); ?></span>
+                </div>
+                <p></p>
+              </a>
+            </div>
+          </li>
+          <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+          <li class="customer-nav-element">
+            <div class="dropdown-tab" style="z-index: 10;">
+              <a href="" onclick="redirectOnMobile('<?php echo $this->getUrl('customer/account') ?>'); return false;">
+                <div class="icon customeraccount">
+                  <span><?php echo $this->__('Anmelden'); ?></span>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-content" style="z-index: 5;">
+              <?php echo $this->getChildHtml('customer.login') ?>
+            </div>
+          </li>
+          <?php else: ?>
+            <li class="customer-nav-element">
+              <div class="dropdown-tab" style="z-index: 10;">
+                <a href="<?php echo $this->getUrl('customer/account') ?>">
+                  <div class="icon customeraccount loggedin">
+                    <span><?php echo $this->__('Mein Konto'); ?></span>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-content" style="z-index: 5;">
+                <?php echo $this->getChildHtml('topLinks') ?>
+              </div>
+            </li>
+          <?php endif; ?>
+          <li class="customer-nav-element">
+            <div class="dropdown-tab" style="z-index: 20;">
+              <a href="<?php echo $this->getUrl('wishlist') ?>">
+                <div class="icon wishlist">
+                  <span><?php echo $this->__('Wishlist'); ?></span>
+                </div>
+              </a>
+            </div>
+            <div class="dropdown-content" style="z-index: 15;display:none;">
+              Wunschzettelinhalte
+            </div>
+          </li>
+          <li class="customer-nav-element">
+            <?php echo $this->getChildHtml('minicart_head'); ?>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="navbar container clearfix">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('deinverein-navigation')->toHtml(); ?>
+  </div>
+</header>
