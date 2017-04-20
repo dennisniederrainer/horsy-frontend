@@ -28,13 +28,7 @@
       <div class="input-block checkbox">
         <div class="right-col">
           <input type="checkbox" name="privacy_policy" value="1" title="<?php echo $this->__('Accept the privacy policy') ?>" class="checkbox required-entry">
-          <label class="smaller">Ja, ich stimme den <a class="condition" href="<?php echo $this->getUrl('agb'); ?>" target="_blank">AGB</a> und den <a class="condition" href="<?php echo $this->getUrl('datenschutz'); ?>" target="_blank">Datenschutzbestimmungen</a> von Horsebrands zu.</label>
-        </div>
-      </div>
-      <div class="input-block checkbox">
-        <div class="right-col">
-          <input type="checkbox" name="is_subscribed" title="<?php echo $this->quoteEscape($this->__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed" class="checkbox" />
-          <label class="smaller">Ja, ich m&ouml;chte &uuml;ber Trends, Aktionen, & Gutscheine per E-Mail informiert werden. Abmeldung jederzeit m&ouml;glich.</label>
+          <label class="smaller">Mit meiner Anmeldung stimme ich den <a class="condition" href="<?php echo $this->getUrl('agb'); ?>" target="_blank">AGB</a> & <a class="condition" href="<?php echo $this->getUrl('datenschutz'); ?>" target="_blank">Datenschutzbestimmungen</a> zu und akzeptiere den Erhalt des Newsletters.</label>
         </div>
       </div>
       <div class="buttons-container" style="text-align: right;">
@@ -47,6 +41,7 @@
         </div>
       </div>
     </div>
+    <input type="hidden" name="is_subscribed" value="1"/>
     <?php echo $this->getChildHtml('form.additional.info'); ?>
   </form>
 </div>

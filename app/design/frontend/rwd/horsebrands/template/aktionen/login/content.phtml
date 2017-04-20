@@ -31,24 +31,24 @@
             </div>
 
             <input type="text" name="email" id="reg-email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
-            <button type="button" class="gold expand reg-continue"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+            <p class="note registration-terms">
+              Mit der Anmeldung stimme ich den <a>AGB</a> und <a>Datenschutzbestimmungen</a> zu und erhalte regelm&auml;&szlig;ig einen Newsletter, den ich jederzeit kostenfrei abbestellen kann.
+            </p>
+            <button type="button" class="gold expand reg-continue"><?php echo $this->__('Sign In for free'); ?></button>
             <?php
-            $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook registrieren');
+            $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Login mit Facebook');
             echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
             ?>
             <?php /* <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button> */ ?>
           </div>
           <div id="reg-step-two" class="hide">
-            <input class="required-entry input-text" type="text" name="firstname" placeholder="<?php echo $this->__('Your First Name') ?>" />
-            <input class="required-entry input-text" type="text" name="lastname" placeholder="<?php echo $this->__('Your Last Name') ?>" />
+            <input class="required-entry input-text" type="text" name="firstname" placeholder="<?php echo $this->__('Your Firstname') ?>" />
+            <input class="required-entry input-text" type="text" name="lastname" placeholder="<?php echo $this->__('Your Lastname') ?>" />
             <input class="required-entry input-text" type="password" name="password" placeholder="<?php echo $this->__('Your Password') ?>" />
             <input class="required-entry input-text" type="password" name="confirmation" placeholder="<?php echo $this->__('Confirm Your Password') ?>" />
-            <button class="gold expand" type="button" onclick="signupForm.submit();"><?php echo $this->__('Sign In'); ?><em>*</em></button>
+            <button class="gold expand" type="button" onclick="signupForm.submit();" style="margin-top: 1rem;"><?php echo $this->__('Sign In'); ?></button>
           </div>
-          <div class="content-bottom">
-            <p class="note registration-terms">
-              <em>*</em>Mit der Anmeldung stimme ich den <a>AGB</a> und <a>Datenschutzbestimmungen</a> zu und erhalte regelm&auml;&szlig;ig einen Newsletter, den ich jederzeit kostenfrei abbestellen kann.
-            </p>
+          <div class="content-bottom" style="display: none;">
           </div>
         </form>
       </div>
@@ -63,7 +63,7 @@
             <div class="persistent-login">
               <label>
                 <?php echo $this->__("Stay logged in") ?>
-                <input type="checkbox" name="persistend.login" />
+                <input type="checkbox" name="persistend.login" checked="checked" />
               </label>
             </div>
             <div class="forgot-password">
@@ -72,7 +72,7 @@
           </div>
           <button class="gold expand" type="button" onclick="loginForm.submit();"><?php echo $this->__('Log In'); ?></button>
           <?php
-          $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook anmelden');
+          $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Login mit Facebook');
           echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
           ?>
         </form>

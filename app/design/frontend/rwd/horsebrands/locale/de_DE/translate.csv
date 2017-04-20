@@ -60,10 +60,11 @@
 "Billing Address","Rechnungsadresse"
 "Payment Method","Zahlungsart"
 "Change","Bearbeiten"
+"We are shipping with","Wir versenden mit"
 
 // AKTIONEN -- CAMPAIGNS
-"Current Campaigns","Aktuelle Aktionen"
-"Upcoming Campaigns","Kommende Aktionen"
+"Current Deals","Aktuelle Deals"
+"Upcoming Campaigns","Kommende Deals"
 
 // Vorschaltseite
 "Become a Member","Mitglied werden"
@@ -73,6 +74,7 @@
 "Find exclusive Brands and Products","Entdecke exklusive Marken und Produkte"
 "Become a Member for free now.","Werde jetzt kostenlos Mitglied."
 "Sign In","Registrieren"
+"Sign In for free","Kostenlos Registrieren"
 "Sign In with Facebook","Mit Facebook registrieren"
 "Log In","Einloggen"
 "Login with Facebook","Mit Facebook einloggen"
@@ -82,7 +84,7 @@
 "Password:","Passwort:"
 "Password","Passwort"
 "Forgot Password","Passwort vergessen"
-"Stay logged in","Angemeldet bleiben"
+"Stay logged in","Eingeloggt bleiben"
 
 "Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.","Deine Anfrage wurde erfolgreich gesendet. Vielen Dank dafür - wir werden sie so schnell wie möglich bearbeiten."
 "Maximum number of characters:","Maximale Anzahl an Buchstaben:"
@@ -189,7 +191,7 @@
 "The link to a friend was sent.","Der Artikel wurde erfolgreich zu deinen Freunden gesendet."
 "You have placed no orders.","Du hast noch keine Bestellungen getätigt."
 "incl. VAT, excl. shipping","inkl. MwSt., zzgl. Versandkosten"
-"incl. VAT, %sexcl. shipping%s","inkl. MwSt., %szzgl. Versandkosten%s"
+"incl. VAT, excl. %sshipping%s","inkl. MwSt., zzgl. %sVersandkosten%s"
 "excl. VAT and shipping","zzgl. MwSt. und Versandkosten"
 "excl. VAT and %sshipping%s","zzgl. MwSt. und %sVersandkosten%s"
 "Newsletter Subscription","Newsletter Anmeldungen"
@@ -221,3 +223,11 @@
 "You will be redirected to Ingenico ePayments website when you place an order.","Du wirst auf die Ingenico ePayments Webseite weitergeleitet, um die Bestellung abzuschließen."
 "We are sorry, but the campaign of %s has expired. It was removed from your Shopping Cart","Es tut uns leid, aber die Aktion für %s ist ausgelaufen. Das Produkt wurde aus Deinem Warenkorb entfernt."
 "You are currently subscribed to 'General Subscription'","Du bist aktuell zu einem Newsletter angemeldet."
+
+"Your Friends E-Mail Address","E-Mail-Adresse deiner Freunde"
+"This Couponcode is not assigned to your Customer Account.","Der Gutscheincode ist nicht für dieses Benutzerkonto registriert."
+"My Coupons","Meine Gutscheine"
+"Invite Friends","Freunde einladen"
+"Your Firstname", "Dein Vorname"
+"Your Lastname", "Dein Nachname"
+"Confirm Your Password", "Passwort bestätigen"

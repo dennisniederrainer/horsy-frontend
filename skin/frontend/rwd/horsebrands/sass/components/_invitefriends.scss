@@ -1,0 +1,62 @@
+.invitefriends__register .form-wrapper {
+  width: 50%;
+
+  @include media('<desktop') {
+    width: 100%;
+  };
+
+  h2.title { display: none; }
+  .buttons-container {
+    button, a.button {
+      width: 100%;
+    }
+  }
+}
+
+.invitefriends__coupons {
+  p {
+    margin: 1rem 0 1.5rem;
+  }
+  ol {
+    margin-top: 2rem;
+  }
+}
+
+.invitefriends {
+  h3.sub { margin-bottom: 2rem; }
+}
+
+ul.indent { margin: 1rem 0 1rem 2rem; }
+
+.form-wrapper {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid $gray-lighter-3;
+  border-radius: $border-radius-default;
+
+  form {
+    margin: 2rem 0 0;
+
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+
+  dl {
+    margin: 1rem 0;
+    dd { font-weight: 600; }
+  }
+}
+
+.invitefriends__info {
+  p { margin-bottom: 1.5rem; }
+  p.fineprint {
+    font-size: .625rem;
+    line-height: .875rem;
+  }
+}
+
+.form__buttons {
+  @include clearfix;
+  margin-top: 1rem;
+}

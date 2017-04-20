@@ -66,7 +66,7 @@
                   <span class="note">
                   <?php echo
                     (Mage::helper('tax')->priceIncludesTax() ?
-                      $this->__('incl. VAT, %sexcl. shipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>')
+                      $this->__('incl. VAT, excl. %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>')
                       : $this->__('excl. VAT and %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>')); ?>
                   </span>
               </div>

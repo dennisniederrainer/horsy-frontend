@@ -1,8 +1,13 @@
 <?php
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
-    $_category = mage::registry('current_category');
-    $_showProductPrice = !($_category->getId() == 114);
+    $_category = (mage::registry('current_category') ? mage::registry('current_category') : null);
+    $_showProductPrice = true;
+
+    if($this->getShowPrices() && $this->getShowPrices() == "false") {
+      $_showProductPrice = false;
+    }
+    // $_showProductPrice = !($_category->getId() == 114);
 
     $_isShowHeadline = $this->getIsShowHeadline();
     $_toolbar = $this->getToolbarBlock();
@@ -55,7 +60,9 @@
                  </div>
                  <div class="product-list-price right">
                    <div class="product-price">
+                    <?php if($_showProductPrice): ?>
                      <?php echo $this->getPriceHtml($_product, true) ?>
+                    <?php endif; ?>
                    </div>
                  </div>
                </div>

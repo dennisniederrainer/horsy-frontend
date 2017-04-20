@@ -7,12 +7,9 @@
     <div class="block-content">
       <label for="mini-login"><?php echo $this->__('Email:') ?></label><input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="login[username]" id="mini-login" class="input-text validate-email required-entry" />
       <label for="mini-password"><?php echo $this->__('Password:') ?></label><input type="password" name="login[password]" id="mini-password" class="input-text required-entry" />
-      <?php /* <div class="input-block checkbox">
-        <input type="checkbox" name="privacy_policy" value="1" title="<?php echo $this->__('Accept the privacy policy') ?>" class="checkbox required-entry">
-        <label class="smaller">Ja, ich stimme den <a class="condition" href="<?php echo $this->getUrl('agb'); ?>" target="_blank">AGB</a> und den <a class="condition" href="<?php echo $this->getUrl('datenschutz'); ?>" target="_blank">Datenschutzbestimmungen</a> von Horsebrands zu.</label>
-      </div> */ ?>
+      <a class="forgot-password right" href="<?php echo $this->getUrl('customer/account/forgotpassword') ?>"><?php echo $this->__("Forgot Password") ?>?</a>
       <div class="actions">
-        <button type="submit" class="button gold right"><span><span><?php echo $this->__('Login') ?></span></span></button>
+        <button type="submit" class="button gold right"><span><span><?php echo $this->__('Log In') ?></span></span></button>
         <a href="<?php echo $this->getUrl('customer/account/login') ?>" class="mini-registration-link">Noch kein Konto? Jetzt registrieren!</a>
       </div>
     </div>

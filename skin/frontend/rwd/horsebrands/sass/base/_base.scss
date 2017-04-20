@@ -254,7 +254,8 @@ section {
 	&.link-addtocart {
 		font-size: $font-size-medium;
 		font-weight: $font-weight-bold;
-		padding: .875em 0;
+		padding: .95em 0;
+		text-transform: uppercase;
 	}
 }
 
