@@ -1,0 +1,32 @@
+<?php $coupons = $this->getCoupons(); ?>
+<section class="invitefriends__coupons">
+  <h1>Deine Freunde-Einladen-Gutscheine</h1>
+  <?php if(count($coupons) > 0): ?>
+    <p>
+      Bei einem Warenkorbwert ab 70€ kannst du einen der folgenden Gutscheine einlösen:
+    </p>
+    <ol class="indent">
+      <?php foreach($coupons as $coupon): ?>
+        <li>
+          <?php if($invite = $coupon->getInvite()): ?>
+            <?php if($coupon->getInviteType() == Horsebrands_Invitefriends_Model_Invite::INVITE_TYPE_INVITED): ?>
+              Du wurdest von <strong><?php echo $invite->getCustomerEmail() ?></strong> eingeladen.<br />
+            <?php elseif($coupon->getInviteType() == Horsebrands_Invitefriends_Model_Invite::INVITE_TYPE_INVITING): ?>
+              Du hast <strong><?php echo $invite->getInviteeEmail() ?></strong> erfolgreich eingeladen.<br />
+            <?php endif; ?>
+          <?php endif; ?>
+          Gutscheincode: <strong><?php echo $coupon->getCode(); ?></strong>
+          (gültig bis <?php echo date('d.m.Y', strtotime($coupon->getExpirationDate())); ?>)
+        </li>
+      <?php endforeach; ?>
+    </ol>
+  <?php else: ?>
+    <p>
+      Du verfügst leider über keine gültigen Gutscheine.
+    </p>
+    <p>
+      Lade Freunde ein und sichere dir einen 10€ Gutschein.<br />
+      <a href="<?php echo $this->getUrl('invitefriends/invite') ?>">Jetzt einladen ></a>
+    </p>
+  <?php endif; ?>
+</section>
