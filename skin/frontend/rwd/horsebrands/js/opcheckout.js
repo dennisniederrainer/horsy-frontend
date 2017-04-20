@@ -67,7 +67,6 @@ Checkout.prototype = {
     },
 
     reloadProgressBlock: function(toStep) {
-        console.log(toStep);
         this.reloadStep(toStep);
         if (this.syncBillingShipping) {
             this.syncBillingShipping = false;
@@ -177,7 +176,7 @@ Checkout.prototype = {
                 this.saveMethodUrl,
                 {method: 'post', onFailure: this.ajaxFailure.bind(this), parameters: {method:'guest'}}
             );
-            Element.hide('register-customer-password');
+            // Element.hide('register-customer-password');
             this.gotoSection('billing', true);
         }
         else if($('login:register') && ($('login:register').checked || $('login:register').type == 'hidden')) {
@@ -419,14 +418,12 @@ Billing.prototype = {
             }
 
             return false;
+        } else {
+          console.log('laeuft nicht rein!');
         }
 
         checkout.setStepResponse(response);
         payment.initWhatIsCvvListeners();
-        // DELETE
-        //alert('error: ' + response.error + ' / redirect: ' + response.redirect + ' / shipping_methods_html: ' + response.shipping_methods_html);
-        // This moves the accordion panels of one page checkout and updates the checkout progress
-        //checkout.setBilling();
     }
 }
 

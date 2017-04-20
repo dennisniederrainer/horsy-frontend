@@ -27,27 +27,24 @@
     <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name></action>
     <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
   </reference>
-  <reference name="after_body_start">
-
-  </reference>
   <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
      <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
      <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
      <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
      <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
   </block>
-  <reference name="header">
-    <block type="cms/block" name="topline.content">
-        <action method="setBlockId"><block_id>topline_content</block_id></action>
-    </block>
-    <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
-  </reference>
   <reference name="root">
     <block type="core/text_list" name="top.menu.sidebar" translate="label">
       <block type="page/html_topmenu" name="catalog.topnav.offcanvas" template="page/html/topmenu_offcanvas.phtml">
           <block type="page/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>
       </block>
     </block>
+  </reference>
+  <reference name="header">
+    <block type="cms/block" name="topline.content">
+      <action method="setBlockId"><block_id>topline_content</block_id></action>
+    </block>
+    <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
   </reference>
   <reference name="footer">
     <block type="cms/block" name="footer_content">
@@ -77,7 +74,7 @@
 
 <catalog_product_view>
   <reference name="head">
-    <action method="addItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
+    <action method="removeItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
   </reference>
   <reference name="product.info.media">
     <block type="core/text_list" name="product.info.media.after" as="after" />
@@ -155,6 +152,9 @@
   </reference>
   <reference name="header">
     <action method="setTemplate"><template>checkout/onepage/header.phtml</template></action>
+    <block type="cms/block" name="topline.content">
+      <action method="setBlockId"><block_id>topline_checkout_content</block_id></action>
+    </block>
   </reference>
   <reference name="checkout.onepage.login">
     <action method="setTemplate" >

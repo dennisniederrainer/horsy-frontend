@@ -1,0 +1,12 @@
+<?php $paymentmethodTitle = Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getTitle() ?>
+<?php $appendex = ''; ?>
+
+<?php if(strtolower($paymentmethodTitle) == 'paypal' || strtolower($paymentmethodTitle) == 'sofortüberweisung'): ?>
+  <?php $appendix = "und weiter zu " . $paymentmethodTitle; ?>
+<?php endif; ?>
+
+<button type="submit" class="button btn-checkout" onclick="review.save();" style="padding: 0 1rem;">
+  <span><span>
+    <?php echo $this->__('Place Order') .' '. $appendix ?>
+  </span></span>
+</button>

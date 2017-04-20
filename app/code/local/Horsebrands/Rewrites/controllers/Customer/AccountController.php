@@ -10,12 +10,6 @@ class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_Acco
     //     ->setStatus(Mage_Sales_Model_Order::STATE_PROCESSING)
     //     ->save();
 
-    // uncancel items
-    // foreach ($order->getAllItems() as $item) {
-    //   $item->setQtyShipped(1);
-    //   $item->save();
-    // }
-
     die('done.');
   }
 
@@ -44,15 +38,27 @@ class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_Acco
       $this->_redirect('*/*/');
       return;
     }
+
     $session = $this->_getSession();
     if ($this->getRequest()->isPost()) {
+
       $login = $this->getRequest()->getPost('login');
+      $persistent_login = $this->getRequest()->getPost('persistent_login');
+
       if (!empty($login['username']) && !empty($login['password'])) {
         try {
           $session->login($login['username'], $login['password']);
+
           if ($session->getCustomer()->getIsJustConfirmed()) {
             $this->_welcomeCustomer($session->getCustomer(), true);
           }
+
+          if ($persistent_login) {
+            $customerID = $session->getCustomer()->getId();
+            $expire = time() + (365 * 24 * 60 * 60);
+            setcookie('horse_stay_logged_in', $customerID, $expire, '/');
+          }
+
         } catch (Mage_Core_Exception $e) {
           switch ($e->getCode()) {
             case Mage_Customer_Model_Customer::EXCEPTION_EMAIL_NOT_CONFIRMED:
