@@ -86,11 +86,14 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
         $latest->addDay('1');
       }
 
+      $earliestWeekday = Mage::getModel('core/date')->date('l', $earliest);
+      $latestWeekday = Mage::getModel('core/date')->date('l', $latest);
+
       $earliest = Mage::getModel('core/date')->date('d.m.Y', $earliest);
       $latest = Mage::getModel('core/date')->date('d.m.Y', $latest);
 
-      $earliestText = Mage::helper('core')->formatDate($earliest, 'short', false);
-      $latestText = Mage::helper('core')->formatDate($latest, 'short', false);
+      $earliestText = $this->__($earliestWeekday) .', '. $earliest;
+      $latestText = $this->__($latestWeekday) .', '. $latest;
 
       return $earliestText . ' - ' . $latestText;
     }
@@ -160,5 +163,17 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     }
 
     return $hasInactiveItems;
+  }
+
+  public function isDuplicateEmailAddress($email) {
+    $customer = Mage::getModel('customer/customer')
+                  ->setWebsiteId(Mage::app()->getWebsite()->getId())
+                  ->loadByEmail($email);
+
+    if($customer->getId()) {
+      return true;
+    }
+
+    return false;
   }
 }

@@ -1,42 +1,33 @@
 <?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
-<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
-<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $items = $this->getItems(); ?>
 <?php $checkouthelper = $this->helper('horsebrands_rewrites/checkout'); ?>
 
-<?php $shopItems = $checkouthelper->getItemsExceptStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
-<?php $dealsItems = $checkouthelper->getItemsByStoreId($this->getQuote()->getItemsCollection(), $_STORE_ID_DEALS); ?>
-<?php $isMultiShippingPossible = false; //(count($shopItems) > 0 && count($dealsItems) > 0) ?>
-
-<?php //$delivery_bundle = $checkouthelper->getEstimatedShippingText($this->getQuote()->getItemsCollection()) ?>
-<?php $delivery_shop = null; //$checkouthelper->getEstimatedShippingText($shopItems) ?>
-<?php $delivery_deals = null; //$checkouthelper->getEstimatedShippingText($dealsItems) ?>
+<?php $delivery = $checkouthelper->getEstimatedShippingText($items) ?>
 
 <div class="cart <?php echo $_priceDisplay; ?>">
     <?php echo $this->getMessagesBlock()->toHtml() ?>
     <div class="page-title title-buttons clearfix">
       <?php // EXPRESS CHECKOUT METHODS later! ?>
       <?php if(!$this->hasError()): ?>
-        <ul class="checkout-types top">
-          <li>
-            <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>" class="button white height-m width-m">
-              <?php echo $this->__('Continue Shopping') ?>
-            </a>
-          </li>
+        <div>
+          <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>">
+            <i class="fa fa-angle-double-left"></i>  <?php echo $this->__('Continue Shopping') ?>
+          </a>
+        </div>
+        <h1 class="strong"><?php echo $this->__('Shopping Cart') ?> <span>(<?php echo count($items) ?>)</span></h1>
+        <div>
           <?php foreach ($this->getMethods('top_methods') as $method): ?>
             <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-              <li><?php echo $methodHtml; ?></li>
+              <?php echo $methodHtml; ?>
             <?php endif; ?>
           <?php endforeach; ?>
-        </ul>
+        </div>
+      <?php else: ?>
+        <h1 class="strong"><?php echo $this->__('Shopping Cart') ?> <span>(<?php echo count($items) ?>)</span></h1>
       <?php endif; ?>
-      <h1 class="strong"><?php echo $this->__('Your Shopping Carts') ?></h1>
     </div>
 
     <div class="cart-shop">
-      <div class="cart-title">
-        <h1 class="with-note"><?php echo $this->__('Delivery').' ' ?><span class="strong">Shop</span></h1>
-      </div>
-
       <?php echo $this->getChildHtml('form_before') ?>
       <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
         <?php echo $this->getBlockHtml('formkey'); ?>
@@ -49,25 +40,21 @@
               <th >&nbsp;</th>
             </tr>
           </thead>
-          <?php if(count($shopItems)>0): ?>
+          <?php if(count($items)>0): ?>
           <tbody>
-            <?php foreach($shopItems as $_item): ?>
+            <?php foreach($items as $_item): ?>
               <?php echo $this->getItemHtml($_item) ?>
             <?php endforeach ?>
           </tbody>
-          <tfoot>
-            <tr>
-            <td colspan="2" class="a-right cart-part-totals">
-              <?php echo $this->getChild('totals')->setTotalItems($shopItems)->toHtml(); ?>
-            </td>
-            </tr>
-          </tfoot>
           <?php else: ?>
             <tbody>
               <tr>
                 <td colspan="6">
                   <p class="empty">
-                    <?php echo $this->__('You have no Items of Horsebrands Shop in your cart') ?>
+                    <?php echo $this->__('You have no Items in your cart.') ?>
+                  </p>
+                  <p class="empty">
+                    Hier kannst du ihn auffüllen: Button DEALS, Button SHOP
                   </p>
                 </td>
               </tr>
@@ -75,52 +62,6 @@
           <?php endif; ?>
         </table>
         <script type="text/javascript">decorateTable('shopping-cart-table-shop')</script>
-      </form>
-    </div>
-
-    <div class="cart-deals">
-      <div class="cart-title">
-        <h1 class="with-note"><?php echo $this->__('Delivery').' ' ?><span class="strong">Deals</span></h1>
-      </div>
-
-      <?php echo $this->getChildHtml('form_before') ?>
-      <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
-        <?php echo $this->getBlockHtml('formkey'); ?>
-        <table id="shopping-cart-table-deals" class="cart-table data-table">
-          <col width="30%"/>
-          <col width="70%"/>
-          <thead>
-            <tr>
-              <th >&nbsp;</th>
-              <th >&nbsp;</th>
-            </tr>
-          </thead>
-          <?php if(count($dealsItems)>0): ?>
-          <tbody>
-            <?php foreach($dealsItems as $_item): ?>
-              <?php echo $this->getItemHtml($_item) ?>
-            <?php endforeach ?>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="2" class="a-right cart-part-totals">
-                <?php echo $this->getChild('totals')->setTotalItems($dealsItems)->toHtml(); ?>
-              </td>
-            </tr>
-          </tfoot>
-        <?php else: ?>
-          <tbody>
-            <tr>
-              <td colspan="6">
-                <p class="empty">
-                  <?php echo $this->__('You have no Items of Horsebrands Deals in your cart') ?>
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        <?php endif; ?>
-      </table>
-      <script type="text/javascript">decorateTable('shopping-cart-table-deals')</script>
       </form>
     </div>
 
@@ -137,25 +78,21 @@
     <div class="summary-wrapper">
       <div class="summary-left-wrapper">
         <div class="summary-shipping clearfix">
-          <?php /* <div class="icon-container hide-small">
+          <div class="icon-container hide-small">
             <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
           </div>
           <div class="shipping-estimate-wrapper">
             <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-            <?php if($delivery_bundle): ?>
-              <p><?php echo $delivery_bundle ?></p>
+            <?php if($delivery): ?>
+              <p><?php echo $delivery ?></p>
             <?php endif; ?>
-            <?php if($delivery_shop): ?>
-              <p><strong>Lieferung Shop:</strong> <?php echo $delivery_shop ?></p>
-            <?php endif; ?>
-            <?php if($delivery_deals): ?>
-              <p><strong>Lieferung Deals:</strong> <?php echo $delivery_deals ?></p>
-            <?php endif; ?>
-          </div> */ ?>
+          </div>
         </div>
         <div class="summary-coupon">
-          <p><strong>Du hast einen Gutscheincode?</strong><br />
-          Gutscheincodes können in der Bestellübersicht, am Ende Deines Bestellvorgangs eingelöst werden.</p>
+          <p>
+            Artikel im Warenkorb werden nicht reserviert.<br />
+            Gutscheincodes können im letzten Bestellschritt "Bestätigen" eingelöst werden.
+          </p>
         </div>
       </div>
       <div class="cart-totals-wrapper">
@@ -169,10 +106,6 @@
                   <?php endif; ?>
                 <?php endforeach;  ?>
                 </ul>
-                <div class="split-shipping-wrapper" style="clear: both; float: right;<?php echo (!$isMultiShippingPossible ? ' display: none !important;' : '') ?>">
-                  <input id="enable-splitshipping" type="checkbox" name="enable-splitshipping" <?php echo (!$isMultiShippingPossible ? 'checked' : '') ?> />
-                  <label for="enable-splitshipping" style="display: inline-block">Fasse Deine Bestellung zusammen und spare Versandkosten</label>
-                </div>
               <?php endif; ?>
           </div>
       </div>

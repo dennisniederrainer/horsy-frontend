@@ -1,14 +1,10 @@
 <?php echo $this->getChildHtml('items_before'); ?>
-<?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
-<?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
-<?php $estimateShipping = Mage::helper('horsebrands_rewrites/checkout')->getEstimatedShippingText($this->getItems()); ?>
 <?php $couponCode = Mage::getSingleton('checkout/cart')->getQuote()->getCouponCode(); ?>
 
 <div id="checkout-review-table-wrapper">
   <?php echo $this->getMessagesBlock()->toHtml() ?>
   <div class="title-container">
-    <h2><?php echo $this->__('Your Order'); ?></h2>
-    <!-- <span class="cart-id">Shop</span> -->
+    <h2><?php echo $this->__('Check your Order'); ?></h2>
   </div>
     <?php $_tableClass = $this->helper('tax')->displayCartBothPrices() ? 'linearize-table-large' : 'linearize-table'; ?>
     <table class="data-table <?php echo $_tableClass; ?> checkout-review-table" id="checkout-review-table">
@@ -28,7 +24,7 @@
         <?php endforeach ?>
       </tbody>
       <?php // store_id == -1: estimate shipping information for whole order ?>
-      <?php $block = $this->getChild('totals')->setData('estimate_shipping', $estimateShipping); ?>
+      <?php $block = $this->getChild('totals'); ?>
       <tfoot>
         <?php echo $block->toHtml(); ?>
         <tr>
@@ -36,7 +32,7 @@
             <div class="coupon-review-wrapper">
               <form id='discount-coupon-form' action='<?php echo $this->getUrl("checkout/onepage/applyCoupon") ?>' method='post'>
                 <?php if(!strlen($couponCode)):?>
-                  <label for='coupon_code'> <?php echo $this->__('Do you have a coupon code?') ?></label>
+                  <label for='coupon_code'> <?php echo $this->__('Coupon code? (optional)') ?></label>
                 <?php else: ?>
                   <label for='coupon_code'> <?php echo $this->__('Your applied coupon code') ?>:</label>
                 <?php endif; ?>
@@ -72,11 +68,10 @@
 <div id="checkout-review-submit">
     <?php echo $this->getChildHtml('agreements') ?>
     <div class="buttons-set clearfix" id="review-buttons-container">
-        <?php echo $this->getChildHtml('button') ?>
-        <span class="please-wait" id="review-please-wait" style="display:none;">
-            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Submitting order information...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Submitting order information...')) ?>" class="v-middle" /> <?php echo $this->__('Submitting order information...') ?>
-        </span>
-        <!-- <p class="f-left"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart') ?>" onclick="return confirm('<?php echo Mage::helper('core')->jsQuoteEscape($this->__('Are you sure you want to leave this page? You will need to go through the checkout steps again.')); ?>')"><?php echo $this->__('Edit Your Cart') ?></a></p> -->
+      <?php echo $this->getChildHtml('button') ?>
+      <span class="please-wait" id="review-please-wait" style="display:none;">
+        <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Submitting order information...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Submitting order information...')) ?>" class="v-middle" /> <?php echo $this->__('Submitting order information...') ?>
+      </span>
     </div>
     <script type="text/javascript">
     //<![CDATA[

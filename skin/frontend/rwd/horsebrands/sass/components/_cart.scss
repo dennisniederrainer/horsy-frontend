@@ -3,8 +3,13 @@
 }
 
 .cart {
+  .page-title {
+    margin-top: 3rem;
+    display: flex;
+  }
   .page-title.title-buttons h1{
-    float: left;
+    flex-grow: 2;
+    text-align: center;
   }
 
   h1 {
@@ -17,6 +22,21 @@
   .cart-title {
     margin: 15px 0;
   }
+
+  @include media('<tablet') {
+    .page-title {
+      flex-direction: column-reverse;
+
+      & > div {
+        margin-bottom: 2rem;
+        text-align: center;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  };
 }
 
 .cart-table,
@@ -59,7 +79,7 @@
       }
 
       .btn-remove {
-        @include same-link-style($black-base);
+        @include same-link-style($gray-lighter-1);
         position: absolute;
         top: 15px; right: 20px;
       }
@@ -154,19 +174,15 @@
   };
 }
 
+.cart-shop {
+  border-top: 1px solid $grey-base-light;
+  border-bottom: 1px solid $grey-base;
+  padding: 2rem 0 3rem;
+  margin: 2rem 0;
+}
+
 .summary-wrapper {
   @include clearfix;
-  margin-top: 40px;
-  padding-top: 5px;
-  border-top: 2px solid $gray-base;
-
-  &:before {
-    content: ' ';
-    border-top: 1px solid $gray-base;
-    display: block;
-    width: 100%;
-    padding-top: 20px;
-  }
 
   .summary-left-wrapper {
     float: left;
@@ -187,6 +203,12 @@
   p {
     font-size: $font-size-smaller;
   }
+
+  @include media('<tablet') {
+    p {
+      text-align: center;
+    }
+  };
 }
 
 .summary-shipping {
@@ -260,13 +282,11 @@ ul.checkout-types{
     li {
       display: block;
       margin-right: 0;
-      // width: 48%;
 
-      // button {
-      //   padding-left: 0;
-      //   padding-right: 0;
-      //   width: 100%;
-      // }
+      button {
+        width: 100%;
+        
+      }
     }
 
     &.bottom li {
@@ -306,6 +326,7 @@ ul.checkout-types{
         .btn-remove {
           top: 5px;
           right: 15px;
+          color: $gray-lighter-1;
         }
       }
     }
@@ -361,7 +382,7 @@ ul.checkout-types{
 dl.totals-block {
   @include clearfix;
   float: right;
-  margin-top: 0;
+  margin: 2rem 0;
 
   dt, dd {
     float: left;
@@ -373,14 +394,20 @@ dl.totals-block {
 
     &.totals-strong {
       font-weight: $weight-bold;
+      font-size: 1.25rem;
     }
   }
   dt {
     clear: left;
   }
-  dd {
-    width: 180px;
-  }
+
+  @include media('>tablet') {
+    margin: 0 0 1.5rem;
+
+    dd {
+      width: 180px;
+    }
+  };
 }
 
 #wishlist-table td.wishlist-comment {

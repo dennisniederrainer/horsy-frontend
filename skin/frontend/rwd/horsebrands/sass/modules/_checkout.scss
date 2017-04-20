@@ -201,10 +201,27 @@ dl.sp-methods {
     position: absolute;
     top: 0;
     width: 25%;
-    background-color: $gray-lighter-6;
-    color: $gray-base;
+    height: 3rem;
 
-    .number { display: none; }
+		.progress-line {
+			position: absolute;
+			top: 50%; left: 0; right: 0;
+			transform: translateY(-50%);
+			border-color: $black-base;
+			border-top-width: 2px;
+			margin: 0;
+		}
+    .number {
+			position: absolute;
+			top: 50%; left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #fff;
+			border: 2px solid $black-base;
+			border-radius: 180%;
+			height: 2rem; width: 2rem; line-height: 1.8rem;
+			text-align: center;
+			font-weight: 600;
+		}
     a  {
       position: absolute;
       top: 0;
@@ -216,18 +233,22 @@ dl.sp-methods {
     }
 
     h2 {
-      font-size: $font-size-normal;
-      font-weight: normal;
-      text-align: center;
+			display: none;
+			position: absolute;
+	    font-size: 1rem;
+	    font-weight: normal;
+	    text-align: center;
+	    left: 50%;
+	    bottom: -2rem;
+	    transform: translateX(-50%);
     }
   }
 
   li.section {
 		&.allow {
-			.step-title {
-				background: url('../images/icons/icon-check-green.svg') 90% no-repeat;
-				background-size: 15px;
-				background-color: $gray-lighter-6;
+			.number {
+				border-color: $green-success;
+				color: $green-success;
       }
 
 			a {
@@ -235,10 +256,11 @@ dl.sp-methods {
 			}
 		}
     &.active {
-      .step-title {
-				background: none;
-        background-color: $gray-lighter-4;
+      .number {
+				border-color: $black-base;
+				color: $black-base;
       }
+			h2 { display: block; }
     }
   }
 }
@@ -348,7 +370,7 @@ span.count {
 
 .same-as-billing-container {
 	input {
-		margin-left: 10px;
+		// margin-left: 10px;
 		margin-right: 5px;
 	}
 	label {
@@ -628,5 +650,15 @@ tfoot.multi-totals {
 
 	dd {
 		margin-bottom: 8px;
+	}
+}
+
+.grand_total_overview {
+	padding: 0 10px;
+
+	dl.totals-block {
+		@include box-shadow(0 0 2px $gray-lighter-3);
+    margin: 0 0 2rem;
+    padding: 10px;
 	}
 }

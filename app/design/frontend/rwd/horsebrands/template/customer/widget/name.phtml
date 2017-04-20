@@ -8,11 +8,11 @@
       <?php if ($this->getPrefixOptions() === false): ?>
           <input type="text" id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" value="<?php echo $this->escapeHtml($this->getObject()->getPrefix()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('prefix')) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('prefix') ?>" <?php echo $this->getFieldParams() ?> />
       <?php else: ?>
-          <select id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('prefix')) ?>" class="<?php echo $this->helper('customer/address')->getAttributeValidationClass('prefix') ?>" <?php echo $this->getFieldParams() ?>>
-          <?php foreach ($this->getPrefixOptions() as $_option): ?>
-              <option value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
-          <?php endforeach; ?>
-          </select>
+        <select id="<?php echo $this->getFieldId('prefix')?>" name="<?php echo $this->getFieldName('prefix')?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('prefix')) ?>" class="<?php echo $this->helper('customer/address')->getAttributeValidationClass('prefix') ?>" <?php echo $this->getFieldParams() ?>>
+        <?php foreach ($this->getPrefixOptions() as $_option): ?>
+            <option value="<?php echo $_option?>"<?php if ($this->getObject()->getPrefix()==$_option):?> selected="selected"<?php endif; ?>><?php echo $this->__($_option)?></option>
+        <?php endforeach; ?>
+        </select>
       <?php endif; ?>
     </div>
   </div>

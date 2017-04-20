@@ -9,7 +9,8 @@ class Horsebrands_Rewrites_Block_Checkout_Onepage extends Mage_Checkout_Block_On
       $steps['login'] = $this->getCheckout()->getStepData('login');
     }
 
-    $stepCodes = array('login', 'billing', 'shipping', 'payment', 'review');
+    // $stepCodes = array('login', 'billing', 'shipping', 'payment', 'review');
+    $stepCodes = array('login', 'billing', 'payment', 'review');
 
     foreach ($stepCodes as $step) {
       $steps[$step] = $this->getCheckout()->getStepData($step);

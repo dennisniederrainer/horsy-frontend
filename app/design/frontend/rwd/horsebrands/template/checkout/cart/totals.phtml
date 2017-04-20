@@ -22,10 +22,10 @@
   <dl class="totals-block">
     <dt>
       <?php echo $this->__('Subtotal') ?>:
+      <p class="note"><?php echo $this->__('incl. VAT') ?></p>
     </dt>
     <dd>
       <?php echo $this->helper('checkout')->formatPrice( $_subtotal ); ?>
-      <p class="note"><?php echo $this->__('incl. VAT, excl. %sshipping%s','<a class="text-underline" target="_blank" href="'.$this->getUrl('faq').'#lieferungversand">','</a>') ?></p>
     </dd>
   </dl>
 <?php else: ?>
@@ -34,14 +34,16 @@
       <?php // skip tax declaration ?>
       <?php if($total->getCode() == 'tax') { continue; } ?>
       <?php $isGrandTotal = ($total->getCode() == 'grand_total') ?>
-      <dt<?php echo ($isGrandTotal ? ' class="totals-strong"' : '') ?>><?php echo $label[$total->getCode()] ?>:</dt>
+    <dt<?php echo ($isGrandTotal ? ' class="totals-strong"' : '') ?>>
+      <?php echo $label[$total->getCode()] ?>:
+      <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
+        <p class="note">(<?php echo $this->__('incl. VAT') ?>)</p>
+      <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
+        <p class="note">(<?php echo $this->__('excl. VAT') ?>)</p>
+      <?php endif; ?>
+    </dt>
       <dd class="totals-price<?php echo ($isGrandTotal ? ' totals-strong' : '') ?>">
         <?php echo $this->helper('checkout')->formatPrice( $total->getValue() ); ?>
-        <?php if($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceInclTax()): ?>
-          <p class="note"><?php echo $this->__('incl. VAT, excl. %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>') ?></p>
-        <?php elseif($total->getCode() == 'grand_total' && $this->helper('tax')->displayCartPriceExclTax()): ?>
-          <p class="note"><?php echo $this->__('excl. VAT and %sshipping%s','<a class="text-underline" href="'.$this->getUrl('faq#lieferungversand').'">','</a>') ?></p>
-        <?php endif; ?>
       </dd>
     <?php endforeach; ?>
   </dl>

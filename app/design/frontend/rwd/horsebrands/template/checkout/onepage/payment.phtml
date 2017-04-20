@@ -15,14 +15,23 @@
         <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Loading next step...')) ?>" class="v-middle" /> <?php echo $this->__('Loading next step...') ?>
     </span>
 </form>
-<div class="tool-tip" id="payment-tool-tip" style="display:none;">
-    <div class="btn-close"><a href="#" id="payment-tool-tip-close" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Close')) ?>"><?php echo $this->__('Close') ?></a></div>
-    <div class="tool-tip-content"><img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo Mage::helper('core')->quoteEscape($this->__('Card Verification Number Visual Reference')) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Card Verification Number Visual Reference')) ?>" /></div>
+<div class="grand_total_overview clearfix">
+  <dl class="totals-block">
+    <dt class="totals-strong">
+      <?php echo $this->__('Grand Total') ?>:
+      <p class="note"><?php echo $this->__('incl. VAT and Shipping') ?></p>
+    </dt>
+    <dd class="totals-strong">
+      <?php echo $this->helper('checkout')->formatPrice( Mage::getModel('checkout/session')->getQuote()->getGrandTotal() ); ?>
+    </dd>
+  </dl>
 </div>
 <?php echo $this->getChildChildHtml('additional') ?>
 <div class="buttons-set clearfix" id="payment-buttons-container">
-  <button class="opc-back-button left white" onclick="checkout.back();"><?php echo $this->__('Back'); ?></button>
   <button class="opc-next-button gold right" onclick="payment.save();"><?php echo $this->__('Continue'); ?></button>
+  <div class="fineprint-container" style="clear: both; float: right;">
+    <p>Bestellung im nächsten Schritt überprüfen und absenden</p>
+  </div>
 </div>
 <script type="text/javascript">
 //<![CDATA[

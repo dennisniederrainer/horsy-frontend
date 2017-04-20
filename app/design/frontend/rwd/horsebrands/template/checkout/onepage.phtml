@@ -5,6 +5,7 @@
   <?php if (false && $this->isCustomerLoggedIn()): ?>
   <li id="opc-login" class="section allow <?php //echo (!$this->isCustomerLoggedIn() ? 'active' : '') ?>">
       <div class="step-title">
+        <hr class="progress-line" />
           <span class="number"><?php echo '0' ?></span>
           <h2 class="color-success">
             <img src="<?php echo $this->getSkinUrl('images/icons/icon-lock-green.svg') ?>" alt=" " style="width: 12px; padding-bottom: 4px; margin-right: 2px;" />
@@ -15,12 +16,13 @@
   </li>
   <?php endif; ?>
 <?php $first=true; $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
-<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
+<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; ?>
     <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
-        <div class="step-title">
-            <span class="number"><?php echo $i ?></span>
-            <h2><?php echo ($first ? $this->__('Customer Login') : $_stepInfo['label']); ?></h2>
-            <a href="#">&nbsp;</a>
+        <div class="step-title" <?php echo 'style="left: '.(25*$i).'%;"' ?>>
+          <hr class="progress-line" />
+          <div class="number"><?php echo ++$i ?></div>
+          <h2><?php echo ($first ? $this->__('Customer Login') : $_stepInfo['label']); ?></h2>
+          <a href="#">&nbsp;</a>
         </div>
         <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
             <?php echo $this->getChildHtml($_stepId) ?>
