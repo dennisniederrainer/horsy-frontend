@@ -3,45 +3,58 @@
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout_rwd.js') ?>"></script>
 <ul class="unstyled opc opc-firststep-<?php echo $this->getActiveStep() ?>" id="checkoutSteps">
   <?php if (false && $this->isCustomerLoggedIn()): ?>
-  <li id="opc-login" class="section allow <?php //echo (!$this->isCustomerLoggedIn() ? 'active' : '') ?>">
+    <li id="opc-login" class="section allow <?php echo (!$this->isCustomerLoggedIn() ? 'active' : '') ?>">
       <div class="step-title">
-        <hr class="progress-line" />
-          <span class="number"><?php echo '0' ?></span>
-          <h2 class="color-success">
-            <img src="<?php echo $this->getSkinUrl('images/icons/icon-lock-green.svg') ?>" alt=" " style="width: 12px; padding-bottom: 4px; margin-right: 2px;" />
-            <?php echo $this->__('Anmeldung') ?>
-          </h2>
-          <a href="<?php echo $this->getUrl('checkout/cart') ?>">&nbsp;</a>
+        <hr class="progress-line progress-line__before first" />
+        <span class="number"><?php echo '0' ?></span>
+        <h2 class="color-success">
+          <img src="<?php echo $this->getSkinUrl('images/icons/icon-lock-green.svg') ?>" alt=" " style="width: 12px; padding-bottom: 4px; margin-right: 2px;" />
+          <?php echo $this->__('Anmeldung') ?>
+        </h2>
+        <a href="<?php echo $this->getUrl('checkout/cart') ?>">&nbsp;</a>
+        <hr class="progress-line progress-line__after" />
       </div>
-  </li>
+    </li>
   <?php endif; ?>
-<?php $first=true; $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
-<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; ?>
+  <?php $stepCount = count($this->getSteps());  ?>
+  <?php $first=true; $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+    <?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; ?>
     <li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
-        <div class="step-title" <?php echo 'style="left: '.(25*$i).'%;"' ?>>
-          <hr class="progress-line" />
-          <div class="number"><?php echo ++$i ?></div>
+      <div class="step-title" <?php echo 'style="left: '.(25*$i).'%;"' ?>>
+        <hr class="progress-line progress-line__before<?php echo ($first ? ' first' : '') ?>" />
+        <div class="step-title__label">
+          <div class="number">
+            <!-- <img src="<?php echo $this->getSkinUrl('images/icons/icon-check-green.svg') ?>" alt="" class="icon-complete" /> -->
+            <span><?php echo ++$i ?></span>
+          </div>
           <h2><?php echo ($first ? $this->__('Customer Login') : $_stepInfo['label']); ?></h2>
           <a href="#">&nbsp;</a>
         </div>
-        <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
-            <?php echo $this->getChildHtml($_stepId) ?>
-        </div>
+        <hr class="progress-line progress-line__after<?php echo ($i==$stepCount ? ' last' : '') ?>" />
+      </div>
+      <div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
+        <?php echo $this->getChildHtml($_stepId) ?>
+      </div>
     </li>
     <?php $first = false; ?>
-<?php endforeach ?>
+  <?php endforeach ?>
 </ol>
 <script type="text/javascript">
 //<![CDATA[
-    var accordion = new Accordion('checkoutSteps', '.step-title', true);
-    <?php if($this->getActiveStep()): ?>
-    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
-    <?php endif ?>
-    var checkout = new Checkout(accordion,{
-        progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
-        review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
-        saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
-        failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
-    );
+var accordion = new Accordion('checkoutSteps', '.step-title', true);
+
+<?php if ($this->isCustomerLoggedIn()): ?>
+  $j('#opc-login').addClass('complete');
+<?php endif; ?>
+
+<?php if($this->getActiveStep()): ?>
+  accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
+<?php endif ?>
+var checkout = new Checkout(accordion,{
+  progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
+  review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
+  saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
+  failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
+);
 //]]>
 </script>

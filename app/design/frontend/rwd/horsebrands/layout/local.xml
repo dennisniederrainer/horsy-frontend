@@ -2,127 +2,130 @@
 
 <layout version="0.1.0">
 
-<default>
-  <reference name="head">
-    <action method="setTitle" translate="title">
+  <default>
+    <reference name="head">
+      <action method="setTitle" translate="title">
         <title>Horsebrands</title>
-    </action>
-    <action method="addItem"><type>skin_js</type><name>js/jquery-1.12.0.min.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/jquery-noconflict.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.addListener.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/enquire.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/app.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/horsebrands.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/foundation/vendor/foundation.js</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/foundation/app.js</name></action>
-    <action method="addItem"><type>skin_css</type><name>css/slick.css</name></action>
-    <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name></action>
-    <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
-  </reference>
-  <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
-     <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
-     <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
-     <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
-     <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
-  </block>
-  <reference name="root">
-    <block type="core/text_list" name="top.menu.sidebar" translate="label">
-      <block type="page/html_topmenu" name="catalog.topnav.offcanvas" template="page/html/topmenu_offcanvas.phtml">
+      </action>
+      <action method="addItem"><type>skin_js</type><name>js/jquery-1.12.0.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/jquery-noconflict.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/modernizr.custom.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/selectivizr.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/matchMedia.addListener.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/enquire.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/app.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/horsebrands.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/foundation/vendor/foundation.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/foundation/app.js</name></action>
+      <action method="addItem"><type>skin_css</type><name>css/slick.css</name></action>
+      <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/slick.min.js</name></action>
+    </reference>
+    <block type="page/html_head" name="jsfooter" as="jsfooter" template="page/html/jsfooter.phtml">
+      <action method="addItem"><type>skin_js</type><name>js/hammer.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/imagesloaded.pkgd.min.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
+      <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
+    </block>
+    <reference name="root">
+      <block type="core/text_list" name="top.menu.sidebar" translate="label">
+        <block type="page/html_topmenu" name="catalog.topnav.offcanvas" template="page/html/topmenu_offcanvas.phtml">
           <block type="page/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>
+        </block>
       </block>
-    </block>
-  </reference>
-  <reference name="header">
-    <block type="cms/block" name="topline.content">
-      <action method="setBlockId"><block_id>topline_content</block_id></action>
-    </block>
-    <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
-  </reference>
-  <reference name="footer">
-    <block type="cms/block" name="footer_content">
-      <action method="setBlockId"><block_id>footer_content</block_id></action>
-    </block>
-  </reference>
-  <remove name="right.reports.product.viewed" />
-  <remove name="catalog.compare.sidebar" />
-  <remove name="right.poll" />
-  <remove name="sale.reorder.sidebar" />
-</default>
+    </reference>
+    <reference name="header">
+      <block type="cms/block" name="topline.content">
+        <action method="setBlockId"><block_id>topline_content</block_id></action>
+      </block>
+      <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+    <reference name="footer">
+      <block type="cms/block" name="footer_content">
+        <action method="setBlockId"><block_id>footer_content</block_id></action>
+      </block>
+    </reference>
+    <remove name="right.reports.product.viewed" />
+    <remove name="catalog.compare.sidebar" />
+    <remove name="right.poll" />
+    <remove name="sale.reorder.sidebar" />
 
-<catalog_category_layered>
-  <reference name="root">
+    <reference name="top.links">
+      <remove name="wishlist_link" />
+      <remove name="checkout_cart_link"/>
+    </reference>
+  </reference>
+  </default>
+
+  <catalog_category_layered>
+    <reference name="root">
       <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
-  </reference>
-  <reference name="left">
-    <remove name="catalog.leftnav" />
-    <block type="catalog/navigation" name="catalog.sidenav" template="catalog/navigation/left.phtml"/>
-  </reference>
-  <reference name="product_list">
-    <block type="catalog/layer_view" name="catalog.filter" template="catalog/layer/view.phtml">
-      <action method="unsetChild"><child>category_filter</child></action>
-    </block>
-  </reference>
-</catalog_category_layered>
+    </reference>
+    <reference name="left">
+      <remove name="catalog.leftnav" />
+      <block type="catalog/navigation" name="catalog.sidenav" template="catalog/navigation/left.phtml"/>
+    </reference>
+    <reference name="product_list">
+      <block type="catalog/layer_view" name="catalog.filter" template="catalog/layer/view.phtml">
+        <action method="unsetChild"><child>category_filter</child></action>
+      </block>
+    </reference>
+  </catalog_category_layered>
 
-<catalog_product_view>
-  <reference name="head">
-    <action method="removeItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
-  </reference>
-  <reference name="product.info.media">
-    <block type="core/text_list" name="product.info.media.after" as="after" />
-  </reference>
-  <reference name="product.info">
-    <block type="review/product_view_list" name="product.info.product_additional_data" as="product_review" template="review/product/view/list.phtml">
-      <block type="review/form" name="product.review.form" as="review_form"/>
-    </block>
-  </reference>
-  <reference name="product.info.media">
+  <catalog_product_view>
+    <reference name="head">
+      <action method="removeItem"><type>skin_js</type><script>js/lib/elevatezoom/jquery.elevateZoom-3.0.8.min.js</script></action>
+    </reference>
+    <reference name="product.info.media">
       <block type="core/text_list" name="product.info.media.after" as="after" />
-  </reference>
-  <reference name="product.info.options.wrapper.bottom">
-    <remove name="product.clone_prices" />
-  </reference>
+    </reference>
+    <reference name="product.info">
+      <block type="review/product_view_list" name="product.info.product_additional_data" as="product_review" template="review/product/view/list.phtml">
+        <block type="review/form" name="product.review.form" as="review_form"/>
+      </block>
+    </reference>
+    <reference name="product.info.media">
+      <block type="core/text_list" name="product.info.media.after" as="after" />
+    </reference>
+    <reference name="product.info.options.wrapper.bottom">
+      <remove name="product.clone_prices" />
+    </reference>
 
-  <remove name="product.info.sharing" />
-</catalog_product_view>
+    <remove name="product.info.sharing" />
+  </catalog_product_view>
 
-<!-- <PRODUCT_TYPE_configurable>
+  <!-- <PRODUCT_TYPE_configurable>
 
-      <reference name="product.info.options.configurable">
+  <reference name="product.info.options.configurable">
 
-          <block type="core/text_list" name="product.info.options.configurable.renderers" as="attr_renderers">
-                      <block type="configurableswatches/catalog_product_view_type_configurable_swatches" template="configurableswatches/catalog/product/view/type/options/configurable/swatches.phtml" />
-          </block>
-          <block type="core/text_list" name="product.info.options.configurable.after" as="after">
-          <block type="core/template" template="configurableswatches/catalog/product/view/type/configurable/swatch-js.phtml" />
-          </block>
+  <block type="core/text_list" name="product.info.options.configurable.renderers" as="attr_renderers">
+  <block type="configurableswatches/catalog_product_view_type_configurable_swatches" template="configurableswatches/catalog/product/view/type/options/configurable/swatches.phtml" />
+</block>
+<block type="core/text_list" name="product.info.options.configurable.after" as="after">
+<block type="core/template" template="configurableswatches/catalog/product/view/type/configurable/swatch-js.phtml" />
+</block>
 
-      </reference>
+</reference>
 
-  </PRODUCT_TYPE_configurable> -->
+</PRODUCT_TYPE_configurable> -->
 
 <customer_account>
   <remove name="catalog.compare.sidebar"/>
   <remove name="sale.reorder.sidebar"/>
 
   <reference name="left">
-      <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
-        <action method="addLink" translate="label"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
-        <action method="addLink" translate="label"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
-        <action method="addLink" translate="label"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
-        <action method="addLink" translate="label"><name>order_history</name><path>sales/order/history</path><label>My Orders</label></action>
-        <action method="addLink" translate="label"><name>newsletter_subscription</name><path>newsletter/manage/</path><label>My Newsletter</label></action>
-        <action method="addLink" translate="label"><name>coupons</name><path>invitefriends/coupons/</path><label>My Coupons</label></action>
-        <action method="addLink" translate="label"><name>invitefriends</name><path>invitefriends/invite/</path><label>Invite Friends</label></action>
-      </block>
+    <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
+      <action method="addLink" translate="label"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
+      <action method="addLink" translate="label"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+      <action method="addLink" translate="label"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+      <action method="addLink" translate="label"><name>order_history</name><path>sales/order/history</path><label>My Orders</label></action>
+      <action method="addLink" translate="label"><name>newsletter_subscription</name><path>newsletter/manage/</path><label>My Newsletter</label></action>
+    </block>
   </reference>
 </customer_account>
 
@@ -136,9 +139,9 @@
 <customer_account_index>
   <!-- overwrite crconnect dashboard info -->
   <reference name="customer_account_dashboard_info">
-      <action method="setTemplate">
-          <template>customer/account/dashboard/info.phtml</template>
-      </action>
+    <action method="setTemplate">
+      <template>customer/account/dashboard/info.phtml</template>
+    </action>
   </reference>
 </customer_account_index>
 
@@ -158,7 +161,7 @@
   </reference>
   <reference name="checkout.onepage.login">
     <action method="setTemplate" >
-        <template>persistent/checkout/onepage/login.phtml</template>
+      <template>persistent/checkout/onepage/login.phtml</template>
     </action>
     <remove name="inchoo_socialconnect_checkout" />
     <block type="customer/form_register" name="customer_form_register" as="registration" template="customer/form/register.phtml">
@@ -181,108 +184,140 @@
       <label>Checkout Progress Wrapper</label>
       <action method="setElementId"><value>checkout-progress-wrapper</value></action>
       <block type="checkout/onepage_progress" name="checkout.progress" before="-" template="checkout/onepage/progress.phtml">
-          <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"></block>
-          <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"></block>
-          <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
-          <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
+        <block type="checkout/onepage_progress" name="billing.progress" template="checkout/onepage/progress/billing.phtml"></block>
+        <block type="checkout/onepage_progress" name="shipping.progress" template="checkout/onepage/progress/shipping.phtml"></block>
+        <block type="checkout/onepage_progress" name="shippingmethod.progress" template="checkout/onepage/progress/shipping_method.phtml"></block>
+        <block type="checkout/onepage_progress" name="payment.progress" template="checkout/onepage/progress/payment.phtml"></block>
       </block>
     </block>
   </reference>
 </checkout_onepage_index>
 
-  <wishlist_index_index>
-    <reference name="customer.wishlist.items">
-      <remove name="customer.wishlist.item.quantity" />
-      <remove name="customer.wishlist.item.remove" />
-      <reference name="customer.wishlist.item.info">
-        <action method="setTitle" translate="title">
-          <title>Private Comment</title>
-        </action>
-      </reference>
-    </reference>
-  </wishlist_index_index>
-
-  <sendfriend_product_send translate="label">
-    <remove name="wishlist_sidebar" />
-  </sendfriend_product_send>
-
-  <attributesplash_page_view>
-    <reference name="root">
-      <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
-    </reference>
-		<reference name="left">
-			<remove name="currency" />
-			<remove name="catalog.leftnav" />
-      <block type="horsebrands_rewrites/attributeSplash_page_view_navigation" name="catalog.sidenav" template="attribute-splash/page/navigation/left.phtml"/>
-		</reference>
-    <reference name="product_list">
-      <block type="attributeSplash/layer_view" name="catalog.filter" template="catalog/layer/view.phtml" />
-		</reference>
-	</attributesplash_page_view>
-
-  <sales_order_printinvoice>
-    <reference name="invoice_totals">
-      <action method="setTemplate">
-        <template>sales/order/print/totals.phtml</template>
+<wishlist_index_index>
+  <reference name="customer.wishlist.items">
+    <remove name="customer.wishlist.item.quantity" />
+    <remove name="customer.wishlist.item.remove" />
+    <reference name="customer.wishlist.item.info">
+      <action method="setTitle" translate="title">
+        <title>Private Comment</title>
       </action>
     </reference>
-    <reference name="tax">
-      <action method="setTemplate">
-        <template>tax/order/print/tax.phtml</template>
-      </action>
-    </reference>
-  </sales_order_printinvoice>
+  </reference>
+</wishlist_index_index>
 
-  <sales_email_order_items>
-    <reference name="order_totals">
-      <action method="setTemplate"><template>sales/order/email/totals.phtml</template></action>
-    </reference>
-  </sales_email_order_items>
+<sendfriend_product_send translate="label">
+  <remove name="wishlist_sidebar" />
+</sendfriend_product_send>
 
-  <sales_email_order_invoice_items>
-    <reference name="invoice_totals">
-      <action method="setTemplate"><template>sales/order/email/totals.phtml</template></action>
-    </reference>
-  </sales_email_order_invoice_items>
+<attributesplash_page_view>
+  <reference name="root">
+    <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+  </reference>
+  <reference name="left">
+    <remove name="currency" />
+    <remove name="catalog.leftnav" />
+    <block type="horsebrands_rewrites/attributeSplash_page_view_navigation" name="catalog.sidenav" template="attribute-splash/page/navigation/left.phtml"/>
+  </reference>
+  <reference name="product_list">
+    <block type="attributeSplash/layer_view" name="catalog.filter" template="catalog/layer/view.phtml" />
+  </reference>
+</attributesplash_page_view>
 
-  <sales_email_order_creditmemo_items>
-    <reference name="creditmemo_totals">
-      <action method="setTemplate"><template>sales/order/email/totals.phtml</template></action>
-    </reference>
-  </sales_email_order_creditmemo_items>
+<sales_order_printinvoice>
+  <reference name="invoice_totals">
+    <action method="setTemplate">
+      <template>sales/order/print/totals.phtml</template>
+    </action>
+  </reference>
+  <reference name="tax">
+    <action method="setTemplate">
+      <template>tax/order/print/tax.phtml</template>
+    </action>
+  </reference>
+</sales_order_printinvoice>
 
-  <invitefriends_invite_index>
-    <update handle="customer_account"/>
-    <reference name="root">
-      <action method="setHeaderTitle" translate="title"><title>Freunde einladen</title></action>
-    </reference>
-    <reference name="my.account.wrapper">
-      <block type="core/template" name="invitefriends" template="invitefriends/customer/account/invite.phtml" />
-    </reference>
-  </invitefriends_invite_index>
+<sales_email_order_items>
+  <reference name="order_totals">
+    <action method="setTemplate"><template>sales/order/email/totals.phtml</template></action>
+  </reference>
+</sales_email_order_items>
 
-  <invitefriends_coupons_index>
-    <update handle="customer_account"/>
-    <reference name="root">
-      <action method="setHeaderTitle" translate="title"><title>Meine Gutscheine</title></action>
-    </reference>
-    <reference name="my.account.wrapper">
-      <block type="core/template" name="customer_coupons" template="invitefriends/customer/account/coupons.phtml" />
-    </reference>
-  </invitefriends_coupons_index>
+<sales_email_order_invoice_items>
+  <reference name="invoice_totals">
+    <action method="setTemplate"><template>sales/order/email/totals.phtml</template></action>
+  </reference>
+</sales_email_order_invoice_items>
 
-  <invitefriends_front_link>
-    <reference name="root">
-      <action method="setTemplate"><template>page/1column.phtml</template></action>
-    </reference>
-    <reference name="content">
-      <block type="core/template" name="invitefriends_register" template="invitefriends/link/register.phtml">
-        <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
-          <block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
-            <label>Form Fields Before</label>
-          </block>
+<sales_email_order_creditmemo_items>
+  <reference name="creditmemo_totals">
+    <action method="setTemplate"><template>sales/order/email/totals.phtml</template></action>
+  </reference>
+</sales_email_order_creditmemo_items>
+
+<invitefriends_invite_index>
+  <update handle="customer_account"/>
+  <reference name="root">
+    <action method="setHeaderTitle" translate="title"><title>Freunde einladen</title></action>
+  </reference>
+  <reference name="my.account.wrapper">
+    <block type="core/template" name="invitefriends" template="invitefriends/customer/account/invite.phtml" />
+  </reference>
+</invitefriends_invite_index>
+
+<invitefriends_coupons_index>
+  <update handle="customer_account"/>
+  <reference name="root">
+    <action method="setHeaderTitle" translate="title"><title>Meine Gutscheine</title></action>
+  </reference>
+  <reference name="my.account.wrapper">
+    <block type="core/template" name="customer_coupons" template="invitefriends/customer/account/coupons.phtml" />
+  </reference>
+</invitefriends_coupons_index>
+
+<invitefriends_front_link>
+  <reference name="root">
+    <action method="setTemplate"><template>page/1column.phtml</template></action>
+  </reference>
+  <reference name="content">
+    <block type="core/template" name="invitefriends_register" template="invitefriends/link/register.phtml">
+      <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
+        <block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
+          <label>Form Fields Before</label>
         </block>
       </block>
-    </reference>
-  </invitefriends_front_link>
+    </block>
+  </reference>
+</invitefriends_front_link>
+
+<customer_logged_in>
+  <reference name="top.links">
+    <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+    <action method="addLink" translate="label title">
+      <label>My Dashboard</label>
+      <url helper="customer/getAccountUrl"/>
+      <title>My Dashboard</title>
+      <position>10</position>
+    </action>
+    <action method="addLink" translate="label title">
+      <label>My Orders</label>
+      <url>sales/order/history</url>
+      <title>My Orders</title>
+      <position>20</position>
+    </action>
+    <action method="addLink" translate="label title">
+      <label>Help and Contact</label>
+      <url>kontakt</url>
+      <title>Help and Contact</title>
+      <position>30</position>
+    </action>
+    <action method="removeLinkByUrl"><url helper="customer/getLogoutUrl"/></action>
+    <action method="addLink" translate="label title" module="customer">
+      <label>Log Out</label>
+      <url>customer/account/logout</url>
+      <title>Log Out</title>
+      <position>40</position>
+    </action>
+  </reference>
+</customer_logged_in>
+
 </layout>

@@ -26,6 +26,8 @@
 ?>
 <script type="text/javascript">
     document.observe('dom:loaded', function() {
+      if (Product.ConfigurableSwatches) {
         var swatchesConfig = new Product.ConfigurableSwatches(spConfig);
+      }
     });
 </script>

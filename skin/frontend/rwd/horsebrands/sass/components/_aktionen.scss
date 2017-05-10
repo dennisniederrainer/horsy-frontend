@@ -314,6 +314,13 @@ p.note.registration-terms {
   };
 }
 
+#deals-modal_hide {
+  position: absolute;
+  right: 1rem;
+  color: $gray-lighter-1;
+  font-size: 1.25rem;
+}
+
 #upcoming-fs-slider .aktion {
   margin: 0 10px;
 }

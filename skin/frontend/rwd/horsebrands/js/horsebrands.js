@@ -6,6 +6,37 @@ var redirectOnMobile = function(url) {
   }
 }
 
+var showDealsLogin = function() {
+  $j('#deals-modal').removeClass('hide');
+}
+
+var hideDealsLogin = function() {
+  $j('#deals-modal').addClass('hide');
+}
+
+var toggleDealsLogin = function(that) {
+  if($j(that).is('#switch-signup') && !$j(that).hasClass('active')) {
+    $j('#signup').removeClass('hide');
+    $j('#login').addClass('hide');
+    $j('#forgotpassword').addClass('hide');
+    $j('#switch-signup').addClass('active');
+    $j('#switch-login').removeClass('active');
+
+    if(!$j('#reg-step-two').hasClass('hide')) {
+      $j('#deals-modal_hide').addClass('hide');
+    }
+  }
+
+  if($j(that).is('#switch-login') && !$j(that).hasClass('active')) {
+    $j('#login').removeClass('hide');
+    $j('#deals-modal_hide').removeClass('hide');
+    $j('#signup').addClass('hide');
+    $j('#forgotpassword').addClass('hide');
+    $j('#switch-signup').removeClass('active');
+    $j('#switch-login').addClass('active');
+  }
+};
+
 jQuery(document).ready(function($) {
   $(function() {
     $('.toggle-nav').click(function() {

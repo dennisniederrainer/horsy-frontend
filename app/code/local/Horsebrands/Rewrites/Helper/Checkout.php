@@ -1,6 +1,24 @@
 <?php
 class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
 
+  public function getSavedAmount() {
+    $savedAmount = 0;
+    $items = Mage::getModel('checkout/session')->getQuote()->getItemsCollection();
+
+    foreach ($items as $item) {
+      if( ($diff = $item->getPrice() - $item->getFinalPrice()) > 0 ) {
+        $savedAmount += $diff;
+      }
+    }
+
+    if($diff > 0) {
+      return $diff;
+    }
+
+    return false;
+  }
+
+  // deprecated
   public function getQuoteItemsByStoreId($storeId = -1) {
       $items = array();
 
@@ -18,6 +36,7 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
       return $items;
   }
 
+  // deprecated
   public function getItemsByStoreId($items, $storeId = -1) {
       $storeitems = array();
 

@@ -17,6 +17,8 @@
     }
   }
 ?>
+<?php $savedAmount = Mage::helper('horsebrands_rewrites/checkout')->getSavedAmount(); ?>
+<?php $coreHelper = $this->helper('core'); ?>
 
 <?php if($_items): ?>
   <dl class="totals-block">
@@ -47,5 +49,11 @@
       </dd>
     <?php endforeach; ?>
   </dl>
+<?php endif; ?>
+
+<?php if($savedAmount): ?>
+  <div class="savedAmount">
+    <p><?php echo $this->__('You saved %s', $coreHelper->formatPrice($savedAmount, false));  ?></p>
+  </div>
 <?php endif; ?>
 <?php $this->setTotalItems(null); ?>

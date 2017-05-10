@@ -1,6 +1,9 @@
 <?php if ($this->getTotals()): ?>
   <?php $delivery_estimate = $this->getData('estimate_shipping'); ?>
   <?php $_totals = $this->getTotals(); ?>
+  <?php $savedAmount = Mage::helper('horsebrands_rewrites/checkout')->getSavedAmount(); ?>
+  <?php $coreHelper = $this->helper('core'); ?>
+
   <tr>
     <td class="text-left">
       &nbsp;
@@ -24,6 +27,11 @@
           <?php endif; ?>
         </div>
       <?php endforeach; ?>
+      <?php if($savedAmount): ?>
+        <div class="savedAmount">
+          <p><?php echo $this->__('You saved %s', $coreHelper->formatPrice($savedAmount, false));  ?></p>
+        </div>
+      <?php endif; ?>
     </td>
   </tr>
 <?php endif; ?>

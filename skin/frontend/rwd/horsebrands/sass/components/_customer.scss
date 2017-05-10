@@ -29,7 +29,7 @@ a.forgot-password {
   color: $gray-base;
   text-decoration: underline;
   font-size: .75rem;
-  padding: .5rem 0 1rem; 
+  padding: .5rem 0 1rem;
 }
 .mini-registration-link {
   margin-top: 10px;
@@ -244,5 +244,11 @@ i.fa {
       text-align: right;
       padding-right: .5rem;
     }
+  }
+}
+
+.dropdown-content .links {
+  ul {
+    text-align: left;
   }
 }
