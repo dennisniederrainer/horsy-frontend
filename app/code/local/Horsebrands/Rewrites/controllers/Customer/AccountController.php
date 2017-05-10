@@ -5,17 +5,38 @@ require_once 'Mage/Customer/controllers/AccountController.php';
 class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_AccountController {
 
   public function setProcessingAction() {
-    // $order = Mage::getModel('sales/order')->loadByIncrementId('100000344');
-    // $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING)
-    //     ->setStatus(Mage_Sales_Model_Order::STATE_PROCESSING)
-    //     ->save();
+    die('done.');
+    $order = Mage::getModel('sales/order')->loadByIncrementId('100000496');
+    $order->setState(Mage_Sales_Model_Order::STATE_PROCESSING)
+        ->setStatus(Mage_Sales_Model_Order::STATE_PROCESSING);
+
+    $order->setBaseDiscountCanceled(0);
+    $order->setBaseShippingCanceled(0);
+    $order->setBaseSubtotalCanceled(0);
+    $order->setBaseTaxCanceled(0);
+    $order->setBaseTotalCanceled(0);
+    $order->setDiscountCanceled(0);
+    $order->setShippingCanceled(0);
+    $order->setSubtotalCanceled(0);
+    $order->setTaxCanceled(0);
+    $order->setTotalCanceled(0);
+
+    // uncancel items
+    foreach ($order->getAllItems() as $item) {
+      $item->setQtyCanceled(0);
+      $item->setTaxCanceled(0);
+      $item->setHiddenTaxCanceled(0);
+      $item->save();
+    }
+
+    $order->save();
 
     die('done.');
   }
 
   public function assignCustomerToOrderAction() {
-    // $order = Mage::getModel('sales/order')->loadByIncrementId('200001803');
-    // $customer = Mage::getModel('customer/customer')->load(23171);
+    // $order = Mage::getModel('sales/order')->loadByIncrementId('200002232');
+    // $customer = Mage::getModel('customer/customer')->load(29319);
     //
     // $order->setCustomerId($customer->getId());
     // $order->setCustomerFirstname($customer->getFirstname());
@@ -38,27 +59,15 @@ class Horsebrands_Rewrites_Customer_AccountController extends Mage_Customer_Acco
       $this->_redirect('*/*/');
       return;
     }
-
     $session = $this->_getSession();
     if ($this->getRequest()->isPost()) {
-
       $login = $this->getRequest()->getPost('login');
-      $persistent_login = $this->getRequest()->getPost('persistent_login');
-
       if (!empty($login['username']) && !empty($login['password'])) {
         try {
           $session->login($login['username'], $login['password']);
-
           if ($session->getCustomer()->getIsJustConfirmed()) {
             $this->_welcomeCustomer($session->getCustomer(), true);
           }
-
-          if ($persistent_login) {
-            $customerID = $session->getCustomer()->getId();
-            $expire = time() + (365 * 24 * 60 * 60);
-            setcookie('horse_stay_logged_in', $customerID, $expire, '/');
-          }
-
         } catch (Mage_Core_Exception $e) {
           switch ($e->getCode()) {
             case Mage_Customer_Model_Customer::EXCEPTION_EMAIL_NOT_CONFIRMED:
