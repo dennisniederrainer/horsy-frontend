@@ -30,12 +30,22 @@ Checkout.prototype.gotoSection = function (section, reloadProgressBlock) {
     }
 
     if (reloadProgressBlock) {
-        this.reloadProgressBlock(this.currentStep);
+      this.reloadProgressBlock(this.currentStep);
     }
     this.currentStep = section;
     var sectionElement = $('opc-' + section);
     sectionElement.addClassName('allow');
     this.accordion.openSection('opc-' + section);
+
+    // set previous steps 'complete'
+    var stopIndex = this.steps.indexOf(section);
+    var index = 0;
+    this.steps.each( function(element) {
+      if( index >= stopIndex ) { return false; }
+      var sec = $('opc-' + element);
+      sec.addClassName('complete');
+      index++;
+    });
 
     if(section == 'payment') {
       this.reloadProgressBlock('shipping_method');
@@ -47,6 +57,6 @@ Checkout.prototype.gotoSection = function (section, reloadProgressBlock) {
     }
 
     if (!reloadProgressBlock) {
-        this.resetPreviousSteps();
+      this.resetPreviousSteps();
     }
 }

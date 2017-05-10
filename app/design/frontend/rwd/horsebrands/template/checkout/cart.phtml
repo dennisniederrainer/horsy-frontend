@@ -5,110 +5,110 @@
 <?php $delivery = $checkouthelper->getEstimatedShippingText($items) ?>
 
 <div class="cart <?php echo $_priceDisplay; ?>">
-    <?php echo $this->getMessagesBlock()->toHtml() ?>
-    <div class="page-title title-buttons clearfix">
-      <?php // EXPRESS CHECKOUT METHODS later! ?>
-      <?php if(!$this->hasError()): ?>
-        <div>
-          <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>">
-            <i class="fa fa-angle-double-left"></i>  <?php echo $this->__('Continue Shopping') ?>
-          </a>
-        </div>
-        <h1 class="strong"><?php echo $this->__('Shopping Cart') ?> <span>(<?php echo count($items) ?>)</span></h1>
-        <div>
-          <?php foreach ($this->getMethods('top_methods') as $method): ?>
-            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-              <?php echo $methodHtml; ?>
-            <?php endif; ?>
-          <?php endforeach; ?>
-        </div>
-      <?php else: ?>
-        <h1 class="strong"><?php echo $this->__('Shopping Cart') ?> <span>(<?php echo count($items) ?>)</span></h1>
-      <?php endif; ?>
-    </div>
+  <?php echo $this->getMessagesBlock()->toHtml() ?>
+  <div class="page-title title-buttons clearfix">
+    <?php // EXPRESS CHECKOUT METHODS later! ?>
+    <?php if(!$this->hasError()): ?>
+      <div>
+        <a href="<?php echo Mage::helper('core')->quoteEscape($this->getContinueShoppingUrl()) ?>">
+          <i class="fa fa-angle-double-left"></i>  <?php echo $this->__('Continue Shopping') ?>
+        </a>
+      </div>
+      <h1 class="strong"><?php echo $this->__('Shopping Cart') ?> <span>(<?php echo count($items) ?>)</span></h1>
+      <div>
+        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+          <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+            <?php echo $methodHtml; ?>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </div>
+    <?php else: ?>
+      <h1 class="strong"><?php echo $this->__('Shopping Cart') ?> <span>(<?php echo count($items) ?>)</span></h1>
+    <?php endif; ?>
+  </div>
 
-    <div class="cart-shop">
-      <?php echo $this->getChildHtml('form_before') ?>
-      <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
-        <?php echo $this->getBlockHtml('formkey'); ?>
-        <table id="shopping-cart-table-shop" class="cart-table data-table">
-          <col width="30%"/>
-          <col width="70%"/>
-          <thead>
-            <tr>
-              <th >&nbsp;</th>
-              <th >&nbsp;</th>
-            </tr>
-          </thead>
-          <?php if(count($items)>0): ?>
+  <div class="cart-shop">
+    <?php echo $this->getChildHtml('form_before') ?>
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
+      <?php echo $this->getBlockHtml('formkey'); ?>
+      <table id="shopping-cart-table-shop" class="cart-table data-table">
+        <col width="30%"/>
+        <col width="70%"/>
+        <thead>
+          <tr>
+            <th >&nbsp;</th>
+            <th >&nbsp;</th>
+          </tr>
+        </thead>
+        <?php if(count($items)>0): ?>
           <tbody>
             <?php foreach($items as $_item): ?>
               <?php echo $this->getItemHtml($_item) ?>
             <?php endforeach ?>
           </tbody>
-          <?php else: ?>
-            <tbody>
-              <tr>
-                <td colspan="6">
-                  <p class="empty">
-                    <?php echo $this->__('You have no Items in your cart.') ?>
-                  </p>
-                  <p class="empty">
-                    Hier kannst du ihn auffüllen: Button DEALS, Button SHOP
-                  </p>
-                </td>
-              </tr>
-            </tbody>
+        <?php else: ?>
+          <tbody>
+            <tr>
+              <td colspan="6">
+                <p class="empty">
+                  <?php echo $this->__('You have no Items in your cart.') ?>
+                </p>
+                <p class="empty">
+                  Hier kannst du ihn auffüllen: Button DEALS, Button SHOP
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        <?php endif; ?>
+      </table>
+      <script type="text/javascript">decorateTable('shopping-cart-table-shop')</script>
+    </form>
+  </div>
+
+
+  <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
+  <div class="cart-forms">
+    <?php /* Extensions placeholder */ ?>
+    <?php //echo $this->getChildHtml('checkout_cart_widget') ?>
+    <?php //echo $this->getChildHtml('coupon') ?>
+    <?php //echo $this->getChildHtml('checkout.cart.extra') ?>
+    <?php if (!$this->getIsVirtual()): //echo $this->getChildHtml('shipping');
+    endif; ?>
+  </div>
+  <div class="summary-wrapper">
+    <div class="summary-left-wrapper">
+      <div class="summary-shipping clearfix">
+        <div class="icon-container hide-small">
+          <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
+        </div>
+        <div class="shipping-estimate-wrapper">
+          <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
+          <?php if($delivery): ?>
+            <p><?php echo $delivery ?></p>
           <?php endif; ?>
-        </table>
-        <script type="text/javascript">decorateTable('shopping-cart-table-shop')</script>
-      </form>
-    </div>
-
-
-    <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
-    <div class="cart-forms">
-        <?php /* Extensions placeholder */ ?>
-        <?php //echo $this->getChildHtml('checkout_cart_widget') ?>
-        <?php //echo $this->getChildHtml('coupon') ?>
-        <?php //echo $this->getChildHtml('checkout.cart.extra') ?>
-        <?php if (!$this->getIsVirtual()): //echo $this->getChildHtml('shipping');
-        endif; ?>
-    </div>
-    <div class="summary-wrapper">
-      <div class="summary-left-wrapper">
-        <div class="summary-shipping clearfix">
-          <div class="icon-container hide-small">
-            <img src="<?php echo $this->getSkinUrl('images/icons/i-delivery-double.png') ?>" alt="delivery" />
-          </div>
-          <div class="shipping-estimate-wrapper">
-            <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
-            <?php if($delivery): ?>
-              <p><?php echo $delivery ?></p>
-            <?php endif; ?>
-          </div>
-        </div>
-        <div class="summary-coupon">
-          <p>
-            Artikel im Warenkorb werden nicht reserviert.<br />
-            Gutscheincodes können im letzten Bestellschritt "Bestätigen" eingelöst werden.
-          </p>
         </div>
       </div>
-      <div class="cart-totals-wrapper">
-          <div class="cart-totals">
-              <?php echo $this->getChildHtml('totals'); ?>
-              <?php if(!$this->hasError()): ?>
-                <ul class="checkout-types bottom">
-                <?php  foreach ($this->getMethods('methods') as $method): ?>
-                  <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-                  <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
-                  <?php endif; ?>
-                <?php endforeach;  ?>
-                </ul>
+      <div class="summary-coupon">
+        <p>
+          Artikel im Warenkorb werden nicht reserviert.<br />
+          Gutscheincodes können im letzten Bestellschritt "Bestätigen" eingelöst werden.
+        </p>
+      </div>
+    </div>
+    <div class="cart-totals-wrapper">
+      <div class="cart-totals">
+        <?php echo $this->getChildHtml('totals'); ?>
+        <?php if(!$this->hasError()): ?>
+          <ul class="checkout-types bottom">
+            <?php  foreach ($this->getMethods('methods') as $method): ?>
+              <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
               <?php endif; ?>
-          </div>
+            <?php endforeach;  ?>
+          </ul>
+        <?php endif; ?>
       </div>
     </div>
-    <?php echo $this->getChildHtml('crosssell') ?>
+  </div>
+  <?php echo $this->getChildHtml('crosssell') ?>
 </div>

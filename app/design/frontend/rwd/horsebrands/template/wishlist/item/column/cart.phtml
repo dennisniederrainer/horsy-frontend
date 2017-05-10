@@ -6,6 +6,8 @@ $product = $item->getProduct();
 $options = $this->getChild('customer.wishlist.item.options')
     ->setItem($item)
     ->getConfiguredOptions();
+
+$_wishlistRemoveUrl = $this->helper('wishlist')->getRemoveUrl($item);
 ?>
 <td>
   <div class="cart-cell">
@@ -19,6 +21,7 @@ $options = $this->getChild('customer.wishlist.item.options')
           <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
         <?php endif; ?>
       <?php endif; ?>
+      <a href="<?php echo $_wishlistRemoveUrl ?>" class="remove-link"><?php echo $this->__('Remove') ?></a>
     </div>
   </div>
 </td>
