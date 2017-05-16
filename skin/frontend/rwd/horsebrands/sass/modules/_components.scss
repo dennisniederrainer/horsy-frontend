@@ -394,6 +394,12 @@ table {
 	@include media('>=tablet') {
 		border-top: none;
 	};
+
+	@include media('<tablet') {
+		tfoot tr td {
+			height: auto;
+		}
+	};
 }
 
 p.note {

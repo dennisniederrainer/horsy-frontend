@@ -7,11 +7,21 @@ var redirectOnMobile = function(url) {
 }
 
 var showDealsLogin = function() {
-  $j('#deals-modal').removeClass('hide');
+  if(Modernizr.mq('screen and (min-width: 967px)')) {
+    $j('#deals-modal').removeClass('hide');
+  } else {
+    $j('.aktionen-login-container .aktionen-container').addClass('hide');
+    $j('#aktionen-login-content-wrapper').removeClass('hide');
+  }
 }
 
 var hideDealsLogin = function() {
-  $j('#deals-modal').addClass('hide');
+  if(Modernizr.mq('screen and (min-width: 967px)')) {
+    $j('#deals-modal').addClass('hide');
+  } else {
+    $j('.aktionen-login-container .aktionen-container').removeClass('hide');
+    $j('#aktionen-login-content-wrapper').addClass('hide');
+  }
 }
 
 var toggleDealsLogin = function(that) {

@@ -394,8 +394,6 @@ Billing.prototype = {
             }
 
             return false;
-        } else {
-          console.log('laeuft nicht rein!');
         }
 
         checkout.setStepResponse(response);

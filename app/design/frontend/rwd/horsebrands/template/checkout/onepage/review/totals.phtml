@@ -5,9 +5,8 @@
   <?php $coreHelper = $this->helper('core'); ?>
 
   <tr>
-    <td class="text-left">
-      &nbsp;
-      <?php if(false && $delivery_estimate): ?>
+    <td class="text-left hide-for-medium-down">
+      <?php if($delivery_estimate): ?>
         <div class="shipping-estimate-wrapper">
           <h2><?php echo $this->__('Voraussichtliche Lieferung') ?>:</h2>
           <p><?php echo $delivery_estimate; ?></p>

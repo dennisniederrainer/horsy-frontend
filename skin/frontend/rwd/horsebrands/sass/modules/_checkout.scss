@@ -73,7 +73,7 @@
   }
 
   .step.a-item {
-    padding-top: 75px;
+    padding-top: 7rem;
   }
 
 	div.kv {
@@ -199,6 +199,13 @@ dl.sp-methods {
 			letter-spacing: .05em;
 		}
 	}
+
+	@include media('>=phone','<=tablet') {
+		button.opc-next-button {
+			width: 100%;
+			margin: 1.5rem auto;
+		}
+	};
 }
 
 #checkoutSteps {
@@ -637,6 +644,10 @@ tfoot.multi-totals {
 			&.footer-icon {
 				display: none;
 			}
+		}
+
+		tfoot td.totals {
+			padding: 2rem 2rem 0; 
 		}
 	};
 }
