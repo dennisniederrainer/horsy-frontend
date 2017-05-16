@@ -1,20 +1,25 @@
 <?php if($crumbs && is_array($crumbs)): ?>
-<div class="breadcrumbs">
+  <?php $keys = array_keys($crumbs); $index = count($crumbs)-2; ?>
+  <?php $breadcumbBackUrl = $crumbs[ $keys[$index] ]['link']; ?>
+  <div class="breadcrumbs">
+    <div class="inline breadcrumbs__back">
+      <a href="<?php echo $breadcumbBackUrl ?>">< <?php echo $this->__('Back'); ?></a>
+    </div>
     <ul class="unstyled inline">
-        <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
-            <li class="<?php echo $_crumbName ?>">
-            <?php if($_crumbInfo['link']): ?>
-                <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
-            <?php elseif($_crumbInfo['last']): ?>
-                <strong><?php echo $this->escapeHtml($_crumbInfo['label']) ?></strong>
-            <?php else: ?>
-                <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
-            <?php endif; ?>
-            <?php if(!$_crumbInfo['last']): ?>
-                <span>/ </span>
-            <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
+      <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
+        <li class="<?php echo $_crumbName; echo ($_crumbInfo['last'] ? ' last' : '') ?>">
+          <?php if($_crumbInfo['link']): ?>
+            <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->escapeHtml($_crumbInfo['title']) ?>"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></a>
+          <?php elseif($_crumbInfo['last']): ?>
+            <span class="current"><?php echo $this->escapeHtml($_crumbInfo['label']) ?></span>
+          <?php else: ?>
+            <?php echo $this->escapeHtml($_crumbInfo['label']) ?>
+          <?php endif; ?>
+          <?php if(false && !$_crumbInfo['last']): ?>
+            <span>/ </span>
+          <?php endif; ?>
+        </li>
+      <?php endforeach; ?>
     </ul>
-</div>
+  </div>
 <?php endif; ?>

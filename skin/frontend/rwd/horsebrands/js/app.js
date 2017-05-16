@@ -1191,7 +1191,7 @@ var ProductMediaManager = {
             }
         }
 
-        image.elevateZoom();
+        // image.elevateZoom();
     },
 
     swapImage: function(targetImage) {

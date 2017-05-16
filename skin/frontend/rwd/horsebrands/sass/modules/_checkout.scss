@@ -18,6 +18,13 @@
     }
 }
 
+.savedAmount {
+	margin: 1rem 0 .5rem;
+	p {
+		font-weight: 600;
+		font-style: italic;
+	}
+}
 
 // ## Progress Bar ##
 .opc-block-progress {
@@ -207,16 +214,48 @@ dl.sp-methods {
 			position: absolute;
 			top: 50%; left: 0; right: 0;
 			transform: translateY(-50%);
-			border-color: $black-base;
+			border-color: $gray-lighter-3;
 			border-top-width: 2px;
 			margin: 0;
+			z-index: -1;
+
+			&.progress-line__before {
+				right: 50%;
+
+				&.first {
+					display: none;
+				}
+			}
+			&.progress-line__after {
+				left: 50%;
+
+				&.last {
+					display: none;
+				}
+			}
 		}
-    .number {
+
+		.step-title__label {
+			display: inline-block;
 			position: absolute;
-			top: 50%; left: 50%;
-			transform: translate(-50%, -50%);
+			top: 20%; left: 50%;
+			transform: translate(-50%, 0);
+			text-align: center;
+
+			// .icon-complete {
+			// 	display: none;
+			// 	position: absolute;
+			// 	top: 50; left: 50%;
+			// 	transform: translate(-50%, -50%);
+			// }
+		}
+
+		.number {
+			position: relative;
+			margin: 0 auto;
 			background-color: #fff;
-			border: 2px solid $black-base;
+			color: $gray-lighter-3;
+			border: 2px solid $gray-lighter-3;
 			border-radius: 180%;
 			height: 2rem; width: 2rem; line-height: 1.8rem;
 			text-align: center;
@@ -229,38 +268,56 @@ dl.sp-methods {
       left: 0;
       right: 0;
       @include same-link-style($white);
-      cursor: not-allowed !important;
     }
 
     h2 {
-			display: none;
-			position: absolute;
 	    font-size: 1rem;
 	    font-weight: normal;
-	    text-align: center;
-	    left: 50%;
-	    bottom: -2rem;
-	    transform: translateX(-50%);
+			color: $gray-lighter-3;
+			margin: 0;
     }
   }
 
   li.section {
-		&.allow {
-			.number {
-				border-color: $green-success;
-				color: $green-success;
-      }
-
-			a {
-				cursor: pointer !important;
+		&.complete {
+			.step-title__label {
+				.number {
+					// .icon-complete {
+					// 	display: block;
+					// }
+					span { display: none; }
+					border-color: $gold-base;
+					color: $gold-base;
+					background: url('../images/icons/icon-check-gold.svg') center no-repeat;
+					background-size: 65%; background-color: $white-base;
+				}
+				h2 {
+					color: $gold-base;
+				}
+				a {
+					cursor: pointer !important;
+				}
+			}
+			.progress-line__after, .progress-line__before {
+				border-color: $gold-base;
 			}
 		}
+		&.allow {
+		}
     &.active {
-      .number {
-				border-color: $black-base;
-				color: $black-base;
-      }
-			h2 { display: block; }
+			.progress-line__before {
+				border-color: $gold-base;
+			}
+			.step-title__label {
+				.number {
+					border-color: $gold-base;
+					background-color: $gold-base;
+					color: $white-base;
+				}
+				h2 {
+					color: $gold-base;
+				}
+			}
     }
   }
 }

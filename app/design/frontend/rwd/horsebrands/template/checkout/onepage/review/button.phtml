@@ -2,11 +2,11 @@
 <?php $appendex = ''; ?>
 
 <?php if(strtolower($paymentmethodTitle) == 'paypal' || strtolower($paymentmethodTitle) == 'sofortüberweisung'): ?>
-  <?php $appendix = "und weiter zu " . $paymentmethodTitle; ?>
+  <?php $appendex = "und weiter zu " . $paymentmethodTitle; ?>
 <?php endif; ?>
 
 <button type="submit" class="button btn-checkout" onclick="review.save();" style="padding: 0 1rem;">
   <span><span>
-    <?php echo $this->__('Place Order') .' '. $appendix ?>
+    <?php echo $this->__('Place Order') .' '. $appendex ?>
   </span></span>
 </button>

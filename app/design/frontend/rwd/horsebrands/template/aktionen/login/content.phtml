@@ -6,8 +6,9 @@
         <li id="switch-login"><?php echo $this->__('Login') ?></li>
       </ul>
     </div>
-    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml(); ?>
     <div class="content-wrapper">
+      <a id="deals-modal_hide" onclick="hideDealsLogin(); return false;"><i class="fa fa-times"></i></a>
       <div id="signup">
         <form id="registration-form" action="<?php echo $this->getActionUrl('registration'); ?>" method="post">
           <input type="hidden" name="success_url" value="<?php echo $this->getUrl('aktionen') ?>" />
@@ -31,24 +32,24 @@
             </div>
 
             <input type="text" name="email" id="reg-email" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
-            <p class="note registration-terms">
-              Mit der Anmeldung stimme ich den <a>AGB</a> und <a>Datenschutzbestimmungen</a> zu und erhalte regelm&auml;&szlig;ig einen Newsletter, den ich jederzeit kostenfrei abbestellen kann.
-            </p>
-            <button type="button" class="gold expand reg-continue"><?php echo $this->__('Sign In for free'); ?></button>
+            <button type="button" class="gold expand reg-continue"><?php echo $this->__('Sign In'); ?><em>*</em></button>
             <?php
-            $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Login mit Facebook');
+            $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook registrieren');
             echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
             ?>
             <?php /* <button class="btn black expand"><?php echo $this->__('Sign In with Facebook'); ?></button> */ ?>
           </div>
           <div id="reg-step-two" class="hide">
-            <input class="required-entry input-text" type="text" name="firstname" placeholder="<?php echo $this->__('Your Firstname') ?>" />
-            <input class="required-entry input-text" type="text" name="lastname" placeholder="<?php echo $this->__('Your Lastname') ?>" />
+            <input class="required-entry input-text" type="text" name="firstname" placeholder="<?php echo $this->__('Your First Name') ?>" />
+            <input class="required-entry input-text" type="text" name="lastname" placeholder="<?php echo $this->__('Your Last Name') ?>" />
             <input class="required-entry input-text" type="password" name="password" placeholder="<?php echo $this->__('Your Password') ?>" />
             <input class="required-entry input-text" type="password" name="confirmation" placeholder="<?php echo $this->__('Confirm Your Password') ?>" />
-            <button class="gold expand" type="button" onclick="signupForm.submit();" style="margin-top: 1rem;"><?php echo $this->__('Sign In'); ?></button>
+            <button class="gold expand" type="button" onclick="signupForm.submit();"><?php echo $this->__('Sign In'); ?><em>*</em></button>
           </div>
-          <div class="content-bottom" style="display: none;">
+          <div class="content-bottom">
+            <p class="note registration-terms">
+              <em>*</em>Mit der Anmeldung stimme ich den <a>AGB</a> und <a>Datenschutzbestimmungen</a> zu und erhalte regelm&auml;&szlig;ig einen Newsletter, den ich jederzeit kostenfrei abbestellen kann.
+            </p>
           </div>
         </form>
       </div>
@@ -57,7 +58,7 @@
           <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
           <input type="hidden" name="aktionenlogin" value='true' />
           <h1>Anmelden</h1>
-          <input class="required-entry input-text" type="text" name="login[username]" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" />
+          <input class="required-entry input-text" type="text" name="login[username]" placeholder="<?php echo $this->__('Your E-Mail Address') ?>" value="<?php echo Mage::getSingleton('customer/session')->getUsername(); ?>" />
           <input id="login-password" class="required-entry input-text" type="password" name="login[password]" placeholder="<?php echo $this->__('Your Password') ?>"/>
           <div class="persistend-forgot-wrapper">
             <div class="persistent-login">
@@ -72,7 +73,7 @@
           </div>
           <button class="gold expand" type="button" onclick="loginForm.submit();"><?php echo $this->__('Log In'); ?></button>
           <?php
-          $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Login mit Facebook');
+          $block = $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setButtonText('Mit Facebook anmelden');
           echo $block->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml();
           ?>
         </form>
@@ -98,20 +99,7 @@
 
   var $j = jQuery;
   $j("ul.switch li").click(function(ev) {
-    if($j(this).is('#switch-signup') && !$j(this).hasClass('active')) {
-      $j('#signup').removeClass('hide');
-      $j('#login').addClass('hide');
-      $j('#forgotpassword').addClass('hide');
-      $j('#switch-signup').addClass('active');
-      $j('#switch-login').removeClass('active');
-    }
-    if($j(this).is('#switch-login') && !$j(this).hasClass('active')) {
-      $j('#login').removeClass('hide');
-      $j('#signup').addClass('hide');
-      $j('#forgotpassword').addClass('hide');
-      $j('#switch-signup').removeClass('active');
-      $j('#switch-login').addClass('active');
-    }
+    toggleDealsLogin(this);
   });
 
   $j('#forgotpassword-link').click(function(e) {
@@ -132,6 +120,7 @@
     // mehr validation
     if($j('#reg-email').val().length > 0) {
       $j('#reg-step-one').addClass('hide');
+      $j('#deals-modal_hide').addClass('hide');
       $j('#reg-step-two').removeClass('hide');
     }
   });

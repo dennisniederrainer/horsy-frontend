@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="22px" viewBox="0 0 26 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-check-green" fill="#CCA64B">
+            <g id="Form_1">
+                <path d="M8,21 L8,21 C7.2785017,20.9876572 6.60015139,20.6539822 6.15,20.09 L0.4,12.15 C-0.277315089,11.1355079 -0.0739587555,9.77258777 0.87,9 C1.909864,8.31552563 3.29602849,8.50804847 4.11,9.45 L4.11,9.45 L8.28,15.1 L21.94,0.8 C22.3380533,0.337291921 22.9050109,0.0535037836 23.5139735,0.0121544726 C24.122936,-0.0291948384 24.7230519,0.175347574 25.18,0.58 C25.6506311,0.959355434 25.9426192,1.51709385 25.986226,2.12000567 C26.0298328,2.72291749 25.8211431,3.31686844 25.41,3.76 L25.41,3.76 L9.9,20.09 C9.47285984,20.708813 8.74989674,21.0550743 8,21 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
