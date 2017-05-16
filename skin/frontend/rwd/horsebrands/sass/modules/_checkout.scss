@@ -20,6 +20,8 @@
 
 .savedAmount {
 	margin: 1rem 0 .5rem;
+	clear: both;
+	
 	p {
 		font-weight: 600;
 		font-style: italic;
@@ -647,7 +649,7 @@ tfoot.multi-totals {
 		}
 
 		tfoot td.totals {
-			padding: 2rem 2rem 0; 
+			padding: 2rem 2rem 0;
 		}
 	};
 }
