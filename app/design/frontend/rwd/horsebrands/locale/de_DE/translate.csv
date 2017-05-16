@@ -6,6 +6,9 @@
 "Saturday","Samstag"
 "Sunday","Sonntag"
 
+"%s days left","Noch %s Tage"
+"Only %s day left","Nur noch %s Tag"
+
 "Confirm Password","Passwort bestätigen"
 "incl. VAT and Shipping","inkl. MwSt. & Versand"
 
@@ -75,11 +78,10 @@
 "Billing Address","Rechnungsadresse"
 "Payment Method","Zahlungsart"
 "Change","Bearbeiten"
-"We are shipping with","Wir versenden mit"
 
 // AKTIONEN -- CAMPAIGNS
 "Current Deals","Aktuelle Deals"
-"Upcoming Campaigns","Kommende Deals"
+"Upcoming Deals","Kommende Deals"
 
 // Vorschaltseite
 "Become a Member","Mitglied werden"
@@ -89,7 +91,6 @@
 "Find exclusive Brands and Products","Entdecke exklusive Marken und Produkte"
 "Become a Member for free now.","Werde jetzt kostenlos Mitglied."
 "Sign In","Registrieren"
-"Sign In for free","Kostenlos Registrieren"
 "Sign In with Facebook","Mit Facebook registrieren"
 "Log In","Einloggen"
 "Login with Facebook","Mit Facebook einloggen"
@@ -99,7 +100,7 @@
 "Password:","Passwort:"
 "Password","Passwort"
 "Forgot Password","Passwort vergessen"
-"Stay logged in","Eingeloggt bleiben"
+"Stay logged in","Angemeldet bleiben"
 
 "Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.","Deine Anfrage wurde erfolgreich gesendet. Vielen Dank dafür - wir werden sie so schnell wie möglich bearbeiten."
 "Maximum number of characters:","Maximale Anzahl an Buchstaben:"
@@ -219,10 +220,18 @@
 "Price From:","ab"
 "Brands","Marken"
 "Choose an Option...","Bitte wählen..."
-"%s days left","Noch %s Tage"
-"Only %s day left","Nur noch %s Tag"
+
+"%s days", "%s Tage"
+"%s day", "%s Tag"
+"%s hours", "%s Stunden"
+"%s hour", "%s Stunde"
+"%s minutes", "%s Minuten"
+"%s minute", "%s Minute"
+"%s left","Noch %s"
 "Last day today!","Letzter Tag!"
 "Starts at %s","Startet am %s"
+
+"You saved %s","Du sparst %s"
 
 "Create New Customer Account","Kundenkonto"
 "Our Service for the Horsebrands Shop","Unsere Leistungen im Shop"
@@ -240,10 +249,5 @@
 "We are sorry, but the campaign of %s has expired. It was removed from your Shopping Cart","Es tut uns leid, aber die Aktion für %s ist ausgelaufen. Das Produkt wurde aus Deinem Warenkorb entfernt."
 "You are currently subscribed to 'General Subscription'","Du bist aktuell zu einem Newsletter angemeldet."
 
-"Your Friends E-Mail Address","E-Mail-Adresse deiner Freunde"
-"This Couponcode is not assigned to your Customer Account.","Der Gutscheincode ist nicht für dieses Benutzerkonto registriert."
-"My Coupons","Meine Gutscheine"
-"Invite Friends","Freunde einladen"
-"Your Firstname", "Dein Vorname"
-"Your Lastname", "Dein Nachname"
-"Confirm Your Password", "Passwort bestätigen"
+"Select %s...","%s wählen..."
+"Help and Contact","Hilfe & Kontakt"
