@@ -301,23 +301,6 @@ $black: #1d1d1d;
 	border-radius: 0;
 }
 
-a.store-button {
-	font-size: rem-calc(20);
-	margin-right: 5px;
-  padding: 4px 15px;
-	font-weight: 500;
-	text-decoration: none;
-	text-transform: uppercase;
-  border: 1px solid transparent;
-  border-radius: $global-border-radius;
-	@include same-link-style($black-base);
-
-	&.active,
-  &:hover {
-    border-color: $black-base;
-	}
-}
-
 .store-select-button {
 	@extend .button;
 	// @include button-size($padding-store-select, 4);

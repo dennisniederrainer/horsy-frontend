@@ -1,27 +1,32 @@
 <?php $currentStoreId = Mage::app()->getStore()->getId(); ?>
 <?php $_STORE_ID_SHOP = Mage::getConfig()->getNode('stores')->{'shop_de'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $_STORE_ID_DEALS = Mage::getConfig()->getNode('stores')->{'deals_de'}->{'system'}->{'store'}->{'id'}; ?>
+<?php $_STORE_ID_VEREIN = Mage::getConfig()->getNode('stores')->{'meinverein'}->{'system'}->{'store'}->{'id'}; ?>
 <?php $hideStorenavigation = $this->getHideStorenavigation(); ?>
-<header class="TEST">
+<header class="<?php echo Mage::app()->getStore()->getCode() ?>">
   <?php $toplineblock = Mage::getModel('cms/block')->setStoreId(Mage::app()->getStore()->getId())->load('topline_content'); ?>
   <?php if($toplineblock->getIsActive()): ?>
-  <div class="fixed-top hide-for-small-down">
+  <div class="topline topline--<?php echo Mage::app()->getStore()->getCode() ?> hide-for-small-down">
     <div class="container">
-      <?php echo $this->getChildHtml('topline.content'); ?>
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('topline_content')->toHtml(); //$this->getChildHtml('topline.content'); ?>
     </div>
   </div>
   <?php endif; ?>
   <div class="top-header container clearfix">
     <?php if(!$hideStorenavigation): ?>
     <div class="top-header-element top-header-left store-select">
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_SHOP))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>"
+        class="store-button store-button__shop<?php echo ($currentStoreId == $_STORE_ID_SHOP ? ' active' : '') ?>">
         Shop
       </a>
-      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>" class="store-button<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_DEALS))->getUrl('aktionen'); ?>"
+        class="store-button store-button__deals store-button--has-label<?php echo ($currentStoreId == $_STORE_ID_DEALS ? ' active' : '') ?>">
         Deals
-        <span class="ic-deals-fahne" style="<?php echo ($currentStoreId == $_STORE_ID_DEALS ? 'display: none;' : '') ?>">
-          &nbsp;
-        </span>
+        <div class="store-button__label"><?php echo $this->__('Up to -%s %%', "75"); ?></div>
+      </a>
+      <a href="<?php echo Mage::app()->getStore(intval($_STORE_ID_VEREIN))->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK); ?>"
+        class="store-button store-button__verein<?php echo ($currentStoreId == $_STORE_ID_VEREIN ? ' active' : '') ?>">
+        Verein
       </a>
     </div>
     <?php endif; ?>

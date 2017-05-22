@@ -41,10 +41,8 @@
       </block>
     </reference>
     <reference name="header">
-      <block type="cms/block" name="topline.content">
-        <action method="setBlockId"><block_id>topline_content</block_id></action>
-      </block>
       <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+    </reference>
     <reference name="footer">
       <block type="cms/block" name="footer_content">
         <action method="setBlockId"><block_id>footer_content</block_id></action>
@@ -59,7 +57,6 @@
       <remove name="wishlist_link" />
       <remove name="checkout_cart_link"/>
     </reference>
-  </reference>
   </default>
 
   <catalog_category_layered>

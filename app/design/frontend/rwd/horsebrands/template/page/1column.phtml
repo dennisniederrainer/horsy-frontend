@@ -12,9 +12,9 @@
 <head>
 <?php echo $this->getChildHtml('head') ?>
 </head>
-<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<body class="<?php echo Mage::app()->getStore()->getCode() . ' ' . $this->getBodyClass() ?>">
 <div id="site-wrapper">
-  <div id="site-canvas">
+  <div id="site-canvas" class="one-column">
     <?php echo $this->getChildHtml('after_body_start') ?>
 
     <!-- Include Header  -->

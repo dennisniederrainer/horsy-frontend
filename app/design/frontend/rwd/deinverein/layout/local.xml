@@ -29,12 +29,6 @@
        <action method="addItem"><type>skin_js</type><name>js/sequence.js</name></action>
        <action method="addItem"><type>skin_js</type><name>js/sequence-theme.showcase.js</name></action>
     </block>
-    <reference name="header">
-      <action method="setTemplate"><template>meinverein/page/html/header.phtml</template></action>
-      <block type="cms/block" name="topline.content">
-          <action method="setBlockId"><block_id>topline_content</block_id></action>
-      </block>
-    </reference>
     <reference name="root">
       <block type="core/text_list" name="top.menu.sidebar" translate="label">
         <block type="page/html_topmenu" name="catalog.topnav.offcanvas" template="page/html/topmenu_offcanvas.phtml">

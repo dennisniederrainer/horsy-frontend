@@ -1,31 +1,21 @@
 $customer-nav-list-p-margin-top: 5px;
 $customer-icons-font-size: 1.5rem;
 
-.fixed-top {
-	height: 1.75em;
-	line-height: 1.75em;
-	background-color: $gray-lighter-2;
-	color: $black-base;
-	margin-bottom: 10px;
+.topline {
+	height: 2.5rem;
+	line-height: 2.5rem;
+	font-size: .875rem;
+	color: $white-base;
+	margin-bottom: .5rem;
 
-	div.container {
-		span {
-			display: block;
-			float: left;
-			text-align: center;
-			width: 25%;
-			font-weight: 100;
-			font-size: .75em;
-
-			&:first-child {
-				text-align: left;
-				padding-left: 2em;
-			}
-			&:last-child {
-				text-align: right;
-				padding-right: 2em;
-			}
-		}
+	&--shop_de {
+		background-color: $color-shop;
+	}
+	&--deals_de {
+		background-color: $color-deals;
+	}
+	&--meinverein {
+		background-color: $color-verein;
 	}
 }
 
@@ -54,7 +44,7 @@ $customer-icons-font-size: 1.5rem;
 			right: 0;
 		}
 		&.store-select {
-			bottom: 8px;
+			bottom: 0;
 		}
 		&.brand {
 			align-self: center;
@@ -129,6 +119,20 @@ $customer-icons-font-size: 1.5rem;
 			&.customer-nav .customer-nav-container {
 				float: none;
 			}
+		}
+	}
+}
+
+header {
+	// &.meinverein {
+	// 	.store-select {
+	// 		visibility: hidden;
+	// 	}
+	// }
+
+	&.deals_de {
+		.top-header {
+			border-bottom: none;
 		}
 	}
 }
@@ -380,25 +384,87 @@ ul.customer-nav-list {
 	}
 }
 
-.store-button {
+a.store-button {
 	display: inline-block;
 	position: relative;
 
-	.ic-deals-fahne {
-		display: inline-block;
-		background: url('../images/icons/deals_fahne.png') center no-repeat;
-		background-size: contain;
-		width: 80px;
-		height: 55px;
+	font-size: 1.25rem;
+	font-weight: $weight-regular;
+	text-decoration: none;
+	text-transform: uppercase;
 
+	margin-right: 1rem;
+  padding: .5rem .75rem;
+	border: none;
+	border-bottom: 4px solid transparent;
+	@include same-link-style($black-base);
+
+	&--has-label:before {
+		border-left-width: .375em; border-right-width: .375em; border-top-width: .375em;
+		border-style: solid; border-color: transparent;
+		content: "\A";
 		position: absolute;
-		top: -20px; right: -60px
+		top: 0; left: 50%;
+		transform: translateX(-50%);
+		display: none;
 	}
 
-	&:hover,
+	&--has-label:hover {
+		border-top-width: 4px;
+		border-top-style: solid;
+
+		&:before {
+			display: block;
+		}
+	}
+
 	&.active {
-		.ic-deals-fahne {
-			right: -70px;
+		font-weight: $weight-bold;
+	}
+
+	.store-button__label {
+		display: none;
+		position: absolute;
+		bottom: 100%;
+		font-weight: $weight-light;
+		font-size: .75rem;
+	}
+
+	&:hover {
+		.store-button__label {
+			display: block;
+		}
+	}
+
+	&__shop {
+		&.store-button--has-label:before {
+			border-top-color: $color-shop;
+		}
+
+		&.active,
+		&:hover {
+			border-color: $color-shop;
+		}
+	}
+
+	&__deals {
+		&.store-button--has-label:before {
+			border-top-color: $color-deals;
+		}
+
+		&.active,
+		&:hover {
+			border-color: $color-deals;
+		}
+	}
+	&__verein {
+		&.store-button--has-label:before {
+			border-top-color: $color-verein;
+		}
+
+		&.active,
+		&:hover {
+			border-color: $color-verein;
 		}
 	}
 }
