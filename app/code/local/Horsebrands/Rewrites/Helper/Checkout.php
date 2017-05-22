@@ -163,7 +163,7 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     return $duplicate->getId();
   }
 
-  public function removeInactiveDealsItems() {
+  public function removeInactiveDealsItems($outputMessage = true) {
     $cartHelper = Mage::helper('checkout/cart');
     $storeId = Mage::app()->getStore('deals_de')->getId();
     $dealsItems = $this->getItemsByStoreId($cartHelper->getCart()->getItems(), $storeId);
@@ -172,27 +172,6 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     foreach ($dealsItems as $item) {
       if(!mage::helper('aktionen')->hasProductCurrentFlashsale($item->getProduct())) {
         $cartHelper->getCart()->removeItem($item->getId());
-        Mage::getSingleton('core/session')->addNotice($this->__('We are sorry, but the campaign of %s has expired. It was removed from your Shopping Cart', $item->getProduct()->getName()));
-        $hasInactiveItems = true;
-      }
-    }
-
-    if($hasInactiveItems) {
-      $cartHelper->getCart()->save();
-    }
-
-    return $hasInactiveItems;
-  }
-
-  public function removeInactiveCartItems($outputMessage = true) {
-    $quote = Mage::getModel('checkout/session')->getQuote();
-    $items = $quote->getItemsCollection();
-    $hasInactiveItems = false;
-
-    foreach ($items as $item) {
-      if(!mage::helper('aktionen')->hasProductCurrentFlashsale($item->getProduct())) {
-        $quote->removeItem($item->getId());
-        // $cartHelper->getCart()->removeItem($item->getId());
         $hasInactiveItems = true;
 
         if($outputMessage) {
@@ -205,7 +184,7 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     }
 
     if($hasInactiveItems) {
-      $quote->save();
+      $cartHelper->getCart()->save();
     }
 
     return $hasInactiveItems;
