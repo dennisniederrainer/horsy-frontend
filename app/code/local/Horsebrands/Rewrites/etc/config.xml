@@ -139,6 +139,15 @@
           </horsebrands_rewrites_observer>
         </observers>
       </payment_method_is_active>
+      <customer_login>
+        <observers>
+          <horsebrands_rewrites_customer_observer>
+            <type>model</type>
+            <class>horsebrands_rewrites/customer_observer</class>
+            <method>removeInactiveItems</method>
+          </horsebrands_rewrites_customer_observer>
+        </observers>
+      </customer_login>
     </events>
   </frontend>
   <admin>

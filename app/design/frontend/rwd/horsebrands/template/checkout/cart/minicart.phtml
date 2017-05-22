@@ -1,5 +1,5 @@
 <?php
-    $_cartQty = $this->getSummaryCount();
+    $_cartQty = Mage::getSingleton('checkout/session')->getQuote()->getItemsCount();
     if(empty($_cartQty)) {
         $_cartQty = 0;
     }

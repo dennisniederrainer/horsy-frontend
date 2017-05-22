@@ -184,6 +184,33 @@ class Horsebrands_Rewrites_Helper_Checkout extends Mage_Core_Helper_Abstract {
     return $hasInactiveItems;
   }
 
+  public function removeInactiveCartItems($outputMessage = true) {
+    $quote = Mage::getModel('checkout/session')->getQuote();
+    $items = $quote->getItemsCollection();
+    $hasInactiveItems = false;
+
+    foreach ($items as $item) {
+      if(!mage::helper('aktionen')->hasProductCurrentFlashsale($item->getProduct())) {
+        $quote->removeItem($item->getId());
+        // $cartHelper->getCart()->removeItem($item->getId());
+        $hasInactiveItems = true;
+
+        if($outputMessage) {
+          Mage::getSingleton('core/session')->addNotice(
+            $this->__('We are sorry, but the campaign of %s has expired. It was removed from your Shopping Cart',
+            $item->getProduct()->getName())
+          );
+        }
+      }
+    }
+
+    if($hasInactiveItems) {
+      $quote->save();
+    }
+
+    return $hasInactiveItems;
+  }
+
   public function isDuplicateEmailAddress($email) {
     $customer = Mage::getModel('customer/customer')
                   ->setWebsiteId(Mage::app()->getWebsite()->getId())
